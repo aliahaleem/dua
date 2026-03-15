@@ -3,7 +3,7 @@
 A guided, interactive workbook app to help Muslims of all ages build their **6–7 Dream Duas** using the Visionaire methodology by Shaykh Muhammad al-Shareef.
 
 ## ✨ Live App
-👉 [Open the App](https://haleema1.github.io/dream-duas/)
+👉 [Open the App](https://aliahaleem.github.io/dua/)
 
 ## 📖 About
 
