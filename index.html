@@ -159,6 +159,16 @@
     .sum-footer{text-align:center;font-size:12px;color:var(--muted);
                 padding:14px 0 24px;border-top:1px solid var(--bdr);margin-top:16px}
     .sum-footer strong{color:var(--p)}
+    .res-box{background:var(--card);border:1.5px solid var(--p);border-radius:var(--r);
+             padding:16px 18px;margin:16px 0}
+    .res-box h4{font-size:13px;font-weight:700;color:var(--p);margin-bottom:4px}
+    .res-box p{font-size:13px;color:var(--muted);margin-bottom:12px}
+    .res-links{display:flex;gap:10px;flex-wrap:wrap}
+    .res-link{display:inline-flex;align-items:center;gap:6px;padding:10px 16px;
+              background:var(--p);color:#fff;border-radius:var(--r);text-decoration:none;
+              font-size:13px;font-weight:600;transition:opacity .15s}
+    .res-link:hover{opacity:.85}
+    .res-link-secondary{background:transparent;border:1.5px solid var(--p);color:var(--p)}
 
     /* ─── MENTORS ─── */
     .mentor-box{background:var(--card);border:1.5px solid var(--p);border-radius:var(--r);
@@ -981,9 +991,18 @@ function autoGrow(el) {
 }
 
 // ─── SUMMARY SCREEN ───
+const RESOURCES = {
+  'kids':       { wb:'workbook-kids.html',      guide:'guide-kids.html',       wbLabel:'Kids Printable Workbook',     guideLabel:'Full Kids Guide' },
+  'teen-girls': { wb:'workbook-teen-girls.html', guide:'guide-teen-girls.html', wbLabel:'Teen Girls Printable Workbook',guideLabel:'Full Teen Girls Guide' },
+  'teen-boys':  { wb:'workbook-teen-boys.html',  guide:'guide-teen-boys.html',  wbLabel:'Teen Boys Printable Workbook', guideLabel:'Full Teen Boys Guide' },
+  'adult-mom':  { wb:'workbook-personal.html',   guide:'guide-adults.html',     wbLabel:'Adult Printable Workbook',    guideLabel:'Full Adult Guide' },
+  'adult-dad':  { wb:'workbook-personal.html',   guide:'guide-adults.html',     wbLabel:'Adult Printable Workbook',    guideLabel:'Full Adult Guide' }
+}
+
 function renderSummary() {
   const v    = VERSIONS[S.version]
   const name = S.name || 'Your'
+  const res  = RESOURCES[S.version]
   const cards = v.cats.map(cat => {
     const ans = (S.answers[cat.id]||'').trim()
     return `<div class="sum-card">
@@ -1012,6 +1031,14 @@ function renderSummary() {
       <button class="btn btn-p" onclick="window.print()">🖨️ Print My Duas</button>
       <button class="btn btn-outline" onclick="editDuas()">✏️ Edit Duas</button>
       <button class="btn btn-g btn-sm" onclick="confirmRestart()">Start Over</button>
+    </div>
+    <div class="res-box">
+      <h4>📚 Your Resources</h4>
+      <p>Want to write by hand or read the full guide?</p>
+      <div class="res-links">
+        <a class="res-link" href="${res.wb}" target="_blank">📋 ${res.wbLabel}</a>
+        <a class="res-link res-link-secondary" href="${res.guide}" target="_blank">📖 ${res.guideLabel}</a>
+      </div>
     </div>
     <div class="sum-footer">
       <strong>Compiled by UmmAbdullah</strong><br>

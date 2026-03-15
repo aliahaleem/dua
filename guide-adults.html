@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visionaire Duas — Concise Edition</title>
+  <style>
+    :root {
+      --primary: #1a5f4a;
+      --primary-light: #e8f5f0;
+      --gold: #c9a227;
+      --text: #2d3436;
+      --text-light: #636e72;
+      --bg: #fdfcfa;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Georgia', serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      padding: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      text-align: center;
+      color: var(--primary);
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+      border-bottom: 3px solid var(--gold);
+      padding-bottom: 1rem;
+    }
+    
+    h2 {
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--primary-light);
+    }
+    
+    h3 {
+      color: var(--gold);
+      font-size: 1.2rem;
+      margin: 1.5rem 0 0.75rem;
+    }
+    
+    p {
+      margin-bottom: 1rem;
+    }
+    
+    .section {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    
+    .ayah {
+      background: var(--primary-light);
+      border-left: 4px solid var(--primary);
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+    }
+    
+    .ayah .reference {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--primary);
+      font-style: normal;
+    }
+    
+    .dua-box {
+      background: linear-gradient(135deg, #f8f6f0 0%, #fff 100%);
+      border: 2px solid var(--gold);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      position: relative;
+    }
+    
+    .dua-box::before {
+      content: "🤲";
+      position: absolute;
+      top: -12px;
+      left: 20px;
+      background: var(--bg);
+      padding: 0 8px;
+      font-size: 1.2rem;
+    }
+    
+    .key-insight {
+      background: #fff9e6;
+      border-left: 4px solid var(--gold);
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    
+    th, td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+    
+    th {
+      background: var(--primary);
+      color: white;
+    }
+    
+    tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+    
+    .steps {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 1rem 0;
+    }
+    
+    .step {
+      flex: 1;
+      min-width: 200px;
+      background: var(--primary-light);
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+    
+    .step-num {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      line-height: 30px;
+      margin-bottom: 0.5rem;
+    }
+    
+    ul, ol {
+      margin: 1rem 0 1rem 1.5rem;
+    }
+    
+    li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .mentor-list {
+      color: var(--text-light);
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+    
+    .category-label {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .checklist {
+      list-style: none;
+      margin-left: 0;
+    }
+    
+    .checklist li {
+      padding-left: 1.75rem;
+      position: relative;
+    }
+    
+    .checklist li::before {
+      content: "☐";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+    
+    .highlight-box {
+      background: var(--primary);
+      color: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 1.1rem;
+      margin: 2rem 0;
+    }
+    
+    .vision-box {
+      background: #f0f7ff;
+      border: 1px solid #cce0ff;
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+    
+    @media print {
+      body {
+        padding: 0;
+        font-size: 11pt;
+      }
+      .section {
+        box-shadow: none;
+        border: 1px solid #eee;
+        break-inside: avoid;
+      }
+      h2 {
+        break-after: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Visionaire Duas</h1>
+  <p style="text-align: center; color: var(--text-light);">Concise Edition</p>
+
+  <div class="section">
+    <h2>Foundation: How Dua Works</h2>
+    
+    <p><strong>Shaykh Muhammad al-Shareef's Story:</strong><br>
+    Locked out in Mecca, climbed the balcony, still couldn't enter. In complete helplessness, he remembered:</p>
+    
+    <div class="ayah">
+      "Is He [not best] who responds to the desperate one when he calls upon Him and removes evil and makes you inheritors of the earth? Is there a deity with Allah? Little do you remember."
+      <span class="reference">📖 Surah An-Naml (27:62)</span>
+    </div>
+    
+    <p>He made dua with full trust in Allah. At age 11, during the last ten nights, he made dua to become hafiz—and he did.</p>
+    
+    <div class="key-insight">
+      <strong>Key Insight:</strong> Sometimes you have control and work toward an answer. Other times, there's no way you can control it—Allah just makes it happen.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Reactive vs. Proactive Dua</h2>
+    
+    <table>
+      <tr>
+        <th>Reactive</th>
+        <th>Proactive</th>
+      </tr>
+      <tr>
+        <td>Out of hardship (job loss, illness)</td>
+        <td>Out of growth and aspiration</td>
+      </tr>
+      <tr>
+        <td>Sweet, sincere—but not enough</td>
+        <td>Made in safety, not just storms</td>
+      </tr>
+    </table>
+    
+    <div class="ayah">
+      "La ilaha illa anta, subhanaka inni kuntu min adh-dhalimeen"<br>
+      <em>(There is no deity except You; exalted are You. Indeed, I have been of the wrongdoers.)</em>
+      <span class="reference">📖 Surah Al-Anbiya (21:87) — Yunus (AS) in the whale</span>
+    </div>
+    
+    <p><strong>We need BOTH.</strong> Don't only call on Allah when desperate—call on Him when you're safe too.</p>
+  </div>
+
+  <div class="section">
+    <h2>The Visionaire Process</h2>
+    
+    <p><strong>Goal:</strong> 6 dream duas that give you butterflies of excitement</p>
+    
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">1</span>
+        <div><strong>Inspire</strong><br>Get your heart involved, not just your head</div>
+      </div>
+      <div class="step">
+        <span class="step-num">2</span>
+        <div><strong>Select & Refine</strong><br>Internalize for the next 6 months</div>
+      </div>
+      <div class="step">
+        <span class="step-num">3</span>
+        <div><strong>Initiate</strong><br>Build a daily dua habit</div>
+      </div>
+    </div>
+    
+    <p><strong>4 Sessions:</strong> Foundation → Inspiration → Refine & Memorize → Accelerate</p>
+  </div>
+
+  <div class="section">
+    <h2>Core Principles</h2>
+    
+    <ul>
+      <li><strong>Your dua is higher than you think.</strong> The dua changes YOU.</li>
+      <li><strong>Allah provides from outside your control</strong> — the dua moves you.</li>
+      <li><strong>If you feel duas aren't answered, it's an aqeedah issue.</strong></li>
+    </ul>
+    
+    <div class="ayah">
+      "Allah answers everyone's dua except the one who gets impatient and says 'my dua was not answered.'"
+      <span class="reference">📖 Sahih al-Bukhari 6340, Sahih Muslim 2735</span>
+    </div>
+    
+    <ul>
+      <li><strong>Visualize before you ask.</strong> Shaykh didn't have children for 10 years. Dua became habitual. Then he started <em>imagining</em>—his children grown, at their weddings, brushing his daughter's hair. <em>Then</em> he made powerful dua.</li>
+      <li><strong>One dua is a problem.</strong> Don't set yourself low. Nothing wrong with wanting dunya if you're a good Muslim.</li>
+      <li><strong>Dua criteria:</strong> Slightly unrealistic (butterflies), concrete (not abstract), 3-6 year range, terrifies AND amazes you.</li>
+    </ul>
+  </div>
+
+  <!-- SIX LIFE AREAS -->
+
+  <h2 style="text-align: center; margin-top: 3rem;">The Six Life Areas</h2>
+
+  <!-- 1. HEALTH -->
+  <div class="section">
+    <span class="category-label">1</span>
+    <h3>Health</h3>
+    
+    <p><strong>Thankful for:</strong> Allah's ability to heal, strength, recovery, no major illness or dependency. Pregnancy at 43 despite miscarriage—child waiting in Jannah.</p>
+    
+    <p><strong>Lacking:</strong> Overweight, unhealthy eating, no exercise routine, poor self-care habits.</p>
+    
+    <div class="dua-box">
+      <strong>Dream Dua:</strong><br>
+      Ya Allah, I am an amanah from You. Grant me the strength and wisdom to care for myself. Make me reach optimal health—60kg, glowing skin, strong body, no pain in my knees or back. Give me energy to run, swim, and play with my children without exhaustion—to lift them and spin them joyfully. Grant me the strength to stand long in qiyam al-layl without fatigue, to fast with ease and energy. Make my body a tool for 'ibadah, not an obstacle to it. Ya Allah, grant me the highest emotional intelligence—firm yet kind, unaffected by others' negativity, able to navigate difficult people with grace. Give me wisdom and sound judgment. Let me make good decisions confidently and stick to them without second-guessing myself. Free me from the prison of overthinking. When I make mistakes, let me learn and move forward—never hating myself, never drowning in regret. Remind me that You are Al-Ghaffar, and if You forgive me, I must forgive myself. Let me know You love me, and that my striving is what matters. Ya Allah, let me care for this body and mind so I can serve You with my full capacity until my last breath.
+    </div>
+  </div>
+
+  <!-- 2. WEALTH -->
+  <div class="section">
+    <span class="category-label">2</span>
+    <h3>Wealth</h3>
+    
+    <p class="mentor-list"><strong>Mentors:</strong> Anas ibn Malik, Abdurrahman ibn Awf, Uthman ibn Affan</p>
+    
+    <p><strong>Thankful for:</strong> Own home, car, no payment stress, successful business, multiple income sources.</p>
+    
+    <p><strong>Lacking:</strong> Investments, vacation budget, ongoing structured charity.</p>
+    
+    <div class="dua-box">
+      <strong>Dream Dua:</strong><br>
+      Ya Allah, grant me wealth in my hand, not my heart. Let me spend so freely that I need accountants to track it—my right hand giving while my left doesn't know. Give me properties that pay themselves off, businesses that earn without constant effort. Grant me the barakah of Anas ibn Malik and the generosity of Uthman ibn Affan. Let me build a masjid where my sons lead as imams—let me sit in the front row watching them, tears streaming with gratitude. Make me run impactful charity projects—cutting ribbons for environmental causes, funding orphan education, building wells. $1M/year, growing to $10M. Financial freedom to focus on teaching Quran, taking my family on annual Umrah without ever thinking about cost, and waking each day excited to give. Ya Allah, make my wealth a bridge to Jannah, not a barrier.
+    </div>
+  </div>
+
+  <!-- 3. DEEN -->
+  <div class="section">
+    <span class="category-label">3</span>
+    <h3>Deen</h3>
+    
+    <p class="mentor-list"><strong>Mentors:</strong> Prophet ﷺ, Ibrahim (AS), Khadija (RA)</p>
+    
+    <p><strong>Thankful for:</strong> Freedom to practice, abundant access to knowledge (TQE5, Hadith, Hifz, Tajweed, AlMaghrib).</p>
+    
+    <p><strong>Lacking:</strong> Balance between dunya/deen, khushu in salah, family halaqa.</p>
+    
+    <div class="dua-box">
+      <strong>Dream Dua:</strong><br>
+      Ya Allah, make me someone who never misses tahajjud—who stands before You every night, longing for Your Face, tears falling in sincere conversation with You. Grant me khushu' so deep that my salah becomes the coolness of my eyes. Let me author Islamic resources that reach millions—books, apps, Hifz programs that attach hearts to Your Quran. Make my home a place where Quran is recited daily, where my children memorize at my feet during family halaqa. Grant me the knowledge of the scholars and the humility of the students. Let everyone around me feel peace in my presence and seek my company. Put barakah in everything I say and do. Give me courage to support good causes without fear of being left behind. Ya Allah, let me die with "La ilaha illAllah" on my tongue, having lived a life that pleased You.
+    </div>
+  </div>
+
+  <!-- 4. SPOUSE -->
+  <div class="section">
+    <span class="category-label">4</span>
+    <h3>Spouse</h3>
+    
+    <p class="mentor-list"><strong>Mentors:</strong> Khadija, Fatima, Umm Sulaim (RA)</p>
+    
+    <p><strong>Thankful for:</strong> He's relaxed, not demanding, helps with kids and desserts.</p>
+    
+    <p><strong>Lacking:</strong> Quality time alone, attention to his needs, managing expectations.</p>
+    
+    <p><strong>Mentors' Wisdom:</strong></p>
+    <ul>
+      <li><em>Umm Sulaim:</em> Protect him from emotional harm first</li>
+      <li><em>Khadija:</em> Don't care about society—do right by your spouse</li>
+      <li><em>Fatima:</em> Don't complain about housework—make tasbeeh and ask Allah</li>
+    </ul>
+    
+    <div class="dua-box">
+      <strong>Dream Dua:</strong><br>
+      Ya Allah, make him complement and complete me. Let his akhlaaq inspire me to be better. Like Khadija, let me support his dreams that benefit the ummah. Like Umm Sulaim, let me shield him from emotional harm. Like Fatima, let me turn to You instead of complaining. Grant us love, trust, and deep affection. Make us excited to be together—going on dates, traveling, laughing like we just met. Let him treat me like the Prophet ﷺ treated Ayesha, and let me treat him like Khadija treated the Prophet ﷺ. Heal the wounds in his heart, Ya Allah. Replace any harshness with gentleness, any sadness with sakina. Make him positive, patient, and satisfied with Your decree. Let us walk hand in hand through Madinah one day, old and gray, still in love. Make our marriage a beautiful example for others. And Ya Allah—reunite us in Jannatul Firdaus, together forever, our love perfected.
+    </div>
+  </div>
+
+  <!-- 5. CHILDREN -->
+  <div class="section">
+    <span class="category-label">5</span>
+    <h3>Children</h3>
+    
+    <p class="mentor-list"><strong>Mentors:</strong> Khadija, Asiya, Maryam</p>
+    
+    <p><strong>Thankful for:</strong> Healthy children who still obey and confide in me.</p>
+    
+    <p><strong>Lacking:</strong> Giving them appropriate freedom, consistent firm authority.</p>
+    
+    <div class="dua-box">
+      <strong>Dream Dua:</strong><br>
+      Ya Allah, place the Quran in their hearts. Make them huffadh with excellent akhlaaq—humble, kind, wise, strong, confident. Let them be like the brothers of Yusuf (AS) in their bond, without envy. Make them leaders in the community, running successful businesses and impactful Islamic projects. Grant them righteous spouses and children even better than them. Let them seek Your pleasure without me asking. Protect them from harm, the evil eye, and fitnah. Surround them with righteous companions—and if no good company exists, make them like Ibrahim (AS), strong alone in faith. Ya Allah, let me live to see them lead Eid prayer. Let me sit in the front row of their weddings, tears streaming, heart overflowing with gratitude that You answered this dua. Fill my heart with love and thankfulness to be their mother. Make them the coolness of my eyes in this dunya and my companions in Jannatul Firdaus.
+    </div>
+    
+    <div class="vision-box">
+      <strong>Vision:</strong> Sons leading masajid as imams. Daughter leading Muslim women. Family competing in good deeds with sukun and love. All educated in dunya and akhira. Inspiring others. Never shy to do what's right.
+    </div>
+  </div>
+
+  <!-- 6. FUN -->
+  <div class="section">
+    <span class="category-label">6</span>
+    <h3>Fun</h3>
+    
+    <p class="mentor-list"><strong>Mentors:</strong> Uthman (RA), community moms</p>
+    
+    <p><strong>Thankful for:</strong> Ability to eat out, watch things, safe family and community.</p>
+    
+    <p><strong>Lacking:</strong> Real relaxation, not always working, enjoying the home.</p>
+    
+    <div class="dua-box">
+      <strong>Dream Dua:</strong><br>
+      Ya Allah, let us enjoy the tayyibat You've given us without guilt—good clothes, comfortable beds, a home that feels like a peaceful retreat. Grant us family Umrah every year, standing together at the Ka'bah, hearts united in worship. Let us vacation in places that take our breath away—watching Your creation in awe, drawing closer to You and each other. Give us beach holidays, mountain getaways, and adventures that become cherished memories. Let me have spa days knowing self-care is worship. Fill our weekends with board games, laughter, inside jokes, and no screens. Make our home a place we never want to leave—decorated beautifully, filled with warmth and light. Let rest feel sweet, not restless. Ya Allah, let our joy be halal, our fun be blessed, and our laughter echo with gratitude for You.
+    </div>
+  </div>
+
+  <!-- FINAL CHECKLIST -->
+  <div class="section">
+    <h2>Final Synthesis Checklist</h2>
+    
+    <p>Before finalizing each dua, ask:</p>
+    
+    <ul class="checklist">
+      <li>Does it terrify AND amaze me?</li>
+      <li>Does it give me butterflies?</li>
+      <li>Is it concrete, not abstract?</li>
+      <li>Is it 6 months to 6 years out?</li>
+      <li>Does it connect to akhira intentions?</li>
+      <li>Is it slightly "unrealistic" but believable?</li>
+    </ul>
+  </div>
+
+  <div class="highlight-box">
+    <strong>Your dua is stronger than you.<br>You will be changed because of your dua.</strong>
+  </div>
+
+</body>
+</html>
