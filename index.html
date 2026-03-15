@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Dream Duas — Visionaire App</title>
+  <style>
+    /* ─── RESET & VARIABLES ─── */
+    :root {
+      --p:    #1a5f4a;
+      --pd:   #0d3d2e;
+      --a:    #c9a227;
+      --al:   #fff8e1;
+      --bg:   #f4faf7;
+      --card: #ffffff;
+      --txt:  #1a202c;
+      --muted:#64748b;
+      --bdr:  #e2e8f0;
+      --r:    14px;
+      --sh:   0 2px 16px rgba(0,0,0,.08);
+    }
+    *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+    html,body{height:100%;overflow:hidden}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+         background:var(--bg);color:var(--txt);line-height:1.65;font-size:16px}
+
+    /* ─── APP SHELL ─── */
+    #app{height:100vh;display:flex;flex-direction:column;overflow:hidden}
+
+    /* header */
+    #hdr{display:none;padding:10px 18px 6px;background:var(--card);
+         border-bottom:1px solid var(--bdr);flex-shrink:0}
+    #hdr.on{display:flex;align-items:center;gap:10px}
+    #hdr-label{font-size:12px;color:var(--muted);white-space:nowrap;min-width:70px}
+    #hdr-track{flex:1;height:6px;background:var(--bdr);border-radius:3px;overflow:hidden}
+    #hdr-fill{height:100%;background:var(--p);border-radius:3px;transition:width .35s ease}
+
+    /* main */
+    #main{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:18px 16px 24px}
+
+    /* footer */
+    #ftr{display:none;padding:10px 16px 18px;background:var(--card);
+         border-top:1px solid var(--bdr);gap:10px;flex-shrink:0}
+    #ftr.on{display:flex}
+
+    /* ─── BUTTONS ─── */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;
+         padding:13px 22px;border-radius:var(--r);border:none;cursor:pointer;
+         font-size:15px;font-weight:600;transition:all .18s;text-align:center}
+    .btn-p{background:var(--p);color:#fff;flex:1}
+    .btn-p:active{background:var(--pd)}
+    .btn-g{background:#f1f5f9;color:var(--muted);border:1px solid var(--bdr)}
+    .btn-g:active{background:var(--bdr)}
+    .btn-sm{padding:9px 14px;font-size:13px}
+    .btn-full{width:100%}
+    .btn-outline{background:transparent;border:1.5px solid var(--p);color:var(--p)}
+
+    /* ─── VERSION SELECT ─── */
+    .sel-wrap{max-width:600px;margin:0 auto;padding-bottom:32px}
+    .sel-top{text-align:center;padding:28px 0 22px}
+    .sel-top .bismi{font-size:21px;color:var(--p);display:block;margin-bottom:6px}
+    .sel-top h1{font-size:24px;font-weight:800;margin-bottom:4px}
+    .sel-top p{color:var(--muted);font-size:14px}
+    .ver-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+    .ver-card{background:var(--card);border-radius:var(--r);padding:18px 14px;text-align:center;
+              cursor:pointer;border:2px solid var(--bdr);transition:all .18s;position:relative}
+    .ver-card:hover,.ver-card:active{border-color:var(--p);transform:translateY(-2px);box-shadow:var(--sh)}
+    .ver-card .vc-em{font-size:30px;display:block;margin-bottom:8px}
+    .ver-card .vc-lb{font-size:14px;font-weight:700;display:block}
+    .ver-card .vc-sub{font-size:11px;color:var(--muted);display:block;margin-top:2px}
+    .vc-badge{position:absolute;top:8px;right:8px;background:var(--p);color:#fff;
+              font-size:9px;padding:2px 7px;border-radius:20px;font-weight:700}
+    .sel-credit{text-align:center;font-size:11px;color:var(--muted);
+                padding-top:14px;border-top:1px solid var(--bdr)}
+    .sel-credit strong{color:var(--p)}
+
+    /* ─── WELCOME ─── */
+    .wel-wrap{max-width:520px;margin:0 auto;padding-top:16px}
+    .wel-icon{font-size:44px;text-align:center;display:block;margin-bottom:12px}
+    .wel-wrap h2{font-size:21px;font-weight:800;color:var(--p);margin-bottom:6px}
+    .wel-wrap .wel-body{color:var(--muted);font-size:14px;margin-bottom:20px;line-height:1.7}
+    .field{margin-bottom:14px}
+    .field label{display:block;font-size:12px;font-weight:700;text-transform:uppercase;
+                 letter-spacing:.4px;color:var(--muted);margin-bottom:5px}
+    .field input{width:100%;padding:12px 14px;border:1.5px solid var(--bdr);
+                 border-radius:var(--r);font-size:15px;outline:none;background:var(--card);color:var(--txt)}
+    .field input:focus{border-color:var(--p)}
+    .return-box{background:var(--al);border:1.5px solid var(--a);border-radius:var(--r);
+                padding:14px 16px;margin-bottom:18px}
+    .return-box p{font-size:13px;margin-bottom:10px;color:var(--txt)}
+    .return-box .rb-row{display:flex;gap:8px}
+
+    /* ─── FOUNDATION ─── */
+    .fnd-wrap{max-width:560px;margin:0 auto}
+    .fnd-wrap h2{font-size:20px;font-weight:800;color:var(--p);margin-bottom:4px}
+    .fnd-intro{color:var(--muted);font-size:14px;margin-bottom:18px}
+    .teach-card{background:var(--card);border-radius:var(--r);padding:16px 18px;
+                margin-bottom:12px;border-left:4px solid var(--p);box-shadow:var(--sh)}
+    .teach-card h3{font-size:14px;font-weight:700;color:var(--p);margin-bottom:5px}
+    .teach-card p{font-size:14px;color:var(--txt);line-height:1.65}
+    .teach-card .hadith{font-style:italic;font-size:13px;color:var(--muted);
+                        margin-top:8px;padding-top:8px;border-top:1px solid var(--bdr)}
+    /* kids teach cards */
+    .teach-card.fun{border-left-color:var(--a);background:#fffdf0}
+    .teach-card.fun h3{color:#b8860b}
+
+    /* ─── CATEGORY ─── */
+    .cat-wrap{max-width:560px;margin:0 auto}
+    .cat-hdr{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px}
+    .cat-em{font-size:36px;flex-shrink:0}
+    .cat-hdr-text h2{font-size:19px;font-weight:800;color:var(--p);line-height:1.2}
+    .cat-hdr-text .cat-num{font-size:12px;color:var(--muted);margin-top:2px}
+    .cat-intro{font-size:14px;color:var(--muted);margin-bottom:16px;line-height:1.65}
+    .reflect-box{background:var(--al);border-radius:var(--r);padding:14px 16px;margin-bottom:16px}
+    .reflect-box h4{font-size:11px;font-weight:700;text-transform:uppercase;
+                    letter-spacing:.5px;color:var(--p);margin-bottom:8px}
+    .reflect-box ul{list-style:none;padding:0}
+    .reflect-box li{font-size:13px;color:var(--txt);padding:4px 0 4px 18px;position:relative}
+    .reflect-box li::before{content:'→';position:absolute;left:0;color:var(--p);font-weight:700}
+    .sample-toggle{width:100%;text-align:left;background:transparent;
+                   border:1.5px dashed var(--bdr);border-radius:var(--r);
+                   padding:10px 14px;font-size:13px;color:var(--muted);cursor:pointer;
+                   margin-bottom:12px;transition:all .15s}
+    .sample-toggle:hover{border-color:var(--p);color:var(--p)}
+    .sample-box{background:#f8fffe;border:1.5px solid var(--p);border-radius:var(--r);
+                padding:14px 16px;margin-bottom:14px;display:none}
+    .sample-box.open{display:block}
+    .sample-box strong{display:block;font-size:10px;text-transform:uppercase;
+                       letter-spacing:.5px;color:var(--p);margin-bottom:7px}
+    .sample-box p{font-size:13px;color:var(--muted);font-style:italic;line-height:1.7}
+    .ta-label{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:7px;display:block}
+    .dua-ta{width:100%;min-height:160px;padding:14px;border:1.5px solid var(--bdr);
+            border-radius:var(--r);font-size:15px;font-family:inherit;color:var(--txt);
+            background:var(--card);resize:none;outline:none;line-height:1.7;
+            transition:border-color .18s}
+    .dua-ta:focus{border-color:var(--p)}
+    .dua-ta::placeholder{color:#b0bec5}
+    .char-ct{text-align:right;font-size:11px;color:var(--muted);margin-top:4px}
+
+    /* ─── SUMMARY ─── */
+    .sum-wrap{max-width:560px;margin:0 auto;padding-bottom:32px}
+    .sum-top{text-align:center;padding:14px 0 22px}
+    .sum-top .sum-icon{font-size:46px;display:block;margin-bottom:10px}
+    .sum-top h2{font-size:21px;font-weight:800;color:var(--p);margin-bottom:4px}
+    .sum-top p{font-size:14px;color:var(--muted)}
+    .sum-card{background:var(--card);border-radius:var(--r);padding:16px 18px;
+              margin-bottom:12px;border:1.5px solid var(--bdr);box-shadow:var(--sh)}
+    .sum-card h3{font-size:13px;font-weight:700;color:var(--p);margin-bottom:8px;
+                 display:flex;align-items:center;gap:8px}
+    .sum-card p{font-size:14px;color:var(--txt);line-height:1.7;white-space:pre-wrap}
+    .sum-card .empty{font-style:italic;color:var(--muted);font-size:13px}
+    .lq-box{background:var(--p);color:#fff;border-radius:var(--r);
+            padding:20px 18px;text-align:center;margin:20px 0}
+    .lq-box .lq-ar{font-size:21px;direction:rtl;display:block;margin-bottom:8px}
+    .lq-box .lq-tr{font-style:italic;font-size:13px;opacity:.9;margin-bottom:5px}
+    .lq-box .lq-en{font-size:13px;opacity:.85}
+    .lq-box .lq-ref{font-size:11px;opacity:.7;margin-top:8px;display:block}
+    .sum-actions{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}
+    .sum-footer{text-align:center;font-size:12px;color:var(--muted);
+                padding:14px 0 24px;border-top:1px solid var(--bdr);margin-top:16px}
+    .sum-footer strong{color:var(--p)}
+
+    /* ─── FADE TRANSITION ─── */
+    #main{opacity:1;transition:opacity .15s}
+    #main.fade{opacity:0}
+
+    /* ─── PRINT ─── */
+    @media print{
+      body{overflow:auto;background:#fff;font-size:11pt}
+      #app{overflow:visible;height:auto}
+      #hdr,#ftr,.sum-actions,.btn{display:none!important}
+      #main{overflow:visible;padding:0}
+      .sum-wrap{max-width:100%}
+      .sum-card{break-inside:avoid;border:1px solid #ddd;box-shadow:none}
+      .sum-top .sum-icon{display:none}
+    }
+
+    /* ─── MISC ─── */
+    .ayah-pull{background:var(--al);border-left:4px solid var(--a);border-radius:0 var(--r) var(--r) 0;
+               padding:.9rem 1rem;font-style:italic;font-size:13px;margin:10px 0;color:var(--txt)}
+    .ayah-pull .ref{display:block;margin-top:4px;font-size:11px;color:var(--muted);font-style:normal}
+    .warn-box{background:#fff8f0;border:1.5px solid #fb8c00;border-radius:var(--r);
+              padding:14px 16px;margin:12px 0;font-size:13px}
+    .warn-box strong{color:#e65100;display:block;margin-bottom:4px}
+  </style>
+</head>
+<body>
+<div id="app">
+  <header id="hdr">
+    <span id="hdr-label"></span>
+    <div id="hdr-track"><div id="hdr-fill"></div></div>
+  </header>
+  <main id="main"></main>
+  <footer id="ftr"></footer>
+</div>
+
+<script>
+// ════════════════════════════════════════════════
+// CONTENT DATA
+// ════════════════════════════════════════════════
+
+const FOUNDATION = {
+  kids: [
+    { em:'🔑', title:'What is a Dream Dua?',
+      body:'A dream dua is not just a wish — it\'s a super-powered dua that gives you BUTTERFLIES! 🦋 It\'s something specific (not just "be smart" but "Ya Allah let me memorize 3 juz by next Ramadan!"), it\'s slightly scary AND exciting, and it\'s something you dream of for your future.' },
+    { em:'🌈', title:'Ask Even When Things Are GOOD!',
+      body:'Most people only remember to ask Allah when something bad happens — like a storm at sea. That\'s called a Reactive Dua. But the REAL superpower is asking Allah when life is fine too — that\'s a Proactive Dua. Dream duas are proactive. You\'re planning your amazing future with Allah\'s help!' },
+    { em:'🎬', title:'IMAGINE It First!',
+      body:'Shaykh Muhammad al-Shareef waited 10 years for children. His dua was becoming boring — just words with no feeling. Then he tried something: he IMAGINED first. He pictured his daughter\'s wedding day, his sons leading salah. He saw it so clearly it felt real. Then he made dua — and it was answered! Close your eyes before each dua and picture it answered. Then ask.' },
+    { em:'🌟', title:'Your Dua GROWS You!',
+      body:'Here is the COOLEST thing: when you make a dream dua every day, you don\'t just wait for it — you EVOLVE toward it! Like how Pikachu trains every day and eventually becomes stronger — you gradually become the person who deserves the answered dua. Your dua doesn\'t change to fit you. YOU grow to match your dua!',
+      hadith:'"Allah answers every dua except the one who gives up and says it wasn\'t answered." — Bukhari & Muslim. Never give up! 🤲' }
+  ],
+  teens: [
+    { em:'🔑', title:'What is a Dream Dua?',
+      body:'A dream dua is specific, vivid, and slightly unrealistic — it gives you butterflies because it\'s connected to your deepest hopes. Not vague ("be healthy") but concrete ("Ya Allah let me run a 5K by next year with a body that serves my salah"). It spans 3–6 years and has an Akhira connection, not just a worldly want.' },
+    { em:'⚡', title:'Reactive vs. Proactive',
+      body:'Most people only call on Allah when things go wrong — that is reactive dua. Dream duas are proactive: you ask Allah while life is good, out of aspiration and vision. Yunus (AS) called out from inside a whale — reactive and beautiful. But Ibrahim (AS) made dua for righteous children and a city of peace when life was fine. We need both. Dream duas are your proactive practice.' },
+    { em:'🎬', title:'Visualize First, Then Ask',
+      body:'Shaykh Muhammad al-Shareef waited 10 years for children. His dua had become habit — words without feeling. He changed: he started imagining first. His daughter\'s wedding. His sons leading salah. He pictured it in vivid detail — then made dua. It was answered. Before each dua: close your eyes, picture the answered version clearly, then open your hands and ask.',
+      hadith:'"And He provides from where he does not expect." — Surah At-Talaq (65:3)' },
+    { em:'🌱', title:'Your Dua Changes YOU',
+      body:'The dua is not just about what you receive — it\'s about who you become. Every time you make a dream dua, you evolve toward the person who deserves that answer. Don\'t shrink your duas to match where you are now. Make them bigger — and let them pull you upward.',
+      hadith:'"Allah answers everyone\'s dua except the one who gets impatient and says: my dua was not answered." — Bukhari 6340 · Muslim 2735' }
+  ],
+  adults: [
+    { em:'🔑', title:'What is a Dream Dua?',
+      body:'A dream dua is specific, vivid, slightly unrealistic, and connected to your Akhira intentions. It gives you butterflies — it terrifies and amazes you simultaneously. It spans 3–6 years and is concrete enough that you can picture exactly what the answered version looks like. Not "be healthy" but "Ya Allah — 60kg, strong knees, energy to stand in qiyam without fatigue."' },
+    { em:'📖', title:'The Story That Started It All',
+      body:'Shaykh Muhammad al-Shareef was locked out in Mecca. He tried everything — couldn\'t get in. In complete helplessness he remembered: "Is He not best who responds to the desperate one when he calls upon Him?" (27:62). He made dua with full trust. At age 11, he made dua to become hafiz during the last ten nights. He did. Years later: told it\'s impossible to have children. His wife made dua for a child on a plane that seemed to be crashing. The plane landed safely. She got pregnant. He learned: you make dua even when logic says it\'s impossible.',
+      hadith:'"And He provides from where he does not expect." — Surah At-Talaq (65:3)' },
+    { em:'⚡', title:'Reactive vs. Proactive Dua',
+      body:'Most people only call on Allah in crisis — reactive dua. Sweet and sincere, but not enough. Proactive dua is asking Allah while things are good, out of aspiration and vision. A man at Hajj on Mount Arafah on the greatest day said "I have everything" and made no dua. That is one of the biggest traps. There is always your akhira. Your children\'s futures. Jannah. Never stop asking.' },
+    { em:'🎬', title:'Visualize First, Then Ask',
+      body:'Shaykh and his wife wanted children for 10 years. His dua became habitual — words without feeling. He changed: he started imagining. His daughter\'s wedding. His sons at the masjid. He held that image vividly — then made dua. It was answered. Before each of your duas: close your eyes. Picture the answered version. Where are you? Who is there? What does it feel like? Hold it. Then ask.' },
+    { em:'🌱', title:'Your Dua Changes YOU',
+      body:'The dua doesn\'t change to match where you are now — you change to rise toward your dua. Every time you make it, you become a little more like the person who deserves that answer. Don\'t lower your duas to match your current self. Make them bigger. Let them pull you upward.',
+      hadith:'"Allah answers every dua except the one who gets impatient and says it was not answered." — Bukhari 6340 · Muslim 2735' }
+  ]
+}
+
+const VERSIONS = {
+  kids: {
+    label:'Kids', subtitle:'Ages 9–11', em:'⭐',
+    theme:{ p:'#5e35b1', pd:'#4527a0', a:'#f9a825', al:'#fff8e1', bg:'#f3e5f5' },
+    welcome:{ title:'Assalamu Alaikum, Future Superstar! 🌟',
+      body:'Get ready to build your 6 Dream Duas — the most exciting, butterfly-giving duas you\'ve ever made! This isn\'t just a list. It\'s YOUR conversation with the King of all Kings. Let\'s go!' },
+    fndKey:'kids', fndTitle:'4 Super Important Things to Know First! 🚀',
+    cats:[
+      { id:'quran', em:'📚', title:'Quran & Learning',
+        intro:'Think about your school life, your love for learning, and your dream Quran goals!',
+        refs:['What subject in school do you LOVE the most?','How much Quran do you want to memorize — and by when?','What kind of learner do you dream of being?'],
+        sample:'Ya Allah, make me love learning the way the sahabah loved the Quran. Give me a super-sharp memory that holds what I learn. Let me memorize 5 juz by age 13 — with understanding! Make me the student who is smart AND has a great character. Let me learn Arabic so I can understand Your Book directly. Make my education a tool to serve Your deen and help people.',
+        ph:'Ya Allah, when it comes to learning and Quran, I ask You for...' },
+      { id:'family', em:'🏡', title:'My Family',
+        intro:'Think about your parents, siblings, and the home you want to grow up in.',
+        refs:['What do you love most about your family?','How do you want to make your parents feel?','What kind of home do you want — what does it feel like inside?'],
+        sample:'Ya Allah, protect my family. Keep my parents healthy and full of happiness. Make our home full of laughter, peace, and Quran. Let me be a child my parents are truly proud of — in my character, not just my grades. Let my parents enter Jannah because of me. Make my siblings my best friends forever.',
+        ph:'Ya Allah, for my family I ask You...' },
+      { id:'character', em:'💎', title:'My Character & Deen',
+        intro:'Think about who you want to BE — your habits, your salah, and your heart.',
+        refs:['What kind of person do you want to be known as?','How do you want your salah to FEEL?','What is one habit that your best self would have?'],
+        sample:'Ya Allah, make my character like the Prophet ﷺ — kind, honest, patient, and brave. Let me be someone people trust and feel safe around. Make my salah the thing I look forward to most in my day. Give me courage to do what\'s right even when I\'m alone. Make me consistent in goodness, not just sometimes.',
+        ph:'Ya Allah, for my character and deen I ask...' },
+      { id:'friends', em:'🤝', title:'Friends & Community',
+        intro:'Think about the friends you have, the ones you want, and who you want to be in your community.',
+        refs:['What qualities do you REALLY want in a best friend?','What kind of friend do YOU want to be?','How do you want your community to feel your presence?'],
+        sample:'Ya Allah, surround me with friends who remind me of You — who make me laugh AND make me better. Protect me from friends who pull me toward bad things or make me feel like I have to be someone I\'m not. If there\'s no good company near me, make me as strong as Ibrahim (AS) — good even standing alone. 🤝',
+        ph:'Ya Allah, for my friendships and community I ask...' },
+      { id:'future', em:'🚀', title:'My Future & Dreams',
+        intro:'Think about what you want to BE, build, or achieve when you grow up. Dream BIG!',
+        refs:['What do you want to be when you grow up? Be specific!','What problem in the world do you want to help fix?','How would your dream career help other Muslims?'],
+        sample:'Ya Allah, show me what You created me for. Give me a career I love that earns halal and helps people. Let me be successful — not just for me but to use it for good: donating, building, helping. Let me travel and see Your amazing world. Make my work an act of worship every single day.',
+        ph:'Ya Allah, for my future and dreams I ask...' },
+      { id:'fun', em:'🎉', title:'Fun & Adventures',
+        intro:'Think about what makes you happiest. What adventures, hobbies, and joyful moments do you dream of?',
+        refs:['What is your idea of the MOST AMAZING day ever?','Where in the world do you want to go?','What hobby would make you the happiest?'],
+        sample:'Ya Allah, give me a life full of beautiful halal memories with my family. Let us go to Makkah together and stand at the Ka\'bah. Let me travel to amazing places — mountains, oceans, and forests that show me Your greatness. Give me a hobby I love. Fill my life with laughter and moments so good I say Alhamdulillah every single day!',
+        ph:'Ya Allah, for joy and fun in my life I ask...' }
+    ]
+  },
+
+  'teen-girls': {
+    label:'Teen Girls', subtitle:'Ages 14–17', em:'✨',
+    theme:{ p:'#880e4f', pd:'#6a1b9a', a:'#e91e63', al:'#fce4ec', bg:'#fdf2f8' },
+    welcome:{ title:'Assalamu Alaikum ✨',
+      body:'You are at one of the most important times of your life. The habits you build now, your heart, your relationship with Allah — they shape everything that comes after. Let\'s build 7 Dream Duas that pull you toward your best self.' },
+    fndKey:'teens', fndTitle:'Before You Begin: The Foundation',
+    cats:[
+      { id:'academics', em:'🎓', title:'Academics & Career',
+        intro:'Think about where you want to go in life — your studies, your career, and the impact you want to make.',
+        refs:['What field genuinely excites you — not just what looks impressive?','What problem in the world do you want to help solve?','How does your dream career serve your deen or community?'],
+        sample:'Ya Allah, guide me to the path that is best for my deen and dunya. Give me a sharp mind and focused heart. Let me study what I love and excel at it — not for praise but to use it in Your service. Grant me a career that earns halal and creates good in the world. Like Aisha (RA), let me be a woman people come to for wisdom. Let my work be sadaqah jariyah.',
+        ph:'Ya Allah, for my academics and career I ask...' },
+      { id:'faith', em:'🌙', title:'Faith & Spirituality',
+        intro:'Think about your relationship with Allah — your salah, your Quran, your spiritual identity.',
+        refs:['What would it feel like to genuinely feel close to Allah?','How do you want your salah to feel — not just what you do?','What does your ideal spiritual day look like?'],
+        sample:'Ya Allah, make me love You more than anything. Let my salah be the moment I most look forward to. Grant me Quran in my heart — let me understand Arabic so I can hear You speaking to me directly in salah. Make my ibadah consistent and private — not performed for anyone. Like Maryam (AS), let me be someone You chose because of my heart.',
+        ph:'Ya Allah, for my faith and spirituality I ask...' },
+      { id:'identity', em:'💫', title:'Identity, Confidence & Beauty',
+        intro:'Think about who you are, your inner beauty, and your confidence as a Muslim woman.',
+        refs:['What do you love about yourself that you don\'t say out loud?','What would change if you completely stopped comparing yourself to others?','What does being a confident Muslim woman look like for you personally?'],
+        sample:'Ya Allah, make me beautiful in the way that matters most — in character, patience, and kindness. Let me love myself as You made me, without needing anyone\'s validation. Free me from the trap of comparison. Make me proud of my identity as a Muslim woman — my hijab, my values, my choices. Let my inner light be so strong that people feel it when I walk in.',
+        ph:'Ya Allah, for my identity and confidence I ask...' },
+      { id:'family', em:'🏡', title:'Family Relationships',
+        intro:'Think about your parents, siblings, and the family bonds you want to nurture and heal.',
+        refs:['What do you appreciate about your family that you rarely express out loud?','Where is there tension you want Allah to heal?','How do you want to treat your parents when you are grown and independent?'],
+        sample:'Ya Allah, make my home a place of genuine peace — warm on the inside. Help me be patient with my parents even when I feel misunderstood. Give them the best of health. Let me be a cause of their happiness and their entry into Jannah. When I have my own home one day — fill it with Your remembrance, laughter, and love.',
+        ph:'Ya Allah, for my family relationships I ask...' },
+      { id:'friends', em:'🌸', title:'Friendships & Social Life',
+        intro:'Think about who you surround yourself with — and who you want to become in friendship.',
+        refs:['Who genuinely makes you a better person — in character and deen?','Who, if you\'re honest, pulls you toward things you\'re not proud of?','What kind of friend do YOU want to be known as?'],
+        sample:'Ya Allah, surround me with friends who remind me of You — honest with me, celebrating my wins without jealousy, calling me back to deen gently when I drift. Protect me from friendships built on gossip or performance. Give me the courage to be selective. If good company is hard to find — strengthen me to stand alone like Ibrahim (AS). "A person is upon the religion of his close friend." — Abu Dawud 4833',
+        ph:'Ya Allah, for my friendships I ask...' },
+      { id:'marriage', em:'💍', title:'Future Marriage',
+        intro:'Think about the kind of partnership you want, the home you want to build, and who you need to become first.',
+        refs:['What character qualities are non-negotiable in a future husband?','What kind of home do you want to build together?','What do you need to work on in yourself first?'],
+        sample:'Ya Allah, grant me a husband who fears You first — kind, honest, and ambitious for this world and the next. Let him see my worth beyond my appearance. Let us build a home of Quran, laughter, and growth — supporting each other\'s biggest dreams. Like the Prophet ﷺ and Khadija (RA), let our love be a cause of Jannah. Reunite us in Jannatul Firdaus.',
+        ph:'Ya Allah, for my future marriage I ask...' },
+      { id:'health', em:'🌿', title:'Health & Mental Wellness',
+        intro:'Think about your body, your mental health, and what it means to care for yourself as an amanah from Allah.',
+        refs:['What does your body need that you have been neglecting?','What would genuinely being at peace inside feel like?','How can caring for yourself be an act of worship?'],
+        sample:'Ya Allah, my body is an amanah. Give me discipline to care for it — eat well, rest without guilt, move. Heal what is hurting inside me — the anxiety, the self-doubt, the heavy nights. Grant me emotional intelligence and inner peace. When I make mistakes, remind me You are Al-Ghaffar — if You forgive me, I must forgive myself. Let me be strong in the way that matters most: rooted in faith, at peace with my story.',
+        ph:'Ya Allah, for my health and mental wellness I ask...' }
+    ]
+  },
+
+  'teen-boys': {
+    label:'Teen Boys', subtitle:'Ages 14–17', em:'⚡',
+    theme:{ p:'#0d47a1', pd:'#002171', a:'#2e7d32', al:'#e8f5e9', bg:'#f0f4ff' },
+    welcome:{ title:'Assalamu Alaikum ⚡',
+      body:'The habits you build now, the character you develop now, the relationship with Allah you choose now — they shape the man you become. Let\'s build 7 Dream Duas that pull you toward your best self.' },
+    fndKey:'teens', fndTitle:'Before You Begin: The Foundation',
+    cats:[
+      { id:'academics', em:'🎓', title:'Academics & Career',
+        intro:'Think about where you want to go — your studies, your career, and the legacy you want to leave.',
+        refs:['What genuinely excites you — not what looks impressive to others?','What problem in the world do you want to help solve?','What does your dream career look like day-to-day at age 28?'],
+        sample:'Ya Allah, guide me to the field I was created for. Give me a sharp mind, focused drive, and discipline to do the work when no one is watching. Let me excel — not for praise but for purpose. Like Mus\'ab ibn Umair, let me be trusted with something big while still young. Make my career sadaqah jariyah that continues after my death.',
+        ph:'Ya Allah, for my academics and career I ask...' },
+      { id:'faith', em:'🌙', title:'Faith & Spirituality',
+        intro:'Think about your relationship with Allah — your salah, your deen, and your identity as a Muslim man.',
+        refs:['What would it feel like to genuinely feel close to Allah?','What does your ideal salah feel like — not just what you do, but how it feels?','What part of your deen do you want to strengthen in the next 5 years?'],
+        sample:'Ya Allah, make me love You more than anything else. Let my salah be what I look forward to — not a task to complete. Give me discipline to pray tahajjud and mean every word. Make me consistent in my deen when no one is watching — because that is where real faith lives. Like Umar (RA), let my transformation be complete. Let me die having served You fully.',
+        ph:'Ya Allah, for my faith and spirituality I ask...' },
+      { id:'character', em:'💪', title:'Character & Inner Strength',
+        intro:'Think about the man you are becoming — your character, how you handle anger, and how you treat others.',
+        refs:['What is your biggest character challenge right now — anger, ego, laziness, dishonesty?','How do you want people to feel after spending time with you?','How are you treating your mother, sisters, and girls around you?'],
+        sample:'Ya Allah, make me strong in the way that matters most — control over my anger, no arrogance. Make me honest even when it costs me. Give me physical strength I use as amanah to serve and protect. Make me someone men look up to and women feel respected by. Grant me the character of the Prophet ﷺ — "The strong man is not one who wrestles well, but the one who controls himself when angry." (Bukhari 6114)',
+        ph:'Ya Allah, for my character and inner strength I ask...' },
+      { id:'family', em:'🏡', title:'Family',
+        intro:'Think about your parents, your siblings, and the man you want to be in your family.',
+        refs:['What do you appreciate about your parents that you rarely express?','How do you treat your mother when you\'re tired or frustrated?','What kind of son, brother, and future father do you want to be?'],
+        sample:'Ya Allah, make me the best son my parents have raised. Give me patience with them — especially when I think I know better. Let me be a cause of their entry into Jannah. Give me the wisdom of Yusuf (AS) — to forgive, rise above, and protect family bonds. When I have my own family — let me lead them with the Prophet\'s character: strength and gentleness together.',
+        ph:'Ya Allah, for my family I ask...' },
+      { id:'brotherhood', em:'🤝', title:'Brotherhood & Friendships',
+        intro:'Think about who you surround yourself with — and what true brotherhood means in Islam.',
+        refs:['Who genuinely makes you better — in character and deen?','Who, honestly, pulls you toward things you\'re not proud of?','What kind of friend and brother do you want to be?'],
+        sample:'Ya Allah, give me brothers who make me better — honest enough to call me out, loyal enough to stay when I struggle. Protect me from friendships built on sin or peer pressure. Give me courage to walk away from haram even when it means standing alone. "A person follows the religion of his close friend, so be careful who you befriend." (Abu Dawud 4833). Make my circle remind me of You.',
+        ph:'Ya Allah, for my brotherhood and friendships I ask...' },
+      { id:'marriage', em:'💍', title:'Future Marriage',
+        intro:'Think about the kind of home you want to build, the partnership you want, and who you need to become first.',
+        refs:['What character qualities are non-negotiable in a future wife?','What kind of husband do you want to be — day to day?','What do you need to build in yourself before you\'re ready?'],
+        sample:'Ya Allah, grant me a wife who fears You and strengthens my deen — honest, patient, my true partner. Make me worthy of her — a man she can trust, respect, and feel safe with. Let our home be full of Quran and purpose. Let us support each other\'s biggest dreams. Reunite us in Jannatul Firdaus.',
+        ph:'Ya Allah, for my future marriage I ask...' },
+      { id:'health', em:'⚡', title:'Health & Mental Strength',
+        intro:'Think about your body, your mental health, and what real strength — inside and out — looks like.',
+        refs:['Are you caring for your body as an amanah — food, sleep, exercise?','What emotional battles do you fight that no one sees?','What would it feel like to be genuinely at peace inside?'],
+        sample:'Ya Allah, my body is an amanah. Give me discipline to care for it. Heal what is hurting inside me — the anger, the anxiety, the loneliness behind screens. Make me emotionally strong. Free me from needing to prove myself to people. Let my confidence come from You alone. Make me mentally strong, emotionally grounded, and spiritually rooted.',
+        ph:'Ya Allah, for my health and mental strength I ask...' }
+    ]
+  },
+
+  'adult-mom': {
+    label:'Adult — Mom', subtitle:'For Mothers', em:'💚',
+    theme:{ p:'#1a5f4a', pd:'#0d3d2e', a:'#c9a227', al:'#fff8e1', bg:'#f0fdf4' },
+    welcome:{ title:'Assalamu Alaikum 💚',
+      body:'You carry more than most people see. Your duas hold your children\'s futures, your marriage, your health, your identity as a woman and a believer. Let\'s build 6 Dream Duas that give you full permission to ask for everything you deserve.' },
+    fndKey:'adults', fndTitle:'The Foundation of Dream Duas',
+    cats:[
+      { id:'health', em:'🌿', title:'Health & Self-Care',
+        intro:'Your body is an amanah from Allah. You matter — not just as a mother, but as yourself.',
+        refs:['What has your body been asking for that you keep putting off?','What does your emotional and mental health honestly need right now?','What would it feel like to have energy, peace, and strength as a daily baseline?'],
+        sample:'Ya Allah, I am an amanah from You. Grant me optimal health — energy to run, play with my children, stand in qiyam without fatigue. Free me from overthinking and self-criticism. When I make mistakes, remind me You are Al-Ghaffar — if You forgive me, I must forgive myself. Grant me emotional intelligence to navigate difficulty with grace. Let me care for this body fully so I can serve You until my last breath.',
+        ph:'Ya Allah, for my health and wellbeing I ask...' },
+      { id:'wealth', em:'💛', title:'Wealth & Financial Freedom',
+        intro:'There is nothing wrong with asking Allah for abundance — especially when you intend to use it for good.',
+        refs:['What financial freedom would allow you to give most generously?','What does wealth look like when it truly serves your deen and family?','What would you do with $1M/year? Let yourself dream.'],
+        sample:'Ya Allah, grant me wealth in my hand, not my heart. Let me spend so freely I need accountants to track it — my right hand giving while my left doesn\'t know. Give me businesses that earn without constant effort. Financial freedom to focus on teaching Quran, taking my family to Umrah annually, giving without thinking about cost. Make my wealth a bridge to Jannah, not a barrier.',
+        ph:'Ya Allah, for wealth and financial freedom I ask...' },
+      { id:'deen', em:'🌙', title:'Deen & Spiritual Growth',
+        intro:'Beyond being a mother, you are a believer. What does your relationship with Allah look like at its most alive?',
+        refs:['What does your most spiritually alive day look like — from fajr to night?','What Islamic knowledge or practice do you most want to deepen?','What spiritual legacy do you want to leave?'],
+        sample:'Ya Allah, make me someone who never misses tahajjud — who stands before You every night longing for Your Face. Grant me khushu\' so deep my salah becomes the coolness of my eyes. Let me author resources that reach millions. Make my home a place where Quran is recited daily and my children memorize at my feet. Let me die with La ilaha illAllah on my tongue.',
+        ph:'Ya Allah, for my deen and spiritual growth I ask...' },
+      { id:'spouse', em:'❤️', title:'Marriage & Spouse',
+        intro:'Your marriage is either draining you or fueling you. Ask Allah for the marriage you truly want.',
+        refs:['What do you genuinely love about your spouse that you rarely say out loud?','What does your dream marriage look like in the day-to-day?','What do you want your marriage to feel like in 10 years?'],
+        sample:'Ya Allah, make him complement and complete me. Let his character inspire me to be better. Like Khadija, let me support his dreams. Like Umm Sulaim, shield him from emotional harm. Grant us love, trust, and deep affection — excited to be together, laughing like we just met. Let us walk through Madinah one day, old and gray, still in love. Reunite us in Jannatul Firdaus.',
+        ph:'Ya Allah, for my marriage and spouse I ask...' },
+      { id:'children', em:'🌱', title:'Children & Legacy',
+        intro:'Your children are your greatest sadaqah jariyah. Ask for them specifically, vividly, and boldly.',
+        refs:['What do you dream for each child — specifically? Visualize each one.','See yourself old, watching your children. What do you see?','What kind of mother do you want to be remembered as?'],
+        sample:'Ya Allah, place the Quran in their hearts. Make them huffadh with excellent character — humble, kind, wise, and strong. Make them leaders, running impactful projects. Grant them spouses and children better than them. Let me live to see them lead Eid prayer. Let me sit in the front row at their weddings, tears streaming, heart overflowing with gratitude. Make them the coolness of my eyes here — and my companions in Jannatul Firdaus.',
+        ph:'Ya Allah, for my children and their futures I ask...' },
+      { id:'joy', em:'✨', title:'Joy, Rest & Fun',
+        intro:'You are allowed to rest. You are allowed to want joy. It is not selfish — it is sunnah.',
+        refs:['What brings you genuine, deep joy — not just distraction?','What does your body and soul need in order to truly rest?','What adventures or experiences does your dream life include?'],
+        sample:'Ya Allah, let us enjoy the tayyibat You\'ve given us without guilt — comfortable home, beautiful experiences, rest that feels sweet not restless. Grant us family Umrah every year. Let us vacation in places that take our breath away. Give me time to care for myself knowing it is worship. Fill our weekends with warmth, laughter, and no screens. Let our joy be halal, our fun be blessed, our laughter echo with gratitude.',
+        ph:'Ya Allah, for joy and rest in my life I ask...' }
+    ]
+  },
+
+  'adult-dad': {
+    label:'Adult — Dad', subtitle:'For Fathers', em:'🏔️',
+    theme:{ p:'#1a237e', pd:'#0d1440', a:'#f57f17', al:'#fff8e1', bg:'#f0f2ff' },
+    welcome:{ title:'Assalamu Alaikum 🏔️',
+      body:'You carry your family, your purpose, your legacy. The man you become shapes generations. Let\'s build 6 Dream Duas — specific, vivid, ambitious — that pull you toward the leader Allah created you to be.' },
+    fndKey:'adults', fndTitle:'The Foundation of Dream Duas',
+    cats:[
+      { id:'health', em:'💪', title:'Health & Strength',
+        intro:'Your body is an amanah. Physical strength in service of worship, family, and purpose.',
+        refs:['What does your body need that you\'ve been putting off?','What would your health look like if it truly served your ibadah and your family?','What physical goal would make you feel alive and deeply grateful?'],
+        sample:'Ya Allah, my body is an amanah. Grant me strength that lets me lead my family, stand in qiyam without fatigue, be active with my children and grandchildren. Free me from the silent pressure I carry — the weight of providing, the fear of failing. Grant me emotional intelligence. Let me be strong outside and at peace inside. Let this body serve You fully until my last breath.',
+        ph:'Ya Allah, for my health and physical strength I ask...' },
+      { id:'wealth', em:'🏛️', title:'Wealth, Career & Legacy',
+        intro:'Think about the financial and professional legacy you want to leave — for your family, your deen, and the ummah.',
+        refs:['What financial freedom would let you give most generously?','What does your legacy look like — in wealth, knowledge, and impact?','What would you build or fund if money were no longer the constraint?'],
+        sample:'Ya Allah, grant me wealth in my hand not my heart — like Abdurrahman ibn Awf who gave everything and it came back multiplied. Let me build a masjid, fund education, create sadaqah jariyah. Give me businesses that earn without constant effort. Let my financial legacy outlive me and enter my scale of good deeds after death. Make my wealth a bridge to Jannah, never a barrier.',
+        ph:'Ya Allah, for my wealth, career and legacy I ask...' },
+      { id:'deen', em:'🌙', title:'Deen & Spiritual Leadership',
+        intro:'You are the imam of your household. What does that mean spiritually — and in the day-to-day?',
+        refs:['What does leading your family in deen look like at its very best?','What Islamic knowledge or practice do you most need to deepen?','What is the spiritual legacy you want to pass to your children?'],
+        sample:'Ya Allah, make me the spiritual leader my family deserves — consistent in salah, consistent in character, consistent in taking them toward You. Grant me tahajjud as a lifelong habit. Put barakah in my words so when I remind my family of You, it lands in their hearts. Like Ibrahim (AS), let me raise a lineage of believers. Let me die having led my family to Jannah.',
+        ph:'Ya Allah, for my deen and spiritual leadership I ask...' },
+      { id:'marriage', em:'❤️', title:'Marriage & Partnership',
+        intro:'The Prophet ﷺ said the best of you are those best to their families. Think about the husband you want to be.',
+        refs:['What does your wife need from you that you haven\'t fully given her?','What does your dream marriage look like in texture — the day-to-day?','What would your marriage look like if it were truly a partnership?'],
+        sample:'Ya Allah, make me the husband who treats his wife the way the Prophet ﷺ treated Khadija — with respect, tenderness, and loyalty. Let me see her worth and tell her so. Grant us love that grows with age, laughter that doesn\'t fade, and a partnership that serves Your deen. Heal whatever is broken between us. Let us walk hand in hand into Jannah together.',
+        ph:'Ya Allah, for my marriage and partnership I ask...' },
+      { id:'children', em:'🌱', title:'Children & Raising Leaders',
+        intro:'Think about the men and women you are raising — their character, their faith, and their futures.',
+        refs:['What do you dream for each child specifically? Name them.','What do you want them to remember about their father?','What kind of father do you want to be remembered as?'],
+        sample:'Ya Allah, make my children leaders of the righteous — huffadh with excellent character, running halal businesses, leading communities. Let them be bonded in love without envy. Grant them spouses better than they expect. Let me live to see my sons lead Eid prayer. Let me sit in the front row at their weddings, heart overflowing. Make them my companions in Jannatul Firdaus.',
+        ph:'Ya Allah, for my children and raising them I ask...' },
+      { id:'purpose', em:'🎯', title:'Purpose, Mission & Joy',
+        intro:'Beyond the daily grind — what is your mission? What makes you feel truly alive? What are you building?',
+        refs:['What makes you feel most alive — not just busy?','What would you do with your time if finances were fully handled?','What does your dream retirement look like spiritually and experientially?'],
+        sample:'Ya Allah, let me live with purpose — not just working to survive but building something that matters. Give me a mission I pour my heart into. Let me experience the world — Umrah every year, adventures that remind me of Your greatness. Give me leisure that refreshes rather than numbs. Make my final years my most productive, most giving, most spiritually alive. Let me meet You having truly lived.',
+        ph:'Ya Allah, for my purpose, mission and joy I ask...' }
+    ]
+  }
+}
+
+// ════════════════════════════════════════════════
+// STATE & STORAGE
+// ════════════════════════════════════════════════
+
+let S = { version:null, screen:'select', name:'', age:'', answers:{} }
+
+const key  = (v) => `dua-v1-${v}`
+const save = ()  => { if(S.version) localStorage.setItem(key(S.version), JSON.stringify(S)) }
+const load = (v) => { const r=localStorage.getItem(key(v)); return r?JSON.parse(r):null }
+const wipe = (v) => { localStorage.removeItem(key(v)) }
+const hasSaved = (v) => !!localStorage.getItem(key(v))
+
+// ════════════════════════════════════════════════
+// NAVIGATION
+// ════════════════════════════════════════════════
+
+const seq = (v) => {
+  const cats = VERSIONS[v].cats.map((_,i) => `cat-${i}`)
+  return ['foundation',...cats,'summary']
+}
+
+function goTo(s) {
+  const main = document.getElementById('main')
+  main.classList.add('fade')
+  setTimeout(() => {
+    S.screen = s; save(); render()
+    main.classList.remove('fade')
+    main.scrollTo(0,0)
+  }, 140)
+}
+
+function next() {
+  const s = seq(S.version), i = s.indexOf(S.screen)
+  if(i < s.length-1) goTo(s[i+1])
+}
+function back() {
+  if(S.screen === 'foundation') { goTo('welcome'); return }
+  const s = seq(S.version), i = s.indexOf(S.screen)
+  if(i > 0) goTo(s[i-1]); else goTo('foundation')
+}
+
+function pickVersion(v) {
+  S.version = v; applyTheme(v)
+  const saved = load(v)
+  if(saved && saved.screen && saved.screen !== 'select') {
+    Object.assign(S, saved)
+    goTo('welcome')
+  } else {
+    S.screen = 'welcome'; S.name=''; S.age=''; S.answers={}
+    goTo('welcome')
+  }
+}
+
+function startFresh() {
+  wipe(S.version); S.answers={}; S.name=''; S.age=''
+  goTo('foundation')
+}
+
+function continueJourney() {
+  const s = S.screen && S.screen !== 'welcome' && S.screen !== 'select' ? S.screen : 'foundation'
+  goTo(s)
+}
+
+function beginNew() {
+  S.name  = document.getElementById('inp-name')?.value?.trim() || ''
+  S.age   = document.getElementById('inp-age')?.value?.trim() || ''
+  save(); goTo('foundation')
+}
+
+function saveTA(id, val) {
+  S.answers[id] = val; save()
+}
+
+// ════════════════════════════════════════════════
+// THEME
+// ════════════════════════════════════════════════
+
+function applyTheme(v) {
+  const t = VERSIONS[v].theme, r = document.documentElement.style
+  r.setProperty('--p',  t.p)
+  r.setProperty('--pd', t.pd)
+  r.setProperty('--a',  t.a)
+  r.setProperty('--al', t.al)
+  r.setProperty('--bg', t.bg)
+  document.body.style.background = t.bg
+}
+
+// ════════════════════════════════════════════════
+// RENDER
+// ════════════════════════════════════════════════
+
+function render() {
+  const main = document.getElementById('main')
+  const hdr  = document.getElementById('hdr')
+  const ftr  = document.getElementById('ftr')
+
+  // header + footer visibility
+  const inFlow = S.version && !['select','welcome'].includes(S.screen)
+  const isSummary = S.screen === 'summary'
+
+  if(inFlow && !isSummary) {
+    const s   = seq(S.version), i = s.indexOf(S.screen)
+    const pct = Math.round(((i+1)/s.length)*100)
+    hdr.className = 'on'
+    document.getElementById('hdr-label').textContent = `Step ${i+1} of ${s.length}`
+    document.getElementById('hdr-fill').style.width  = pct+'%'
+    const isFirst = S.screen==='foundation'
+    const isLast  = i === s.length-2
+    ftr.className = 'on'
+    ftr.innerHTML =
+      (!isFirst ? `<button class="btn btn-g" onclick="back()">← Back</button>` : '') +
+      `<button class="btn btn-p" onclick="handleNext()">${isLast?'See My Duas →':'Next →'}</button>`
+  } else {
+    hdr.className = ''
+    ftr.className = ''
+    ftr.innerHTML = ''
+  }
+
+  // route
+  if(S.screen==='select')             { main.innerHTML = renderSelect();    return }
+  if(S.screen==='welcome')            { main.innerHTML = renderWelcome();   return }
+  if(S.screen==='foundation')         { main.innerHTML = renderFoundation(); return }
+  if(S.screen.startsWith('cat-')) {
+    const idx = parseInt(S.screen.split('-')[1])
+    main.innerHTML = renderCat(idx)
+    bindTA(idx); return
+  }
+  if(S.screen==='summary')            { main.innerHTML = renderSummary();   return }
+}
+
+function handleNext() {
+  // save current textarea if on a cat screen
+  if(S.screen.startsWith('cat-')) {
+    const idx = parseInt(S.screen.split('-')[1])
+    const ta  = document.getElementById('dua-ta')
+    if(ta) saveTA(VERSIONS[S.version].cats[idx].id, ta.value)
+  }
+  next()
+}
+
+// ─── SELECT SCREEN ───
+function renderSelect() {
+  const cards = Object.keys(VERSIONS).map(v => {
+    const d = VERSIONS[v]
+    const saved = hasSaved(v)
+    return `<div class="ver-card" onclick="pickVersion('${v}')">
+      ${saved ? `<span class="vc-badge">In progress</span>` : ''}
+      <span class="vc-em">${d.em}</span>
+      <span class="vc-lb">${d.label}</span>
+      <span class="vc-sub">${d.subtitle}</span>
+    </div>`
+  }).join('')
+
+  return `<div class="sel-wrap">
+    <div class="sel-top">
+      <span class="bismi">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</span>
+      <h1>Dream Duas</h1>
+      <p>A guided Visionaire workbook — pick your version to begin</p>
+    </div>
+    <div class="ver-grid">${cards}</div>
+    <div class="sel-credit">
+      <strong>Compiled by UmmAbdullah</strong> &nbsp;·&nbsp;
+      Adapted from Muhammad al-Shareef's Visionaire Course<br>
+      <em>More versions coming soon</em>
+    </div>
+  </div>`
+}
+
+// ─── WELCOME SCREEN ───
+function renderWelcome() {
+  const v = VERSIONS[S.version], saved = load(S.version)
+  const isReturn = saved && saved.answers && Object.keys(saved.answers).length > 0
+  const total = v.cats.length
+  const done  = isReturn ? Object.keys(saved.answers).filter(k=>saved.answers[k].trim()).length : 0
+
+  let returnBanner = ''
+  if(isReturn) {
+    returnBanner = `<div class="return-box">
+      <p>Welcome back${S.name ? ', '+S.name : ''}! You've filled in <strong>${done} of ${total}</strong> categories. Continue where you left off?</p>
+      <div class="rb-row">
+        <button class="btn btn-p btn-sm" onclick="continueJourney()">Continue ✓</button>
+        <button class="btn btn-g btn-sm" onclick="startFresh()">Start Fresh</button>
+      </div>
+    </div>`
+  }
+
+  return `<div class="wel-wrap">
+    <span class="wel-icon">${v.em}</span>
+    <h2>${v.welcome.title}</h2>
+    <p class="wel-body">${v.welcome.body}</p>
+    ${returnBanner}
+    <div class="field">
+      <label>Your name <span style="font-weight:400;color:var(--muted)">(optional)</span></label>
+      <input id="inp-name" type="text" placeholder="What should we call you?" value="${S.name||''}">
+    </div>
+    <div class="field">
+      <label>Your age <span style="font-weight:400;color:var(--muted)">(optional)</span></label>
+      <input id="inp-age" type="number" placeholder="e.g. 14" value="${S.age||''}" min="7" max="99">
+    </div>
+    <button class="btn btn-p btn-full" style="margin-top:8px" onclick="beginNew()">Begin My Journey →</button>
+    <button class="btn btn-g btn-full" style="margin-top:10px;font-size:13px" onclick="S.version=null;applyTheme('kids');render()">← Choose a different version</button>
+  </div>`
+}
+
+// ─── FOUNDATION SCREEN ───
+function renderFoundation() {
+  const v = VERSIONS[S.version]
+  const fKey = v.fndKey
+  const cards = FOUNDATION[fKey].map(f =>
+    `<div class="teach-card${fKey==='kids'?' fun':''}">
+      <h3>${f.em} ${f.title}</h3>
+      <p>${f.body}</p>
+      ${f.hadith ? `<p class="hadith">${f.hadith}</p>` : ''}
+    </div>`
+  ).join('')
+  const nameGreet = S.name ? `, ${S.name}` : ''
+  return `<div class="fnd-wrap">
+    <h2>${S.name ? 'Ready'+nameGreet+'?' : 'Before You Begin'}</h2>
+    <p class="fnd-intro">${v.fndTitle}</p>
+    ${cards}
+    <button class="btn btn-p btn-full" style="margin-top:6px" onclick="next()">
+      I'm Ready — Let's Build My Duas 🤲
+    </button>
+  </div>`
+}
+
+// ─── CATEGORY SCREEN ───
+function renderCat(idx) {
+  const v    = VERSIONS[S.version]
+  const cat  = v.cats[idx]
+  const total = v.cats.length
+  const saved = S.answers[cat.id] || ''
+  const refs  = cat.refs.map(r=>`<li>${r}</li>`).join('')
+
+  return `<div class="cat-wrap">
+    <div class="cat-hdr">
+      <span class="cat-em">${cat.em}</span>
+      <div class="cat-hdr-text">
+        <h2>${cat.title}</h2>
+        <span class="cat-num">Category ${idx+1} of ${total}</span>
+      </div>
+    </div>
+    <p class="cat-intro">${cat.intro}</p>
+    <div class="reflect-box">
+      <h4>✦ Reflect on this</h4>
+      <ul>${refs}</ul>
+    </div>
+    <button class="sample-toggle" id="sample-btn" onclick="toggleSample()">
+      ✦ Need inspiration? See a sample dua
+    </button>
+    <div class="sample-box" id="sample-box">
+      <strong>Sample Dream Dua — for inspiration only</strong>
+      <p>${cat.sample}</p>
+    </div>
+    <label class="ta-label" for="dua-ta">
+      ✍️ ${S.name ? S.name + '\'s' : 'My'} Dream Dua${v.fndKey==='kids'?' (write what comes from your heart! 💛)':''}
+    </label>
+    <textarea id="dua-ta" class="dua-ta" placeholder="${cat.ph}">${saved}</textarea>
+    <div class="char-ct" id="char-ct">${saved.length} characters</div>
+  </div>`
+}
+
+function bindTA(idx) {
+  const ta = document.getElementById('dua-ta')
+  if(!ta) return
+  ta.addEventListener('input', () => {
+    autoGrow(ta)
+    document.getElementById('char-ct').textContent = ta.value.length + ' characters'
+    saveTA(VERSIONS[S.version].cats[idx].id, ta.value)
+  })
+  autoGrow(ta)
+}
+
+function toggleSample() {
+  const box = document.getElementById('sample-box')
+  const btn = document.getElementById('sample-btn')
+  box.classList.toggle('open')
+  btn.textContent = box.classList.contains('open')
+    ? '✦ Hide sample dua' : '✦ Need inspiration? See a sample dua'
+}
+
+function autoGrow(el) {
+  el.style.height = 'auto'
+  el.style.height = Math.max(160, el.scrollHeight) + 'px'
+}
+
+// ─── SUMMARY SCREEN ───
+function renderSummary() {
+  const v    = VERSIONS[S.version]
+  const name = S.name || 'Your'
+  const cards = v.cats.map(cat => {
+    const ans = (S.answers[cat.id]||'').trim()
+    return `<div class="sum-card">
+      <h3>${cat.em} ${cat.title}</h3>
+      ${ans
+        ? `<p>${ans.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</p>`
+        : `<p class="empty">Not filled in yet — go back to add your dua.</p>`
+      }
+    </div>`
+  }).join('')
+
+  return `<div class="sum-wrap">
+    <div class="sum-top">
+      <span class="sum-icon">🤲</span>
+      <h2>MashaAllah${S.name?', '+S.name:''}!</h2>
+      <p>Here are ${name === 'Your' ? 'your' : name+"'s"} Dream Duas</p>
+    </div>
+    ${cards}
+    <div class="lq-box">
+      <span class="lq-ar">اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي</span>
+      <p class="lq-tr">Allahumma innaka ʿafuwwun tuḥibbul ʿafwa faʿfu ʿannī</p>
+      <p class="lq-en">"O Allah, You are the Pardoner. You love to pardon. So pardon me."</p>
+      <span class="lq-ref">📖 Tirmidhi 3513 — taught by the Prophet ﷺ to Aisha (RA) for Laylatul Qadr</span>
+    </div>
+    <div class="sum-actions">
+      <button class="btn btn-p" onclick="window.print()">🖨️ Print My Duas</button>
+      <button class="btn btn-outline" onclick="editDuas()">✏️ Edit Duas</button>
+      <button class="btn btn-g btn-sm" onclick="confirmRestart()">Start Over</button>
+    </div>
+    <div class="sum-footer">
+      <strong>Compiled by UmmAbdullah</strong><br>
+      Adapted from Muhammad al-Shareef's Visionaire Course<br>
+      <em>May Allah answer every dua written here. آمين</em>
+    </div>
+  </div>`
+}
+
+function editDuas() {
+  goTo('cat-0')
+}
+
+function confirmRestart() {
+  if(confirm('Clear all your duas and start over for this version?')) {
+    startFresh(); goTo('foundation')
+  }
+}
+
+// ════════════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════════════
+
+// Reset theme on page load (no version selected yet)
+document.documentElement.style.setProperty('--p', '#1a5f4a')
+document.documentElement.style.setProperty('--pd', '#0d3d2e')
+document.documentElement.style.setProperty('--a', '#c9a227')
+document.documentElement.style.setProperty('--al', '#fff8e1')
+document.documentElement.style.setProperty('--bg', '#f4faf7')
+
+render()
+</script>
+</body>
+</html>
