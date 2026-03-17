@@ -86,6 +86,10 @@
     .field input{width:100%;padding:12px 14px;border:1.5px solid var(--bdr);
                  border-radius:var(--r);font-size:15px;outline:none;background:var(--card);color:var(--txt)}
     .field input:focus{border-color:var(--p)}
+    .voice-sel{width:100%;padding:12px 14px;border:1.5px solid var(--bdr);
+               border-radius:var(--r);font-size:14px;outline:none;background:var(--card);
+               color:var(--txt);-webkit-appearance:none;appearance:none;cursor:pointer}
+    .voice-sel:focus{border-color:var(--p)}
     .return-box{background:var(--al);border:1.5px solid var(--a);border-radius:var(--r);
                 padding:14px 16px;margin-bottom:18px}
     .return-box p{font-size:13px;margin-bottom:10px;color:var(--txt)}
@@ -929,9 +933,10 @@ function speakTTS(key, btn) {
   ut.rate  = 0.88
   ut.pitch = 1.0
 
-  // Prefer a clear, local English voice
+  // Use saved voice preference, or fall back to best available English voice
   const voices = window.speechSynthesis.getVoices()
-  const voice  = voices.find(v => v.localService && v.lang === 'en-GB')  ||
+  const voice  = (S.ttsVoice && voices.find(v => v.voiceURI === S.ttsVoice)) ||
+                 voices.find(v => v.localService && v.lang === 'en-GB')  ||
                  voices.find(v => v.localService && v.lang === 'en-US')  ||
                  voices.find(v => v.localService && v.lang.startsWith('en')) ||
                  voices.find(v => v.lang.startsWith('en'))
@@ -950,6 +955,25 @@ function _resetTTSBtns() {
     b.innerHTML = '▶ Listen'
     b.classList.remove('tts-active')
   })
+}
+
+function setTTSVoice(uri) {
+  S.ttsVoice = uri
+  localStorage.setItem('dua-voice-pref', uri)
+}
+
+function voicePickerHTML() {
+  if (!window.speechSynthesis) return ''
+  const voices = window.speechSynthesis.getVoices().filter(v => v.lang.startsWith('en'))
+  const opts = voices.length
+    ? voices.map(v =>
+        `<option value="${v.voiceURI}"${S.ttsVoice === v.voiceURI ? ' selected' : ''}>${v.name} (${v.lang})</option>`
+      ).join('')
+    : '<option value="">Loading voices…</option>'
+  return `<div class="field">
+    <label>🔊 Narrator voice <span style="font-weight:400;color:var(--muted)">(optional — for Listen buttons)</span></label>
+    <select id="voice-sel" class="voice-sel" onchange="setTTSVoice(this.value)">${opts}</select>
+  </div>`
 }
 
 // ════════════════════════════════════════════════
@@ -1103,7 +1127,7 @@ async function deleteVoiceNote(catId) {
 // STATE & STORAGE
 // ════════════════════════════════════════════════
 
-let S = { version:null, screen:'select', name:'', age:'', answers:{} }
+let S = { version:null, screen:'select', name:'', age:'', answers:{}, ttsVoice: localStorage.getItem('dua-voice-pref')||'' }
 
 const key  = (v) => `dua-v1-${v}`
 const save = ()  => { if(S.version) localStorage.setItem(key(S.version), JSON.stringify(S)) }
@@ -1302,6 +1326,7 @@ function renderWelcome() {
       <label>Your age <span style="font-weight:400;color:var(--muted)">(optional)</span></label>
       <input id="inp-age" type="number" placeholder="e.g. 14" value="${S.age||''}" min="7" max="99">
     </div>
+    ${voicePickerHTML()}
     <button class="btn btn-p btn-full" style="margin-top:8px" onclick="beginNew()">Begin My Journey →</button>
     <button class="btn btn-g btn-full" style="margin-top:10px;font-size:13px" onclick="S.version=null;applyTheme('kids');render()">← Choose a different version</button>
   </div>`
@@ -1501,6 +1526,21 @@ document.documentElement.style.setProperty('--pd', '#0d3d2e')
 document.documentElement.style.setProperty('--a', '#c9a227')
 document.documentElement.style.setProperty('--al', '#fff8e1')
 document.documentElement.style.setProperty('--bg', '#f4faf7')
+
+// Chrome loads voices asynchronously — repopulate selector when ready
+if (window.speechSynthesis) {
+  window.speechSynthesis.addEventListener('voiceschanged', () => {
+    const sel = document.getElementById('voice-sel')
+    const voices = window.speechSynthesis.getVoices().filter(v => v.lang.startsWith('en'))
+    if (sel && voices.length) {
+      sel.innerHTML = voices.map(v =>
+        `<option value="${v.voiceURI}"${S.ttsVoice === v.voiceURI ? ' selected' : ''}>${v.name} (${v.lang})</option>`
+      ).join('')
+      // If no saved preference yet, auto-select and save the first available voice
+      if (!S.ttsVoice) { setTTSVoice(voices[0].voiceURI); sel.value = voices[0].voiceURI }
+    }
+  })
+}
 
 initAudioDB().then(() => render())
 </script>
