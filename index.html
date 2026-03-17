@@ -191,6 +191,17 @@
     .cat-hadith-tx{font-size:13px;color:var(--txt);font-style:italic;display:block;margin-bottom:4px}
     .cat-ref{font-size:11px;color:var(--muted);display:block}
 
+    /* ─── TEXT TO SPEECH ─── */
+    .tts-btn{display:inline-flex;align-items:center;gap:5px;padding:5px 13px;
+             background:transparent;border:1.5px solid var(--p);border-radius:20px;
+             color:var(--p);font-size:12px;font-weight:600;cursor:pointer;margin-top:7px;
+             transition:background .15s,color .15s;white-space:nowrap;text-transform:none;
+             letter-spacing:normal;flex-shrink:0}
+    .tts-btn:hover,.tts-btn:active{background:var(--p);color:#fff}
+    .tts-btn.tts-active{background:var(--p);color:#fff}
+    .tts-sm{padding:3px 10px;font-size:11px;margin-top:3px}
+    .mentor-box h4{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+
     /* ─── VOICE NOTE ─── */
     .voice-section{margin:0 0 14px 0}
     .voice-rec-btn{width:100%;display:flex;align-items:center;gap:10px;padding:11px 16px;
@@ -887,6 +898,61 @@ const VERSIONS = {
 }
 
 // ════════════════════════════════════════════════
+// TEXT TO SPEECH
+// ════════════════════════════════════════════════
+
+const _tts = {}
+let _ttsIdx = 0
+let _ttsCurrent = null
+
+function ttsBtn(text, extraClass) {
+  const k = 't' + (_ttsIdx++)
+  _tts[k] = (text || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
+  const cls = extraClass ? 'tts-btn ' + extraClass : 'tts-btn'
+  return `<button class="${cls}" onclick="speakTTS('${k}',this)">▶ Listen</button>`
+}
+
+function speakTTS(key, btn) {
+  if (!window.speechSynthesis) {
+    alert('Text-to-speech is not available in this browser. Try Chrome or Safari.')
+    return
+  }
+  const isPlaying = _ttsCurrent === key && window.speechSynthesis.speaking
+  window.speechSynthesis.cancel()
+  _resetTTSBtns()
+  if (isPlaying) { _ttsCurrent = null; return }
+
+  const text = _tts[key]
+  if (!text) return
+
+  const ut = new SpeechSynthesisUtterance(text)
+  ut.rate  = 0.88
+  ut.pitch = 1.0
+
+  // Prefer a clear, local English voice
+  const voices = window.speechSynthesis.getVoices()
+  const voice  = voices.find(v => v.localService && v.lang === 'en-GB')  ||
+                 voices.find(v => v.localService && v.lang === 'en-US')  ||
+                 voices.find(v => v.localService && v.lang.startsWith('en')) ||
+                 voices.find(v => v.lang.startsWith('en'))
+  if (voice) ut.voice = voice
+
+  _ttsCurrent = key
+  btn.innerHTML = '⏹ Stop'
+  btn.classList.add('tts-active')
+
+  ut.onend = ut.onerror = () => { _ttsCurrent = null; _resetTTSBtns() }
+  window.speechSynthesis.speak(ut)
+}
+
+function _resetTTSBtns() {
+  document.querySelectorAll('.tts-btn.tts-active').forEach(b => {
+    b.innerHTML = '▶ Listen'
+    b.classList.remove('tts-active')
+  })
+}
+
+// ════════════════════════════════════════════════
 // AUDIO — INDEXEDDB + MEDIARECORDER
 // ════════════════════════════════════════════════
 
@@ -1055,6 +1121,8 @@ const seq = (v) => {
 }
 
 function goTo(s) {
+  if (window.speechSynthesis) window.speechSynthesis.cancel()
+  _ttsCurrent = null
   const main = document.getElementById('main')
   main.classList.add('fade')
   setTimeout(() => {
@@ -1243,13 +1311,15 @@ function renderWelcome() {
 function renderFoundation() {
   const v = VERSIONS[S.version]
   const fKey = v.fndKey
-  const cards = FOUNDATION[fKey].map(f =>
-    `<div class="teach-card${fKey==='kids'?' fun':''}">
+  const cards = FOUNDATION[fKey].map(f => {
+    const readText = f.body + (f.hadith ? ' ' + f.hadith : '')
+    return `<div class="teach-card${fKey==='kids'?' fun':''}">
       <h3>${f.em} ${f.title}</h3>
       <p>${f.body}</p>
       ${f.hadith ? `<p class="hadith">${f.hadith}</p>` : ''}
+      ${ttsBtn(readText)}
     </div>`
-  ).join('')
+  }).join('')
   const nameGreet = S.name ? `, ${S.name}` : ''
   return `<div class="fnd-wrap">
     <h2>${S.name ? 'Ready'+nameGreet+'?' : 'Before You Begin'}</h2>
@@ -1269,9 +1339,10 @@ function renderCat(idx) {
   const saved = S.answers[cat.id] || ''
   const refs  = cat.refs.map(r=>`<li>${r}</li>`).join('')
 
+  const mentorReadText = (cat.mentors||[]).map(m => m.n + (m.d ? '. ' + m.d : '')).join('. ')
   const mentorsHtml = (cat.mentors||[]).length
     ? `<div class="mentor-box">
-         <h4>✦ Inspired by</h4>
+         <h4>✦ Inspired by ${ttsBtn(mentorReadText, 'tts-sm')}</h4>
          <ul>${(cat.mentors).map(m=>`<li><strong>${m.n}</strong>${m.d?' — '+m.d:''}</li>`).join('')}</ul>
        </div>` : ''
 
@@ -1297,6 +1368,7 @@ function renderCat(idx) {
       </div>
     </div>
     <p class="cat-intro">${cat.intro}</p>
+    ${ttsBtn(cat.intro, 'tts-sm')}
     <div class="voice-section" id="voice-${cat.id}">
       <button class="voice-rec-btn" onclick="startRecording('${cat.id}')">
         <span class="mic-ic">🎤</span>
