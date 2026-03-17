@@ -182,9 +182,11 @@
                 padding:12px 16px;margin-bottom:14px}
     .mentor-box h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;
                    color:var(--p);margin-bottom:8px}
-    .mentor-box ul{list-style:none;padding:0}
+    .mentor-box ul{list-style:none;padding:0;margin-bottom:10px}
     .mentor-box li{font-size:13px;color:var(--txt);padding:3px 0 3px 16px;position:relative;line-height:1.5}
     .mentor-box li::before{content:'→';position:absolute;left:0;color:var(--p);font-weight:700}
+    .mentor-prompt{font-size:13px;color:var(--p);font-style:italic;line-height:1.6;
+                   border-top:1px solid var(--bdr);padding-top:10px;margin-top:4px}
 
     /* ─── AYAT & HADITH per category ─── */
     .cat-ayat{background:var(--al);border-left:4px solid var(--a);border-radius:0 var(--r) var(--r) 0;
@@ -1755,10 +1757,12 @@ function renderCat(idx) {
   const refs  = cat.refs.map(r=>`<li>${r}</li>`).join('')
 
   const mentorReadText = (cat.mentors||[]).map(m => m.n + (m.d ? '. ' + m.d : '')).join('. ')
+  const mentorNames = (cat.mentors||[]).map(m => m.n).join(', ')
   const mentorsHtml = (cat.mentors||[]).length
     ? `<div class="mentor-box">
-         <h4>✦ Inspired by ${ttsBtn(mentorReadText, 'tts-sm')}</h4>
+         <h4>✦ Your Mentors for This Dua ${ttsBtn(mentorReadText, 'tts-sm')}</h4>
          <ul>${(cat.mentors).map(m=>`<li><strong>${m.n}</strong>${m.d?' — '+m.d:''}</li>`).join('')}</ul>
+         <p class="mentor-prompt">💭 <strong>Before you write:</strong> Imagine sitting with ${mentorNames} — or any mentor, living or from history, who inspires you in this area. What would they tell you? What would they urge you not to hold back on asking for? What would they say you are worth? Let that shape your dua.</p>
        </div>` : ''
 
   const ayatsHtml = (cat.ayats||[]).map(a=>
