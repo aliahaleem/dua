@@ -2,197 +2,545 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Dream Duas — Teen Girls Workbook</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap">
   <style>
+    /* ══════════════════════════════
+       PAGE SETUP — 6 × 9 inch journal
+    ══════════════════════════════ */
     @page {
-      size: A4;
-      margin: 22mm 25mm 25mm 25mm;
-      @bottom-center {
-        content: "UmmAbdullah  ·  Adapted from Muhammad al-Shareef's Visionaire Course  ·  Page " counter(page);
-        font-size: 8pt;
-        color: #888;
-        font-family: Georgia, serif;
+      size: 6in 9in;
+    }
+    @page :left {
+      margin: 17mm 15mm 22mm 21mm;
+      @bottom-left {
+        content: "Dream Duas · Teen Girls Edition";
+        font-size: 8pt; color: #bbb;
+        font-family: 'Nunito', Arial, sans-serif;
+      }
+      @bottom-right {
+        content: counter(page);
+        font-size: 9pt; color: #999;
+        font-family: 'Nunito', Arial, sans-serif;
       }
     }
-    @page :first { @bottom-center { content: none; } }
+    @page :right {
+      margin: 17mm 21mm 22mm 15mm;
+      @bottom-left {
+        content: counter(page);
+        font-size: 9pt; color: #999;
+        font-family: 'Nunito', Arial, sans-serif;
+      }
+      @bottom-right {
+        content: "UmmAbdullah · Visionaire Course";
+        font-size: 8pt; color: #bbb;
+        font-family: 'Nunito', Arial, sans-serif;
+      }
+    }
+    @page :first {
+      margin: 0;
+      @bottom-left  { content: none; }
+      @bottom-right { content: none; }
+    }
 
+    /* ══════════════════════════════
+       RESET & BASE
+    ══════════════════════════════ */
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: Georgia, 'Times New Roman', serif;
-      color: #2d3436;
-      line-height: 1.8;
-      font-size: 11pt;
+      font-family: 'Nunito', 'Segoe UI', Arial, sans-serif;
+      color: #2d2d4e;
+      line-height: 1.78;
+      font-size: 10.5pt;
     }
 
-    /* ── COVER ── */
+    /* ══════════════════════════════
+       COVER — full bleed
+    ══════════════════════════════ */
     .cover {
       page-break-after: always;
-      height: 267mm;
+      width: 6in;
+      height: 9in;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(160deg, #6a1b9a 0%, #880e4f 55%, #4a148c 100%);
+      background: linear-gradient(150deg, #6a1b9a 0%, #880e4f 45%, #4a148c 100%);
       color: white;
       text-align: center;
-      padding: 30mm 20mm;
+      padding: 22mm 18mm 18mm;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: '';
+      position: absolute;
+      width: 55mm; height: 55mm;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      top: 12mm; right: -8mm;
+    }
+    .cover::after {
+      content: '';
+      position: absolute;
+      width: 72mm; height: 72mm;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      bottom: 18mm; left: -18mm;
+    }
+    .cover-stars {
+      font-size: 20pt;
+      letter-spacing: 10px;
+      margin-bottom: 1.1rem;
       position: relative;
     }
-    .cover-bismillah { font-size: 20pt; color: #f48fb1; margin-bottom: 1.25rem; letter-spacing: 2px; }
-    .cover-verse { font-size: 10pt; color: #e1bee7; font-style: italic; max-width: 360px; margin: 0 auto 3rem; line-height: 1.6; }
-    .cover-ornament { font-size: 20pt; color: #f48fb1; letter-spacing: 10px; margin-bottom: 2rem; }
-    .cover h1 { font-size: 30pt; color: #fff; line-height: 1.2; margin-bottom: 0.5rem; }
-    .cover h2 { font-size: 13pt; color: #f48fb1; margin-bottom: 0.5rem; }
-    .cover h3 { font-size: 11pt; font-weight: normal; color: #ce93d8; margin-bottom: 3rem; }
+    .cover-bismillah {
+      font-size: 17pt;
+      color: #f8bbd0;
+      margin-bottom: 0.9rem;
+      letter-spacing: 2px;
+      line-height: 1.6;
+      position: relative;
+    }
+    .cover-series {
+      font-size: 8.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: rgba(248,187,208,0.85);
+      margin-bottom: 0.6rem;
+      position: relative;
+    }
+    .cover h1 {
+      font-size: 30pt;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.5px;
+      position: relative;
+    }
+    .cover h1 span { color: #f8bbd0; }
+    .cover-tagline {
+      font-size: 11pt;
+      color: #e1bee7;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+      position: relative;
+    }
+    .cover-ages {
+      font-size: 9.5pt;
+      color: #ce93d8;
+      margin-bottom: 2.2rem;
+      position: relative;
+    }
     .cover-name-block {
-      border-top: 1px solid rgba(244,143,177,0.4);
-      border-bottom: 1px solid rgba(244,143,177,0.4);
-      padding: 1.25rem 3rem; margin-bottom: 2.5rem;
+      border: 1px solid rgba(248,187,208,0.35);
+      border-radius: 14px;
+      padding: 1.1rem 2.2rem;
+      margin-bottom: 2rem;
+      background: rgba(255,255,255,0.09);
+      width: 100%;
+      max-width: 220px;
+      position: relative;
     }
-    .cover-name-block p { font-size: 10pt; color: #e1bee7; margin-bottom: 0.4rem; }
-    .name-line { border-bottom: 1px solid #f48fb1; height: 2rem; min-width: 180px; margin-top: 0.25rem; }
+    .cover-name-block p {
+      font-size: 8.5pt;
+      color: #ce93d8;
+      margin-bottom: 0.25rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    .name-line {
+      border-bottom: 1.5px solid rgba(248,187,208,0.7);
+      height: 1.9rem;
+      margin-top: 0.15rem;
+    }
     .cover-credits {
-      position: absolute; bottom: 15mm;
-      font-size: 9pt; color: #ce93d8; text-align: center; line-height: 1.6;
+      position: absolute;
+      bottom: 11mm;
+      font-size: 8.5pt;
+      color: rgba(206,147,216,0.8);
+      text-align: center;
+      line-height: 1.7;
     }
-    .cover-credits strong { color: #f48fb1; }
+    .cover-credits strong { color: #f8bbd0; }
 
-    /* ── TYPOGRAPHY ── */
+    /* ══════════════════════════════
+       TYPOGRAPHY
+    ══════════════════════════════ */
     h1.page-title {
-      font-size: 18pt; color: #6a1b9a;
+      font-size: 17pt;
+      font-weight: 800;
+      color: #6a1b9a;
       border-bottom: 3px solid #f48fb1;
-      padding-bottom: 0.5rem; margin-bottom: 1.75rem;
+      padding-bottom: 0.45rem;
+      margin-bottom: 1.4rem;
+      line-height: 1.25;
     }
     h2.section-title {
-      font-size: 13pt; color: #6a1b9a;
-      border-left: 5px solid #f48fb1;
-      padding-left: 0.75rem; margin: 1.75rem 0 0.75rem;
+      font-size: 12pt;
+      font-weight: 800;
+      color: #880e4f;
+      border-left: 4px solid #f48fb1;
+      padding-left: 0.65rem;
+      margin: 1.5rem 0 0.6rem;
       page-break-after: avoid;
     }
-    h3.cat-title { font-size: 12pt; color: #880e4f; margin: 1rem 0 0.5rem; page-break-after: avoid; }
-    p { margin-bottom: 0.9rem; }
-    ul, ol { padding-left: 1.5rem; margin-bottom: 0.9rem; }
-    li { margin-bottom: 0.4rem; }
+    h3.cat-title {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #6a1b9a;
+      margin: 0.7rem 0 0.4rem;
+      page-break-after: avoid;
+    }
+    p { margin-bottom: 0.75rem; }
+    ul, ol { padding-left: 1.4rem; margin-bottom: 0.75rem; }
+    li { margin-bottom: 0.3rem; }
 
-    /* ── BOXES ── */
+    /* ══════════════════════════════
+       CONTENT BOXES
+    ══════════════════════════════ */
     .ayah-box {
       background: #fce4ec;
-      border-left: 5px solid #880e4f;
-      padding: 0.9rem 1.2rem;
-      margin: 0.9rem 0;
+      border-left: 4px solid #880e4f;
+      padding: 0.8rem 1rem;
+      margin: 0.85rem 0;
       font-style: italic;
       border-radius: 0 8px 8px 0;
       page-break-inside: avoid;
+      font-size: 10pt;
     }
-    .ayah-box .ref { display: block; margin-top: 0.35rem; font-size: 9pt; color: #666; font-style: normal; }
-    .arabic { font-size: 16pt; text-align: center; display: block; margin-bottom: 0.5rem; direction: rtl; }
+    .ayah-box .ref {
+      display: block;
+      margin-top: 0.3rem;
+      font-size: 8.5pt;
+      color: #777;
+      font-style: normal;
+      font-weight: 600;
+    }
+    .arabic {
+      font-size: 15pt;
+      text-align: center;
+      display: block;
+      margin-bottom: 0.5rem;
+      direction: rtl;
+      font-style: normal;
+      color: #4a148c;
+    }
     .insight-box {
       background: #f3e5f5;
-      border: 1px solid #9c27b0;
-      border-radius: 8px;
-      padding: 1rem 1.25rem;
-      margin: 0.9rem 0;
+      border: 1.5px solid #9c27b0;
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      margin: 0.85rem 0;
       page-break-inside: avoid;
+      font-size: 10pt;
     }
+    .insight-box strong { color: #6a1b9a; }
     .story-box {
       background: #fdf6ff;
-      border: 2px solid #ce93d8;
+      border: 1.5px solid #ce93d8;
       border-radius: 10px;
-      padding: 1.1rem 1.25rem;
-      margin: 1rem 0;
+      padding: 0.9rem 1rem;
+      margin: 0.9rem 0;
       page-break-inside: avoid;
+      font-size: 10pt;
     }
     .story-box strong { color: #6a1b9a; }
     .dua-sample {
       background: #fce4ec;
-      border: 2px solid #880e4f;
+      border: 1.5px solid #880e4f;
       border-radius: 10px;
-      padding: 1.1rem 1.25rem;
-      margin: 1rem 0;
-      page-break-inside: avoid;
-    }
-    .dua-sample strong { color: #880e4f; display: block; margin-bottom: 0.4rem; }
-    .warning-box {
-      background: #fff3e0;
-      border: 2px solid #ff9800;
-      border-radius: 10px;
-      padding: 1rem 1.25rem;
+      padding: 0.9rem 1rem;
       margin: 0.9rem 0;
       page-break-inside: avoid;
+      font-size: 10pt;
+      font-style: italic;
     }
+    .dua-sample strong {
+      color: #880e4f;
+      display: block;
+      margin-bottom: 0.35rem;
+      font-style: normal;
+      font-size: 8.5pt;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    .warning-box {
+      background: #fff8e1;
+      border: 1.5px solid #f9a825;
+      border-radius: 10px;
+      padding: 0.8rem 1rem;
+      margin: 0.85rem 0;
+      page-break-inside: avoid;
+      font-size: 10pt;
+    }
+    .warning-box strong { color: #e65100; }
 
-    /* ── CATEGORY ── */
+    /* ══════════════════════════════
+       CATEGORY HEADER
+    ══════════════════════════════ */
     .cat-block { page-break-before: always; }
     .cat-num {
-      display: inline-block; background: #880e4f; color: white;
-      width: 2.2rem; height: 2.2rem; border-radius: 50%;
-      text-align: center; line-height: 2.2rem; font-size: 13pt; font-weight: bold;
-      margin-right: 0.5rem; vertical-align: middle;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #880e4f, #6a1b9a);
+      color: white;
+      width: 1.9rem;
+      height: 1.9rem;
+      border-radius: 50%;
+      font-size: 11pt;
+      font-weight: 800;
+      margin-right: 0.45rem;
+      vertical-align: middle;
+      flex-shrink: 0;
     }
 
-    /* ── WRITING ── */
-    .write-prompt { font-size: 10pt; color: #880e4f; font-weight: bold; font-style: italic; margin: 1.1rem 0 0.25rem; }
+    /* ══════════════════════════════
+       WRITING SPACES — ruled lines
+    ══════════════════════════════ */
+    .write-prompt {
+      font-size: 9.5pt;
+      color: #880e4f;
+      font-weight: 700;
+      font-style: italic;
+      margin: 0.9rem 0 0;
+      break-after: avoid;
+      page-break-after: avoid;
+    }
     .write-space {
-      background-image: repeating-linear-gradient(
-        to bottom, transparent, transparent 1.9em,
-        #f48fb1 1.9em, #f48fb1 2em
-      );
-      line-height: 2em; min-height: 8em; margin-bottom: 0.9rem; page-break-inside: avoid;
+      margin-bottom: 1rem;
+      break-before: avoid;
+      page-break-before: avoid;
     }
-    .ws-sm { min-height: 4em; }
-    .ws-md { min-height: 10em; }
-    .ws-lg { min-height: 16em; }
-    .ws-xl { min-height: 22em; }
+    .write-line {
+      height: 8mm;
+      border-bottom: 1.2px dotted #f0a8c0;
+      display: block;
+    }
+    .ws-sm  { --lines: 3; }
+    .ws-md  { --lines: 6; }
+    .ws-lg  { --lines: 9; }
+    .ws-xl  { --lines: 12; }
 
-    /* ── SUMMARY ── */
+    /* ══════════════════════════════
+       SUMMARY CARDS
+    ══════════════════════════════ */
     .summary-card {
-      border: 2px solid #880e4f; border-radius: 10px;
-      padding: 1rem 1.25rem; margin-bottom: 1rem; page-break-inside: avoid;
+      border: 1.5px solid #880e4f;
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      margin-bottom: 0.85rem;
+      page-break-inside: avoid;
     }
-    .summary-card h3 { color: #880e4f; font-size: 12pt; margin-bottom: 0.5rem; }
+    .summary-card h3 {
+      color: #4a148c;
+      font-size: 10.5pt;
+      font-weight: 800;
+      margin-bottom: 0.4rem;
+    }
     .closing-box {
-      background: linear-gradient(135deg, #6a1b9a 0%, #880e4f 100%);
-      color: white; border-radius: 12px; padding: 1.75rem;
-      text-align: center; margin-top: 1.5rem; page-break-inside: avoid;
+      background: linear-gradient(135deg, #6a1b9a, #880e4f);
+      color: white;
+      border-radius: 12px;
+      padding: 1.4rem;
+      text-align: center;
+      margin-top: 1.4rem;
+      page-break-inside: avoid;
     }
+    .closing-box p { margin-bottom: 0.4rem; }
 
     .page-break { page-break-before: always; }
 
+    /* ══════════════════════════════
+       SUPPORT PAGE
+    ══════════════════════════════ */
+    .support-page {
+      page-break-after: always;
+      min-height: 9in;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+    .support-inner {
+      text-align: center;
+      max-width: 4.2in;
+      margin: 0 auto;
+    }
+    .support-bismillah {
+      font-size: 16pt;
+      color: #6a1b9a;
+      margin-bottom: 1.4rem;
+      letter-spacing: 1px;
+    }
+    .support-hadith {
+      font-size: 10pt;
+      font-style: italic;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 0.4rem;
+    }
+    .support-hadith span {
+      font-size: 8.5pt;
+      font-style: normal;
+      color: #888;
+      display: block;
+      margin-top: 0.3rem;
+    }
+    .support-divider {
+      width: 40px;
+      height: 2px;
+      background: #f48fb1;
+      border-radius: 2px;
+      margin: 1.2rem auto;
+    }
+    .support-body {
+      font-size: 9.5pt;
+      color: #444;
+      line-height: 1.75;
+      margin-bottom: 0.75rem;
+      text-align: left;
+    }
+    .support-box {
+      border: 1.5px solid #f48fb1;
+      border-radius: 12px;
+      background: #fdf0f5;
+      padding: 1rem 1.4rem;
+      margin: 1.2rem 0;
+    }
+    .support-box-label {
+      font-size: 9pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      color: #880e4f;
+      margin-bottom: 0.5rem;
+    }
+    .support-email {
+      font-size: 14pt;
+      font-weight: 800;
+      color: #6a1b9a;
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.3px;
+    }
+    .support-method {
+      font-size: 8.5pt;
+      color: #888;
+    }
+    .support-dua {
+      font-size: 9.5pt;
+      font-style: italic;
+      color: #555;
+      line-height: 1.7;
+      margin: 1rem 0;
+    }
+    .support-credit {
+      font-size: 8.5pt;
+      color: #aaa;
+      line-height: 1.7;
+    }
+    .support-credit strong { color: #888; }
+
+    /* ══════════════════════════════
+       SCREEN PREVIEW
+    ══════════════════════════════ */
     @media screen {
-      body { max-width: 800px; margin: 0 auto; padding: 2rem; }
-      .cover { min-height: 600px; border-radius: 10px; margin-bottom: 2rem; }
+      body {
+        max-width: 6in;
+        margin: 2rem auto;
+        padding: 0 1.5rem 4rem;
+        background: #f4f4f8;
+      }
+      .cover {
+        width: 100%;
+        height: auto;
+        min-height: 75vh;
+        border-radius: 16px;
+        margin-bottom: 3rem;
+        box-shadow: 0 24px 64px rgba(106,27,154,0.35);
+      }
     }
   </style>
 </head>
 <body>
 
-<!-- ═══════════════════ COVER ═══════════════════ -->
+<!-- ══════════════════════════════
+     COVER
+══════════════════════════════ -->
 <div class="cover">
+  <div class="cover-stars">✦ 🌸 ✨ 🌙 ✦</div>
   <div class="cover-bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
-  <div class="cover-verse">
-    "Indeed, Allah will not change the condition of a people until they change what is in themselves."<br>— Surah Ar-Ra'd (13:11)
-  </div>
-  <div class="cover-ornament">✦ ❧ ✦</div>
-  <h1>My Dream Duas</h1>
-  <h2>A Workbook for Teen Girls</h2>
-  <h3>Ages 14–17 · Build Your 7 Dream Duas</h3>
+  <div class="cover-series">Dream Duas Series · Teen Girls Edition</div>
+  <h1>My <span>Dream</span><br>Duas</h1>
+  <p class="cover-tagline">A Journal for Building Powerful Duas</p>
+  <p class="cover-ages">Ages 14–17 · 7 Categories · Your Conversation with Allah</p>
   <div class="cover-name-block">
-    <p>This workbook belongs to:</p>
+    <p>This journal belongs to</p>
     <div class="name-line"></div>
-    <p style="margin-top: 0.9rem;">My age:</p>
-    <div class="name-line" style="min-width: 80px;"></div>
-    <p style="margin-top: 0.9rem;">Started on:</p>
-    <div class="name-line" style="min-width: 120px;"></div>
+    <p style="margin-top: 0.65rem;">Age</p>
+    <div class="name-line" style="width: 60px; display: inline-block;"></div>
+    <p style="margin-top: 0.65rem;">Started on</p>
+    <div class="name-line"></div>
   </div>
   <div class="cover-credits">
     <strong>Compiled by UmmAbdullah</strong><br>
     Adapted from Muhammad al-Shareef's Visionaire Course<br>
-    <em>May Allah answer every dua you write in these pages.</em>
+    <em>May Allah answer every dua written in these pages 🤲</em>
   </div>
 </div>
 
-<!-- ═══════════════════ WELCOME ═══════════════════ -->
+<!-- ══════════════════════════════
+     SUPPORT PAGE (after cover)
+══════════════════════════════ -->
+<div class="support-page">
+  <div class="support-inner">
+    <div class="support-bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+
+    <p class="support-hadith">"The best of people are those who are most beneficial to others."<br>
+    <span>— Prophet Muhammad ﷺ &nbsp;·&nbsp; Al-Mu'jam Al-Awsat 5937</span></p>
+
+    <div class="support-divider"></div>
+
+    <p class="support-body">
+      This workbook was created with love as a <em>free resource</em> for Muslim families and communities worldwide.
+      It takes significant time, research, and care to develop, maintain, and improve.
+    </p>
+
+    <p class="support-body">
+      If this journal brought value to your family — or you would like to help it reach more Muslim children, teens,
+      parents, and grandparents around the world — please consider making a voluntary contribution.
+    </p>
+
+    <div class="support-box">
+      <p class="support-box-label">💛 Support this initiative</p>
+      <p class="support-email">amaturrahman@gmail.com</p>
+      <p class="support-method">E-transfer &nbsp;·&nbsp; Any amount is a sadaqah</p>
+    </div>
+
+    <p class="support-dua">
+      May Allah accept it as sadaqah jariyah — for you, for your family,<br>
+      and for every person whose dua is lifted because of it. <em>Ameen.</em>
+    </p>
+
+    <div class="support-divider"></div>
+    <p class="support-credit">
+      <strong>Compiled by UmmAbdullah</strong><br>
+      Adapted from Muhammad al-Shareef's Visionaire Course<br>
+      Free to share. Please do not sell or alter without permission.
+    </p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     WELCOME
+══════════════════════════════ -->
 <div>
   <h1 class="page-title">Welcome — A Letter to You</h1>
 
@@ -224,10 +572,12 @@
     <span class="ref">📖 Surah Ghafir (40:60)</span>
   </div>
 
-  <p style="font-size: 10pt; color: #666; margin-top: 1.5rem;"><em>Compiled by <strong>UmmAbdullah</strong> | Adapted from Muhammad al-Shareef's Visionaire Course</em></p>
+  <p style="font-size: 9pt; color: #666; margin-top: 1.5rem;"><em>Compiled by <strong>UmmAbdullah</strong> | Adapted from Muhammad al-Shareef's Visionaire Course</em></p>
 </div>
 
-<!-- ═══════════════════ WHO YOU ARE ═══════════════════ -->
+<!-- ══════════════════════════════
+     YOU ARE NOT JUST A BODY
+══════════════════════════════ -->
 <div class="page-break">
   <h1 class="page-title">You Are Not Just a Body</h1>
 
@@ -238,7 +588,7 @@
 
   <p>In a world that constantly tells you how to look, how to dress, how to perform yourself for other people's approval — this hadith is a lifeline. Allah, the only One whose opinion ultimately matters, is not looking at your body. He is looking at your <em>heart</em>.</p>
 
-  <p>That doesn't mean your outer self doesn't matter. It does. But your appearance is a shell; your character and faith are the treasure inside. A shell that cracks and fades. A heart that can keep growing more beautiful forever.</p>
+  <p>That doesn't mean your outer self doesn't matter. It does. But your appearance is a shell — your character and faith are the treasure inside. A shell that cracks and fades. A heart that can keep growing more beautiful forever.</p>
 
   <p class="write-prompt">✍️ What are three qualities of your heart that you are proud of?</p>
   <div class="write-space ws-md"></div>
@@ -254,25 +604,25 @@
   </div>
   <div class="ayah-box">
     <span class="arabic">يُدْنِينَ عَلَيْهِنَّ مِن جَلَابِيبِهِنَّ</span>
-    "O Prophet, tell your wives and daughters and the believing women to draw their outer garments around themselves. That is more suitable that they will be known [as Muslim women] and not be harmed."
+    "O Prophet, tell your wives and daughters and the believing women to draw their outer garments around themselves. That is more suitable that they will be known as Muslim women and not be harmed."
     <span class="ref">📖 Surah Al-Ahzab (33:59)</span>
   </div>
 
   <p>Hijab is not just a piece of cloth. It is a declaration: <em>"I am more than what you can see."</em> It is a crown worn by choice — a statement of dignity, identity, and connection to Allah. The woman who wears hijab by conviction is not covering up. She is revealing something far more powerful: her faith.</p>
 
-  <p>Whether you already wear hijab, are on your journey to it, or are figuring out what it means to you — make dua about it. Ask Allah to put love for it in your heart, and to make you someone whose modesty shows on the inside too.</p>
-
   <p class="write-prompt">✍️ What does modesty mean to you beyond clothing — in how you speak, carry yourself, use social media?</p>
   <div class="write-space ws-md"></div>
 </div>
 
-<!-- ═══════════════════ STORIES ═══════════════════ -->
+<!-- ══════════════════════════════
+     STORIES
+══════════════════════════════ -->
 <div class="page-break">
   <h1 class="page-title">Stories That Will Change How You Make Dua</h1>
 
   <div class="story-box">
     <strong>Story 1: The Girl Who Couldn't Afford the Course</strong>
-    <p style="margin-top: 0.5rem;">A girl desperately wanted to take an Islamic course but had no money. Her mother made dua for her — specifically, sincerely. Days later, someone returned money they had borrowed years ago, money the mother had completely given up on. It came at exactly the right time. The daughter took the course.</p>
+    <p style="margin-top: 0.5rem;">A girl desperately wanted to take an Islamic course but had no money. Her mother made dua — specifically, sincerely. Days later, someone returned money they had borrowed years ago, completely given up on. It came at exactly the right time. The daughter took the course.</p>
     <p style="font-style: italic; margin-top: 0.4rem;">💡 Allah provides from where you least expect. Ask. Then watch.</p>
   </div>
 
@@ -284,26 +634,25 @@
 
   <div class="story-box">
     <strong>Story 2: The Student Who Cried at Night</strong>
-    <p style="margin-top: 0.5rem;">Picture a student with a major exam tomorrow. She gets up in the night, prays, and cries — genuinely — because the stakes are real. That's sincere dua. She didn't force the tears. She cried because she cared.</p>
-    <p style="margin-top: 0.4rem;">When your duas are vivid and specific enough, you will naturally pray with that same urgency. Your salah will stop being routine and start being a real conversation. That's the whole point of dream duas.</p>
+    <p style="margin-top: 0.5rem;">A student had a major exam tomorrow. She got up in the night, prayed, and cried — genuinely — because the stakes were real. No forced tears. She cried because she cared. That's sincere dua. When your duas are vivid and specific enough, you will naturally pray with that same urgency. Your salah will stop being routine and start being a real conversation.</p>
     <p style="font-style: italic; margin-top: 0.4rem;">💡 Dream duas make salah come alive.</p>
   </div>
 
   <div class="story-box">
     <strong>Story 3: The Dua Is Higher Than You — Bilal's Lesson</strong>
-    <p style="margin-top: 0.5rem;">Someone told Bilal his dua wasn't good enough, that he should change it to something more worthy. That advice was wrong. Your dua is not lower than you — it is <em>higher</em> than you. The dua doesn't change to match your current level. <strong>You change to rise to meet your dua.</strong> Every time you make it, you become a little more like the person who deserves that answer.</p>
+    <p style="margin-top: 0.5rem;">Someone told Bilal his dua wasn't good enough. That advice was wrong. Your dua is not lower than you — it is <em>higher</em> than you. <strong>You change to rise to meet your dua.</strong> Every time you make it, you become a little more like the person who deserves that answer.</p>
     <p style="font-style: italic; margin-top: 0.4rem;">💡 Never shrink your duas. Let them pull you upward.</p>
   </div>
 
   <div class="story-box">
     <strong>Story 4: The Woman on the Plane</strong>
-    <p style="margin-top: 0.5rem;">Shaykh Muhammad al-Shareef was on a flight that seemed about to crash. Passengers recited shahada. His wife, in those terrifying final moments, made dua — not for survival, but for a child. Out of deep longing, even staring death in the face, her heart's dua came out. The plane landed safely. She got pregnant. Doctors had said it was impossible. He learned: <strong>you make dua even when you've been told it can't happen.</strong></p>
+    <p style="margin-top: 0.5rem;">Shaykh Muhammad al-Shareef was on a flight that seemed about to crash. His wife, even staring death in the face, made dua — not for survival, but for a child. The plane landed safely. She got pregnant. Doctors had said it was impossible. <strong>You make dua even when you've been told it can't happen.</strong></p>
     <p style="font-style: italic; margin-top: 0.4rem;">💡 Impossible is a word for people who forgot Who they're asking.</p>
   </div>
 
   <div class="story-box">
     <strong>Story 5: The Woman Who Had Everything — And Still Should Ask</strong>
-    <p style="margin-top: 0.5rem;">A man at Hajj on the most powerful day of dua — Mount Arafah — told his wife: "I have everything. You go." He sat down and didn't make dua. This is one of the biggest traps: believing that because life is okay, there is nothing to ask for. Being grateful is not the same as stopping to ask. There is always your akhira to ask for. Your deen. Your legacy. Jannah.</p>
+    <p style="margin-top: 0.5rem;">A man at Hajj sat down and made no dua because he had everything. This is the biggest trap: believing that because life is okay, there is nothing to ask for. There is always your akhira. Your deen. Your legacy. Jannah.</p>
     <p style="font-style: italic; margin-top: 0.4rem;">💡 You always have something worth asking Allah for.</p>
   </div>
 
@@ -311,7 +660,9 @@
   <div class="write-space ws-md"></div>
 </div>
 
-<!-- ═══════════════════ HOW DUAS WORK ═══════════════════ -->
+<!-- ══════════════════════════════
+     HOW DUAS WORK
+══════════════════════════════ -->
 <div class="page-break">
   <h1 class="page-title">How Dream Duas Work</h1>
 
@@ -320,24 +671,21 @@
 
   <div class="ayah-box">
     Yunus (AS) — swallowed by a whale, in complete darkness — cried out:<br>
-    "La ilaha illa anta, subhanaka inni kuntu min adh-dhalimeen"
+    <em>"La ilaha illa anta, subhanaka inni kuntu min adh-dhalimeen"</em>
     <span class="ref">📖 Surah Al-Anbiya (21:87)</span>
   </div>
 
-  <p>That was reactive. Beautiful. But what about Ibrahim (AS), who made proactive dua for righteous children, for a prophet from his descendants, for a city of peace? He asked when life was good — because he was always in conversation with Allah.</p>
+  <p>That was reactive. Beautiful. But Ibrahim (AS) made proactive dua for righteous children, for a prophet from his descendants, for a city of peace — he asked when life was good, because he was always in conversation with Allah.</p>
 
   <p class="write-prompt">✍️ Are your duas mostly reactive (in crisis) or proactive (from aspiration)? What would change if you made proactive duas daily?</p>
   <div class="write-space ws-md"></div>
 
   <h2 class="section-title">Visualize First, Then Ask</h2>
-  <p>Shaykh Muhammad al-Shareef and his wife wanted children for 10 years. His dua had become a habit — words without feeling. Then he changed: he started <strong>imagining</strong> his daughter's wedding, walking her down the aisle, his sons leading salah. He pictured it in vivid, emotional detail. <em>Then</em> he made dua — and it was answered.</p>
+  <p>Shaykh Muhammad al-Shareef and his wife wanted children for 10 years. His dua had become habit — words without feeling. Then he started <strong>imagining</strong> his daughter's wedding, his sons leading salah — pictured it in vivid detail. <em>Then</em> he made dua — and it was answered.</p>
 
   <div class="insight-box">
-    <strong>The Technique:</strong> Before you make dua, close your eyes. Picture the answered version. Where are you? Who is there? What are you wearing? What do you feel? Hold that image — then open your hands and ask.
+    <strong>The Technique:</strong> Before you make dua, close your eyes. Picture the answered version. Where are you? Who is there? What do you feel? Hold that image — then open your hands and ask.
   </div>
-
-  <h2 class="section-title">Your Dua Changes YOU</h2>
-  <p>The dua is not just about what you receive. It is about who you become. Every time you make a dream dua, you are setting an intention, orienting your soul, and committing to the process of growth. <strong>You evolve toward your dua.</strong> The dua pulls you up.</p>
 
   <h2 class="section-title">Who You Sit With Changes You</h2>
   <div class="ayah-box">
@@ -345,7 +693,7 @@
     <span class="ref">📖 Abu Dawud 4833</span>
   </div>
   <div class="ayah-box">
-    "The example of a good friend is like a perfume seller — even if he gives you nothing, you go home smelling good. A bad friend is like a blacksmith — even if nothing burns you, you go home smelling of smoke."
+    "The example of a good friend is like a perfume seller — even if he gives you nothing, you go home smelling good. A bad friend is like a blacksmith — even if nothing burned you, you go home smelling of smoke."
     <span class="ref">📖 Bukhari 2101 · Muslim 2628</span>
   </div>
 
@@ -353,10 +701,12 @@
   <div class="write-space ws-md"></div>
 </div>
 
-<!-- ═══════════════════ CATEGORY 1 ═══════════════════ -->
+<!-- ══════════════════════════════
+     CATEGORY 1 — ACADEMICS & CAREER
+══════════════════════════════ -->
 <div class="cat-block">
   <h1 class="page-title"><span class="cat-num">1</span> Academics &amp; Career</h1>
-  <p style="font-size: 10pt; color: #666; margin-bottom: 0.75rem;"><em>Mentors: Aisha (RA) — the greatest female scholar of Islam. Khadija (RA) — a trailblazing businesswoman. Fatima al-Fihri — founded the world's first university.</em></p>
+  <p><em>Mentors: Aisha (RA) — the greatest female scholar of Islam. Khadija (RA) — a trailblazing businesswoman. Fatima al-Fihri — founded the world's first university.</em></p>
 
   <p class="write-prompt">✍️ My mentor for this category:</p>
   <div class="write-space ws-sm"></div>
@@ -384,10 +734,12 @@
   <div class="write-space ws-xl"></div>
 </div>
 
-<!-- ═══════════════════ CATEGORY 2 ═══════════════════ -->
+<!-- ══════════════════════════════
+     CATEGORY 2 — FAITH & SPIRITUALITY
+══════════════════════════════ -->
 <div class="cat-block">
   <h1 class="page-title"><span class="cat-num">2</span> Faith &amp; Spirituality</h1>
-  <p style="font-size: 10pt; color: #666; margin-bottom: 0.75rem;"><em>Mentors: Maryam (AS) — devoted to 'ibadah from childhood. Asiya (RA) — worshipped Allah faithfully under the worst circumstances. Fatima (RA) — stood in salah until her feet swelled.</em></p>
+  <p><em>Mentors: Maryam (AS) — devoted to 'ibadah from childhood. Asiya (RA) — worshipped Allah faithfully under the worst circumstances. Fatima (RA) — stood in salah until her feet swelled.</em></p>
 
   <p class="write-prompt">✍️ My mentor for this category:</p>
   <div class="write-space ws-sm"></div>
@@ -412,10 +764,12 @@
   <div class="write-space ws-xl"></div>
 </div>
 
-<!-- ═══════════════════ CATEGORY 3 ═══════════════════ -->
+<!-- ══════════════════════════════
+     CATEGORY 3 — IDENTITY & CONFIDENCE
+══════════════════════════════ -->
 <div class="cat-block">
   <h1 class="page-title"><span class="cat-num">3</span> Identity, Confidence &amp; Beauty</h1>
-  <p style="font-size: 10pt; color: #666; margin-bottom: 0.75rem;"><em>Mentors: Khadija (RA) — confident, respected, never defined by looks. Umm Salamah (RA) — the wise counselor. Khawla bint al-Azwar — brave, dignified, and unapologetically herself.</em></p>
+  <p><em>Mentors: Khadija (RA) — confident, respected, never defined by looks. Umm Salamah (RA) — the wise counselor. Khawla bint al-Azwar — brave, dignified, and unapologetically herself.</em></p>
 
   <p class="write-prompt">✍️ My mentor for this category:</p>
   <div class="write-space ws-sm"></div>
@@ -445,10 +799,12 @@
   <div class="write-space ws-xl"></div>
 </div>
 
-<!-- ═══════════════════ CATEGORY 4 ═══════════════════ -->
+<!-- ══════════════════════════════
+     CATEGORY 4 — FAMILY
+══════════════════════════════ -->
 <div class="cat-block">
   <h1 class="page-title"><span class="cat-num">4</span> Family Relationships</h1>
-  <p style="font-size: 10pt; color: #666; margin-bottom: 0.75rem;"><em>Mentors: Maryam (AS) — supported by Allah alone when her family doubted her. Asiya (RA) — maintained her faith and dignity within a household of oppression.</em></p>
+  <p><em>Mentors: Maryam (AS) — supported by Allah alone when her family doubted her. Asiya (RA) — maintained her faith and dignity within a household of oppression.</em></p>
 
   <p class="write-prompt">✍️ My mentor for this category:</p>
   <div class="write-space ws-sm"></div>
@@ -478,10 +834,12 @@
   <div class="write-space ws-xl"></div>
 </div>
 
-<!-- ═══════════════════ CATEGORY 5 ═══════════════════ -->
+<!-- ══════════════════════════════
+     CATEGORY 5 — FRIENDSHIPS
+══════════════════════════════ -->
 <div class="cat-block">
   <h1 class="page-title"><span class="cat-num">5</span> Friendships &amp; Social Life</h1>
-  <p style="font-size: 10pt; color: #666; margin-bottom: 0.75rem;"><em>Mentors: The wives of the Prophet ﷺ — who supported and uplifted one another. Khadija (RA), who was loyal, honest, and never a people-pleaser.</em></p>
+  <p><em>Mentors: The wives of the Prophet ﷺ — who supported and uplifted one another. Khadija (RA) — loyal, honest, and never a people-pleaser.</em></p>
 
   <p class="write-prompt">✍️ My mentor for this category:</p>
   <div class="write-space ws-sm"></div>
@@ -505,10 +863,12 @@
   <div class="write-space ws-xl"></div>
 </div>
 
-<!-- ═══════════════════ CATEGORY 6 ═══════════════════ -->
+<!-- ══════════════════════════════
+     CATEGORY 6 — FUTURE MARRIAGE
+══════════════════════════════ -->
 <div class="cat-block">
   <h1 class="page-title"><span class="cat-num">6</span> Future Marriage</h1>
-  <p style="font-size: 10pt; color: #666; margin-bottom: 0.75rem;"><em>Mentors: Khadija (RA) — wise, supportive, and deeply connected to her spouse's mission. Fatima (RA) — patient, principled, and devoted. Umm Salamah (RA) — resilient, valued, and remarried with dignity.</em></p>
+  <p><em>Mentors: Khadija (RA) — wise, supportive, and deeply connected to her spouse's mission. Fatima (RA) — patient, principled, and devoted. Umm Salamah (RA) — resilient, valued, and remarried with dignity.</em></p>
 
   <p class="write-prompt">✍️ My mentor for this category:</p>
   <div class="write-space ws-sm"></div>
@@ -533,10 +893,12 @@
   <div class="write-space ws-xl"></div>
 </div>
 
-<!-- ═══════════════════ CATEGORY 7 ═══════════════════ -->
+<!-- ══════════════════════════════
+     CATEGORY 7 — HEALTH & WELLNESS
+══════════════════════════════ -->
 <div class="cat-block">
   <h1 class="page-title"><span class="cat-num">7</span> Health &amp; Mental Wellness</h1>
-  <p style="font-size: 10pt; color: #666; margin-bottom: 0.75rem;"><em>Mentors: Aisha (RA) — active, strong, and emotionally intelligent. Maryam (AS) — patient through great physical and emotional hardship, sustained by Allah alone.</em></p>
+  <p><em>Mentors: Aisha (RA) — active, strong, and emotionally intelligent. Maryam (AS) — patient through great physical and emotional hardship, sustained by Allah alone.</em></p>
 
   <p class="write-prompt">✍️ My mentor for this category:</p>
   <div class="write-space ws-sm"></div>
@@ -561,7 +923,9 @@
   <div class="write-space ws-xl"></div>
 </div>
 
-<!-- ═══════════════════ SUMMARY ═══════════════════ -->
+<!-- ══════════════════════════════
+     SUMMARY
+══════════════════════════════ -->
 <div class="page-break">
   <h1 class="page-title">My 7 Dream Duas — Final Summary</h1>
   <p><em>Write your final, refined duas here once you're happy with them. Read this page every day.</em></p>
@@ -577,20 +941,42 @@
   <div class="page-break">
     <h2 class="section-title">The Dua for Laylatul Qadr</h2>
     <div class="ayah-box" style="text-align: center;">
-      <span style="font-size: 18pt; display: block; margin-bottom: 0.6rem; direction: rtl;">اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي</span>
+      <span style="font-size: 17pt; display: block; margin-bottom: 0.6rem; direction: rtl; font-style: normal; color: #4a148c;">اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي</span>
       <em>"Allahumma innaka 'afuwwun tuhibbul 'afwa fa'fu 'anni"</em><br>
       "O Allah, You are the Pardoner. You love pardon. So pardon me."
-      <span class="ref">📖 Tirmidhi 3513 — taught by the Prophet ﷺ to Aisha (RA) herself</span>
+      <span class="ref">📖 Tirmidhi 3513 — the Prophet ﷺ taught this to Aisha (RA) herself</span>
     </div>
-    <p style="text-align: center; font-size: 10pt; font-style: italic; margin-top: 0.5rem;">He taught this dua to a woman. To a girl, in the last ten nights. Your duas matter to Allah.</p>
+    <p style="text-align: center; font-size: 9.5pt; font-style: italic; margin-top: 0.5rem; color: #666;">He taught this dua to a woman. To a girl, in the last ten nights. Your duas matter to Allah.</p>
   </div>
 
   <div class="closing-box" style="margin-top: 2rem;">
-    <p style="font-size: 14pt; font-weight: bold; margin-bottom: 0.75rem;">You were created for greatness.</p>
+    <p style="font-size: 14pt; font-weight: bold; margin-bottom: 0.75rem;">You were created for greatness. 🌟</p>
     <p>Your duas are the conversation between you and the One who made you exactly as you are — on purpose.</p>
-    <p style="margin-top: 1.25rem; font-size: 10pt; color: #e1bee7;">— UmmAbdullah<br><em>Adapted from Muhammad al-Shareef's Visionaire Course</em></p>
+    <p style="margin-top: 1.25rem; font-size: 9.5pt; color: #e1bee7;">— UmmAbdullah<br><em>Adapted from Muhammad al-Shareef's Visionaire Course</em></p>
   </div>
 </div>
 
+<script>
+  /* ─────────────────────────────────────────────────
+     Generate real line elements inside every .write-space
+     so ruled lines print reliably across all browsers/PDF
+  ───────────────────────────────────────────────── */
+  (function () {
+    const LINE_DEFAULTS = { 'ws-sm': 3, 'ws-md': 6, 'ws-lg': 9, 'ws-xl': 12 };
+    const DEFAULT_LINES = 5;
+
+    document.querySelectorAll('.write-space').forEach(function (ws) {
+      let count = DEFAULT_LINES;
+      for (const cls in LINE_DEFAULTS) {
+        if (ws.classList.contains(cls)) { count = LINE_DEFAULTS[cls]; break; }
+      }
+      for (let i = 0; i < count; i++) {
+        const line = document.createElement('span');
+        line.className = 'write-line';
+        ws.appendChild(line);
+      }
+    });
+  })();
+</script>
 </body>
 </html>
