@@ -73,9 +73,23 @@
     .ver-card .vc-sub{font-size:11px;color:var(--muted);display:block;margin-top:2px}
     .vc-badge{position:absolute;top:8px;right:8px;background:var(--p);color:#fff;
               font-size:9px;padding:2px 7px;border-radius:20px;font-weight:700}
+    .vc-wb{display:inline-block;margin-top:8px;font-size:10px;font-weight:600;
+           color:var(--p);border:1px solid var(--p);border-radius:20px;padding:2px 9px;
+           text-decoration:none;transition:all .15s}
+    .vc-wb:hover{background:var(--p);color:#fff}
     .sel-credit{text-align:center;font-size:11px;color:var(--muted);
                 padding-top:14px;border-top:1px solid var(--bdr)}
     .sel-credit strong{color:var(--p)}
+
+    .offline-strip{text-align:center;margin-top:14px;padding-top:14px;
+                   border-top:1px solid var(--bdr)}
+    .offline-strip p{font-size:12px;color:var(--muted);margin-bottom:7px}
+    .offline-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;
+                  font-weight:600;color:var(--p);text-decoration:none;
+                  border:1.5px solid var(--p);border-radius:var(--r);
+                  padding:10px 18px;width:100%;justify-content:center;
+                  transition:all .15s}
+    .offline-link:hover{background:var(--p);color:#fff}
 
     /* ─── WELCOME ─── */
     .wel-wrap{max-width:520px;margin:0 auto;padding-top:16px}
@@ -1662,13 +1676,19 @@ function handleNext() {
 // ─── SELECT SCREEN ───
 function renderSelect() {
   const cards = Object.keys(VERSIONS).map(v => {
-    const d = VERSIONS[v]
+    const d    = VERSIONS[v]
     const saved = hasSaved(v)
+    const res  = RESOURCES[v]
+    const wbLink = res
+      ? `<a class="vc-wb" href="${res.wb}" target="_blank"
+            onclick="event.stopPropagation()">📋 Printable workbook</a>`
+      : ''
     return `<div class="ver-card" onclick="pickVersion('${v}')">
       ${saved ? `<span class="vc-badge">In progress</span>` : ''}
       <span class="vc-em">${d.em}</span>
       <span class="vc-lb">${d.label}</span>
       <span class="vc-sub">${d.subtitle}</span>
+      ${wbLink}
     </div>`
   }).join('')
 
@@ -1676,7 +1696,7 @@ function renderSelect() {
     <div class="sel-top">
       <span class="bismi">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</span>
       <h1>Dream Duas</h1>
-      <p>A guided Visionaire workbook — pick your version to begin</p>
+      <p>Use the app digitally, or tap <strong>📋 Printable workbook</strong> on any card to print and work offline.</p>
     </div>
     <div class="ver-grid">${cards}</div>
     <div class="sel-credit">
@@ -1721,6 +1741,10 @@ function renderWelcome() {
     ${voicePickerHTML()}
     <button class="btn btn-p btn-full" style="margin-top:8px" onclick="beginNew()">Begin My Journey →</button>
     <button class="btn btn-g btn-full" style="margin-top:10px;font-size:13px" onclick="S.version=null;applyTheme('kids');render()">← Choose a different version</button>
+    ${RESOURCES[S.version] ? `<div class="offline-strip">
+      <p>Prefer pen &amp; paper? Print the workbook and do it offline.</p>
+      <a class="offline-link" href="${RESOURCES[S.version].wb}" target="_blank">📋 Open Printable Workbook →</a>
+    </div>` : ''}
   </div>`
 }
 
@@ -1892,8 +1916,8 @@ function renderSummary() {
       <button class="btn btn-g btn-sm" onclick="confirmRestart()">Start Over</button>
     </div>
     <div class="res-box">
-      <h4>📚 Your Resources</h4>
-      <p>Want to write by hand or read the full guide?</p>
+      <h4>📚 Take It Further</h4>
+      <p>Print the workbook to write by hand, share with family, or revisit offline — no phone needed.</p>
       <div class="res-links">
         <a class="res-link" href="${res.wb}" target="_blank">📋 ${res.wbLabel}</a>
         <a class="res-link res-link-secondary" href="${res.guide}" target="_blank">📖 ${res.guideLabel}</a>
