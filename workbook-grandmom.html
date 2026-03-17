@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dream Duas Workbook — Grandmother</title>
+<style>
+  @page { size: A4; margin: 20mm 18mm; }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; font-size: 11pt; color: #1a202c; line-height: 1.7; background: #fff; }
+
+  /* ─── COVER ─── */
+  .cover { page-break-after: always; min-height: 250mm; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20mm 10mm; background: linear-gradient(160deg, #f9f0fc 0%, #fdf6e3 100%); }
+  .cover-bismillah { font-size: 28pt; color: #6d2b6e; margin-bottom: 10mm; letter-spacing: 2px; }
+  .cover-title { font-size: 26pt; font-weight: bold; color: #6d2b6e; margin-bottom: 5mm; }
+  .cover-subtitle { font-size: 14pt; color: #8d3d8e; margin-bottom: 8mm; font-style: italic; }
+  .cover-divider { width: 60mm; height: 2px; background: #d4a017; margin: 6mm auto; }
+  .cover-ayat { font-size: 11pt; color: #6d2b6e; max-width: 120mm; margin-bottom: 6mm; font-style: italic; }
+  .cover-ref { font-size: 9pt; color: #8d3d8e; margin-bottom: 12mm; }
+  .cover-credit { font-size: 9pt; color: #555; line-height: 1.6; }
+
+  /* ─── TYPOGRAPHY ─── */
+  h1 { font-size: 18pt; color: #6d2b6e; margin-bottom: 4mm; }
+  h2 { font-size: 15pt; color: #6d2b6e; margin-bottom: 3mm; margin-top: 6mm; border-bottom: 1.5pt solid #d4a017; padding-bottom: 2mm; }
+  h3 { font-size: 12pt; color: #6d2b6e; margin-bottom: 2mm; margin-top: 5mm; }
+  h4 { font-size: 10pt; color: #8d3d8e; font-weight: bold; margin-bottom: 2mm; text-transform: uppercase; letter-spacing: 0.5px; }
+  p { margin-bottom: 3mm; font-size: 10.5pt; }
+
+  /* ─── LAYOUT ELEMENTS ─── */
+  .section { page-break-inside: avoid; margin-bottom: 8mm; }
+  .page-break { page-break-before: always; padding-top: 8mm; }
+  .intro-block { background: #fdf4fe; border-left: 4pt solid #6d2b6e; padding: 5mm 6mm; margin-bottom: 6mm; border-radius: 2pt; }
+  .hadith-box { background: #fdf6e3; border-left: 4pt solid #d4a017; padding: 4mm 6mm; margin: 4mm 0; font-style: italic; font-size: 10pt; border-radius: 2pt; }
+  .hadith-box .ref { font-size: 8.5pt; color: #777; font-style: normal; display: block; margin-top: 1mm; }
+  .ayat-box { background: #fff8e1; border: 1pt solid #d4a017; padding: 4mm 6mm; margin: 4mm 0; border-radius: 3pt; text-align: center; }
+  .ayat-arabic { font-size: 16pt; direction: rtl; color: #6d2b6e; display: block; margin-bottom: 2mm; line-height: 1.8; }
+  .ayat-tr { font-style: italic; font-size: 10pt; color: #8d3d8e; }
+  .ayat-ref { font-size: 8.5pt; color: #777; display: block; margin-top: 1mm; }
+  .mentor-box { background: #fdf4fe; border: 1pt solid #8d3d8e; padding: 4mm 6mm; margin: 4mm 0; border-radius: 3pt; }
+  .mentor-box h4 { color: #6d2b6e; margin-bottom: 2mm; }
+  .mentor-box ul { padding-left: 5mm; font-size: 10pt; }
+  .mentor-box li { margin-bottom: 1mm; }
+  .warning-box { background: #fff3cd; border-left: 4pt solid #e6a817; padding: 4mm 6mm; margin: 4mm 0; border-radius: 2pt; }
+  .warning-box strong { color: #7d4e00; }
+  .reflect-box { background: #f9f9f9; border: 1pt dashed #8d3d8e; padding: 4mm 6mm; margin: 4mm 0; border-radius: 3pt; }
+  .reflect-box h4 { color: #6d2b6e; }
+  .reflect-box ul { padding-left: 5mm; font-size: 10pt; }
+  .reflect-box li { margin-bottom: 1.5mm; }
+
+  /* ─── WRITE SPACES ─── */
+  .write-space { margin: 4mm 0 6mm 0; }
+  .write-space label { font-size: 10pt; font-weight: bold; color: #6d2b6e; display: block; margin-bottom: 2mm; }
+  .line { border-bottom: 0.5pt solid #bbb; height: 8mm; width: 100%; margin-bottom: 0; }
+  .lines-block { margin: 3mm 0 5mm 0; }
+
+  /* ─── SUMMARY ─── */
+  .summary-card { border: 1pt solid #8d3d8e; border-radius: 4pt; padding: 4mm 5mm; margin-bottom: 5mm; page-break-inside: avoid; }
+  .summary-card h3 { font-size: 11pt; color: #6d2b6e; margin-bottom: 2mm; }
+  .sum-lines .line { height: 7mm; }
+
+  /* ─── FOOTER ─── */
+  .doc-footer { text-align: center; font-size: 8pt; color: #888; padding-top: 6mm; border-top: 0.5pt solid #ccc; margin-top: 10mm; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ COVER ═══════════════ -->
+<div class="cover">
+  <div class="cover-bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+  <div class="cover-title">Dream Duas</div>
+  <div class="cover-subtitle">A Visionaire Workbook for Grandmothers</div>
+  <div class="cover-divider"></div>
+  <div class="cover-ayat">"Our Lord, grant us from among our wives and offspring comfort to our eyes, and make us an example for the righteous."</div>
+  <div class="cover-ref">— Surah Al-Furqan (25:74)</div>
+  <div class="cover-divider"></div>
+  <div style="font-size:13pt; color:#6d2b6e; margin-bottom:4mm;">Name: ___________________________</div>
+  <div style="font-size:11pt; color:#555; margin-bottom:8mm;">Date: ___________________________</div>
+  <div class="cover-credit">
+    Compiled by <strong>UmmAbdullah</strong><br>
+    Adapted from Muhammad al-Shareef's Visionaire Course<br>
+    <em>May Allah answer every dua written in these pages. آمين</em>
+  </div>
+</div>
+
+<!-- ═══════════════ INTRODUCTION ═══════════════ -->
+<div class="section">
+  <h1>Welcome, Grandmother</h1>
+  <div class="intro-block">
+    <p>You are in one of the most honoured stages of life. The Prophet ﷺ said: <em>"The dua of a parent for their child is never rejected."</em> Imagine what your duas carry now — after a lifetime of love, sacrifice, and connection to Allah.</p>
+    <p>You have lived enough to know: Allah answers. He provides from where you did not expect. He never wastes a sincere tear. Now it is time to ask — boldly, specifically, for your health, your family, your legacy, and your beautiful ending.</p>
+  </div>
+
+  <h2>What is a Dream Dua?</h2>
+  <p>A dream dua is <strong>specific, vivid, and connected to what matters most</strong>. Not "be healthy" but "Ya Allah — ease in my joints so I can stand in salah with joy, clarity of mind to give wisdom to my grandchildren, energy to cook and gather those I love." It always has an Akhira connection and a vivid picture of what the answered version looks like.</p>
+
+  <h2>A Loving Reminder About Your Affairs</h2>
+  <div class="warning-box">
+    <strong>⚠️ An Important Reminder from the Sunnah:</strong>
+    <p style="margin-top:2mm;">The Prophet ﷺ said: <em>"It is not permissible for any Muslim who has something to bequeath to sleep for two nights without having his will (wasiyyah) written and kept ready with him."</em></p>
+    <p><strong>— Sahih al-Bukhari 2738 · Sahih Muslim 1627</strong></p>
+    <p style="margin-top:2mm;">This workbook includes a dedicated section on your affairs — your wasiyyah, Islamic inheritance (faraidh), debts, and sadaqah jariyah. Please do not skip it. Taking care of your affairs is an act of worship, not a morbid task. It is a gift to the people you love.</p>
+  </div>
+
+  <div class="hadith-box">
+    "When a person dies, their deeds come to an end except for three: ongoing sadaqah, knowledge that benefits others, or a righteous child who prays for them."
+    <span class="ref">— Sahih Muslim 1631</span>
+  </div>
+
+  <h2>How to Use This Workbook</h2>
+  <p>Work through each of the 6 categories. For each one: read the intro, reflect on the questions, then write your dua in your own words. Be specific. Be honest. Picture the answered version before you put pen to paper — then ask.</p>
+</div>
+
+<!-- ═══════════════ CATEGORY 1: HEALTH ═══════════════ -->
+<div class="section page-break">
+  <h2>🌿 Category 1 of 6 — Health &amp; Wellbeing</h2>
+  <div class="intro-block">
+    <p>Your body has given so much — to your children, your grandchildren, your home. Ask Allah to sustain it now with dignity and ease, so you can continue to love, pray, and be present. Caring for your body is caring for an amanah.</p>
+  </div>
+
+  <div class="mentor-box">
+    <h4>✦ Inspired by</h4>
+    <ul>
+      <li><strong>Maryam (AS)</strong> — sustained completely by Allah through physical hardship — given shade, water, and fresh dates when she had nothing at all</li>
+      <li><strong>Sarah, wife of Ibrahim (AS)</strong> — who received the news of a son in very old age and laughed in surprise. Allah's gifts have no age limit.</li>
+      <li><strong>Aisha (RA)</strong> — physically active, mentally sharp, emotionally engaged and deeply present right through her later years of life</li>
+    </ul>
+  </div>
+
+  <div class="reflect-box">
+    <h4>✦ Reflect on This</h4>
+    <ul>
+      <li>What does your body need that you keep giving to others instead of yourself?</li>
+      <li>What would it feel like to have genuine energy and ease as a daily baseline?</li>
+      <li>What health goal would let you worship, travel, and be with family on your own terms?</li>
+    </ul>
+  </div>
+
+  <p><em>Sample dua for inspiration:</em> <em>"Ya Allah, sustain my body with dignity and ease. Keep my eyes bright enough to read Your Book, my hands steady for salah, my mind clear for wisdom. Free me from pain that diminishes my days. Let me be truly present — for my grandchildren, my worship, and those I love — until my very last breath."</em></p>
+
+  <div class="write-space">
+    <label>✍️ My Dream Dua — Health &amp; Wellbeing</label>
+    <div class="lines-block">
+      <div class="line"></div><div class="line"></div><div class="line"></div>
+      <div class="line"></div><div class="line"></div><div class="line"></div>
+      <div class="line"></div><div class="line"></div><div class="line"></div>
+      <div class="line"></div><div class="line"></div><div class="line"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ CATEGORY 2: DEEN ═══════════════ -->
+<div class="section page-break">
+  <h2>🌙 Category 2 of 6 — Deen &amp; Ibadah</h2>
+  <div class="intro-block">
+    <p>This is the chapter to go deeper. The salah that has carried you — let it become the coolness of your eyes. The Quran you love — complete it. The knowledge you carry — pass it on to your grandchildren as the greatest inheritance they could receive.</p>
+  </div>
+
+  <div class="mentor-box">
+    <h4>✦ Inspired by</h4>
+    <ul>
+      <li><strong>Maryam (AS)</strong> — devoted to worship from childhood through every stage of life, chosen above all women of the world because of her heart</li>
+      <li><strong>Asiya (RA)</strong> — who called on Allah from inside the worst household imaginable. Her worship was entirely between her and Allah alone.</li>
+      <li><strong>The women of the early ummah</strong> — who maintained their Quran, their prayers, and their connection to Allah across every hardship and every age</li>
+    </ul>
+  </div>
+
+  <div class="ayat-box">
+    <span class="ayat-tr">"My Lord, grant me from Yourself a good offspring. Indeed, You are the Hearer of supplication."</span>
+    <span class="ayat-ref">📖 Surah Aal-Imran (3:38) — the dua of a devoted heart for their family's future</span>
+  </div>
+
+  <div class="hadith-box">
+    "When a person dies, their deeds come to an end except for three: ongoing sadaqah, knowledge that benefits others, or a righteous child who prays for them."
+    <span class="ref">— Sahih Muslim 1631</span>
+  </div>
+
+  <div class="reflect-box">
+    <h4>✦ Reflect on This</h4>
+    <ul>
+      <li>What does your most spiritually alive day look like from fajr to isha?</li>
+      <li>What part of the Quran or ibadah do you want to deepen before you meet Allah?</li>
+      <li>What Islamic legacy — a story, a practice, a verse — do you want to leave in your family?</li>
+    </ul>
+  </div>
+
+  <div class="write-space">
+    <label>✍️ My Dream Dua — Deen &amp; Ibadah</label>
+    <div class="lines-block">
+      <div class="line"></div><div class="line"></div><div class="line"></div>
+      <div class="line"></div><div class="line"></div><div class="line"></div>
+      <div class="line"></div><div class="line"></div><div class="line"></div>
+      <div class="line"></div><div class="line"></div><div class="line"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ CATEGORY 3: MARRIAGE ═══════════════ -->
+<div class="section page-break">
+  <h2>❤️ Category 3 of 6 — Marriage &amp; Companionship</h2>
+  <div class="intro-block">
+    <p>In the final chapter of life, ask Allah for a companionship that is peaceful, warm, and full of gratitude for what you have built together. The best marriages are not the ones that started well — they are the ones that end well.</p>
+  </div>
+
+  <div class="mentor-box">
+    <h4>✦ Inspired by</h4>
+    <ul>
+      <li><strong>Khadija (RA)</strong> — who was the Prophet's greatest companion for decades. Loyal, supportive, and deeply loving in a way he never stopped speaking of.</li>
+      <li><strong>Umm Salamah (RA)</strong> — who was patient through widowhood, remarried with dignity, and became one of the most respected women in Islamic history</li>
+      <li><strong>Sarah, wife of Ibrahim (AS)</strong> — whose partnership with Ibrahim spanned continents, decades, and every imaginable trial — and held through all of it</li>
+    </ul>
+  </div>
+
+  <div class="reflect-box">
+    <h4>✦ Reflect on This</h4>
+    <ul>
+      <li>What do you love about your spouse that you haven't said out loud recently?</li>
+      <li>What does your dream marriage feel like in this final chapter — day to day?</li>
+      <li>How can you be a comfort and a joy to your spouse at this stage of life?</li>
+    </ul>
+  </div>
+
+  <div class="write-space">
+    <label>✍️ My Dream Dua — Marriage &amp; Companionship</label>
+    <div class="lines-block">
+      <div class="line"></div><div class="line"></div><div class="line"></div>
+      <div class="line"></div><div class="line"></div><div class="line"></div>
+      <div class="line"></div><div class="line"></div><div class="line"></div>
+      <div class="line"></div><div class="line"></div><div class="line"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ CATEGORY 4: FAMILY ═══════════════ -->
+<div class="section page-break">
+  <h2>🌱 Category 4 of 6 — Children &amp; Grandchildren</h2>
+  <div class="intro-block">
+    <p>A grandmother's dua is among the most powerful on earth. The best gift you can give your grandchildren is not wealth or time alone — it is your dua. Name each one. Picture each one. Ask for each one with your whole heart.</p>
+  </div>
+
+  <div class="mentor-box">
+    <h4>✦ Inspired by</h4>
+    <ul>
+      <li><strong>Maryam's mother (RA)</strong> — who dedicated her child to Allah before she was born. That single dua changed the course of history.</li>
+      <li><strong>Ibrahim (AS)</strong> — whose dua "make me and my descendants people who establish salah" is answered every single day across the globe</li>
+      <li><strong>Luqman (AS)</strong> — whose wisdom to his son, preserved in the Quran, is the model of intergenerational legacy</li>
+    </ul>
+  </div>
+
+  <div class="ayat-box">
+    <span class="ayat-arabic">رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ</span>
+    <span class="ayat-tr">"Our Lord, grant us from among our wives and offspring comfort to our eyes, and make us an example for the righteous."</span>
+    <span class="ayat-ref">📖 Surah Al-Furqan (25:74) — the dua of those who seek righteous families</span>
+  </div>
+
+  <p style="font-style:italic; font-size:10pt; margin-bottom:2mm;"><strong>Write your grandchildren's names here as a reminder when you make dua:</strong></p>
+  <div class="lines-block">
+    <div class="line"></div><div class="line"></div>
+  </div>
+
+  <div class="reflect-box">
+    <h4>✦ Reflect on This</h4>
+    <ul>
+      <li>Name each grandchild — what do you specifically dream for their life?</li>
+      <li>What is the most important value or story you want them to carry from you?</li>
+      <li>What dua are you making for them that you have never told them about?</li>
+    </ul>
+  </div>
+
+  <div class="write-space">
+    <label>✍️ My Dream Dua — Children &amp; Grandchildren</label>
+    <div class="lines-block">
+      <div class="line"></div><div class="line"></div><div class="line"></div>
+      <div class="line"></div><div class="line"></div><div class="line"></div>
+      <div class="line"></div><div class="line"></div><div class="line"></div>
+      <div class="line"></div><div class="line"></div><div class="line"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ CATEGORY 5: AFFAIRS ═══════════════ -->
+<div class="section page-break">
+  <h2>📜 Category 5 of 6 — Affairs, Will &amp; Inheritance</h2>
+  <div class="intro-block">
+    <p>This is one of the most loving acts you can do for your family. Taking care of your affairs is Sunnah — it is a mercy, not a morbid task. It is the gift of a clear mind and a generous heart to those you will leave behind.</p>
+  </div>
+
+  <div class="warning-box">
+    <strong>⚠️ The Prophetic Command:</strong>
+    <div class="hadith-box" style="margin-top:2mm; background:transparent; border:none; padding:0;">
+      "It is not permissible for any Muslim who has something to bequeath to sleep for two nights without having his will (wasiyyah) written and kept ready with him."
+      <span class="ref">— Sahih al-Bukhari 2738 · Sahih Muslim 1627</span>
+    </div>
+  </div>
+
+  <div class="mentor-box">
+    <h4>✦ Inspired by</h4>
+    <ul>
+      <li><strong>Khadija (RA)</strong> — who used her wealth with complete intentionality. Every gift, every investment, every contribution was deliberate and purposeful.</li>
+      <li><strong>Abu Bakr (RA)</strong> — who wrote his will before every expedition without exception. He never left his affairs unresolved.</li>
+      <li><strong>Prophet Muhammad ﷺ</strong> — who left clear instructions, settled every debt, and ensured nothing was pending when he passed — a mercy to all he loved</li>
+    </ul>
+  </div>
+
+  <div class="ayat-box">
+    <span class="ayat-arabic">يُوصِيكُمُ اللَّهُ فِي أَوْلَادِكُمْ ۖ لِلذَّكَرِ مِثْلُ حَظِّ الْأُنثَيَيْنِ</span>
+    <span class="ayat-tr">"Allah instructs you concerning your children: for the male what is equal to the share of two females. Allah is ever Knowing and Wise."</span>
+    <span class="ayat-ref">📖 Surah An-Nisa (4:11) — the foundation of Islamic inheritance law (faraidh)</span>
+  </div>
+
+  <div class="reflect-box">
+    <h4>✦ Checklist &amp; Reflection</h4>
+    <ul>
+      <li>☐ Have you written your wasiyyah (Islamic will)? Is it current and accessible to family?</li>
+      <li>☐ Is your estate to be distributed according to Islamic faraidh? Have you consulted a scholar?</li>
+      <li>☐ Are there debts you owe — to Allah (missed prayers, fasts, zakat) or to people?</li>
+      <li>☐ Are there debts owed to you that you wish to forgive completely and wholeheartedly?</li>
+      <li>☐ What sadaqah jariyah (Quran endowment, masjid, scholarship) do you want established in your name?</li>
+      <li>☐ Who is your named executor? Do they know?</li>
+      <li>☐ Have you communicated your wishes for janazah, burial, and final care to your family?</li>
+    </ul>
+  </div>
+
+  <p><em>Notes on matters to resolve:</em></p>
+  <div class="lines-block">
+    <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  </div>
+
+  <div class="write-space">
+    <label>✍️ My Dream Dua — Affairs, Will &amp; Inheritance</label>
+    <div class="lines-block">
+      <div class="line"></div><div class="line"></div><div class="line"></div>
+      <div class="line"></div><div class="line"></div><div class="line"></div>
+      <div class="line"></div><div class="line"></div><div class="line"></div>
+      <div class="line"></div><div class="line"></div><div class="line"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ CATEGORY 6: JOY ═══════════════ -->
+<div class="section page-break">
+  <h2>✨ Category 6 of 6 — Joy, Gratitude &amp; Rest</h2>
+  <div class="intro-block">
+    <p>Joy is Sunnah. Rest is halal. You have given so much — you are allowed to receive. Ask Allah for a life in this chapter that is full, joyful, and deeply grateful. You have earned the right to ask for beautiful things.</p>
+  </div>
+
+  <div class="mentor-box">
+    <h4>✦ Inspired by</h4>
+    <ul>
+      <li><strong>Prophet Muhammad ﷺ</strong> — who played with his grandchildren, raced with Aisha for fun, and smiled so much it was noted in countless narrations</li>
+      <li><strong>Aisha (RA)</strong> — who remained joyful, witty, engaged, and full of laughter well into her later years. Joy was part of her deen.</li>
+      <li><strong>Sarah, wife of Ibrahim (AS)</strong> — who laughed out loud with surprise when the angels brought glad tidings in old age — and it was recorded in the Quran forever</li>
+    </ul>
+  </div>
+
+  <div class="ayat-box">
+    <span class="ayat-tr">"So which of the favours of your Lord would you deny?"</span>
+    <span class="ayat-ref">📖 Surah Ar-Rahman (55:13) — repeated 31 times, a verse for hearts overflowing with gratitude</span>
+  </div>
+
+  <div class="reflect-box">
+    <h4>✦ Reflect on This</h4>
+    <ul>
+      <li>What brings you deep, genuine joy that you haven't allowed yourself recently?</li>
+      <li>What is one experience — a journey, a gathering, a dream — you still want to live?</li>
+      <li>What would it feel like to enter every day with gratitude rather than just endurance?</li>
+    </ul>
+  </div>
+
+  <div class="write-space">
+    <label>✍️ My Dream Dua — Joy, Gratitude &amp; Rest</label>
+    <div class="lines-block">
+      <div class="line"></div><div class="line"></div><div class="line"></div>
+      <div class="line"></div><div class="line"></div><div class="line"></div>
+      <div class="line"></div><div class="line"></div><div class="line"></div>
+      <div class="line"></div><div class="line"></div><div class="line"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ SUMMARY PAGE ═══════════════ -->
+<div class="section page-break">
+  <h1>🤲 My 6 Dream Duas — Summary</h1>
+  <p style="margin-bottom:5mm; font-style:italic;">Write your final, polished duas here. Read these every day. These are your conversation with Allah.</p>
+
+  <div class="summary-card">
+    <h3>🌿 Health &amp; Wellbeing</h3>
+    <div class="sum-lines"><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div></div>
+  </div>
+  <div class="summary-card">
+    <h3>🌙 Deen &amp; Ibadah</h3>
+    <div class="sum-lines"><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div></div>
+  </div>
+  <div class="summary-card">
+    <h3>❤️ Marriage &amp; Companionship</h3>
+    <div class="sum-lines"><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div></div>
+  </div>
+  <div class="summary-card">
+    <h3>🌱 Children &amp; Grandchildren</h3>
+    <div class="sum-lines"><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div></div>
+  </div>
+  <div class="summary-card">
+    <h3>📜 Affairs, Will &amp; Inheritance</h3>
+    <div class="sum-lines"><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div></div>
+  </div>
+  <div class="summary-card">
+    <h3>✨ Joy, Gratitude &amp; Rest</h3>
+    <div class="sum-lines"><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div></div>
+  </div>
+
+  <div class="hadith-box" style="margin-top:6mm; text-align:center;">
+    <div style="font-size:16pt; color:#6d2b6e; margin-bottom:3mm;">اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي</div>
+    <em>"O Allah, You are the Pardoner. You love to pardon. So pardon me."</em>
+    <span class="ref">— Tirmidhi 3513 · Taught by the Prophet ﷺ to Aisha (RA) for Laylatul Qadr</span>
+  </div>
+
+  <div class="doc-footer">
+    Compiled by UmmAbdullah &nbsp;·&nbsp; Adapted from Muhammad al-Shareef's Visionaire Course<br>
+    May Allah answer every dua written in these pages. آمين
+  </div>
+</div>
+
+</body>
+</html>

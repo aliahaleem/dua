@@ -62,6 +62,7 @@
     .sel-top h1{font-size:24px;font-weight:800;margin-bottom:4px}
     .sel-top p{color:var(--muted);font-size:14px}
     .ver-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+    .ver-card:last-child:nth-child(odd){grid-column:1 / -1}
     .ver-card{background:var(--card);border-radius:var(--r);padding:18px 14px;text-align:center;
               cursor:pointer;border:2px solid var(--bdr);transition:all .18s;position:relative}
     .ver-card:hover,.ver-card:active{border-color:var(--p);transform:translateY(-2px);box-shadow:var(--sh)}
@@ -266,6 +267,20 @@ const FOUNDATION = {
     { em:'🌱', title:'Your Dua Changes YOU',
       body:'The dua doesn\'t change to match where you are now — you change to rise toward your dua. Every time you make it, you become a little more like the person who deserves that answer. Don\'t lower your duas to match your current self. Make them bigger. Let them pull you upward.',
       hadith:'"Allah answers every dua except the one who gets impatient and says it was not answered." — Bukhari 6340 · Muslim 2735' }
+  ],
+  grandparents: [
+    { em:'🤲', title:'Your Duas Carry a Lifetime',
+      body:'A dream dua is specific, vivid, and connected to what matters most. At this stage of life, your duas carry something extraordinary: a lifetime of knowing Allah. You have lived enough to witness: He answers. He provides from where you did not expect. He never wastes a sincere tear. Ask boldly — for your health, your family, your legacy, and your Akhira. The door of dua has no closing time.',
+      hadith:'"The dua of a parent for their child is never rejected." — Tirmidhi 1905' },
+    { em:'📜', title:'The Obligation You Cannot Defer',
+      body:'The Prophet ﷺ said: "It is not permissible for any Muslim who has something to bequeath to sleep for two nights without having his will (wasiyyah) written." This course will ask you to make duas for your legacy — and part of that legacy is ensuring your affairs are in order. Your wasiyyah, your inheritance distribution per the faraidh Allah prescribed, your debts settled, your wishes known — these are gifts to those you will leave behind. Do not delay.',
+      hadith:'"It is not permissible for any Muslim who has something to bequeath to sleep for two nights without having his will written and kept ready." — Sahih al-Bukhari 2738 · Sahih Muslim 1627' },
+    { em:'🎬', title:'Visualize First, Then Ask',
+      body:'Before each dua in this guide: close your eyes. Picture the answered version in full detail. Your grandchild reciting Quran. Your family gathered at your janazah, hearts full of love and forgiveness — no debts, no regrets. The sadaqah jariyah you established still flowing. Hold that image. Then open your hands and ask. Allah responds to the one who comes with full presence.',
+      hadith:'"And He provides from where he does not expect." — Surah At-Talaq (65:3)' },
+    { em:'🌱', title:'Your Legacy Is Still Being Written',
+      body:'You are not at the end — you are at the most powerful chapter. The Prophet ﷺ kept making dua until his last breath. Ibrahim (AS) made dua for his descendants who were not yet born. Zakariyya (AS) asked for a son when he was elderly and his wife was barren. Ask for everything. What you ask today may echo through generations you will never meet in this world.',
+      hadith:'"When a person dies, their deeds come to an end except for three: ongoing sadaqah, knowledge that benefits others, or a righteous child who prays for them." — Sahih Muslim 1631' }
   ]
 }
 
@@ -679,6 +694,166 @@ const VERSIONS = {
         sample:'Ya Allah, let me live with purpose — not just working to survive but building something that matters. Give me a mission I pour my heart into. Let me experience the world — Umrah every year, adventures that remind me of Your greatness. Give me leisure that refreshes rather than numbs. Make my final years my most productive, most giving, most spiritually alive. Let me meet You having truly lived.',
         ph:'Ya Allah, for my purpose, mission and joy I ask...' }
     ]
+  },
+
+  'adult-granddad': {
+    label:'Grandfather', subtitle:'For Grandfathers', em:'🌿',
+    theme:{ p:'#1b4332', pd:'#0a2116', a:'#d4a017', al:'#fdf6e3', bg:'#f0f7f4' },
+    welcome:{ title:'Assalamu Alaikum 🌿',
+      body:'You are in one of the most honoured stages of life. The Prophet ﷺ said: "Respect the elderly, for respecting them is one of the ways of glorifying Allah." Your duas now carry the weight of a lifetime\'s sincerity. Let us use this time to ask for everything — for your health, your family, your legacy, and a beautiful ending.' },
+    fndKey:'grandparents', fndTitle:'Before You Begin: Foundations for This Stage',
+    cats:[
+      { id:'health', em:'💪', title:'Health & Strength',
+        intro:'Your body has served you for decades. Ask Allah to sustain it with dignity, so you can continue to worship, give, and be present for your family.',
+        mentors:[
+          {n:'Ayyub (AS)', d:'patient through years of severe illness — he complained only to Allah, and Allah restored him completely'},
+          {n:'Zakariyya (AS)', d:'asked for a son in old age when his body was weakened — and Allah gave him Yahya (AS)'},
+          {n:'Prophet Muhammad ﷺ', d:'maintained his body as an amanah and remained active and giving until his very last days'}
+        ],
+        ayats:[], hadiths:[],
+        refs:['What does your body need that you have been putting off?','What health goal would allow you to worship, travel, and be present for family?','What would it look like to be physically strong well into your 80s?'],
+        sample:'Ya Allah, sustain my body with strength and dignity. Keep my knees strong enough to stand in qiyam, my eyes sharp enough to read Your Book, my mind clear enough to give wisdom. Free me from chronic pain that dulls my worship. Grant me health not just to survive but to live fully — present for my grandchildren, giving to my community, worshipping You until my last breath.',
+        ph:'Ya Allah, for my health and strength I ask...' },
+      { id:'deen', em:'🌙', title:'Deen & Spiritual Legacy',
+        intro:'This is the chapter to go deeper. The salah that sustained you — deepen it. The Quran you love — complete it. The knowledge you carry — pass it on.',
+        mentors:[
+          {n:'Prophet Muhammad ﷺ', d:'whose final sermon, final illness, and final breath were all acts of complete worship'},
+          {n:'Ibrahim (AS)', d:'who continued making dua for his children, his city, and his lineage until his very last years'},
+          {n:'Zakariyya (AS)', d:'who called on Allah in old age with complete hope — and was answered against all worldly expectation'}
+        ],
+        ayats:[{ar:null, tr:'My Lord, grant me from Yourself a good offspring. Indeed, You are the Hearer of supplication.', ref:'Surah Aal-Imran (3:38) — Zakariyya\'s dua in old age'}],
+        hadiths:[{tx:'When a person dies, their deeds come to an end except for three: ongoing sadaqah, knowledge that benefits others, or a righteous child who prays for them.', ref:'Sahih Muslim 1631'}],
+        refs:['What part of the Quran do you want to complete or deepen before you meet Allah?','What Islamic knowledge do you want to pass on — through grandchildren, community, writing?','What does your most spiritually alive day look like right now?'],
+        sample:'Ya Allah, make my remaining years my most spiritually alive. Let me complete the Quran with understanding. Grant me tahajjud as a consistent companion. Deepen my salah — let it be the highlight of every day, not a task. Make me a source of Islamic wisdom for my children and grandchildren. Let my home be a place of Quran and dhikr. Let me die with La ilaha illAllah on my lips, in a state of purity, facing Your direction.',
+        ph:'Ya Allah, for my deen and spiritual legacy I ask...' },
+      { id:'spouse', em:'❤️', title:'Marriage & Companionship',
+        intro:'After decades together, ask Allah for the marriage that sustains and completes you — in this life and the next.',
+        mentors:[
+          {n:'Prophet Muhammad ﷺ', d:'who never stopped speaking of Khadija\'s virtues decades after her passing — true love transcends time'},
+          {n:'Ibrahim (AS)', d:'devoted to his family across every trial, separation, and year — the model of faithful partnership'},
+          {n:'Imran and his wife', d:'who dedicated their household to Allah — and their legacy became Maryam and Isa (AS)'}
+        ],
+        ayats:[], hadiths:[],
+        refs:['What do you love about your spouse that you don\'t say often enough?','How do you want your marriage to feel in its final chapter?','How can you make your spouse feel truly seen and valued today?'],
+        sample:'Ya Allah, make our final years together our most peaceful and loving. Heal whatever has accumulated between us — the misunderstandings, the unspoken hurts, the distance. Fill our home with warmth, gentleness, and genuine care. Let us grow old together with gratitude. Let me be a comfort to her in her old age as she has been in mine. Reunite us in Jannatul Firdaus — together, forever.',
+        ph:'Ya Allah, for my marriage and companionship I ask...' },
+      { id:'family', em:'🌱', title:'Children & Grandchildren',
+        intro:'The best thing you can do for your children and grandchildren is make dua for them. Name each one. Picture each one. Ask for each one specifically.',
+        mentors:[
+          {n:'Ibrahim (AS)', d:'whose dua "My Lord, make me and my descendants people who establish salah" is still being answered today'},
+          {n:'Yaqub (AS)', d:'who never lost faith in his children\'s futures — even through decades of grief and separation'},
+          {n:'Luqman (AS)', d:'the wise grandfather whose advice to his son is preserved forever in the Quran (31:12-19)'}
+        ],
+        ayats:[{ar:'رَبِّ اجْعَلْنِي مُقِيمَ الصَّلَاةِ وَمِن ذُرِّيَّتِي', tr:'My Lord, make me an establisher of prayer, and from my descendants. Our Lord, accept my supplication.', ref:'Surah Ibrahim (14:40) — Ibrahim\'s dua for his lineage'}],
+        hadiths:[],
+        refs:['Name each grandchild — what do you specifically dream for them?','What is the most important thing you want them to remember about you?','What Islamic legacy do you want to plant in their hearts before you go?'],
+        sample:'Ya Allah, I present my children and grandchildren to You by name. Make each of them a person of Quran, of prayer, of honest character. Protect them from the fitnah of this age — the screens, the doubt, the distance from You. Let them love the masjid. Let them choose righteous spouses. Grant them children better than themselves. Let my duas for them be a shield over them long after I am gone. Make them my sadaqah jariyah into eternity.',
+        ph:'Ya Allah, for my children and grandchildren I ask...' },
+      { id:'affairs', em:'📜', title:'Affairs, Will & Inheritance',
+        intro:'This is not a morbid category — it is one of the most loving acts you can do for your family. The Prophet ﷺ commanded every Muslim to have their will written. Take this seriously.',
+        mentors:[
+          {n:'Abu Bakr (RA)', d:'who wrote his will before every expedition — he never left his affairs unresolved'},
+          {n:'Prophet Muhammad ﷺ', d:'who left detailed, clear instructions and settled every debt before he passed — a mercy to all he left behind'},
+          {n:'Uthman ibn Affan (RA)', d:'who planned his legacy with such generosity that its effects were felt for generations'}
+        ],
+        ayats:[{ar:'يُوصِيكُمُ اللَّهُ فِي أَوْلَادِكُمْ ۖ لِلذَّكَرِ مِثْلُ حَظِّ الْأُنثَيَيْنِ', tr:'Allah instructs you concerning your children: for the male what is equal to the share of two females. Allah is ever Knowing and Wise.', ref:'Surah An-Nisa (4:11) — the foundation of Islamic inheritance law'}],
+        hadiths:[{tx:'It is not permissible for any Muslim who has something to bequeath to sleep for two nights without having his will (wasiyyah) written and kept ready with him.', ref:'Sahih al-Bukhari 2738 · Sahih Muslim 1627'}],
+        refs:['Have you written your wasiyyah (Islamic will)? Is it current and accessible?','Is your estate to be distributed according to Islamic faraidh — or do you need to consult a scholar?','Who is your named executor (wasi)? Does he know?','Are there debts owed to you or by you that should be settled or forgiven now?','What sadaqah jariyah (Quran endowment, masjid contribution, scholarship) do you want established?','Have you told your family your wishes for your final care, janazah, and burial?'],
+        sample:'Ya Allah, help me put my affairs in order while I still have time and clarity. Guide me to write my wasiyyah with fairness, following Your faraidh. Forgive me for any delays. Help me settle every debt — what I owe to You through missed prayers and fasts, and what I owe to people. Let me forgive freely and be forgiven fully. Grant me the sadaqah jariyah that continues after my death — Quran someone recites, knowledge someone carries, a grandchild who prays for me. Let me leave this world with nothing pending, no heart broken by injustice, and all rights fulfilled.',
+        ph:'Ya Allah, regarding my affairs and what I leave behind I ask...' },
+      { id:'joy', em:'✨', title:'Joy, Gratitude & Contentment',
+        intro:'Joy is Sunnah. Rest is halal. Gratitude is worship. Ask Allah for a life in this final chapter that is full — not just endured.',
+        mentors:[
+          {n:'Prophet Muhammad ﷺ', d:'who played with his grandchildren Hasan and Husayn, made jokes with his companions, and smiled often'},
+          {n:'Ibrahim (AS)', d:'who in old age was visited by angels, hosted guests with joy, and still looked forward with hope'},
+          {n:'Luqman (AS)', d:'whose contentment and wisdom made every moment of his life a gift to those around him'}
+        ],
+        ayats:[{ar:null, tr:'So which of the favors of your Lord would you deny?', ref:'Surah Ar-Rahman (55:13) — a verse for hearts full of gratitude'}],
+        hadiths:[],
+        refs:['What brings you genuine joy that you\'d like more of?','What is one experience — travel, family gathering, achievement — you still dream of?','How do you want to feel when you reflect on your life — and how can dua help get you there?'],
+        sample:'Ya Allah, let me enjoy what You have given me without guilt and without waste. Let me travel with my family, make memories with my grandchildren, sit with old friends in laughter. Give me rest that is sweet, not anxious. Fill my home with warmth. Grant me Umrah once more — let me stand before Your House in gratitude. Let my final years be full of Alhamdulillah — not regret. Let me meet You having truly lived, truly loved, and truly served You.',
+        ph:'Ya Allah, for joy and contentment in this stage of life I ask...' }
+    ]
+  },
+
+  'adult-grandmom': {
+    label:'Grandmother', subtitle:'For Grandmothers', em:'🌸',
+    theme:{ p:'#6d2b6e', pd:'#4a1a4b', a:'#d4a017', al:'#fdf6e3', bg:'#fdf4fe' },
+    welcome:{ title:'Assalamu Alaikum 🌸',
+      body:'You are in one of the most honoured stages of life. A grandmother\'s dua is one of the most powerful forces in this world — the Prophet ﷺ told us a parent\'s dua for their child is never rejected. Imagine what yours carry now. Let us build duas that are specific, vivid, and worthy of who you are and what you still want to give.' },
+    fndKey:'grandparents', fndTitle:'Before You Begin: Foundations for This Stage',
+    cats:[
+      { id:'health', em:'🌿', title:'Health & Wellbeing',
+        intro:'Your body has given so much. Ask Allah to sustain it with dignity and ease — so you can continue to love, pray, and be present.',
+        mentors:[
+          {n:'Maryam (AS)', d:'who was sustained completely by Allah through physical hardship — given shade, water, and dates when she had nothing'},
+          {n:'Sarah, wife of Ibrahim (AS)', d:'who received the news of a son in very old age and laughed in surprise — Allah\'s gifts have no age limit'},
+          {n:'Aisha (RA)', d:'who was physically active, mentally sharp, and deeply present right through her later years of life'}
+        ],
+        ayats:[], hadiths:[],
+        refs:['What does your body need that you keep giving to others instead of yourself?','What would it feel like to have genuine energy and ease in your daily life?','What health goal would let you worship, travel, and be with family on your own terms?'],
+        sample:'Ya Allah, sustain my body with dignity and ease. Keep my eyes bright enough to read Your Book, my hands steady enough to make food for those I love, my knees strong enough to stand in salah. Free me from chronic pain that diminishes my days. Grant me mental clarity and emotional peace. Let me be present — truly present — for my grandchildren. Let this body serve You and those I love until my very last breath.',
+        ph:'Ya Allah, for my health and wellbeing I ask...' },
+      { id:'deen', em:'🌙', title:'Deen & Ibadah',
+        intro:'This is the chapter to go deeper. The salah that has sustained you — let it become the coolness of your eyes. The Quran you love — complete it. Ask for a relationship with Allah that is the richest it has ever been.',
+        mentors:[
+          {n:'Maryam (AS)', d:'devoted to worship from childhood through old age — chosen above all women of the world because of her heart'},
+          {n:'Asiya (RA)', d:'who called on Allah from inside the worst household imaginable — her worship was entirely between her and Allah'},
+          {n:'The women of the early ummah', d:'who maintained their Quran, their prayers, and their connection to Allah across every stage of life'}
+        ],
+        ayats:[{ar:null, tr:'My Lord, grant me from Yourself a good offspring. Indeed, You are the Hearer of supplication.', ref:'Surah Aal-Imran (3:38) — the dua of a devoted heart for their family\'s future'}],
+        hadiths:[{tx:'When a person dies, their deeds come to an end except for three: ongoing sadaqah, knowledge that benefits others, or a righteous child who prays for them.', ref:'Sahih Muslim 1631'}],
+        refs:['What does your most spiritually alive day look like from fajr to isha?','What part of the Quran or ibadah do you want to deepen before you meet Allah?','What Islamic legacy — knowledge, habit, story — do you want to leave in your family?'],
+        sample:'Ya Allah, make my remaining years the most spiritually alive of my life. Let my salah be the highlight of every day — a conversation, not a ritual. Grant me consistent tahajjud. Let me complete the Quran with understanding. Make me a source of Islamic wisdom in my family — the one they come to for dua, for advice, for anchor. Let my home be filled with Your remembrance. Let me die in a state of purity, with La ilaha illAllah on my lips.',
+        ph:'Ya Allah, for my deen and ibadah I ask...' },
+      { id:'spouse', em:'❤️', title:'Marriage & Companionship',
+        intro:'In the final chapter of life, ask Allah for a companionship that is peaceful, warm, and full of gratitude for what you have built together.',
+        mentors:[
+          {n:'Khadija (RA)', d:'who was the Prophet\'s greatest companion — decades of loyalty, support, and love that he never stopped speaking of'},
+          {n:'Umm Salamah (RA)', d:'who was patient through widowhood, remarried with dignity, and became one of the most respected women in Islamic history'},
+          {n:'Sarah, wife of Ibrahim (AS)', d:'whose partnership with Ibrahim spanned continents, decades, and every imaginable trial — and held'}
+        ],
+        ayats:[], hadiths:[],
+        refs:['What do you love about your spouse that you haven\'t said recently?','What does your dream marriage feel like in this final chapter — day to day?','How can you be a comfort and a joy to your spouse at this stage?'],
+        sample:'Ya Allah, let our final years together be our most peaceful and tender. Heal what has accumulated between us — the unspoken, the misunderstood, the distance. Fill our home with ease, gratitude, and genuine warmth. Let me be his comfort as he has been mine. Keep him well. Keep us together. Let us grow old with grace and love. And when the time comes — reunite us in Jannatul Firdaus, together forever.',
+        ph:'Ya Allah, for my marriage and companionship I ask...' },
+      { id:'family', em:'🌱', title:'Children & Grandchildren',
+        intro:'The best gift you can give your grandchildren is not wealth or time alone — it is your dua. Name each one. Picture each one. Ask for each one with your whole heart.',
+        mentors:[
+          {n:'Maryam\'s mother (RA)', d:'who dedicated her child to Allah before she was born — and that dua changed the world forever'},
+          {n:'Ibrahim (AS)', d:'whose dua "make me and my descendants people who establish salah" is answered every day across the globe'},
+          {n:'Luqman (AS)', d:'whose wisdom to his son — preserved in the Quran — is the model of legacy across generations'}
+        ],
+        ayats:[{ar:'رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ', tr:'Our Lord, grant us from among our wives and offspring comfort to our eyes, and make us an example for the righteous.', ref:'Surah Al-Furqan (25:74) — the dua of those who seek righteous families'}],
+        hadiths:[],
+        refs:['Name each grandchild — what do you specifically dream for their life?','What is the most important value or story you want them to carry from you?','What dua are you making for your grandchildren that you have never told them?'],
+        sample:'Ya Allah, I bring each of my grandchildren before You — [say their names in your heart]. Make them people of Quran and prayer. Protect them from the fitnah of this age. Give them righteous friends, righteous spouses, and righteous children. Let them grow up knowing who You are and loving You. Let them remember their grandmother as someone whose dua was always with them. Make my duas for them a shield that outlives me — following them into their old age, their graves, their resurrection.',
+        ph:'Ya Allah, for my children and grandchildren I ask...' },
+      { id:'affairs', em:'📜', title:'Affairs, Will & Inheritance',
+        intro:'This is one of the most loving acts you can do for your family. Taking care of your affairs is sunnah — it is a mercy, not a morbid task.',
+        mentors:[
+          {n:'Khadija (RA)', d:'who used her wealth with complete intentionality — every gift, every investment, every contribution was deliberate'},
+          {n:'Abu Bakr (RA)', d:'who wrote his will before every expedition without exception — he never left his affairs unresolved'},
+          {n:'Prophet Muhammad ﷺ', d:'who left clear instructions, settled every debt, and ensured nothing was pending when he passed'}
+        ],
+        ayats:[{ar:'يُوصِيكُمُ اللَّهُ فِي أَوْلَادِكُمْ ۖ لِلذَّكَرِ مِثْلُ حَظِّ الْأُنثَيَيْنِ', tr:'Allah instructs you concerning your children: for the male what is equal to the share of two females. Allah is ever Knowing and Wise.', ref:'Surah An-Nisa (4:11) — the foundation of Islamic inheritance law'}],
+        hadiths:[{tx:'It is not permissible for any Muslim who has something to bequeath to sleep for two nights without having his will (wasiyyah) written and kept ready with him.', ref:'Sahih al-Bukhari 2738 · Sahih Muslim 1627'}],
+        refs:['Have you written your wasiyyah (Islamic will)? Is it current?','Is your estate to be distributed according to Islamic faraidh? Have you consulted a scholar?','Are there debts you owe — to Allah (missed prayers, fasts, zakat) or to people?','Are there debts owed to you that you want to forgive completely?','What sadaqah jariyah do you want established in your name after you pass?','Have you told your family your wishes for your final care, janazah, and burial?'],
+        sample:'Ya Allah, help me put my affairs in order while I still have clarity and strength. Give me the courage to write my wasiyyah, to distribute my estate according to Your faraidh, to forgive what is owed to me, and to settle what I owe. Forgive me for any delays — I come to You now. Let me leave this world with no rights violated, no hearts broken by injustice, no wealth distributed without Your guidance. Grant me the sadaqah jariyah that continues after I am gone. Let the knowledge I passed, the Quran I taught, and the duas I planted in my grandchildren\'s hearts flow into my scale of good deeds until the Day of Judgement.',
+        ph:'Ya Allah, regarding my affairs and what I leave behind I ask...' },
+      { id:'joy', em:'✨', title:'Joy, Gratitude & Rest',
+        intro:'Joy is Sunnah. Rest is halal. You have given so much — you are allowed to receive. Ask Allah for a life in this chapter that is full, not just endured.',
+        mentors:[
+          {n:'Prophet Muhammad ﷺ', d:'who played with his grandchildren, raced with Aisha for joy, and smiled so often it was noted in narrations'},
+          {n:'Aisha (RA)', d:'who remained joyful, engaged, and full of humour well into her later years — joy was part of her deen'},
+          {n:'Sarah, wife of Ibrahim (AS)', d:'who laughed with surprise when the angels brought her glad tidings in old age — and it was recorded in the Quran'}
+        ],
+        ayats:[{ar:null, tr:'So which of the favors of your Lord would you deny?', ref:'Surah Ar-Rahman (55:13)'}],
+        hadiths:[],
+        refs:['What brings you deep, genuine joy that you haven\'t allowed yourself recently?','What experience — a journey, a gathering, a moment — do you still dream of?','What would it feel like to enter every day with gratitude rather than just endurance?'],
+        sample:'Ya Allah, let me enjoy what You have given me — without guilt, without waste, with full gratitude. Let me travel with those I love, make memories that make me say Alhamdulillah out loud. Give me rest that is sweet and refreshing. Let me sit with my grandchildren and have them feel my joy, not just my advice. Grant me one more Umrah — let me stand before Your House with tears of gratitude. Let my final years be the most beautiful chapter — full, peaceful, and close to You.',
+        ph:'Ya Allah, for joy, gratitude and rest I ask...' }
+    ]
   }
 }
 
@@ -992,11 +1167,13 @@ function autoGrow(el) {
 
 // ─── SUMMARY SCREEN ───
 const RESOURCES = {
-  'kids':       { wb:'workbook-kids.html',      guide:'guide-kids.html',       wbLabel:'Kids Printable Workbook',     guideLabel:'Full Kids Guide' },
-  'teen-girls': { wb:'workbook-teen-girls.html', guide:'guide-teen-girls.html', wbLabel:'Teen Girls Printable Workbook',guideLabel:'Full Teen Girls Guide' },
-  'teen-boys':  { wb:'workbook-teen-boys.html',  guide:'guide-teen-boys.html',  wbLabel:'Teen Boys Printable Workbook', guideLabel:'Full Teen Boys Guide' },
-  'adult-mom':  { wb:'workbook-personal.html',   guide:'guide-adults.html',     wbLabel:'Adult Printable Workbook',    guideLabel:'Full Adult Guide' },
-  'adult-dad':  { wb:'workbook-personal.html',   guide:'guide-adults.html',     wbLabel:'Adult Printable Workbook',    guideLabel:'Full Adult Guide' }
+  'kids':            { wb:'workbook-kids.html',      guide:'guide-kids.html',       wbLabel:'Kids Printable Workbook',        guideLabel:'Full Kids Guide' },
+  'teen-girls':      { wb:'workbook-teen-girls.html', guide:'guide-teen-girls.html', wbLabel:'Teen Girls Printable Workbook',   guideLabel:'Full Teen Girls Guide' },
+  'teen-boys':       { wb:'workbook-teen-boys.html',  guide:'guide-teen-boys.html',  wbLabel:'Teen Boys Printable Workbook',    guideLabel:'Full Teen Boys Guide' },
+  'adult-mom':       { wb:'workbook-personal.html',   guide:'guide-adults.html',     wbLabel:'Adult Printable Workbook',        guideLabel:'Full Adult Guide' },
+  'adult-dad':       { wb:'workbook-personal.html',   guide:'guide-adults.html',     wbLabel:'Adult Printable Workbook',        guideLabel:'Full Adult Guide' },
+  'adult-granddad':  { wb:'workbook-granddad.html',   guide:'guide-adults.html',     wbLabel:'Grandfather Printable Workbook',  guideLabel:'Full Adult Guide' },
+  'adult-grandmom':  { wb:'workbook-grandmom.html',   guide:'guide-adults.html',     wbLabel:'Grandmother Printable Workbook',  guideLabel:'Full Adult Guide' }
 }
 
 function renderSummary() {
