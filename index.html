@@ -197,6 +197,40 @@
     .cat-hadith-tx{font-size:13px;color:var(--txt);font-style:italic;display:block;margin-bottom:4px}
     .cat-ref{font-size:11px;color:var(--muted);display:block}
 
+    /* ─── CRITERIA STRIP ─── */
+    .criteria-strip{padding:10px 14px;background:var(--al);border:1.5px solid var(--a);
+                    border-radius:12px;margin:18px 0 6px}
+    .cs-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+    .cs-lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;
+            color:var(--p);white-space:nowrap}
+    .cs-pill{font-size:11px;padding:3px 9px;background:var(--card);border:1.5px solid var(--a);
+             border-radius:20px;color:var(--p);cursor:pointer;transition:all .15s;white-space:nowrap}
+    .cs-pill:hover,.cs-pill.cp-on{background:var(--p);color:#fff;border-color:var(--p)}
+    .cs-hint{font-size:12px;color:var(--p);margin-top:6px;padding:6px 8px;
+             background:var(--card);border-radius:8px;border-left:3px solid var(--p);
+             display:none;line-height:1.5}
+    .cs-hint.show{display:block}
+
+    /* ─── HELP PANEL ─── */
+    .ta-label-row{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin-top:4px}
+    .help-btn{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:600;
+              padding:4px 11px;background:transparent;border:1.5px solid var(--p);
+              border-radius:20px;color:var(--p);cursor:pointer;transition:all .15s}
+    .help-btn:hover{background:var(--p);color:#fff}
+    .help-panel{background:var(--bg);border:1.5px dashed var(--a);border-radius:14px;
+                padding:14px 16px;margin-bottom:10px;font-size:13px}
+    .hp-tag{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;
+            letter-spacing:.4px;border-radius:20px;padding:2px 9px;margin-bottom:5px}
+    .hp-bad .hp-tag{background:#fde8e8;color:#c0392b}
+    .hp-good .hp-tag{background:#e8f8ee;color:#1b6b1b}
+    .hp-text{font-size:13px;line-height:1.7;margin:0 0 10px;color:var(--txt)}
+    .hp-arrow{text-align:center;font-size:12px;font-weight:700;color:var(--p);
+              padding:4px 0;letter-spacing:.3px}
+    .hp-notes{margin-top:10px;padding-top:10px;border-top:1px solid var(--bdr)}
+    .hp-notes-lbl{font-size:11px;font-weight:700;text-transform:uppercase;color:var(--muted);
+                  letter-spacing:.4px;margin-bottom:5px;display:block}
+    .hp-notes ul{margin:0;padding-left:16px;font-size:12px;color:var(--p);line-height:1.9}
+
     /* ─── URDU / RTL LAYOUT ─── */
     .rtl-wrap{direction:rtl;text-align:right;font-family:'Noto Nastaliq Urdu','Jameel Noori Nastaleeq','Segoe UI',sans-serif;line-height:2}
     .rtl-wrap .bismi,.rtl-wrap h1,.rtl-wrap h2,.rtl-wrap h3,.rtl-wrap h4,.rtl-wrap p,.rtl-wrap label,
@@ -1311,6 +1345,169 @@ async function deleteVoiceNote(catId) {
 }
 
 // ════════════════════════════════════════════════
+// CRITERIA & DUA EXAMPLES
+// ════════════════════════════════════════════════
+
+const CRITERIA = [
+  { em:'🎯', label:'Specific',       hint:'Name the exact outcome — not "good health" but "strong enough to stand in qiyam and walk to the masjid."' },
+  { em:'👁️', label:'Vivid',          hint:'Can you picture the answered dua in full detail? Close your eyes, see it, feel it — then ask.' },
+  { em:'🌍', label:'Both worlds',    hint:'Ask for this life AND the next. The Prophet ﷺ taught us: "Give us good in this world and good in the Hereafter."' },
+  { em:'📿', label:"Allah's names",  hint:'Match the name to the need — Ya Shafi (healing), Ya Razzaq (provision), Ya Wadud (love), Ya Ghaffar (forgiveness).' },
+  { em:'❤️', label:'Personal',       hint:'Say "I" and "me." Name specific people. Describe your specific situation — not a generic dua that anyone could have written.' },
+  { em:'✨', label:'Heartfelt',      hint:'Write what you actually feel deep down — the thing you\'d whisper privately to Allah. Honesty > eloquence.' }
+]
+
+const DUA_EXAMPLES = {
+  health: {
+    bad:  'Ya Allah, give me good health.',
+    good: 'Ya Allah, sustain my body so I can stand in qiyam without pain, walk to the masjid with energy, and be fully present for my family. Keep my mind sharp, my heart strong, my blood pressure in the healthy range. Let my health be a means of worship — not just comfort. If illness comes, make it expiation and a reason to draw closer to You. Grant me physical strength until my very last day.',
+    notes: ['Named specific goals (qiyam, walk to masjid, family presence)', 'Covered akhira dimension (illness as expiation)', 'Connected health to a purpose greater than comfort', 'Personal, not generic']
+  },
+  deen: {
+    bad:  'Ya Allah, increase my iman.',
+    good: 'Ya Allah, make my fajr the first thing I rush to, not drag myself to. Let the Quran be alive in my heart — open it daily, understand it, feel it changing me. Make my salah the highlight of my day, not a box I tick. Grant me the sweetness of iman that makes this world feel small. Let me give up one sin this month. And let me die with La ilaha illAllah on my lips.',
+    notes: ['Specific habits named (fajr on time, daily Quran)', 'Vivid feeling described (sweetness that makes dunya feel small)', 'Includes akhira (die with kalimaah)', 'Concrete short-term goal (one sin this month)']
+  },
+  faith: {
+    bad:  'Ya Allah, make me a better Muslim.',
+    good: 'Ya Allah, make my salah the thing I look forward to most — a real conversation, not a ritual I rush through. Let me open the Quran every single day, even for 5 minutes, and feel it speaking to me. Give me a secret deed between me and You that no one else knows. And protect me from the sin that keeps pulling me back. Make this the year my faith is different.',
+    notes: ['Specific aspiration (salah as conversation, not ritual)', 'Small daily habit (5 minutes of Quran)', 'Private deed — authentic, not performative', 'Named specific struggle (the sin that keeps pulling back)']
+  },
+  spouse: {
+    bad:  'Ya Allah, give me a good spouse.',
+    good: 'Ya Allah, grant me a spouse who fears You first — kind, honest, and ambitious for this deen and this dunya. Someone who builds with me, not just lives beside me. Let our home be filled with Quran, honesty, and real laughter. Let our love deepen with years, not diminish. Like the Prophet ﷺ and Khadija (RA) — let our marriage be a cause of Jannah. And when we leave this world, reunite us in Jannatul Firdaus, together.',
+    notes: ['Specific qualities (fears Allah first, kind, honest, ambitious)', 'Vivid image of the home (Quran, laughter, honesty)', 'Prophetic example used as a benchmark', 'Covers akhira (marriage that leads to Jannah)']
+  },
+  marriage: {
+    bad:  'Ya Allah, help my marriage.',
+    good: 'Ya Allah, heal what has built up between us — the unspoken words, the small hurts, the distance. Soften our hearts to each other. Let us talk as we used to. Give me the patience to listen first and the courage to say what needs to be said with kindness. Make our home a place of warmth and real peace — not just quiet. Let our love be a cause of Jannah.',
+    notes: ['Honest about the real issue (unspoken hurts, distance)', 'Specific actions requested (listen first, speak with kindness)', 'Vivid goal (warmth, not just quiet)', 'Covers akhira (love as a cause of Jannah)']
+  },
+  family: {
+    bad:  'Ya Allah, protect my family.',
+    good: 'Ya Allah, I name my children before You — [say each name]. Make each of them a person of Quran and salah. Protect them from the fitnah of screens, doubt, and bad company. Give them righteous friends who bring out the best in them. Let my home be a place they always want to return to — not for luxury, but for the peace and love You placed there. And let my duas follow them long after I am gone.',
+    notes: ['Named people individually (not a mass request)', 'Specific fears addressed (screens, fitnah, bad friends)', 'Vivid home image (peace from Allah, not luxury)', 'Legacy dua (duas that outlive you)']
+  },
+  children: {
+    bad:  'Ya Allah, guide my children.',
+    good: 'Ya Allah, I bring [child\'s name] before You right now. Make them a person who loves salah — who prays on time because they want to, not because they are told to. Protect their heart from every doubt placed by this age. Give them at least one righteous friend. Let them call me one day and say, "your dua worked." And make them my sadaqah jariyah — their every good deed flowing into my scale forever.',
+    notes: ['One specific child named and addressed', 'Specific prayer habit described (pray because they want to)', 'Realistic fear named (doubts of this age)', 'Covers akhira (sadaqah jariyah for you)']
+  },
+  wealth: {
+    bad:  'Ya Allah, give me more rizq.',
+    good: 'Ya Allah, open for me a stream of halal rizq that is barakah-filled — enough to give generously, invest in good causes, and never feel scarcity. Let wealth be in my hand, not in my heart. Grant me work I love that earns halal and serves others. Make me from those who use wealth to build for the akhira: a sadaqah jariyah, a scholarship, a masjid donation. Protect me from the love of dunya that distances me from You.',
+    notes: ['Specific financial goal (give generously, invest in good)', 'Inner state requested (wealth in hand not heart)', 'Akhira investment named (sadaqah jariyah, masjid)', 'Prays against the trap (love of dunya)']
+  },
+  joy: {
+    bad:  'Ya Allah, make me happy.',
+    good: 'Ya Allah, fill my life with moments so full of meaning I say Alhamdulillah out loud. Let me travel with people I love. Give me rest that is sweet, not guilty. Grant me laughter that is clean and memories that are beautiful. Let me live — not just survive. And let every joy in my life point back to You as its source, so my gratitude never ends. Let me meet You having truly enjoyed what You gave me.',
+    notes: ['Permission to ask for happiness — joy is halal', 'Specific joys named (travel, rest, laughter)', 'Inner state (gratitude pointing to Allah, not away)', 'Covers akhira (meeting Allah having truly lived)']
+  },
+  affairs: {
+    bad:  'Ya Allah, help me sort out my affairs.',
+    good: 'Ya Allah, give me the clarity and courage to write my wasiyyah this week. Help me distribute my estate according to Your faraidh — fairly, with no favouritism. Let me settle every debt before I sleep tonight in my heart. Forgive me for every delay. And let me leave this world with nothing owed, no heart broken by injustice, and a sadaqah jariyah still flowing in my name.',
+    notes: ['Specific action with urgency (write wasiyyah this week)', 'Named exactly what is needed (faraidh, debts, forgiveness)', 'Honest acknowledgment (forgive me for every delay)', 'Covers akhira (sadaqah jariyah after death)']
+  },
+  academics: {
+    bad:  'Ya Allah, help me do well in school.',
+    good: 'Ya Allah, give me a focused mind and a love for learning. Let me study what I love and excel at it — not for praise or a grade, but because excellence is worship. Guide me to the field that serves Your deen and helps people. Grant me good results in [your exam] by [month/year]. And whatever career You open for me — make it a daily act of sadaqah.',
+    notes: ['Named the exam or field specifically', 'Purpose beyond grades (excellence as worship)', 'Connected study to service of deen and people', 'Covers akhira (career as daily sadaqah)']
+  },
+  future: {
+    bad:  'Ya Allah, bless my future.',
+    good: 'Ya Allah, show me what You created me for. Give me a career I love that earns halal and changes lives. Let me be excellent at what I do — not for praise, but because excellence is ibadah. Open doors I cannot see yet. When opportunities come, give me the courage and clarity to take them. And make my work a sadaqah jariyah that outlives me by decades.',
+    notes: ['Asks for direction (what You created me for)', 'Specific aspiration (career that changes lives)', 'Inner quality requested (courage + clarity)', 'Covers akhira (sadaqah jariyah that outlives you)']
+  },
+  quran: {
+    bad:  'Ya Allah, help me learn Quran.',
+    good: 'Ya Allah, give me a memory that holds every ayah I learn. Let me memorize [X] juz by [date] — with understanding, not just sound. Make me love the Quran more every single day. When life gets hard, let my first instinct be to open it. Teach me Arabic so I can hear You speaking to me directly in salah. Make my recitation so beautiful it brings others closer to You.',
+    notes: ['Specific memorization goal with a deadline', 'Quality over quantity (understanding, not just sound)', 'Vivid motivation (hear Allah speaking in salah)', 'Akhira impact (your recitation helps others)']
+  },
+  character: {
+    bad:  'Ya Allah, improve my character.',
+    good: 'Ya Allah, make my character like the Prophet ﷺ — kind without weakness, honest without harshness, brave without arrogance. Give me patience with the people who test me the most. Make me the kind of person people feel safe around. Give me a tongue that heals, not wounds. And make my best deeds the ones no one sees except You.',
+    notes: ['Prophetic benchmark named (character like the Prophet ﷺ)', 'Balanced qualities (kind but not weak, honest but not harsh)', 'Personal acknowledgment (the people who test me most)', 'Private sincerity (best deeds no one sees)']
+  },
+  friends: {
+    bad:  'Ya Allah, give me good friends.',
+    good: 'Ya Allah, surround me with friends who remind me of You — who celebrate my wins without jealousy, call me back to deen when I drift, and bring out my best self. Protect me from company that pulls me toward what displeases You. Give me the courage to be selective, even if it means being lonely for a while. And if good company is hard to find — make me strong enough to stand alone like Ibrahim (AS).',
+    notes: ['Specific qualities (no jealousy, calls back to deen, brings out best self)', 'Named the fear honestly (lonely for a while — realistic)', 'Prophetic reference as strength (Ibrahim standing alone)', 'Inner courage requested (courage to be selective)']
+  },
+  brotherhood: {
+    bad:  'Ya Allah, give me good brothers.',
+    good: 'Ya Allah, give me brothers who make me better — who compete with me in good deeds, not put me down. Friends who are honest with me even when it\'s uncomfortable. Who I can call at 2am and know they will be there. Protect me from the brotherhood built on sport alone — give me companionship built on deen. Make me the kind of brother people are grateful Allah put in their lives.',
+    notes: ['Specific qualities (compete in good, honest, reliable at 2am)', 'Named the shallow version to avoid (just sport)', 'Two-directional: asks to BE a good brother too', 'Vivid test (2am call — real loyalty)']
+  },
+  identity: {
+    bad:  'Ya Allah, give me confidence.',
+    good: 'Ya Allah, make me at peace with how You made me — my face, my skin, my shape — without needing anyone\'s validation. Free me from the trap of comparison. Let me be proud of my identity as a Muslim woman — my hijab, my values, my choices. Make me beautiful in the way that truly matters: in character, in patience, in the way I make others feel. Let my inner light be so strong people feel it when I walk in.',
+    notes: ['Named the real struggle (comparison trap, needing validation)', 'Identity rooted in faith (not appearance)', 'Specific quality requested (how I make others feel)', 'Vivid image of inner light — not outer appearance']
+  },
+  purpose: {
+    bad:  'Ya Allah, give me purpose.',
+    good: 'Ya Allah, show me what I was made for. Not a generic role — the specific work only I can do, in the place only I can reach, for the people only I can serve. Let my career be an act of worship every day. Give me the courage to build something that outlasts me. And when I stand before You, let me have done something real — not just lived safely.',
+    notes: ['Specific (the work only YOU can do)', 'Vivid vision (not just a job — a mission)', 'Courage asked for (build, not just live safely)', 'Akhira accountability (stand before Allah having done something real)']
+  },
+  fun: {
+    bad:  'Ya Allah, make my life fun.',
+    good: 'Ya Allah, fill my childhood with adventures I will tell my grandchildren about. Let me travel with my family, see Your world — the mountains, the oceans, the deserts. Give me a hobby I love that brings me joy without harming anyone. Let me make memories so good I say Alhamdulillah every time I remember them. And keep every joy in my life clean and full of barakah.',
+    notes: ['Specific joys named (travel, adventures, hobby)', 'Connected joy to gratitude (Alhamdulillah in every memory)', 'Clean joy requested (without harming anyone)', 'Long-term thinking (stories for grandchildren)']
+  }
+}
+
+function criteriaStripHTML() {
+  const pills = CRITERIA.map((c, i) =>
+    `<span class="cs-pill" onclick="showCriteriaHint(${i})" data-ci="${i}">${c.em} ${c.label}</span>`
+  ).join('')
+  return `<div class="criteria-strip">
+    <div class="cs-row">
+      <span class="cs-lbl">Good dua has:</span>
+      ${pills}
+    </div>
+    <div class="cs-hint" id="cs-hint-box"></div>
+  </div>`
+}
+
+function showCriteriaHint(idx) {
+  const box = document.getElementById('cs-hint-box')
+  const pill = document.querySelector(`.cs-pill[data-ci="${idx}"]`)
+  if (!box || !pill) return
+  const isActive = pill.classList.contains('cp-on')
+  document.querySelectorAll('.cs-pill').forEach(p => p.classList.remove('cp-on'))
+  box.classList.remove('show')
+  if (!isActive) {
+    pill.classList.add('cp-on')
+    box.textContent = CRITERIA[idx].hint
+    box.classList.add('show')
+  }
+}
+
+function helpPanelHTML(catId) {
+  const ex = DUA_EXAMPLES[catId] || DUA_EXAMPLES['health']
+  const notes = ex.notes.map(n => `<li>${n}</li>`).join('')
+  return `<div class="help-panel" id="hp-${catId}" hidden>
+    <div class="hp-bad">
+      <span class="hp-tag">❌ Too vague</span>
+      <p class="hp-text">${ex.bad}</p>
+    </div>
+    <div class="hp-arrow">↓ made specific &nbsp;·&nbsp; vivid &nbsp;·&nbsp; heartfelt</div>
+    <div class="hp-good">
+      <span class="hp-tag">✅ Dream Dua</span>
+      <p class="hp-text">${ex.good}</p>
+    </div>
+    <div class="hp-notes">
+      <span class="hp-notes-lbl">What changed:</span>
+      <ul>${notes}</ul>
+    </div>
+  </div>`
+}
+
+function toggleHelpPanel(catId) {
+  const p = document.getElementById('hp-' + catId)
+  if (p) p.hidden = !p.hidden
+}
+
+// ════════════════════════════════════════════════
 // STATE & STORAGE
 // ════════════════════════════════════════════════
 
@@ -1606,9 +1803,14 @@ function renderCat(idx) {
       <strong>Sample Dream Dua — for inspiration only</strong>
       <p>${cat.sample}</p>
     </div>
-    <label class="ta-label" for="dua-ta">
-      ✍️ ${S.name ? S.name + '\'s' : 'My'} Dream Dua${v.fndKey==='kids'?' (write what comes from your heart! 💛)':''}
-    </label>
+    ${criteriaStripHTML()}
+    <div class="ta-label-row">
+      <label class="ta-label" for="dua-ta">
+        ✍️ ${S.name ? S.name + '\'s' : 'My'} Dream Dua${v.fndKey==='kids'?' (write from your heart! 💛)':''}
+      </label>
+      <button class="help-btn" onclick="toggleHelpPanel('${cat.id}')">💡 See example</button>
+    </div>
+    ${helpPanelHTML(cat.id)}
     <textarea id="dua-ta" class="dua-ta" placeholder="${cat.ph}">${saved}</textarea>
     <div class="char-ct" id="char-ct">${saved.length} characters</div>
   </div>`
