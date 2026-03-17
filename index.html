@@ -191,6 +191,32 @@
     .cat-hadith-tx{font-size:13px;color:var(--txt);font-style:italic;display:block;margin-bottom:4px}
     .cat-ref{font-size:11px;color:var(--muted);display:block}
 
+    /* ─── VOICE NOTE ─── */
+    .voice-section{margin:0 0 14px 0}
+    .voice-rec-btn{width:100%;display:flex;align-items:center;gap:10px;padding:11px 16px;
+                   background:var(--card);border:1.5px dashed var(--bdr);border-radius:var(--r);
+                   cursor:pointer;font-size:13px;color:var(--muted);transition:all .18s;text-align:left}
+    .voice-rec-btn:hover,.voice-rec-btn:active{border-color:var(--p);color:var(--p);background:#f8fffe}
+    .voice-rec-btn .mic-ic{font-size:20px;flex-shrink:0}
+    .voice-recording{display:flex;align-items:center;gap:12px;padding:11px 16px;
+                     background:#fff5f5;border:1.5px solid #e53e3e;border-radius:var(--r)}
+    .rec-dot{width:12px;height:12px;background:#e53e3e;border-radius:50%;flex-shrink:0;
+             animation:pulse-rec 1s infinite}
+    @keyframes pulse-rec{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.85)}}
+    .rec-timer{font-size:13px;font-weight:700;color:#e53e3e;font-variant-numeric:tabular-nums;flex-shrink:0}
+    .rec-label{font-size:13px;color:#c53030;flex:1}
+    .stop-btn{padding:7px 14px;background:#e53e3e;color:#fff;border:none;border-radius:10px;
+              font-size:12px;font-weight:700;cursor:pointer;flex-shrink:0}
+    .voice-player-box{background:var(--card);border:1.5px solid var(--p);border-radius:var(--r);
+                      padding:10px 14px}
+    .voice-player-box .vp-label{font-size:11px;font-weight:700;text-transform:uppercase;
+                                 letter-spacing:.5px;color:var(--p);margin-bottom:8px;display:block}
+    .voice-player-box audio{width:100%;height:36px;outline:none;display:block}
+    .vp-actions{display:flex;gap:8px;margin-top:8px}
+    .vp-btn{font-size:12px;padding:6px 12px;border-radius:8px;border:none;cursor:pointer;font-weight:600}
+    .vp-btn-del{background:#fff5f5;color:#e53e3e;border:1px solid #fed7d7}
+    .vp-btn-rec{background:#f0fdf4;color:var(--p);border:1px solid var(--p)}
+
     /* ─── FADE TRANSITION ─── */
     #main{opacity:1;transition:opacity .15s}
     #main.fade{opacity:0}
@@ -861,6 +887,153 @@ const VERSIONS = {
 }
 
 // ════════════════════════════════════════════════
+// AUDIO — INDEXEDDB + MEDIARECORDER
+// ════════════════════════════════════════════════
+
+let audioDB  = null
+let mediaStream = null
+let mediaRec = null
+let recChunks = []
+let recTick  = null
+let recSecs  = 0
+let recCatId = null
+
+function initAudioDB() {
+  return new Promise(res => {
+    if (!window.indexedDB) { res(); return }
+    const req = indexedDB.open('dua-audio-v1', 1)
+    req.onupgradeneeded = e => e.target.result.createObjectStore('rec', { keyPath:'id' })
+    req.onsuccess = e => { audioDB = e.target.result; res() }
+    req.onerror   = () => res()
+  })
+}
+
+function audioKey(catId) { return `${S.version}::${catId}` }
+
+function saveAudioBlob(catId, blob) {
+  if (!audioDB) return
+  const tx = audioDB.transaction('rec','readwrite')
+  tx.objectStore('rec').put({ id:audioKey(catId), blob, ts:Date.now() })
+}
+
+function getAudioBlob(catId) {
+  return new Promise(res => {
+    if (!audioDB) { res(null); return }
+    const tx  = audioDB.transaction('rec','readonly')
+    const req = tx.objectStore('rec').get(audioKey(catId))
+    req.onsuccess = e => res(e.target.result ? e.target.result.blob : null)
+    req.onerror   = () => res(null)
+  })
+}
+
+function delAudioBlob(catId) {
+  if (!audioDB) return
+  const tx = audioDB.transaction('rec','readwrite')
+  tx.objectStore('rec').delete(audioKey(catId))
+}
+
+function fmtSecs(s) {
+  return Math.floor(s/60) + ':' + (s%60 < 10 ? '0' : '') + (s%60)
+}
+
+function voiceRecordHTML(catId) {
+  return `<button class="voice-rec-btn" onclick="startRecording('${catId}')">
+    <span class="mic-ic">🎤</span>
+    <span>Add a voice note for this category</span>
+  </button>`
+}
+
+function voicePlayerHTML(catId, url) {
+  return `<div class="voice-player-box">
+    <span class="vp-label">🎤 Your Voice Note</span>
+    <audio controls src="${url}"></audio>
+    <div class="vp-actions">
+      <button class="vp-btn vp-btn-rec" onclick="startRecording('${catId}')">🔄 Re-record</button>
+      <button class="vp-btn vp-btn-del" onclick="deleteVoiceNote('${catId}')">🗑️ Delete</button>
+    </div>
+  </div>`
+}
+
+function voiceRecordingHTML() {
+  return `<div class="voice-recording">
+    <div class="rec-dot"></div>
+    <span class="rec-timer" id="rec-timer">0:00</span>
+    <span class="rec-label">Recording… tap Stop when done</span>
+    <button class="stop-btn" onclick="stopRecording()">■ Stop</button>
+  </div>`
+}
+
+async function loadVoiceUI(catId) {
+  const el = document.getElementById(`voice-${catId}`)
+  if (!el) return
+  const blob = await getAudioBlob(catId)
+  if (blob) {
+    const url = URL.createObjectURL(blob)
+    el.innerHTML = voicePlayerHTML(catId, url)
+  } else {
+    el.innerHTML = voiceRecordHTML(catId)
+  }
+}
+
+async function startRecording(catId) {
+  if (mediaRec && mediaRec.state === 'recording') stopRecording()
+  if (!navigator.mediaDevices) {
+    alert('Audio recording is not supported in this browser. Try Chrome or Safari on iOS 14.5+.')
+    return
+  }
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio:true })
+    mediaStream = stream
+    recCatId    = catId
+    recChunks   = []
+    recSecs     = 0
+
+    const el = document.getElementById(`voice-${catId}`)
+    if (el) el.innerHTML = voiceRecordingHTML()
+
+    recTick = setInterval(() => {
+      recSecs++
+      const t = document.getElementById('rec-timer')
+      if (t) t.textContent = fmtSecs(recSecs)
+      if (recSecs >= 300) stopRecording() // 5 min hard limit
+    }, 1000)
+
+    const mimeType = MediaRecorder.isTypeSupported('audio/webm;codecs=opus')
+      ? 'audio/webm;codecs=opus'
+      : MediaRecorder.isTypeSupported('audio/mp4') ? 'audio/mp4' : ''
+    mediaRec = new MediaRecorder(stream, mimeType ? { mimeType } : {})
+    mediaRec.ondataavailable = e => { if (e.data.size > 0) recChunks.push(e.data) }
+    mediaRec.onstop = async () => {
+      clearInterval(recTick); recTick = null
+      stream.getTracks().forEach(t => t.stop())
+      const blob = new Blob(recChunks, { type: mediaRec.mimeType })
+      saveAudioBlob(recCatId, blob)
+      await loadVoiceUI(recCatId)
+    }
+    mediaRec.start(250)
+  } catch(err) {
+    clearInterval(recTick)
+    if (err.name === 'NotAllowedError') {
+      alert('Microphone access was denied. Please allow mic access in your browser settings and try again.')
+    } else {
+      alert('Could not start recording: ' + err.message)
+    }
+  }
+}
+
+function stopRecording() {
+  if (mediaRec && mediaRec.state !== 'inactive') mediaRec.stop()
+  if (recTick) { clearInterval(recTick); recTick = null }
+}
+
+async function deleteVoiceNote(catId) {
+  if (!confirm('Delete this voice note?')) return
+  delAudioBlob(catId)
+  const el = document.getElementById(`voice-${catId}`)
+  if (el) el.innerHTML = voiceRecordHTML(catId)
+}
+
+// ════════════════════════════════════════════════
 // STATE & STORAGE
 // ════════════════════════════════════════════════
 
@@ -985,7 +1158,9 @@ function render() {
   if(S.screen.startsWith('cat-')) {
     const idx = parseInt(S.screen.split('-')[1])
     main.innerHTML = renderCat(idx)
-    bindTA(idx); return
+    bindTA(idx)
+    loadVoiceUI(VERSIONS[S.version].cats[idx].id)
+    return
   }
   if(S.screen==='summary')            { main.innerHTML = renderSummary();   return }
 }
@@ -1122,6 +1297,12 @@ function renderCat(idx) {
       </div>
     </div>
     <p class="cat-intro">${cat.intro}</p>
+    <div class="voice-section" id="voice-${cat.id}">
+      <button class="voice-rec-btn" onclick="startRecording('${cat.id}')">
+        <span class="mic-ic">🎤</span>
+        <span>Add a voice note for this category</span>
+      </button>
+    </div>
     ${mentorsHtml}
     ${ayatsHtml}
     ${hadithsHtml}
@@ -1249,7 +1430,7 @@ document.documentElement.style.setProperty('--a', '#c9a227')
 document.documentElement.style.setProperty('--al', '#fff8e1')
 document.documentElement.style.setProperty('--bg', '#f4faf7')
 
-render()
+initAudioDB().then(() => render())
 </script>
 </body>
 </html>
