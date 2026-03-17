@@ -2,187 +2,374 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Dream Duas — Kids Workbook</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap">
   <style>
+    /* ══════════════════════════════
+       PAGE SETUP — 6 × 9 inch journal
+    ══════════════════════════════ */
     @page {
-      size: A4;
-      margin: 20mm 22mm 25mm 22mm;
-      @bottom-center {
-        content: "UmmAbdullah  ·  Adapted from Muhammad al-Shareef's Visionaire Course  ·  Page " counter(page);
-        font-size: 8pt;
-        color: #888;
-        font-family: Arial, sans-serif;
+      size: 6in 9in;
+      /* Asymmetric: inner (spine) margin wider for binding */
+    }
+    @page :left {
+      margin: 17mm 15mm 22mm 21mm; /* top outer bottom inner(spine) */
+      @bottom-left {
+        content: "Dream Duas · Kids Edition";
+        font-size: 8pt; color: #bbb;
+        font-family: 'Nunito', Arial, sans-serif;
+      }
+      @bottom-right {
+        content: counter(page);
+        font-size: 9pt; color: #999;
+        font-family: 'Nunito', Arial, sans-serif;
       }
     }
-    @page :first { @bottom-center { content: none; } }
+    @page :right {
+      margin: 17mm 21mm 22mm 15mm; /* top inner(spine) bottom outer */
+      @bottom-left {
+        content: counter(page);
+        font-size: 9pt; color: #999;
+        font-family: 'Nunito', Arial, sans-serif;
+      }
+      @bottom-right {
+        content: "UmmAbdullah · Visionaire Course";
+        font-size: 8pt; color: #bbb;
+        font-family: 'Nunito', Arial, sans-serif;
+      }
+    }
+    @page :first {
+      margin: 0;
+      @bottom-left  { content: none; }
+      @bottom-right { content: none; }
+    }
 
+    /* ══════════════════════════════
+       RESET & BASE
+    ══════════════════════════════ */
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Comic Sans MS', 'Segoe UI', Arial, sans-serif;
-      color: #2d3436;
-      line-height: 1.75;
-      font-size: 11pt;
+      font-family: 'Nunito', 'Segoe UI', Arial, sans-serif;
+      color: #2d2d4e;
+      line-height: 1.78;
+      font-size: 10.5pt;
     }
 
-    /* ── COVER ── */
+    /* ══════════════════════════════
+       COVER — full bleed
+    ══════════════════════════════ */
     .cover {
       page-break-after: always;
-      height: 267mm;
+      width: 6in;
+      height: 9in;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(160deg, #5e35b1 0%, #7b2d8b 50%, #4527a0 100%);
+      background: linear-gradient(150deg, #4527a0 0%, #6a1b9a 45%, #3949ab 100%);
       color: white;
       text-align: center;
-      padding: 30mm 20mm;
+      padding: 22mm 18mm 18mm;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Decorative circles */
+    .cover::before {
+      content: '';
+      position: absolute;
+      width: 55mm; height: 55mm;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      top: 12mm; right: -8mm;
+    }
+    .cover::after {
+      content: '';
+      position: absolute;
+      width: 72mm; height: 72mm;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      bottom: 18mm; left: -18mm;
+    }
+    .cover-stars {
+      font-size: 20pt;
+      letter-spacing: 10px;
+      margin-bottom: 1.1rem;
       position: relative;
     }
-    .cover-stars { font-size: 24pt; letter-spacing: 8px; margin-bottom: 1.5rem; }
-    .cover-bismillah { font-size: 20pt; color: #ffe082; margin-bottom: 1rem; letter-spacing: 2px; }
-    .cover h1 { font-size: 30pt; font-weight: bold; color: #fff; line-height: 1.2; margin-bottom: 0.5rem; }
-    .cover h2 { font-size: 13pt; color: #ffe082; margin-bottom: 0.75rem; }
-    .cover h3 { font-size: 11pt; font-weight: normal; color: #e1bee7; margin-bottom: 3rem; }
-    .cover-name-block {
-      border-top: 1px solid rgba(255,224,130,0.5);
-      border-bottom: 1px solid rgba(255,224,130,0.5);
-      padding: 1.25rem 3rem;
-      margin-bottom: 2.5rem;
+    .cover-bismillah {
+      font-size: 17pt;
+      color: #ffe082;
+      margin-bottom: 0.9rem;
+      letter-spacing: 2px;
+      line-height: 1.6;
+      position: relative;
     }
-    .cover-name-block p { font-size: 10pt; color: #e1bee7; margin-bottom: 0.4rem; }
-    .name-line { border-bottom: 1px solid #ffe082; height: 2rem; min-width: 180px; margin-top: 0.25rem; }
+    .cover-series {
+      font-size: 8.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: rgba(225,190,231,0.85);
+      margin-bottom: 0.6rem;
+      position: relative;
+    }
+    .cover h1 {
+      font-size: 30pt;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.5px;
+      position: relative;
+    }
+    .cover h1 span { color: #ffe082; }
+    .cover-tagline {
+      font-size: 11pt;
+      color: #e0b3ff;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+      position: relative;
+    }
+    .cover-ages {
+      font-size: 9.5pt;
+      color: #ce93d8;
+      margin-bottom: 2.2rem;
+      position: relative;
+    }
+    .cover-name-block {
+      border: 1px solid rgba(255,224,130,0.35);
+      border-radius: 14px;
+      padding: 1.1rem 2.2rem;
+      margin-bottom: 2rem;
+      background: rgba(255,255,255,0.09);
+      width: 100%;
+      max-width: 220px;
+      position: relative;
+    }
+    .cover-name-block p {
+      font-size: 8.5pt;
+      color: #ce93d8;
+      margin-bottom: 0.25rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    .name-line {
+      border-bottom: 1.5px solid rgba(255,224,130,0.7);
+      height: 1.9rem;
+      margin-top: 0.15rem;
+    }
     .cover-credits {
-      position: absolute; bottom: 15mm;
-      font-size: 9pt; color: #ce93d8; text-align: center; line-height: 1.6;
+      position: absolute;
+      bottom: 11mm;
+      font-size: 8.5pt;
+      color: rgba(206,147,216,0.8);
+      text-align: center;
+      line-height: 1.7;
     }
     .cover-credits strong { color: #ffe082; }
 
-    /* ── TYPOGRAPHY ── */
+    /* ══════════════════════════════
+       TYPOGRAPHY
+    ══════════════════════════════ */
     h1.page-title {
-      font-size: 18pt; color: #5e35b1;
-      border-bottom: 3px solid #ffe082;
-      padding-bottom: 0.5rem; margin-bottom: 1.75rem;
+      font-size: 17pt;
+      font-weight: 800;
+      color: #4527a0;
+      border-bottom: 3px solid #f9a825;
+      padding-bottom: 0.45rem;
+      margin-bottom: 1.4rem;
+      line-height: 1.25;
     }
     h2.section-title {
-      font-size: 13pt; color: #5e35b1;
-      border-left: 5px solid #f06292;
-      padding-left: 0.75rem; margin: 1.75rem 0 0.75rem;
+      font-size: 12pt;
+      font-weight: 800;
+      color: #5e35b1;
+      border-left: 4px solid #f06292;
+      padding-left: 0.65rem;
+      margin: 1.5rem 0 0.6rem;
       page-break-after: avoid;
     }
     h3.cat-title {
-      font-size: 13pt; color: #5e35b1; font-weight: bold;
-      margin: 0.75rem 0 0.5rem;
+      font-size: 11pt;
+      font-weight: 700;
+      color: #4527a0;
+      margin: 0.7rem 0 0.4rem;
       page-break-after: avoid;
     }
-    p { margin-bottom: 0.85rem; }
-    ul, ol { padding-left: 1.5rem; margin-bottom: 0.85rem; }
-    li { margin-bottom: 0.35rem; }
+    p { margin-bottom: 0.75rem; }
+    ul, ol { padding-left: 1.4rem; margin-bottom: 0.75rem; }
+    li { margin-bottom: 0.3rem; }
 
-    /* ── BOXES ── */
+    /* ══════════════════════════════
+       CONTENT BOXES
+    ══════════════════════════════ */
     .ayah-box {
       background: #ede7f6;
-      border-left: 5px solid #5e35b1;
-      padding: 0.9rem 1.1rem;
-      margin: 0.9rem 0;
+      border-left: 4px solid #5e35b1;
+      padding: 0.8rem 1rem;
+      margin: 0.85rem 0;
       font-style: italic;
       border-radius: 0 8px 8px 0;
       page-break-inside: avoid;
+      font-size: 10pt;
     }
-    .ayah-box .ref { display: block; margin-top: 0.35rem; font-size: 9pt; color: #666; font-style: normal; }
+    .ayah-box .ref {
+      display: block;
+      margin-top: 0.3rem;
+      font-size: 8.5pt;
+      color: #777;
+      font-style: normal;
+      font-weight: 600;
+    }
     .fun-box {
-      background: #fff3e0;
-      border: 2px solid #ff9800;
-      border-radius: 12px;
-      padding: 1rem 1.25rem;
-      margin: 0.9rem 0;
+      background: #fff8e1;
+      border: 1.5px solid #f9a825;
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      margin: 0.85rem 0;
       page-break-inside: avoid;
+      font-size: 10pt;
     }
     .fun-box strong { color: #e65100; }
     .tip-box {
       background: #e8f5e9;
-      border: 2px solid #43a047;
-      border-radius: 12px;
-      padding: 0.9rem 1.1rem;
-      margin: 0.9rem 0;
+      border: 1.5px solid #43a047;
+      border-radius: 10px;
+      padding: 0.8rem 1rem;
+      margin: 0.85rem 0;
       page-break-inside: avoid;
+      font-size: 10pt;
     }
     .dua-sample {
       background: #f3e5f5;
-      border: 2px solid #7b2d8b;
-      border-radius: 12px;
-      padding: 1.1rem 1.25rem;
-      margin: 1rem 0;
-      page-break-inside: avoid;
-    }
-    .dua-sample strong { color: #5e35b1; display: block; margin-bottom: 0.4rem; }
-    .warning-box {
-      background: #fce4ec;
-      border: 2px solid #e91e63;
-      border-radius: 12px;
-      padding: 0.9rem 1.1rem;
+      border: 1.5px solid #7b1fa2;
+      border-radius: 10px;
+      padding: 0.9rem 1rem;
       margin: 0.9rem 0;
       page-break-inside: avoid;
+      font-size: 10pt;
+      font-style: italic;
     }
-    .warning-box strong { color: #c62828; }
+    .dua-sample strong {
+      color: #4a148c;
+      display: block;
+      margin-bottom: 0.35rem;
+      font-style: normal;
+      font-size: 8.5pt;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    .warning-box {
+      background: #fce4ec;
+      border: 1.5px solid #e91e63;
+      border-radius: 10px;
+      padding: 0.8rem 1rem;
+      margin: 0.85rem 0;
+      page-break-inside: avoid;
+      font-size: 10pt;
+    }
+    .warning-box strong { color: #880e4f; }
 
-    /* ── CATEGORY BLOCKS ── */
+    /* ══════════════════════════════
+       CATEGORY HEADER
+    ══════════════════════════════ */
     .cat-block { page-break-before: always; }
     .cat-num {
-      display: inline-block;
-      background: #5e35b1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #5e35b1, #7b2d8b);
       color: white;
-      width: 2.2rem; height: 2.2rem;
+      width: 1.9rem;
+      height: 1.9rem;
       border-radius: 50%;
-      text-align: center; line-height: 2.2rem;
-      font-size: 13pt; font-weight: bold;
-      margin-right: 0.5rem; vertical-align: middle;
+      font-size: 11pt;
+      font-weight: 800;
+      margin-right: 0.45rem;
+      vertical-align: middle;
+      flex-shrink: 0;
     }
 
-    /* ── WRITING SPACES ── */
+    /* ══════════════════════════════
+       WRITING SPACES — ruled lines
+    ══════════════════════════════ */
     .write-prompt {
-      font-size: 10pt; color: #5e35b1;
-      font-weight: bold; font-style: italic;
-      margin: 1rem 0 0.25rem;
+      font-size: 9.5pt;
+      color: #5e35b1;
+      font-weight: 700;
+      margin: 0.9rem 0 0.25rem;
     }
     .write-space {
+      /* Each line = 8mm (comfortable handwriting spacing) */
       background-image: repeating-linear-gradient(
-        to bottom, transparent, transparent 1.9em,
-        #b39ddb 1.9em, #b39ddb 2em
+        to bottom,
+        transparent,
+        transparent calc(8mm - 0.4pt),
+        #c5b8e8 calc(8mm - 0.4pt),
+        #c5b8e8 8mm
       );
-      line-height: 2em; min-height: 8em; margin-bottom: 0.9rem;
+      background-size: 100% 8mm;
+      line-height: 8mm;
+      min-height: 40mm;   /* 5 lines */
+      margin-bottom: 0.9rem;
       page-break-inside: avoid;
     }
-    .ws-sm  { min-height: 4em; }
-    .ws-md  { min-height: 10em; }
-    .ws-lg  { min-height: 16em; }
-    .ws-xl  { min-height: 22em; }
+    .ws-sm  { min-height: 24mm; }   /* 3 lines */
+    .ws-md  { min-height: 48mm; }   /* 6 lines */
+    .ws-lg  { min-height: 72mm; }   /* 9 lines */
+    .ws-xl  { min-height: 96mm; }   /* 12 lines */
 
-    /* ── SUMMARY TABLE ── */
+    /* ══════════════════════════════
+       SUMMARY CARDS
+    ══════════════════════════════ */
     .summary-card {
-      border: 2px solid #5e35b1;
+      border: 1.5px solid #7b2d8b;
       border-radius: 10px;
-      padding: 1rem 1.25rem;
-      margin-bottom: 1rem;
+      padding: 0.85rem 1rem;
+      margin-bottom: 0.85rem;
       page-break-inside: avoid;
     }
-    .summary-card h3 { color: #5e35b1; font-size: 12pt; margin-bottom: 0.6rem; }
-
+    .summary-card h3 {
+      color: #4a148c;
+      font-size: 10.5pt;
+      font-weight: 800;
+      margin-bottom: 0.4rem;
+    }
     .closing-box {
-      background: linear-gradient(135deg, #5e35b1 0%, #4527a0 100%);
+      background: linear-gradient(135deg, #4527a0, #6a1b9a);
       color: white;
       border-radius: 12px;
-      padding: 1.75rem;
+      padding: 1.4rem;
       text-align: center;
-      margin-top: 1.5rem;
+      margin-top: 1.4rem;
       page-break-inside: avoid;
     }
+    .closing-box p { margin-bottom: 0.4rem; }
 
     .page-break { page-break-before: always; }
 
+    /* ══════════════════════════════
+       SCREEN PREVIEW
+    ══════════════════════════════ */
     @media screen {
-      body { max-width: 800px; margin: 0 auto; padding: 2rem; }
-      .cover { min-height: 600px; border-radius: 10px; margin-bottom: 2rem; }
+      body {
+        max-width: 6in;
+        margin: 2rem auto;
+        padding: 0 1.5rem 4rem;
+        background: #f4f4f8;
+      }
+      .cover {
+        width: 100%;
+        height: auto;
+        min-height: 75vh;
+        border-radius: 16px;
+        margin-bottom: 3rem;
+        box-shadow: 0 24px 64px rgba(69,39,160,0.35);
+      }
     }
   </style>
 </head>
@@ -192,23 +379,24 @@
      COVER
 ══════════════════════════════ -->
 <div class="cover">
-  <div class="cover-stars">⭐ 🌙 ✨</div>
+  <div class="cover-stars">⭐ 🌙 ✨ 🌟 ⭐</div>
   <div class="cover-bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
-  <h1>My Dream Duas</h1>
-  <h2>A Dream Duas Workbook for Muslim Kids</h2>
-  <h3>Ages 9–11 · Build Your 6 Powerful Duas!</h3>
+  <div class="cover-series">Dream Duas Series · Kids Edition</div>
+  <h1>My <span>Dream</span><br>Duas</h1>
+  <p class="cover-tagline">A Journal for Building Powerful Duas</p>
+  <p class="cover-ages">Ages 9–11 · 6 Categories · Your Conversation with Allah</p>
   <div class="cover-name-block">
-    <p>This workbook belongs to:</p>
+    <p>This journal belongs to</p>
     <div class="name-line"></div>
-    <p style="margin-top: 0.9rem;">My age:</p>
-    <div class="name-line" style="min-width: 80px;"></div>
-    <p style="margin-top: 0.9rem;">I started on:</p>
-    <div class="name-line" style="min-width: 120px;"></div>
+    <p style="margin-top: 0.65rem;">Age</p>
+    <div class="name-line" style="width: 60px; display: inline-block;"></div>
+    <p style="margin-top: 0.65rem;">Started on</p>
+    <div class="name-line"></div>
   </div>
   <div class="cover-credits">
     <strong>Compiled by UmmAbdullah</strong><br>
     Adapted from Muhammad al-Shareef's Visionaire Course<br>
-    <em>May Allah answer every dua you write in these pages 🤲</em>
+    <em>May Allah answer every dua written in these pages 🤲</em>
   </div>
 </div>
 
