@@ -1784,6 +1784,7 @@ function renderCat(idx) {
     </div>
     <p class="cat-intro">${cat.intro}</p>
     ${ttsBtn(cat.intro, 'tts-sm')}
+    ${criteriaStripHTML()}
     <div class="voice-section" id="voice-${cat.id}">
       <button class="voice-rec-btn" onclick="startRecording('${cat.id}')">
         <span class="mic-ic">🎤</span>
@@ -1804,7 +1805,6 @@ function renderCat(idx) {
       <strong>Sample Dream Dua — for inspiration only</strong>
       <p>${cat.sample}</p>
     </div>
-    ${criteriaStripHTML()}
     <div class="ta-label-row">
       <label class="ta-label" for="dua-ta">
         ✍️ ${S.name ? S.name + '\'s' : 'My'} Dream Dua${v.fndKey==='kids'?' (write from your heart! 💛)':''}
