@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Dream Duas — Visionaire App</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap">
@@ -27,10 +27,10 @@
          background:var(--bg);color:var(--txt);line-height:1.65;font-size:16px}
 
     /* ─── APP SHELL ─── */
-    #app{height:100vh;display:flex;flex-direction:column;overflow:hidden}
+    #app{height:100vh;height:100dvh;display:flex;flex-direction:column;overflow:hidden}
 
     /* header */
-    #hdr{display:none;padding:10px 18px 6px;background:var(--card);
+    #hdr{display:none;padding:max(10px, env(safe-area-inset-top, 10px)) 18px 6px;background:var(--card);
          border-bottom:1px solid var(--bdr);flex-shrink:0}
     #hdr.on{display:flex;align-items:center;gap:10px}
     #hdr-label{font-size:12px;color:var(--muted);white-space:nowrap;min-width:70px}
@@ -41,8 +41,8 @@
     #main{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:18px 16px 24px}
 
     /* footer */
-    #ftr{display:none;padding:10px 16px 18px;background:var(--card);
-         border-top:1px solid var(--bdr);gap:10px;flex-shrink:0}
+    #ftr{display:none;padding:10px 16px max(18px, env(safe-area-inset-bottom, 18px));
+         background:var(--card);border-top:1px solid var(--bdr);gap:10px;flex-shrink:0}
     #ftr.on{display:flex}
 
     /* ─── BUTTONS ─── */
