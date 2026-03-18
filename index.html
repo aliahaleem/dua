@@ -180,6 +180,23 @@
     .sum-footer{text-align:center;font-size:12px;color:var(--muted);
                 padding:14px 0 24px;border-top:1px solid var(--bdr);margin-top:16px}
     .sum-footer strong{color:var(--p)}
+    .sum-support{margin-top:18px;border-top:1px solid var(--bdr);padding-top:18px}
+    .sum-support .sup-ayah-ar{font-size:18px;color:var(--p);direction:rtl;display:block;
+                               text-align:center;margin-bottom:6px;line-height:1.7}
+    .sum-support .sup-ayah-tr{font-size:13px;font-style:italic;color:var(--txt);
+                               text-align:center;display:block;margin-bottom:2px}
+    .sum-support .sup-ayah-ref{font-size:11px;color:var(--muted);text-align:center;
+                                display:block;margin-bottom:14px}
+    .sum-support .sup-body{font-size:13px;color:var(--muted);text-align:center;
+                            line-height:1.65;margin-bottom:14px}
+    .sum-support .sup-email-box{background:var(--al);border:1.5px solid var(--a);
+                                 border-radius:var(--r);padding:14px 16px;text-align:center}
+    .sum-support .sup-email-box p{margin:0;font-size:11px;color:var(--muted);margin-bottom:4px;
+                                   text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+    .sum-support .sup-email{font-size:17px;font-weight:800;color:var(--p);display:block;
+                             margin-bottom:4px;letter-spacing:.3px}
+    .sum-support .sup-method{font-size:11px;color:var(--muted)}
+    .wel-support{text-align:center;font-size:11px;color:var(--muted);opacity:.7;margin-top:18px;line-height:1.5}
     .res-box{background:var(--card);border:1.5px solid var(--p);border-radius:var(--r);
              padding:16px 18px;margin:16px 0}
     .res-box h4{font-size:13px;font-weight:700;color:var(--p);margin-bottom:4px}
@@ -384,6 +401,21 @@ const FOUNDATION = {
     { em:'🌱', title:'Your Legacy Is Still Being Written',
       body:'You are not at the end — you are at the most powerful chapter. The Prophet ﷺ kept making dua until his last breath. Ibrahim (AS) made dua for his descendants who were not yet born. Zakariyya (AS) asked for a son when he was elderly and his wife was barren. Ask for everything. What you ask today may echo through generations you will never meet in this world.',
       hadith:'"When a person dies, their deeds come to an end except for three: ongoing sadaqah, knowledge that benefits others, or a righteous child who prays for them." — Sahih Muslim 1631' }
+  ],
+
+  revert: [
+    { em:'🌙', title:'Welcome Home — Your Slate Is Clean',
+      body:'There is a hadith that changes everything for you: "Islam erases whatever came before it." (Sahih Muslim 121) Every sin, every mistake, every moment before your shahada — wiped clean. You begin with a heart more pure than the day you were born. That is your starting point. Not guilt. Not proving yourself. Not being more Arab or more "proper." Just you, Allah, and a fresh page.',
+      hadith:'"He who accepts Islam is clean — as pure as the day his mother gave birth to him." — Sahih Muslim 121' },
+    { em:'💪', title:'The Courage It Takes',
+      body:'Many people learn about Islam, feel its truth, but never take the step — out of fear of family, fear of change, fear of the unknown. You did. That courage is rare. Bilal (RA) was tortured for saying a single word of truth. Mus\'ab ibn Umair (RA) gave up his wealth and family comfort for his faith. Khadija (RA) was the first — when belief required the most courage. You are in extraordinary company.',
+      hadith:'"The ones who say: Our Lord is Allah — and then remain steadfast — upon them the angels descend." — Surah Fussilat (41:30)' },
+    { em:'🎬', title:'Visualize First, Then Ask',
+      body:'A dream dua is specific and vivid — it gives you butterflies because you can picture it answered. Before each dua in this guide: close your eyes. Picture what it looks like answered. Your family sitting at your table, comfortable around you again. The friend who one day asks you about Islam with curiosity instead of distance. You, years from now, standing confidently in your identity. Hold that picture — then open your hands and ask.',
+      hadith:'"And He provides from where he does not expect." — Surah At-Talaq (65:3)' },
+    { em:'🌱', title:'Your Dua Is Higher Than You — And That Is the Point',
+      body:'Your duas are not supposed to match where you currently are. They are supposed to be higher — so they pull you upward. Every time you make a dream dua, you grow a little toward becoming the person who deserves that answer. The brother who left Islam for years and then returned. The family member who mocked you and then one day asked questions. These things happen — they happen because someone kept asking.',
+      hadith:'"Allah answers every dua except the one who gets impatient and gives up." — Bukhari 6340 · Muslim 2735' }
   ],
 
   'grandparents-urdu': [
@@ -1054,6 +1086,106 @@ const VERSIONS = {
         refs:['آپ کو کیا حقیقی خوشی دیتی ہے جو آپ مزید چاہتے ہیں؟','وہ کون سا تجربہ ہے — سفر، خاندانی ملاقات — جس کا آپ ابھی بھی خواب دیکھتے ہیں؟','دعا کی مدد سے آپ کی زندگی کا عکس کیسا ہوگا — پچھتاوے کے بجائے شکر سے بھرپور؟'],
         sample:'یا اللہ، جو تو نے مجھے دیا ہے اسے پوری طرح شکر کے ساتھ انجوائے کرنے دے۔ مجھے اپنے خاندان کے ساتھ سفر کروا، اپنے پوتوں کے ساتھ ایسی یادیں بنا جو مجھے الحمدللہ کہلوائیں۔ مجھے میٹھا اور پرسکون آرام دے۔ میرے گھر کو گرمی سے بھر دے۔ مجھے ایک بار پھر عمرہ کی توفیق دے۔ میرے آخری سال الحمدللہ سے بھرپور ہوں — نہ پچھتاوے سے۔ مجھے تجھ سے ملاقات کراتے ہوئے حقیقی طور پر جیا ہوا، محبت کیا ہوا، اور تیری خدمت میں گزارا ہوا۔',
         ph:'یا اللہ، اس مرحلے میں خوشی اور اطمینان کے لیے میں مانگتا ہوں...' }
+    ]
+  },
+
+  'adult-grandmom-urdu': {
+    label:'New Muslim / Revert', subtitle:'Your new beginning', em:'🌙',
+    theme:{ p:'#0f766e', pd:'#134e4a', a:'#d97706', al:'#fef3c7', bg:'#f0fdfa' },
+    welcome:{ title:'Welcome Home 🌙',
+      body:'Taking your shahada is one of the bravest and most beautiful things a person can do. This journey is for you — your specific duas, your specific challenges, your specific hopes. You are not alone in this. Let\'s build 7 Dream Duas that cover everything: your family, your faith, your identity, and the future you\'re building with Allah.' },
+    fndKey:'revert', fndTitle:'Before You Begin: What You Need to Know',
+    cats:[
+      { id:'thabat', em:'🌱', title:'Steadfastness in Your Deen',
+        intro:'When the world around you doesn\'t understand your choice, when you feel alone in your faith, when doubt or difficulty comes — this is the dua that holds you.',
+        mentors:[
+          {n:'Bilal ibn Rabah (RA)', d:'tortured for his belief — his only answer was "Ahad, Ahad" (One, One). He did not waver.'},
+          {n:"Mus'ab ibn Umair (RA)", d:'gave up his wealthy family and comfortable life the moment he embraced Islam — and never looked back'},
+          {n:'Sumayyah (RA)', d:'the first martyr of Islam — a woman who held her faith until her very last breath under the worst oppression'}
+        ],
+        ayats:[{ar:'رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا', tr:'"Our Lord, do not let our hearts deviate after You have guided us, and grant us from Yourself mercy. Indeed, You are the Bestower."', ref:'Surah Aal-Imran (3:8) — the dua of those who fear losing their guidance'}],
+        hadiths:[{tx:'"The ones who say: Our Lord is Allah — and then remain steadfast — upon them the angels descend: do not fear and do not grieve."', ref:'Surah Fussilat (41:30)'}],
+        refs:['What is the hardest part of your journey right now — loneliness, doubt, pressure from others?','What would it feel like to be spiritually rooted and unshakeable?','What does your faith look like at its strongest?'],
+        sample:'Ya Allah, You guided me to Islam — now keep me in it. Make my heart firm when family doesn\'t understand, when I feel alone, when the world makes it hard. Send me the angels of reassurance — let me feel Your presence in the difficult moments. Like Bilal, let nothing shake what I know to be true. Make me someone who grows stronger through every test, not weaker. Let my iman be the most stable thing in my life.',
+        ph:'Ya Allah, for steadfastness and firmness in my deen I ask...' },
+
+      { id:'family-accept', em:'🏡', title:'Family Acceptance',
+        intro:'This may be one of the most tender duas you make. For the people you love who don\'t yet understand, who are hurt or confused, who need time — this is where you bring them to Allah.',
+        mentors:[
+          {n:'Ibrahim (AS)', d:'made dua for his father who rejected him his entire life — with patience, love, and no bitterness'},
+          {n:'Nuh (AS)', d:'made dua for his family for 950 years. He never gave up. The door of dua is never closed.'},
+          {n:'Prophet Muhammad ﷺ', d:'whose heart broke for his uncle Abu Talib — reminding us that hidayah is from Allah, but love and dua are ours to give'}
+        ],
+        ayats:[{ar:'إِنَّكَ لَا تَهْدِي مَنْ أَحْبَبْتَ وَلَٰكِنَّ اللَّهَ يَهْدِي مَن يَشَاءُ', tr:'"Indeed, you do not guide whom you love, but Allah guides whom He wills."', ref:'Surah Al-Qasas (28:56) — guidance is from Allah; your role is love and dua'}],
+        hadiths:[{tx:'"The dua of a parent for their child is never rejected — and so too the dua of a Muslim for a Muslim."', ref:'Tirmidhi 1905'}],
+        refs:['Who in your family has been most hurt or confused by your choice?','What do you most want them to understand about you?','How do you want your relationship with them to feel — not what you want them to believe, but how you want to connect?'],
+        sample:'Ya Allah, soften the hearts of my family toward me. I am still the same person they loved — let them feel that. When they see changes in me, let them see goodness: more patience, more kindness, more peace. Even if they never understand Islam, let them accept ME. Remove the distance and replace it with something warm. Heal what feels broken between us. And Ya Allah — give them time. Don\'t let my choice cost me the people I love most.',
+        ph:'Ya Allah, for my family\'s acceptance and our relationship I ask...' },
+
+      { id:'family-hidayah', em:'💛', title:'Guidance for Those I Love',
+        intro:'The greatest thing you could ever give someone is hidayah. You cannot force it — but you can ask the One who opens hearts. This dua is for every person on your heart.',
+        mentors:[
+          {n:'Umar ibn al-Khattab (RA)', d:'the Prophet ﷺ made dua for him specifically: "O Allah, strengthen Islam through Umar." He became one of the greatest Muslims in history.'},
+          {n:'Abu Sufyan (RA)', d:'an enemy of Islam for years — then one day his heart opened. No one is too far.'},
+          {n:'Salman al-Farisi (RA)', d:'searched his entire life across many religions until he found truth in Islam — guided by Allah through an extraordinary journey'}
+        ],
+        ayats:[{ar:null, tr:'"Indeed, Allah does not change the condition of a people until they change what is within themselves."', ref:'Surah Ar-Ra\'d (13:11) — change starts inside; your changed life is the most powerful dawah'}],
+        hadiths:[{tx:'"That Allah guides one person through you is better for you than red camels (the most prized possessions of the time)."', ref:'Bukhari 2942 · Muslim 2406'}],
+        refs:['Who is on your heart most — name them specifically in your dua','What is the most beautiful thing about Islam that you wish they could feel?','What would change in your family if they one day said the shahada?'],
+        sample:'Ya Allah, You guided me — and I know You can guide anyone. I bring [my mother, my father, my brother, my closest friend] before You. Plant a seed of curiosity in their hearts. Let them ask questions. Let them see in me what Islam does to a person — let my character be the most compelling argument. Remove arrogance and replace it with openness. And if not in this life — Ya Allah, grant me their company in Jannah. Never let me give up making this dua.',
+        ph:'Ya Allah, for the guidance of the people I love I ask...' },
+
+      { id:'knowledge', em:'📚', title:'Learning the Deen',
+        intro:'You came to Islam with a heart ready to learn. Now you need knowledge — salah, Quran, Arabic, fiqh. Ask Allah to make this journey beautiful, not overwhelming.',
+        mentors:[
+          {n:'Salman al-Farisi (RA)', d:'traveled from Persia across multiple countries and religions, searching for truth — when he found Islam he learned intensively and became one of the most knowledgeable companions'},
+          {n:"Abdullah ibn Salam (RA)", d:'a Jewish scholar who embraced Islam when he met the Prophet ﷺ — his deep prior knowledge became even more beautiful in Islam'},
+          {n:'The Prophet ﷺ', d:'who made dua every morning: "O Allah, I ask You for beneficial knowledge" — seeking knowledge is a lifelong worship, not a one-time event'}
+        ],
+        ayats:[{ar:null, tr:'"Say: My Lord, increase me in knowledge."', ref:'Surah Ta-Ha (20:114) — the only thing Allah commanded the Prophet ﷺ to ask for more of'}],
+        hadiths:[{tx:'"Seeking knowledge is an obligation upon every Muslim."', ref:'Ibn Majah 224'}],
+        refs:['What feels most confusing or overwhelming in learning the deen right now?','What would it feel like to pray salah with full understanding and khushu\'?','What Islamic knowledge would most transform your daily life if you had it?'],
+        sample:'Ya Allah, make learning this deen easy and beautiful for me. Send me teachers who are patient, communities that welcome questions, and resources that speak to my heart. Let me learn Arabic so I can understand Your Book directly. Give me a strong memory that holds what I learn. Make each thing I learn deepen my love for You — not overwhelm me. And Ya Allah, protect me from those who would make the deen harder than You made it. Make my learning a lifelong joy.',
+        ph:'Ya Allah, for my journey of learning the deen I ask...' },
+
+      { id:'community', em:'🤝', title:'Finding My Community',
+        intro:'Islam is not meant to be lived alone. You deserve brothers and sisters who welcome you, support you, and walk this path with you. Ask Allah to send them to you.',
+        mentors:[
+          {n:'The Muhajirun and Ansar (RA)', d:'the Prophet ﷺ paired them as brothers — strangers who became family overnight. This brotherhood is one of the greatest miracles of Islam.'},
+          {n:'Salman al-Farisi (RA)', d:'who left everything and found in the companions a community that embraced him completely — "Salman is from us, the People of the House"'},
+          {n:'Bilal (RA)', d:'who went from enslaved outsider to the one chosen to make the first adhan in Islam — belonging comes from Allah, not from background'}
+        ],
+        ayats:[{ar:null, tr:'"The believers are but one brotherhood."', ref:'Surah Al-Hujurat (49:10) — you already belong; ask Allah to make it real in your life'}],
+        hadiths:[{tx:'"The parable of the believers in their mutual love and mercy is like the body — if one part is in pain, the whole body responds with fever and sleeplessness."', ref:'Bukhari 6011 · Muslim 2586'}],
+        refs:['What does your ideal Muslim community feel like — what would make you feel truly at home?','Have you felt unwelcome or othered in Muslim spaces? Bring that honestly to Allah.','Who is one Muslim in your life who has made you feel genuinely valued?'],
+        sample:'Ya Allah, I did not just accept a religion — I accepted a family. Send me brothers and sisters who mean it. People who welcome me without making me feel like an outsider, who don\'t correct me harshly, who celebrate my journey. Give me a community where I can ask questions without judgment and serve without needing to prove myself. And Ya Allah — make me that person for the next revert who walks through the door after me.',
+        ph:'Ya Allah, for finding my community and true belonging I ask...' },
+
+      { id:'identity', em:'🌅', title:'Identity & New Beginning',
+        intro:'You are not erasing who you were. You are becoming who you were always meant to be. This dua is for navigating the in-between — the old world and the new, the old self and the emerging one.',
+        mentors:[
+          {n:"Mus'ab ibn Umair (RA)", d:'went from the most fashionable young man in Makkah to wearing patched clothes for Allah — and his nobility only grew'},
+          {n:'Umar ibn al-Khattab (RA)', d:'transformed so completely from enemy of Islam to its protector that people wept when they heard his name changed'},
+          {n:'Khadija (RA)', d:'who never apologized for who she was — her full self was her greatest gift to the Prophet ﷺ and to Islam'}
+        ],
+        ayats:[{ar:'أَلَمْ يَجِدْكَ يَتِيمًا فَآوَىٰ وَوَجَدَكَ ضَالًّا فَهَدَىٰ', tr:'"Did He not find you lost and guide you?"', ref:'Surah Ad-Duha (93:6-7) — Allah guided you because He chose you'}],
+        hadiths:[{tx:'"Islam erases whatever came before it."', ref:'Sahih Muslim 121 — your past is forgiven; your future is being written now'}],
+        refs:['What parts of your old life do you grieve or find hard to leave behind?','What parts of your background, culture, and personality are gifts you bring to Islam?','What does your most authentic Muslim self look like — not someone else\'s version, but yours?'],
+        sample:'Ya Allah, help me become who I am in a way that is real, not performed. Let me keep what is beautiful from who I was — my personality, my connections, my history — and release gently what contradicts my deen. Protect me from losing myself in trying to fit a mould. Make my Islam mine — genuine, rooted, joyful. Let the people who knew me before say: "I see something beautiful in you now." And when I struggle with who I\'m becoming — remind me that You chose me.',
+        ph:'Ya Allah, for my identity and new beginning I ask...' },
+
+      { id:'akhira', em:'🌟', title:'Gratitude, Akhira & the Gift of Hidayah',
+        intro:'Of all the things in this world, hidayah is the most precious. Billions live and die without finding what you have found. This dua is your deepest thank you — and your highest ask.',
+        mentors:[
+          {n:'The Companions who came to Islam as adults', d:'Abu Bakr, Umar, Khadija, Bilal — each found Islam and knew in their hearts it was the greatest day of their lives'},
+          {n:'Ibrahim (AS)', d:'called "Khalilullah" — the friend of Allah — who simply kept asking, kept thanking, kept turning back. His relationship with Allah was his greatest achievement.'},
+          {n:'Prophet Muhammad ﷺ', d:'who wept in tahajjud with gratitude, who said "Should I not be a grateful servant?" — showing us that gratitude is active, ongoing worship'}
+        ],
+        ayats:[{ar:'وَمَن يُسْلِمْ وَجْهَهُ إِلَى اللَّهِ وَهُوَ مُحْسِنٌ فَقَدِ اسْتَمْسَكَ بِالْعُرْوَةِ الْوُثْقَىٰ', tr:'"Whoever submits himself to Allah while being a doer of good has grasped the most trustworthy handhold."', ref:'Surah Luqman (31:22) — you have taken hold of something that will never break'}],
+        hadiths:[{tx:'"When a person accepts Islam, Allah erases all their past sins. After that, deeds are recorded as equal: a good deed earns ten times its reward, and a bad deed earns only its equivalent."', ref:'Sahih al-Bukhari 41'}],
+        refs:['What does it mean to you personally that Allah chose to guide you?','What do you want your last moment to look like — what do you want to be doing, feeling, saying?','If you could ask for one thing for your akhira, right now, what would it be?'],
+        sample:'Ya Allah, You guided me when billions are still searching. You opened a door for me that I did not deserve and did not find on my own — You brought me to it. Let my gratitude for this hidayah never fade. Let me never take for granted the gift of salah, of sajdah, of knowing You. Make my end beautiful — let me die on Islam, with "La ilaha illAllah" on my lips, with my heart at complete peace. Reunite me with every person I love in Jannatul Firdaus. And Ya Allah — let my journey be a cause of someone else\'s guidance. Make me a link in a chain of hidayah that outlives me.',
+        ph:'Ya Allah, out of gratitude for Your guidance, and for my akhira, I ask...' }
     ]
   },
 
@@ -1745,6 +1877,7 @@ function renderWelcome() {
       <p>Prefer pen &amp; paper? Print the workbook and do it offline.</p>
       <a class="offline-link" href="${RESOURCES[S.version].wb}" target="_blank">📋 Open Printable Workbook →</a>
     </div>` : ''}
+    <p class="wel-support">💛 Free resource · Support via e-transfer: <strong>amaturrahman@gmail.com</strong></p>
   </div>`
 }
 
@@ -1879,7 +2012,8 @@ const RESOURCES = {
   'adult-granddad':       { wb:'workbook-granddad.html',   guide:'guide-adults.html',     wbLabel:'Grandfather Printable Workbook',  guideLabel:'Full Adult Guide' },
   'adult-grandmom':       { wb:'workbook-grandmom.html',   guide:'guide-adults.html',     wbLabel:'Grandmother Printable Workbook',  guideLabel:'Full Adult Guide' },
   'adult-granddad-urdu':  { wb:'workbook-granddad.html',   guide:'guide-adults.html',     wbLabel:'دادا/نانا ورک بک',               guideLabel:'مکمل گائیڈ' },
-  'adult-grandmom-urdu':  { wb:'workbook-grandmom.html',   guide:'guide-adults.html',     wbLabel:'دادی/نانی ورک بک',               guideLabel:'مکمل گائیڈ' }
+  'adult-grandmom-urdu':  { wb:'workbook-grandmom.html',   guide:'guide-adults.html',     wbLabel:'دادی/نانی ورک بک',               guideLabel:'مکمل گائیڈ' },
+  'revert':               { wb:'workbook-personal.html',   guide:'guide-adults.html',     wbLabel:'Printable Workbook',              guideLabel:'Full Guide' }
 }
 
 function renderSummary() {
@@ -1927,6 +2061,17 @@ function renderSummary() {
       <strong>Compiled by UmmAbdullah</strong><br>
       Adapted from Muhammad al-Shareef's Visionaire Course<br>
       <em>May Allah answer every dua written here. آمين</em>
+      <div class="sum-support">
+        <span class="sup-ayah-ar">مَّثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ أَنبَتَتْ سَبْعَ سَنَابِلَ</span>
+        <span class="sup-ayah-tr">"The example of those who spend in the way of Allah is like a grain that sprouts seven spikes — in each spike a hundred grains."</span>
+        <span class="sup-ayah-ref">📖 Surah Al-Baqarah (2:261) — Allah multiplies what you give</span>
+        <p class="sup-body">This app and its workbooks are a free gift to the ummah. If they brought value to you or your family, consider planting a seed — any amount you give is multiplied by Allah.</p>
+        <div class="sup-email-box">
+          <p>💛 Support this initiative · E-transfer</p>
+          <span class="sup-email">amaturrahman@gmail.com</span>
+          <span class="sup-method">Any amount is a sadaqah jariyah</span>
+        </div>
+      </div>
     </div>
   </div>`
 }
