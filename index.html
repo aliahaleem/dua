@@ -347,6 +347,25 @@
 // CONTENT DATA
 // ════════════════════════════════════════════════
 
+// ─── SHARED REFERENCES ───────────────────────────────────────────────────────
+// Define once here; reference via SHARED.ayats.* or SHARED.hadiths.* in cats.
+const SHARED = {
+  ayats: {
+    talaq_65_3:   {ar:'وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ', tr:'And He provides for him from where he does not expect.', ref:'Surah At-Talaq (65:3)'},
+    ibrahim_14_7: {ar:null, tr:'If you are grateful, I will certainly give you more.', ref:'Surah Ibrahim (14:7)'},
+    maryam_19:    {ar:'رَبِّ إِنِّي وَهَنَ الْعَظْمُ مِنِّي وَاشْتَعَلَ الرَّأْسُ شَيْبًا وَلَمْ أَكُن بِدُعَائِكَ رَبِّ شَقِيًّا', tr:'My Lord, my bones have weakened and my head is filled with grey hair, and never have I been let down in my dua to You, O Lord.', ref:'Surah Maryam (19:3-4) — Zakariyya\'s words. He asked in old age — and Allah gave him Yahya (AS). Whatever you are about to ask: He can give you that too.'},
+    nisa_4_11:    {ar:'يُوصِيكُمُ اللَّهُ فِي أَوْلَادِكُمْ ۖ لِلذَّكَرِ مِثْلُ حَظِّ الْأُنثَيَيْنِ', tr:'Allah instructs you concerning your children: for the male what is equal to the share of two females. Allah is ever Knowing and Wise.', ref:'Surah An-Nisa (4:11) — the foundation of Islamic inheritance law'},
+    rahman_55_13: {ar:null, tr:'So which of the favors of your Lord would you deny?', ref:'Surah Ar-Rahman (55:13) — a verse for hearts full of gratitude'},
+    rum_30_21:    {ar:'وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا', tr:'And of His signs is that He created for you from yourselves mates that you may find tranquility in them; and He placed between you affection and mercy.', ref:'Surah Ar-Rum (30:21) — the foundation of Islamic marriage'}
+  },
+  hadiths: {
+    three_deeds:      {tx:'When a person dies, their deeds come to an end except for three: ongoing sadaqah, knowledge that benefits others, or a righteous child who prays for them.', ref:'Sahih Muslim 1631'},
+    wasiyyah:         {tx:'It is not permissible for any Muslim who has something to bequeath to sleep for two nights without having his will (wasiyyah) written and kept ready with him.', ref:'Sahih al-Bukhari 2738 · Sahih Muslim 1627'},
+    friend_choice:    {tx:'A person follows the religion of his close friend — so look carefully at who you choose as a close friend.', ref:'Abu Dawud 4833'},
+    friend_companion: {tx:'A good companion is like a perfume seller — even if he gives you nothing, you leave smelling good. A bad companion is like a blacksmith — even if nothing burned you, you go home smelling of smoke.', ref:'Bukhari · Muslim'}
+  }
+};
+
 const FOUNDATION = {
   kids: [
     { em:'🔑', title:'What is a Dream Dua?',
@@ -418,6 +437,19 @@ const FOUNDATION = {
       hadith:'"Allah answers every dua except the one who gets impatient and gives up." — Bukhari 6340 · Muslim 2735' }
   ],
 
+  singles: [
+    { em:'🌟', title:'This Chapter Is Not a Waiting Room',
+      body:'Being single as a young adult is not a pause in your life — it is one of the most formative, important chapters you will ever live. The Sahabah who shaped Islam were young adults figuring out their path: Mus\'ab ibn Umair (RA) was in his 20s when he was sent as an ambassador to Madinah. Aisha (RA) was building scholarship while managing her own household. Ali (RA) was sharpening his character long before his greatest responsibilities arrived. This chapter isn\'t a waiting room. It IS your life. Ask boldly — for your career, your future, your deen, your spouse, your legacy. Now is the time.' },
+    { em:'⚡', title:'Ask While Things Are Good',
+      body:'Most people treat dua like an emergency service — only called when things break. But the Sahabah had a different relationship with Allah: they asked in abundance as much as in need. Umar (RA) would make dua for something as specific as a grey horse to ride in the path of Allah. Aisha (RA) asked Allah to bless the smallest things before she used them. This stage of your life — your career direction, your future spouse, the community you want to build — is the perfect time for proactive dua. Don\'t wait for a crisis to start.',
+      hadith:'"Allah answers every dua except the one who gets impatient and says: my dua was not answered." — Bukhari 6340 · Muslim 2735' },
+    { em:'🎬', title:'Visualize First, Then Ask',
+      body:'Shaykh Muhammad al-Shareef waited 10 years for children. His dua had become habit — words without feeling. He changed: he started imagining first. His daughter\'s wedding. His sons at the masjid. He pictured it in vivid detail — then made dua. It was answered. Before every dua in this guide: close your eyes. Picture the answered version fully. Where are you? What does it look like? How does it feel? Who is there? Hold that image. Then open your hands and ask.' },
+    { em:'🌱', title:'Your Dua Is Pulling You Forward',
+      body:'Every time you make a dream dua, you become a little more like the person who deserves that answer. The dua doesn\'t wait for you to be ready — it grows you toward readiness. Your future spouse, your career breakthrough, your spiritual depth: these are drawn toward you by the consistent, sincere, visionary person you are becoming. Don\'t shrink your duas to match where you are today. Make them bigger. Let them pull you upward.',
+      hadith:'"The dua of a Muslim for his brother in his absence is answered. At his head is an angel appointed: whenever he makes dua for his brother with good, the angel says: Ameen — and the same for you." — Sahih Muslim 2733' }
+  ],
+
   'grandparents-urdu': [
     { em:'🤲', title:'آپ کی دعاؤں میں ایک عمر کا وزن ہے',
       body:'خواب جیسی دعا مخصوص، واضح اور دل کی گہرائیوں سے جڑی ہوتی ہے۔ زندگی کے اس مرحلے پر آپ کی دعاؤں میں کچھ خاص ہے — اللہ کو جاننے کی ایک پوری زندگی۔ آپ نے دیکھا ہے کہ اللہ جواب دیتا ہے، بے گمان جگہوں سے رزق دیتا ہے، اور کبھی کوئی سچا آنسو ضائع نہیں کرتا۔ دلیری سے مانگیں — اپنی صحت کے لیے، اپنے خاندان کے لیے، اپنی وراثت کے لیے، اور اپنی آخرت کے لیے۔ دعا کا دروازہ کبھی بند نہیں ہوتا۔',
@@ -487,8 +519,8 @@ const VERSIONS = {
         ],
         ayats:[{ar:null, tr:'Say, who has forbidden the beautiful things which Allah has produced for His servants?', ref:'Surah Al-A\'raf (7:32)'}],
         hadiths:[
-          {tx:'A person follows the religion of his close friend — so look carefully at who you choose as a close friend.', ref:'Abu Dawud 4833'},
-          {tx:'The example of a good friend is like a perfume seller — even if he gives you nothing, you leave smelling good. A bad friend is like a blacksmith — even if nothing burns you, you still go home smelling of smoke.', ref:'Bukhari & Muslim'}
+          SHARED.hadiths.friend_choice,
+          SHARED.hadiths.friend_companion
         ],
         refs:['What qualities do you REALLY want in a best friend?','What kind of friend do YOU want to be?','How do you want your community to feel your presence?'],
         sample:'Ya Allah, surround me with friends who remind me of You — who make me laugh AND make me better. Protect me from friends who pull me toward bad things or make me feel like I have to be someone I\'m not. If there\'s no good company near me, make me as strong as Ibrahim (AS) — good even standing alone. 🤝',
@@ -500,7 +532,7 @@ const VERSIONS = {
           {n:'Uthman ibn Affan (RA)', d:'a successful businessman who used his wealth to serve Islam'},
           {n:'Khadija (RA)', d:'a brilliant businesswoman who led her field with wisdom and character'}
         ],
-        ayats:[{ar:null, tr:'If you are grateful, I will certainly give you more.', ref:'Surah Ibrahim (14:7)'}],
+        ayats:[SHARED.ayats.ibrahim_14_7],
         hadiths:[],
         refs:['What do you want to be when you grow up? Be specific!','What problem in the world do you want to help fix?','How would your dream career help other Muslims?'],
         sample:'Ya Allah, show me what You created me for. Give me a career I love that earns halal and helps people. Let me be successful — not just for me but to use it for good: donating, building, helping. Let me travel and see Your amazing world. Make my work an act of worship every single day.',
@@ -576,8 +608,8 @@ const VERSIONS = {
         ],
         ayats:[],
         hadiths:[
-          {tx:'A person follows the religion of his close friend — so look carefully at who you choose as a close friend.', ref:'Abu Dawud 4833'},
-          {tx:'A good companion is like a perfume seller — even if he gives you nothing, you leave smelling good. A bad companion is like a blacksmith — even if nothing burned you, you go home smelling of smoke.', ref:'Bukhari · Muslim'}
+          SHARED.hadiths.friend_choice,
+          SHARED.hadiths.friend_companion
         ],
         refs:['Who genuinely makes you a better person — in character and deen?','Who, if you\'re honest, pulls you toward things you\'re not proud of?','What kind of friend do YOU want to be known as?'],
         sample:'Ya Allah, surround me with friends who remind me of You — honest with me, celebrating my wins without jealousy, calling me back to deen gently when I drift. Protect me from friendships built on gossip or performance. Give me the courage to be selective. If good company is hard to find — strengthen me to stand alone like Ibrahim (AS). "A person is upon the religion of his close friend." — Abu Dawud 4833',
@@ -667,8 +699,8 @@ const VERSIONS = {
         ],
         ayats:[],
         hadiths:[
-          {tx:'A person follows the religion of his close friend — so look carefully at who you choose as a close friend.', ref:'Abu Dawud 4833'},
-          {tx:'A good companion is like a perfume seller — even if he gives you nothing, you leave smelling good. A bad companion is like a blacksmith — even if nothing burned you, you go home smelling of smoke.', ref:'Bukhari · Muslim'}
+          SHARED.hadiths.friend_choice,
+          SHARED.hadiths.friend_companion
         ],
         refs:['Who genuinely makes you better — in character and deen?','Who, honestly, pulls you toward things you\'re not proud of?','What kind of friend and brother do you want to be?'],
         sample:'Ya Allah, give me brothers who make me better — honest enough to call me out, loyal enough to stay when I struggle. Protect me from friendships built on sin or peer pressure. Give me courage to walk away from haram even when it means standing alone. "A person follows the religion of his close friend, so be careful who you befriend." (Abu Dawud 4833). Make my circle remind me of You.',
@@ -722,7 +754,7 @@ const VERSIONS = {
           {n:'Abdurrahman ibn Awf (RA)', d:'gave extraordinary wealth for Islam, and it came back multiplied every time'},
           {n:'Uthman ibn Affan (RA)', d:'equipped entire armies from his own wealth — his sadaqah changed the course of history'}
         ],
-        ayats:[{ar:'وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ', tr:'And He provides for him from where he does not expect.', ref:'Surah At-Talaq (65:3)'}],
+        ayats:[SHARED.ayats.talaq_65_3],
         hadiths:[],
         refs:['What financial freedom would allow you to give most generously?','What does wealth look like when it truly serves your deen and family?','What would you do with $1M/year? Let yourself dream.'],
         sample:'Ya Allah, grant me wealth in my hand, not my heart. Let me spend so freely I need accountants to track it — my right hand giving while my left doesn\'t know. Give me businesses that earn without constant effort. Financial freedom to focus on teaching Quran, taking my family to Umrah annually, giving without thinking about cost. Make my wealth a bridge to Jannah, not a barrier.',
@@ -756,7 +788,7 @@ const VERSIONS = {
           {n:'Asiya (RA)', d:'who raised her faith and protected her heart even inside the worst household imaginable'},
           {n:'Maryam (AS)', d:'who was dedicated to Allah herself — and raised the Prophet Isa (AS) as a single mother'}
         ],
-        ayats:[{ar:null, tr:'If you are grateful, I will certainly give you more.', ref:'Surah Ibrahim (14:7)'}],
+        ayats:[SHARED.ayats.ibrahim_14_7],
         hadiths:[],
         refs:['What do you dream for each child — specifically? Visualize each one.','See yourself old, watching your children. What do you see?','What kind of mother do you want to be remembered as?'],
         sample:'Ya Allah, place the Quran in their hearts. Make them huffadh with excellent character — humble, kind, wise, and strong. Make them leaders, running impactful projects. Grant them spouses and children better than them. Let me live to see them lead Eid prayer. Let me sit in the front row at their weddings, tears streaming, heart overflowing with gratitude. Make them the coolness of my eyes here — and my companions in Jannatul Firdaus.',
@@ -797,7 +829,7 @@ const VERSIONS = {
           {n:'Uthman ibn Affan (RA)', d:'equipped armies from his personal wealth — his sadaqah funded the expansion of Islam'},
           {n:'Khadija (RA)', d:'a brilliant businesswoman who built her wealth through integrity and used it to launch Islam itself'}
         ],
-        ayats:[{ar:'وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ', tr:'And He provides for him from where he does not expect.', ref:'Surah At-Talaq (65:3)'}],
+        ayats:[SHARED.ayats.talaq_65_3],
         hadiths:[],
         refs:['What financial freedom would let you give most generously?','What does your legacy look like — in wealth, knowledge, and impact?','What would you build or fund if money were no longer the constraint?'],
         sample:'Ya Allah, grant me wealth in my hand not my heart — like Abdurrahman ibn Awf who gave everything and it came back multiplied. Let me build a masjid, fund education, create sadaqah jariyah. Give me businesses that earn without constant effort. Let my financial legacy outlive me and enter my scale of good deeds after death. Make my wealth a bridge to Jannah, never a barrier.',
@@ -830,7 +862,7 @@ const VERSIONS = {
           {n:'Yusuf (AS)', d:'raised through hardship to become a leader — patient, principled, and never bitter'},
           {n:'Yaqub (AS)', d:'who never stopped loving or believing in his children — even through decades of grief and separation'}
         ],
-        ayats:[{ar:null, tr:'If you are grateful, I will certainly give you more.', ref:'Surah Ibrahim (14:7)'}],
+        ayats:[SHARED.ayats.ibrahim_14_7],
         hadiths:[],
         refs:['What do you dream for each child specifically? Name them.','What do you want them to remember about their father?','What kind of father do you want to be remembered as?'],
         sample:'Ya Allah, make my children leaders of the righteous — huffadh with excellent character, running halal businesses, leading communities. Let them be bonded in love without envy. Grant them spouses better than they expect. Let me live to see my sons lead Eid prayer. Let me sit in the front row at their weddings, heart overflowing. Make them my companions in Jannatul Firdaus.',
@@ -846,6 +878,204 @@ const VERSIONS = {
         refs:['What makes you feel most alive — not just busy?','What would you do with your time if finances were fully handled?','What does your dream retirement look like spiritually and experientially?'],
         sample:'Ya Allah, let me live with purpose — not just working to survive but building something that matters. Give me a mission I pour my heart into. Let me experience the world — Umrah every year, adventures that remind me of Your greatness. Give me leisure that refreshes rather than numbs. Make my final years my most productive, most giving, most spiritually alive. Let me meet You having truly lived.',
         ph:'Ya Allah, for my purpose, mission and joy I ask...' }
+    ]
+  },
+
+  'adult-sister': {
+    label:'Adult Sister', subtitle:'Single — Building Your Life', em:'🌺',
+    theme:{ p:'#9d174d', pd:'#831843', a:'#d97706', al:'#fef3c7', bg:'#fff1f2' },
+    welcome:{ title:'Assalamu Alaikum 🌺',
+      body:'This chapter of your life is not a waiting room — it is a whole, full, important season. You are building your deen, your career, your identity, and your future simultaneously. Let\'s build 7 Dream Duas that give you full permission to ask for everything: your relationship with Allah, your purpose, your future spouse, your family bonds, your health, your sisterhood, and the joy of being fully alive right now.' },
+    fndKey:'singles', fndTitle:'Before You Begin',
+    cats:[
+      { id:'deen', em:'🌙', title:'Deen & Identity as a Muslim Woman',
+        intro:'Before everything else — who are you with Allah? This is your most important relationship. Build it now, and everything else builds on a foundation that cannot shake.',
+        mentors:[
+          {n:'Aisha (RA)', d:'the greatest female scholar of Islam — she built her knowledge, her deen, and her identity long before she is most remembered for her role as a wife'},
+          {n:'Fatima (RA)', d:'who combined deep spirituality, household responsibility, and unyielding connection to Allah — her worship was her identity'},
+          {n:'Maryam (AS)', d:'chosen above all women of the world — not for her wealth or status, but for the purity of her heart and the consistency of her worship'}
+        ],
+        ayats:[], hadiths:[],
+        refs:['What does your most spiritually alive day look like — from fajr to night?','What Islamic knowledge or practice do you most want to build in this chapter?','What does being a Muslim woman mean to you — and what do you want it to mean?'],
+        sample:'Ya Allah, make my deen my identity — not something I put on and take off, but who I am. Let my salah be the coolness of my eyes, not a task to check off. Grant me knowledge that makes me strong and grounded. Let me be like Aisha — known for my scholarship, my character, my connection to You. Make me someone the next generation looks to for wisdom and spiritual anchor. Let me meet You having truly known You.',
+        ph:'Ya Allah, for my deen and spiritual identity I ask...' },
+
+      { id:'career', em:'💛', title:'Career, Purpose & Financial Independence',
+        intro:'Khadija (RA) was a thriving businesswoman before she became a wife. Your career and financial independence are acts of worship when built with intention.',
+        mentors:[
+          {n:'Khadija (RA)', d:'who built a successful business through excellence and integrity — and used her wealth to launch the greatest mission in history'},
+          {n:'Nusaybah bint Ka\'b (RA)', d:'who was a nurse and a warrior, contributing her unique skills to the ummah at every stage of life'},
+          {n:'Umm Salamah (RA)', d:'who navigated widowhood, raised her children, and rebuilt her life with wisdom and dignity — a model of resilient purpose'}
+        ],
+        ayats:[SHARED.ayats.talaq_65_3],
+        hadiths:[],
+        refs:['What career would make you say Alhamdulillah every morning when you wake up?','What financial independence would allow you to give, travel, and serve freely?','How do you want your work to serve the ummah — now and as sadaqah jariyah?'],
+        sample:'Ya Allah, guide me to the career that is truly mine — work that uses what You gave me, that serves people, that earns halal, and that I love. Grant me financial independence: my own income, my own savings, the ability to give generously without asking anyone. Like Khadija, let me build something with my hands and my mind that serves Islam. Make my work an act of worship every single day.',
+        ph:'Ya Allah, for my career and financial independence I ask...' },
+
+      { id:'marriage', em:'💍', title:'Finding the Right Spouse',
+        intro:'Ask Allah for a spouse the way Ibrahim (AS) asked for a righteous son — specifically, vividly, with complete trust. Your spouse is one of the greatest decisions of your life. Bring it to Allah.',
+        mentors:[
+          {n:'Khadija (RA)', d:'who chose wisely and was chosen wisely — the greatest partnership in history began with vision and character'},
+          {n:'Fatima (RA)', d:'who was given to Ali (RA) by the Prophet ﷺ — a marriage built on deen, character, and deep mutual respect'},
+          {n:'Umm Sulaim (RA)', d:'who made her condition for marriage the Islam of her suitor — she knew what mattered most and asked for it'}
+        ],
+        ayats:[SHARED.ayats.rum_30_21],
+        hadiths:[{tx:'A woman is married for four reasons: her wealth, her lineage, her beauty, and her deen — so take the one with deen and you will be successful.', ref:'Bukhari 5090 · Muslim 1466 (principle applies both ways)'}],
+        refs:['What are the three qualities that matter most to you in a spouse — be specific?','What kind of home do you want to build together — describe the feeling of it?','What does a healthy, loving, Islamic marriage look like in the day-to-day?'],
+        sample:'Ya Allah, send me a spouse who is my sakinah — my tranquility, my peace, my partner in deen and in life. Let him be a man of character before everything else: honest, kind, consistent, and God-fearing. Let him see my worth and say so. Let our home be full of Quran, laughter, and barakah. Grant us children who are the coolness of our eyes. Reunite us in Jannatul Firdaus, together forever.',
+        ph:'Ya Allah, for my future spouse and marriage I ask...' },
+
+      { id:'family', em:'🌿', title:'Family, Parents & Being an Adult Daughter',
+        intro:'Navigating your relationship with your parents as a grown woman is its own spiritual art. Ask Allah for the wisdom to honour them, the courage to have honest conversations, and the grace to love them while growing into yourself.',
+        mentors:[
+          {n:'Fatima (RA)', d:'who loved the Prophet ﷺ deeply and was also fiercely her own person — a daughter who honoured without losing herself'},
+          {n:'Ibrahim (AS)', d:'who maintained love for his father even when they deeply disagreed — the dua was always for guidance, never bitterness'},
+          {n:'Asiya (RA)', d:'who protected her heart and her relationship with Allah even within the most difficult family environment imaginable'}
+        ],
+        ayats:[], hadiths:[],
+        refs:['What do you genuinely love about your parents that you rarely say out loud?','Where do you find family relationships hard — and what does the healed version look like?','What kind of daughter and sister do you want to be known as?'],
+        sample:'Ya Allah, make me the daughter who honours her parents wholeheartedly — patient when misunderstood, present when they need me, loving in a way that is felt not just assumed. Give me the wisdom to navigate family disagreements without breaking bonds, and the courage to have honest conversations with grace. Heal whatever is strained between us. Let my deen show through how I treat them, not through what I preach. Grant them long, healthy, joyful lives. And Ya Allah — when I build my own home one day, fill it with the same warmth, forgiveness, and remembrance of You I am asking for now. Let our whole family enter Jannah together.',
+        ph:'Ya Allah, for my family relationships I ask...' },
+
+      { id:'health', em:'🌿', title:'Health & Self-Care',
+        intro:'Your body is an amanah. You matter — not just as someone\'s future wife or daughter, but as yourself, right now.',
+        mentors:[
+          {n:'Aisha (RA)', d:'who was physically active, emotionally resilient, intellectually engaged — she cared for her whole self as an act of worship'},
+          {n:'Maryam (AS)', d:'who was sustained by Allah through physical hardship — given dates and fresh water when she had no one else'},
+          {n:'Prophet Muhammad ﷺ', d:'who was disciplined in sleep, food, and movement — and said "your body has a right over you"'}
+        ],
+        ayats:[], hadiths:[],
+        refs:['What has your body been asking for that you keep putting off?','What does your emotional and mental health honestly need right now?','What would it feel like to have consistent energy, peace, and physical strength?'],
+        sample:'Ya Allah, my body is an amanah from You. Grant me health that lets me worship, work, and serve fully. Free me from the anxiety that steals my sleep and the self-criticism that steals my peace. When I make mistakes, remind me You are Al-Ghaffar — if You forgive me, I must forgive myself. Give me the discipline to care for this body — to eat well, sleep deeply, and move often. Let me meet You having honoured what You gave me.',
+        ph:'Ya Allah, for my health and wellbeing I ask...' },
+
+      { id:'sisterhood', em:'🤝', title:'Sisterhood & Community',
+        intro:'The women around you shape you more than you realise. Ask Allah for sisters who make you better — and make you a sister worth having.',
+        mentors:[
+          {n:'The Ansar women', d:'who welcomed the Muhajiroon women with generosity, shared their homes, and built community from scratch — they chose to build, not just belong'},
+          {n:'Umm Salamah (RA)', d:'who brought her questions, her grief, and her wisdom into the community of believers — she was both supported and a support'},
+          {n:'Aisha (RA)', d:'who taught hundreds of students — her door was open to every woman who came seeking knowledge'}
+        ],
+        ayats:[],
+        hadiths:[
+          SHARED.hadiths.friend_choice,
+          SHARED.hadiths.friend_companion
+        ],
+        refs:['Who genuinely makes you a better Muslim — in character and deen?','What kind of sister and friend do you want to be known as?','What community do you want to be rooted in — and what does it look like?'],
+        sample:'Ya Allah, surround me with sisters who remind me of You — honest with me, joyful around me, calling me back to deen when I drift, celebrating my wins without envy. Protect me from company that pulls me toward what I\'m not proud of. Make me the kind of sister others are grateful to have — the one who shows up, who holds confidence, who prays for people by name. Root me in a community where I belong and contribute.',
+        ph:'Ya Allah, for my sisterhood and community I ask...' },
+
+      { id:'joy', em:'✨', title:'Joy, Travel & Your Best Years',
+        intro:'You are allowed to want a beautiful life right now — not just in some future chapter. Joy is worship. Rest is halal. Ask for the experiences, the adventures, and the alhamdulillah moments that make this life feel like a gift.',
+        mentors:[
+          {n:'Prophet Muhammad ﷺ', d:'who raced with Aisha, smiled often, and made time for joy — rest and fun are Sunnah, not indulgence'},
+          {n:'Ibn Battuta', d:'who traveled the world as a young person seeking knowledge, witnessing Allah\'s signs in every corner of the earth'},
+          {n:'Aisha (RA)', d:'who was known for her warmth, her humour, and her full engagement with life — she was alive in every sense'}
+        ],
+        ayats:[], hadiths:[],
+        refs:['What experiences do you want to have while you are young and free?','What does rest that truly restores you look like?','What would your most beautiful, most grateful year ever look like?'],
+        sample:'Ya Allah, let me enjoy the tayyibat You have made halal — beautiful experiences, meaningful travel, deep laughter, real rest. Let me make Umrah while I am young and full of energy. Let me see Your world — mountains, oceans, cities — and say Subhanallah at every turn. Give me a life full of alhamdulillah moments. Let me arrive at every new chapter having truly lived the one before.',
+        ph:'Ya Allah, for joy and beautiful experiences I ask...' }
+    ]
+  },
+
+  'adult-brother': {
+    label:'Adult Brother', subtitle:'Single — Building Your Future', em:'🌊',
+    theme:{ p:'#0e7490', pd:'#0c4a6e', a:'#b45309', al:'#fef3c7', bg:'#ecfeff' },
+    welcome:{ title:'Assalamu Alaikum 🌊',
+      body:'This is one of the most important chapters of your life. The decisions you make now — about your deen, your career, your future wife, your character — shape everything that comes after. Let\'s build 7 Dream Duas that give you full permission to ask boldly: for who you want to become, what you want to build, and the man Allah created you to be.' },
+    fndKey:'singles', fndTitle:'Before You Begin',
+    cats:[
+      { id:'deen', em:'🌙', title:'Deen & Identity as a Muslim Man',
+        intro:'The most important thing you will ever build is your relationship with Allah. Before the career, before the wife, before the legacy — build this. Everything else will follow.',
+        mentors:[
+          {n:'Prophet Muhammad ﷺ', d:'who at a young age was already known as Al-Amin — the trustworthy one — long before prophethood came'},
+          {n:'Mus\'ab ibn Umair (RA)', d:'who gave up extreme wealth and comfort as a young man for his deen — and became the first ambassador of Islam'},
+          {n:'Ali ibn Abi Talib (RA)', d:'who grew up in the household of the Prophet ﷺ and spent his youth building the foundation of a lifelong connection to Allah'}
+        ],
+        ayats:[], hadiths:[],
+        refs:['What does your most spiritually alive day look like — from fajr to night?','What one Islamic practice would transform your character most right now?','What kind of Muslim man do you want to be known as — in 10 years?'],
+        sample:'Ya Allah, make my deen the core of who I am — not something I maintain, but who I am. Let my salah be the highlight of my day. Grant me knowledge that grounds me and makes me strong. Make me a man of my word, known for my character before my achievements. Like Mus\'ab (RA), let me sacrifice for my deen without bitterness. Like Ali (RA), let me combine strength and depth. Let me lead a family, a community, a mission — with integrity first.',
+        ph:'Ya Allah, for my deen and spiritual identity I ask...' },
+
+      { id:'career', em:'🏛️', title:'Career, Wealth & Financial Readiness',
+        intro:'Abdurrahman ibn Awf (RA) arrived in Madinah with nothing — and within months had built a thriving business. Ask Allah for the career and wealth that serves your deen, provides for your future family, and leaves a legacy.',
+        mentors:[
+          {n:'Abdurrahman ibn Awf (RA)', d:'who arrived with no wealth and built a thriving halal business — wealth came back multiplied every time he gave it away'},
+          {n:'Uthman ibn Affan (RA)', d:'who used his wealth with complete intentionality — to equip armies, buy wells for the community, and serve Islam at every turn'},
+          {n:'Khadija (RA)', d:'whose business model combined excellence, integrity, and generosity — the gold standard for halal enterprise'}
+        ],
+        ayats:[SHARED.ayats.talaq_65_3],
+        hadiths:[],
+        refs:['What career would make you say Alhamdulillah every morning you go in?','What does financial stability that lets you marry and build a family look like specifically?','What would you build or fund if wealth were not the constraint?'],
+        sample:'Ya Allah, guide me to the career that is truly mine — work that uses what You gave me, earns halal, serves people, and funds a life of purpose. Grant me financial stability to marry, to give generously, to fund sadaqah jariyah. Like Abdurrahman ibn Awf (RA), let me give freely and watch it come back multiplied. Make my wealth a bridge to Jannah, not a distraction from it.',
+        ph:'Ya Allah, for my career and financial readiness I ask...' },
+
+      { id:'marriage', em:'💍', title:'Finding the Right Wife',
+        intro:'Ask Allah for your wife the way Zakariyya (AS) asked for a son — in detail, with full trust, when every worldly sign seemed to say no. She exists. Ask for her.',
+        mentors:[
+          {n:'Prophet Muhammad ﷺ', d:'who said "the best of you are those best to their wives" — defining great Muslim manhood by how you love your partner'},
+          {n:'Ali ibn Abi Talib (RA)', d:'who married Fatima (RA) with nothing materially — but with character, deen, and the deepest commitment'},
+          {n:'Ibrahim (AS)', d:'who prayed specifically for a righteous family and built his household entirely around his relationship with Allah'}
+        ],
+        ayats:[SHARED.ayats.rum_30_21],
+        hadiths:[{tx:'Marry a woman for her deen — and you will be successful.', ref:'Bukhari 5090 · Muslim 1466'}],
+        refs:['What three qualities matter most to you in a wife — be specific and honest?','What kind of home do you want to build — describe the atmosphere of it?','Who do you need to become before you are ready to be the husband you want to be?'],
+        sample:'Ya Allah, send me a wife who is my sakinah — my peace, my partner, my companion in deen and in life. Let her be a woman of character and taqwa above everything else. Let our home be built on Quran, mutual respect, and genuine love. Grant us children who are the coolness of our eyes and a sadaqah jariyah that outlives us both. Reunite us in Jannatul Firdaus. I trust Your timing — but I ask with full conviction.',
+        ph:'Ya Allah, for my future wife and marriage I ask...' },
+
+      { id:'family', em:'🌿', title:'Parents, Family & Adult Responsibility',
+        intro:'One of the greatest acts of worship at your stage of life is honouring your parents while becoming your own man. Ask Allah for the wisdom and character to do both with grace.',
+        mentors:[
+          {n:'Ibrahim (AS)', d:'who maintained love and dua for his father even through complete disagreement — never letting rejection turn into bitterness'},
+          {n:'Prophet Muhammad ﷺ', d:'who honoured his family connections all his life — and was known for the way he treated every member of his household'},
+          {n:'Ismail (AS)', d:'who responded to an impossible ask from his father with "You will find me, if Allah wills, of the steadfast" — the model of trusting Allah through family difficulty'}
+        ],
+        ayats:[], hadiths:[],
+        refs:['What do you genuinely love about your parents that you don\'t express enough?','Where are family relationships strained — and what does the healed version look like?','What kind of son and brother do you want to be known as?'],
+        sample:'Ya Allah, make me the son who honours his parents without it being a performance — who genuinely loves and serves them. Give me patience in our disagreements and wisdom in our conversations. Heal whatever is strained between us. Let my parents see my deen through my character, not my words. Grant them long, healthy, peaceful lives. Make me the man who takes care of his family — financially, emotionally, and spiritually. Let us enter Jannah together.',
+        ph:'Ya Allah, for my family relationships I ask...' },
+
+      { id:'health', em:'💪', title:'Health & Physical Strength',
+        intro:'Your body is an amanah. Physical strength in service of worship, family, and purpose — not just appearance.',
+        mentors:[
+          {n:'Prophet Muhammad ﷺ', d:'who was physically active, slept with intention, was disciplined in food and movement — and said "your body has a right over you"'},
+          {n:'Ayyub (AS)', d:'patient through years of severe illness without complaint — and restored fully by Allah at the right time'},
+          {n:'Khalid ibn al-Walid (RA)', d:'whose physical discipline and strength were entirely in service of a purpose greater than himself'}
+        ],
+        ayats:[], hadiths:[],
+        refs:['What does your body need that you\'ve been putting off?','What would your health look like if it truly served your ibadah and your future family?','What physical goal would make you feel strong, energised, and deeply grateful?'],
+        sample:'Ya Allah, my body is an amanah. Grant me strength that lets me stand in qiyam without fatigue, be active and present for my future family, and carry my responsibilities without breaking. Free me from the anxiety and internal pressure I carry silently. Grant me sleep that restores, food that nourishes, and movement that energises. Let this body serve You fully — every year, every decade, until my last breath.',
+        ph:'Ya Allah, for my health and physical strength I ask...' },
+
+      { id:'brotherhood', em:'🤝', title:'Brotherhood & Community',
+        intro:'The men around you will shape you more than any book or lecture. Ask Allah for brothers who pull you upward — and make you the kind of brother worth having.',
+        mentors:[
+          {n:'Abu Bakr (RA)', d:'the Prophet\'s most loyal companion — their friendship made them both better, stronger, and more courageous'},
+          {n:'Salman al-Farisi (RA)', d:'who left everything to find truth and found brothers in Madinah who completely changed his life'},
+          {n:'The Ansar', d:'who welcomed the Muhajiroon as brothers — sharing homes, wealth, and lives — showing what real brotherhood looks like'}
+        ],
+        ayats:[],
+        hadiths:[
+          SHARED.hadiths.friend_choice,
+          SHARED.hadiths.friend_companion
+        ],
+        refs:['Who genuinely makes you a better Muslim — in character and deen?','Who, honestly, pulls you toward things you\'re not proud of?','What kind of brother do you want to be known as — in 10 years?'],
+        sample:'Ya Allah, give me brothers who make me better — honest enough to tell me the truth, loyal enough to stay when I struggle, grounded enough in deen that being around them raises my iman. Protect me from company that normalises haram or drains my spiritual energy. Root me in a masjid community, a circle of accountability, a brotherhood that is real. Make me the kind of man others are grateful to call their brother.',
+        ph:'Ya Allah, for my brotherhood and community I ask...' },
+
+      { id:'purpose', em:'🎯', title:'Purpose, Mission & Adventure',
+        intro:'Beyond the daily grind — what is your mission? What problem in the world has your name on it? What does your most alive, most purposeful year ever look like?',
+        mentors:[
+          {n:'Ibn Battuta', d:'who set out as a young man to see the world with purpose — every journey an act of witness to Allah\'s signs'},
+          {n:'Saladin (RA)', d:'who combined strategic brilliance, personal piety, and a mission larger than himself — the model of a man with a calling'},
+          {n:'Zayd ibn Haritha (RA)', d:'who served with complete loyalty and purpose, making every responsibility — however large or small — an act of worship'}
+        ],
+        ayats:[], hadiths:[],
+        refs:['What problem in the world do you feel called to work on?','What does your most purposeful, most alive year look like — specifically?','What adventures or experiences do you want while you have the freedom and energy?'],
+        sample:'Ya Allah, give me a mission that is bigger than my comfort. Show me the problem that has my name on it and give me the courage, the skills, and the resources to pursue it. Let me travel and witness Your world — Umrah, new countries, natural wonders that make me say Subhanallah. Let me build something that outlives me. Let my life be a story of purpose, not just productivity. Let me meet You having truly lived — not just existed.',
+        ph:'Ya Allah, for my purpose, mission and adventures I ask...' }
     ]
   },
 
@@ -874,8 +1104,8 @@ const VERSIONS = {
           {n:'Ibrahim (AS)', d:'who continued making dua for his children, his city, and his lineage until his very last years'},
           {n:'Zakariyya (AS)', d:'white-haired, weak-boned, wife barren — asked anyway, saying "never have I been let down in my dua to You." Allah gave him Yahya (AS). If He answered THAT, He can answer whatever you are about to write.'}
         ],
-        ayats:[{ar:'رَبِّ إِنِّي وَهَنَ الْعَظْمُ مِنِّي وَاشْتَعَلَ الرَّأْسُ شَيْبًا وَلَمْ أَكُن بِدُعَائِكَ رَبِّ شَقِيًّا', tr:'My Lord, my bones have weakened and my head is filled with grey hair, and never have I been let down in my dua to You, O Lord.', ref:'Surah Maryam (19:3-4) — Zakariyya\'s words. He asked in old age — and Allah gave him Yahya (AS). Whatever you are about to ask: He can give you that too.'}],
-        hadiths:[{tx:'When a person dies, their deeds come to an end except for three: ongoing sadaqah, knowledge that benefits others, or a righteous child who prays for them.', ref:'Sahih Muslim 1631'}],
+        ayats:[SHARED.ayats.maryam_19],
+        hadiths:[SHARED.hadiths.three_deeds],
         refs:['What part of the Quran do you want to complete or deepen before you meet Allah?','What Islamic knowledge do you want to pass on — through grandchildren, community, writing?','What does your most spiritually alive day look like right now?'],
         sample:'Ya Allah, make my remaining years my most spiritually alive. Let me complete the Quran with understanding. Grant me tahajjud as a consistent companion. Deepen my salah — let it be the highlight of every day, not a task. Make me a source of Islamic wisdom for my children and grandchildren. Let my home be a place of Quran and dhikr. Let me die with La ilaha illAllah on my lips, in a state of purity, facing Your direction.',
         ph:'Ya Allah, for my deen and spiritual legacy I ask...' },
@@ -909,8 +1139,8 @@ const VERSIONS = {
           {n:'Prophet Muhammad ﷺ', d:'who left detailed, clear instructions and settled every debt before he passed — a mercy to all he left behind'},
           {n:'Uthman ibn Affan (RA)', d:'who planned his legacy with such generosity that its effects were felt for generations'}
         ],
-        ayats:[{ar:'يُوصِيكُمُ اللَّهُ فِي أَوْلَادِكُمْ ۖ لِلذَّكَرِ مِثْلُ حَظِّ الْأُنثَيَيْنِ', tr:'Allah instructs you concerning your children: for the male what is equal to the share of two females. Allah is ever Knowing and Wise.', ref:'Surah An-Nisa (4:11) — the foundation of Islamic inheritance law'}],
-        hadiths:[{tx:'It is not permissible for any Muslim who has something to bequeath to sleep for two nights without having his will (wasiyyah) written and kept ready with him.', ref:'Sahih al-Bukhari 2738 · Sahih Muslim 1627'}],
+        ayats:[SHARED.ayats.nisa_4_11],
+        hadiths:[SHARED.hadiths.wasiyyah],
         refs:['Have you written your wasiyyah (Islamic will)? Is it current and accessible?','Is your estate to be distributed according to Islamic faraidh — or do you need to consult a scholar?','Who is your named executor (wasi)? Does he know?','Are there debts owed to you or by you that should be settled or forgiven now?','What sadaqah jariyah (Quran endowment, masjid contribution, scholarship) do you want established?','Have you told your family your wishes for your final care, janazah, and burial?'],
         sample:'Ya Allah, help me put my affairs in order while I still have time and clarity. Guide me to write my wasiyyah with fairness, following Your faraidh. Forgive me for any delays. Help me settle every debt — what I owe to You through missed prayers and fasts, and what I owe to people. Let me forgive freely and be forgiven fully. Grant me the sadaqah jariyah that continues after my death — Quran someone recites, knowledge someone carries, a grandchild who prays for me. Let me leave this world with nothing pending, no heart broken by injustice, and all rights fulfilled.',
         ph:'Ya Allah, regarding my affairs and what I leave behind I ask...' },
@@ -921,7 +1151,7 @@ const VERSIONS = {
           {n:'Ibrahim (AS)', d:'who in old age was visited by angels, hosted guests with joy, and still looked forward with hope'},
           {n:'Luqman (AS)', d:'whose contentment and wisdom made every moment of his life a gift to those around him'}
         ],
-        ayats:[{ar:null, tr:'So which of the favors of your Lord would you deny?', ref:'Surah Ar-Rahman (55:13) — a verse for hearts full of gratitude'}],
+        ayats:[SHARED.ayats.rahman_55_13],
         hadiths:[],
         refs:['What brings you genuine joy that you\'d like more of?','What is one experience — travel, family gathering, achievement — you still dream of?','How do you want to feel when you reflect on your life — and how can dua help get you there?'],
         sample:'Ya Allah, let me enjoy what You have given me without guilt and without waste. Let me travel with my family, make memories with my grandchildren, sit with old friends in laughter. Give me rest that is sweet, not anxious. Fill my home with warmth. Grant me Umrah once more — let me stand before Your House in gratitude. Let my final years be full of Alhamdulillah — not regret. Let me meet You having truly lived, truly loved, and truly served You.',
@@ -954,8 +1184,8 @@ const VERSIONS = {
           {n:'Asiya (RA)', d:'who called on Allah from inside the worst household imaginable — her worship was entirely between her and Allah'},
           {n:'The women of the early ummah', d:'who maintained their Quran, their prayers, and their connection to Allah across every stage of life'}
         ],
-        ayats:[{ar:'رَبِّ إِنِّي وَهَنَ الْعَظْمُ مِنِّي وَاشْتَعَلَ الرَّأْسُ شَيْبًا وَلَمْ أَكُن بِدُعَائِكَ رَبِّ شَقِيًّا', tr:'My Lord, my bones have weakened and my head is filled with grey hair, and never have I been let down in my dua to You, O Lord.', ref:'Surah Maryam (19:3-4) — Zakariyya\'s words. He asked in old age — and Allah gave him Yahya (AS). Whatever you are about to ask: He can give you that too.'}],
-        hadiths:[{tx:'When a person dies, their deeds come to an end except for three: ongoing sadaqah, knowledge that benefits others, or a righteous child who prays for them.', ref:'Sahih Muslim 1631'}],
+        ayats:[SHARED.ayats.maryam_19],
+        hadiths:[SHARED.hadiths.three_deeds],
         refs:['What does your most spiritually alive day look like from fajr to isha?','What part of the Quran or ibadah do you want to deepen before you meet Allah?','What Islamic legacy — knowledge, habit, story — do you want to leave in your family?'],
         sample:'Ya Allah, make my remaining years the most spiritually alive of my life. Let my salah be the highlight of every day — a conversation, not a ritual. Grant me consistent tahajjud. Let me complete the Quran with understanding. Make me a source of Islamic wisdom in my family — the one they come to for dua, for advice, for anchor. Let my home be filled with Your remembrance. Let me die in a state of purity, with La ilaha illAllah on my lips.',
         ph:'Ya Allah, for my deen and ibadah I ask...' },
@@ -989,8 +1219,8 @@ const VERSIONS = {
           {n:'Abu Bakr (RA)', d:'who wrote his will before every expedition without exception — he never left his affairs unresolved'},
           {n:'Prophet Muhammad ﷺ', d:'who left clear instructions, settled every debt, and ensured nothing was pending when he passed'}
         ],
-        ayats:[{ar:'يُوصِيكُمُ اللَّهُ فِي أَوْلَادِكُمْ ۖ لِلذَّكَرِ مِثْلُ حَظِّ الْأُنثَيَيْنِ', tr:'Allah instructs you concerning your children: for the male what is equal to the share of two females. Allah is ever Knowing and Wise.', ref:'Surah An-Nisa (4:11) — the foundation of Islamic inheritance law'}],
-        hadiths:[{tx:'It is not permissible for any Muslim who has something to bequeath to sleep for two nights without having his will (wasiyyah) written and kept ready with him.', ref:'Sahih al-Bukhari 2738 · Sahih Muslim 1627'}],
+        ayats:[SHARED.ayats.nisa_4_11],
+        hadiths:[SHARED.hadiths.wasiyyah],
         refs:['Have you written your wasiyyah (Islamic will)? Is it current?','Is your estate to be distributed according to Islamic faraidh? Have you consulted a scholar?','Are there debts you owe — to Allah (missed prayers, fasts, zakat) or to people?','Are there debts owed to you that you want to forgive completely?','What sadaqah jariyah do you want established in your name after you pass?','Have you told your family your wishes for your final care, janazah, and burial?'],
         sample:'Ya Allah, help me put my affairs in order while I still have clarity and strength. Give me the courage to write my wasiyyah, to distribute my estate according to Your faraidh, to forgive what is owed to me, and to settle what I owe. Forgive me for any delays — I come to You now. Let me leave this world with no rights violated, no hearts broken by injustice, no wealth distributed without Your guidance. Grant me the sadaqah jariyah that continues after I am gone. Let the knowledge I passed, the Quran I taught, and the duas I planted in my grandchildren\'s hearts flow into my scale of good deeds until the Day of Judgement.',
         ph:'Ya Allah, regarding my affairs and what I leave behind I ask...' },
@@ -1001,7 +1231,7 @@ const VERSIONS = {
           {n:'Aisha (RA)', d:'who remained joyful, engaged, and full of humour well into her later years — joy was part of her deen'},
           {n:'Sarah, wife of Ibrahim (AS)', d:'who laughed with surprise when the angels brought her glad tidings in old age — and it was recorded in the Quran'}
         ],
-        ayats:[{ar:null, tr:'So which of the favors of your Lord would you deny?', ref:'Surah Ar-Rahman (55:13)'}],
+        ayats:[SHARED.ayats.rahman_55_13],
         hadiths:[],
         refs:['What brings you deep, genuine joy that you haven\'t allowed yourself recently?','What experience — a journey, a gathering, a moment — do you still dream of?','What would it feel like to enter every day with gratitude rather than just endurance?'],
         sample:'Ya Allah, let me enjoy what You have given me — without guilt, without waste, with full gratitude. Let me travel with those I love, make memories that make me say Alhamdulillah out loud. Give me rest that is sweet and refreshing. Let me sit with my grandchildren and have them feel my joy, not just my advice. Grant me one more Umrah — let me stand before Your House with tears of gratitude. Let my final years be the most beautiful chapter — full, peaceful, and close to You.',
@@ -2009,6 +2239,8 @@ const RESOURCES = {
   'teen-boys':       { wb:'workbook-teen-boys.html',  guide:'guide-teen-boys.html',  wbLabel:'Teen Boys Printable Workbook',    guideLabel:'Full Teen Boys Guide' },
   'adult-mom':       { wb:'workbook-personal.html',   guide:'guide-adults.html',     wbLabel:'Adult Printable Workbook',        guideLabel:'Full Adult Guide' },
   'adult-dad':       { wb:'workbook-personal.html',   guide:'guide-adults.html',     wbLabel:'Adult Printable Workbook',        guideLabel:'Full Adult Guide' },
+  'adult-sister':         { wb:'workbook-personal.html',   guide:'guide-adults.html',     wbLabel:'Adult Printable Workbook',        guideLabel:'Full Adult Guide' },
+  'adult-brother':        { wb:'workbook-personal.html',   guide:'guide-adults.html',     wbLabel:'Adult Printable Workbook',        guideLabel:'Full Adult Guide' },
   'adult-granddad':       { wb:'workbook-granddad.html',   guide:'guide-adults.html',     wbLabel:'Grandfather Printable Workbook',  guideLabel:'Full Adult Guide' },
   'adult-grandmom':       { wb:'workbook-grandmom.html',   guide:'guide-adults.html',     wbLabel:'Grandmother Printable Workbook',  guideLabel:'Full Adult Guide' },
   'adult-granddad-urdu':  { wb:'workbook-granddad.html',   guide:'guide-adults.html',     wbLabel:'دادا/نانا ورک بک',               guideLabel:'مکمل گائیڈ' },
