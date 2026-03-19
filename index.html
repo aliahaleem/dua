@@ -102,6 +102,19 @@
     .field input{width:100%;padding:12px 14px;border:1.5px solid var(--bdr);
                  border-radius:var(--r);font-size:15px;outline:none;background:var(--card);color:var(--txt)}
     .field input:focus{border-color:var(--p)}
+    .field select{width:100%;padding:12px 14px;border:1.5px solid var(--bdr);
+                  border-radius:var(--r);font-size:15px;outline:none;background:var(--card);
+                  color:var(--txt);-webkit-appearance:none;appearance:none;cursor:pointer;
+                  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748b' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+                  background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+    .field select:focus{border-color:var(--p)}
+    .ver-preview{display:none;align-items:center;gap:12px;background:var(--al);
+                 border:1.5px solid var(--p);border-radius:var(--r);padding:14px 16px;
+                 margin-bottom:14px;transition:all .2s}
+    .ver-preview .vp-em{font-size:32px;flex-shrink:0}
+    .ver-preview .vp-text{display:flex;flex-direction:column;gap:3px}
+    .ver-preview .vp-text strong{font-size:14px;font-weight:700;color:var(--p)}
+    .ver-preview .vp-text span{font-size:12px;color:var(--muted)}
     .voice-sel{width:100%;padding:12px 14px;border:1.5px solid var(--bdr);
                border-radius:var(--r);font-size:14px;outline:none;background:var(--card);
                color:var(--txt);-webkit-appearance:none;appearance:none;cursor:pointer}
@@ -1957,6 +1970,52 @@ function beginNew() {
   save(); goTo('foundation')
 }
 
+function previewVersion(v) {
+  const box = document.getElementById('ver-preview')
+  if (!v || !box) return
+  applyTheme(v)
+  const d   = VERSIONS[v]
+  const res = RESOURCES[v]
+  const wbLink = res
+    ? `<a class="vc-wb" href="${res.wb}" target="_blank" onclick="event.stopPropagation()" style="margin-top:6px">📋 Printable workbook</a>`
+    : ''
+  const savedBadge = hasSaved(v)
+    ? `<span class="vc-badge" style="position:static;display:inline-block;margin-top:4px">In progress ✓</span>`
+    : ''
+  document.getElementById('vp-em').textContent = d.em
+  document.getElementById('vp-text').innerHTML =
+    `<strong>${d.label}</strong><span>${d.subtitle}</span>${savedBadge}${wbLink}`
+  box.style.display = 'flex'
+  // pre-fill name from any previously saved session for this version
+  const saved = load(v)
+  const nameEl = document.getElementById('inp-name-sel')
+  if (nameEl && saved && saved.name && !nameEl.value) nameEl.value = saved.name
+}
+
+function beginFromSelect() {
+  const selEl = document.getElementById('sel-version')
+  const v = selEl ? selEl.value : ''
+  if (!v) {
+    if (selEl) { selEl.style.borderColor = 'var(--p)'; selEl.focus() }
+    return
+  }
+  S.version = v
+  S.name    = document.getElementById('inp-name-sel')?.value?.trim() || ''
+  applyTheme(v)
+  const saved = load(v)
+  if (saved && saved.answers && Object.keys(saved.answers).length > 0) {
+    // Restore saved session then show welcome for continue/fresh choice
+    Object.assign(S, saved)
+    if (document.getElementById('inp-name-sel')?.value?.trim()) {
+      S.name = document.getElementById('inp-name-sel').value.trim()
+    }
+    goTo('welcome')
+  } else {
+    S.screen = 'foundation'; S.age = ''; S.answers = {}
+    save(); goTo('foundation')
+  }
+}
+
 function saveTA(id, val) {
   S.answers[id] = val; save()
 }
@@ -2037,34 +2096,43 @@ function handleNext() {
 
 // ─── SELECT SCREEN ───
 function renderSelect() {
-  const cards = Object.keys(VERSIONS).map(v => {
-    const d    = VERSIONS[v]
-    const saved = hasSaved(v)
-    const res  = RESOURCES[v]
-    const wbLink = res
-      ? `<a class="vc-wb" href="${res.wb}" target="_blank"
-            onclick="event.stopPropagation()">📋 Printable workbook</a>`
-      : ''
-    return `<div class="ver-card" onclick="pickVersion('${v}')">
-      ${saved ? `<span class="vc-badge">In progress</span>` : ''}
-      <span class="vc-em">${d.em}</span>
-      <span class="vc-lb">${d.label}</span>
-      <span class="vc-sub">${d.subtitle}</span>
-      ${wbLink}
-    </div>`
+  const opts = Object.keys(VERSIONS).map(v => {
+    const d = VERSIONS[v]
+    const savedMark = hasSaved(v) ? ' ✓' : ''
+    return `<option value="${v}">${d.em} ${d.label} — ${d.subtitle}${savedMark}</option>`
   }).join('')
 
   return `<div class="sel-wrap">
     <div class="sel-top">
       <span class="bismi">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</span>
       <h1>Dream Duas</h1>
-      <p>Use the app digitally, or tap <strong>📋 Printable workbook</strong> on any card to print and work offline.</p>
+      <p>Build personalised duas with vision, intention, and the Quran as your guide.</p>
     </div>
-    <div class="ver-grid">${cards}</div>
+
+    <div class="field">
+      <label>Who is this for?</label>
+      <select id="sel-version" onchange="previewVersion(this.value)">
+        <option value="">— Choose your version —</option>
+        ${opts}
+      </select>
+    </div>
+
+    <div id="ver-preview" class="ver-preview">
+      <span class="vp-em" id="vp-em"></span>
+      <div class="vp-text" id="vp-text"></div>
+    </div>
+
+    <div class="field">
+      <label>Your name <span style="font-weight:400;color:var(--muted)">(optional)</span></label>
+      <input id="inp-name-sel" type="text" placeholder="What should we call you?" value="${S.name||''}">
+    </div>
+
+    <button class="btn btn-p btn-full" style="margin-top:4px" onclick="beginFromSelect()">Begin My Journey →</button>
+
     <div class="sel-credit">
       <strong>Compiled by UmmAbdullah</strong> &nbsp;·&nbsp;
       Adapted from Muhammad al-Shareef's Visionaire Course<br>
-      <em>More versions coming soon</em>
+      <p class="wel-support" style="margin-top:6px">💛 Free resource · Support via e-transfer: <strong>amaturrahman@gmail.com</strong></p>
     </div>
   </div>`
 }
@@ -2092,22 +2160,13 @@ function renderWelcome() {
     <h2>${v.welcome.title}</h2>
     <p class="wel-body">${v.welcome.body}</p>
     ${returnBanner}
-    <div class="field">
-      <label>Your name <span style="font-weight:400;color:var(--muted)">(optional)</span></label>
-      <input id="inp-name" type="text" placeholder="What should we call you?" value="${S.name||''}">
-    </div>
-    <div class="field">
-      <label>Your age <span style="font-weight:400;color:var(--muted)">(optional)</span></label>
-      <input id="inp-age" type="number" placeholder="e.g. 14" value="${S.age||''}" min="7" max="99">
-    </div>
+    ${!isReturn ? `<button class="btn btn-p btn-full" style="margin-top:8px" onclick="goTo('foundation')">Begin My Journey →</button>` : ''}
     ${voicePickerHTML()}
-    <button class="btn btn-p btn-full" style="margin-top:8px" onclick="beginNew()">Begin My Journey →</button>
-    <button class="btn btn-g btn-full" style="margin-top:10px;font-size:13px" onclick="S.version=null;applyTheme('kids');render()">← Choose a different version</button>
+    <button class="btn btn-g btn-full" style="margin-top:10px;font-size:13px" onclick="S.version=null;S.screen='select';applyTheme('kids');render()">← Choose a different version</button>
     ${RESOURCES[S.version] ? `<div class="offline-strip">
       <p>Prefer pen &amp; paper? Print the workbook and do it offline.</p>
       <a class="offline-link" href="${RESOURCES[S.version].wb}" target="_blank">📋 Open Printable Workbook →</a>
     </div>` : ''}
-    <p class="wel-support">💛 Free resource · Support via e-transfer: <strong>amaturrahman@gmail.com</strong></p>
   </div>`
 }
 
