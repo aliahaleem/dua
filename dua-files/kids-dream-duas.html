@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Dream Duas - Kids Edition</title>
+  <style>
+    :root {
+      --blue: #4a90d9;
+      --green: #2ecc71;
+      --purple: #9b59b6;
+      --orange: #f39c12;
+      --pink: #e91e8a;
+      --teal: #1abc9c;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+      color: #333;
+      line-height: 1.7;
+      padding: 1.5rem;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      text-align: center;
+      font-size: 2.2rem;
+      background: linear-gradient(135deg, var(--purple), var(--blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+    
+    .subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+    
+    .intro-box {
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+    
+    .intro-box h2 {
+      color: var(--purple);
+      margin-bottom: 1rem;
+    }
+    
+    .story {
+      background: #f8f4ff;
+      border-left: 4px solid var(--purple);
+      padding: 1rem;
+      border-radius: 0 12px 12px 0;
+      margin: 1rem 0;
+      font-style: italic;
+    }
+    
+    .tip-box {
+      background: #fff9e6;
+      border: 2px dashed var(--orange);
+      border-radius: 12px;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    
+    .tip-box strong {
+      color: var(--orange);
+    }
+    
+    .category {
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+    
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    
+    .category-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+    
+    .category h3 {
+      font-size: 1.3rem;
+    }
+    
+    .questions {
+      background: #f0f8ff;
+      border-radius: 12px;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    
+    .questions h4 {
+      color: var(--blue);
+      margin-bottom: 0.5rem;
+    }
+    
+    .questions ul {
+      margin-left: 1.25rem;
+    }
+    
+    .questions li {
+      margin-bottom: 0.4rem;
+    }
+    
+    .sample-dua {
+      background: linear-gradient(135deg, #f8f6f0 0%, #fff 100%);
+      border-left: 4px solid;
+      border-radius: 0 12px 12px 0;
+      padding: 1rem;
+      margin: 0.75rem 0;
+    }
+    
+    .sample-dua strong {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    
+    .write-space {
+      background: #fffef5;
+      border: 2px dashed #ddd;
+      border-radius: 12px;
+      padding: 1rem;
+      margin-top: 1rem;
+      min-height: 80px;
+    }
+    
+    .write-space p {
+      color: #999;
+      font-style: italic;
+    }
+    
+    /* Category colors */
+    .cat-quran .category-icon { background: #e8f5e9; }
+    .cat-quran h3 { color: var(--green); }
+    .cat-quran .sample-dua { border-color: var(--green); }
+    
+    .cat-family .category-icon { background: #fce4ec; }
+    .cat-family h3 { color: var(--pink); }
+    .cat-family .sample-dua { border-color: var(--pink); }
+    
+    .cat-character .category-icon { background: #e3f2fd; }
+    .cat-character h3 { color: var(--blue); }
+    .cat-character .sample-dua { border-color: var(--blue); }
+    
+    .cat-friends .category-icon { background: #fff3e0; }
+    .cat-friends h3 { color: var(--orange); }
+    .cat-friends .sample-dua { border-color: var(--orange); }
+    
+    .cat-future .category-icon { background: #f3e5f5; }
+    .cat-future h3 { color: var(--purple); }
+    .cat-future .sample-dua { border-color: var(--purple); }
+    
+    .cat-fun .category-icon { background: #e0f2f1; }
+    .cat-fun h3 { color: var(--teal); }
+    .cat-fun .sample-dua { border-color: var(--teal); }
+    
+    .rules-box {
+      background: linear-gradient(135deg, var(--green), var(--teal));
+      color: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .rules-box h3 {
+      margin-bottom: 1rem;
+    }
+    
+    .rules-box ol {
+      margin-left: 1.25rem;
+    }
+    
+    .rules-box li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .final-dua {
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+    
+    .arabic {
+      font-family: 'Traditional Arabic', 'Scheherazade', serif;
+      font-size: 1.6rem;
+      direction: rtl;
+      color: var(--purple);
+      margin: 1rem 0;
+    }
+    
+    @media print {
+      body { padding: 0.5rem; background: white; }
+      .category, .intro-box { box-shadow: none; border: 1px solid #eee; }
+    }
+    
+    /* Colorable sticker styles */
+    .sticker {
+      display: inline-block;
+      margin: 0.5rem;
+    }
+    
+    .sticker svg {
+      width: 60px;
+      height: 60px;
+    }
+    
+    .sticker-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    
+    .sticker-corner {
+      position: absolute;
+      opacity: 0.7;
+    }
+    
+    .sticker-label {
+      font-size: 0.7rem;
+      text-align: center;
+      color: #999;
+      margin-top: 0.25rem;
+    }
+    
+    .color-me-box {
+      background: #fffef5;
+      border: 2px dashed #ccc;
+      border-radius: 12px;
+      padding: 1rem;
+      margin: 1rem 0;
+      text-align: center;
+    }
+    
+    .color-me-box h4 {
+      color: var(--purple);
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>My Dream Duas</h1>
+  <p class="subtitle">A guide for young Muslims (ages 9-11)</p>
+  
+  <!-- Colorable stickers header -->
+  <div class="color-me-box">
+    <h4>🎨 Color Me! Print this page and color the pictures!</h4>
+    <div class="sticker-row">
+      <!-- Star -->
+      <div class="sticker">
+        <svg viewBox="0 0 60 60" fill="none" stroke="#333" stroke-width="2">
+          <polygon points="30,5 36,22 55,22 40,33 46,52 30,42 14,52 20,33 5,22 24,22"/>
+        </svg>
+        <div class="sticker-label">Star</div>
+      </div>
+      <!-- Moon -->
+      <div class="sticker">
+        <svg viewBox="0 0 60 60" fill="none" stroke="#333" stroke-width="2">
+          <path d="M40,10 A20,20 0 1,0 40,50 A15,15 0 1,1 40,10"/>
+        </svg>
+        <div class="sticker-label">Moon</div>
+      </div>
+      <!-- Dua hands -->
+      <div class="sticker">
+        <svg viewBox="0 0 60 60" fill="none" stroke="#333" stroke-width="2">
+          <path d="M15,45 Q15,25 25,15 L25,35 M25,35 L28,15 M28,15 L31,35 M31,35 L34,18 M34,18 L37,35 M37,35 L38,22 M38,22 Q45,30 40,45 Q30,50 15,45"/>
+          <path d="M45,45 Q45,25 35,15 L35,35 M35,35 L32,15 M32,15 L29,35 M29,35 L26,18 M26,18 L23,35 M23,35 L22,22 M22,22 Q15,30 20,45 Q30,50 45,45" transform="translate(60,0) scale(-1,1)"/>
+        </svg>
+        <div class="sticker-label">Dua Hands</div>
+      </div>
+      <!-- Heart -->
+      <div class="sticker">
+        <svg viewBox="0 0 60 60" fill="none" stroke="#333" stroke-width="2">
+          <path d="M30,50 C10,35 5,20 15,12 C22,7 30,15 30,15 C30,15 38,7 45,12 C55,20 50,35 30,50"/>
+        </svg>
+        <div class="sticker-label">Heart</div>
+      </div>
+      <!-- Butterfly -->
+      <div class="sticker">
+        <svg viewBox="0 0 60 60" fill="none" stroke="#333" stroke-width="2">
+          <ellipse cx="20" cy="22" rx="12" ry="15"/>
+          <ellipse cx="40" cy="22" rx="12" ry="15"/>
+          <ellipse cx="18" cy="42" rx="8" ry="10"/>
+          <ellipse cx="42" cy="42" rx="8" ry="10"/>
+          <line x1="30" y1="15" x2="30" y2="55"/>
+          <path d="M28,12 Q25,5 20,5"/>
+          <path d="M32,12 Q35,5 40,5"/>
+        </svg>
+        <div class="sticker-label">Butterfly</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="intro-box">
+    <h2>What is a Dream Dua?</h2>
+    <p>A dream dua is a special prayer you make to Allah asking for something you <strong>really, really want</strong>—something that makes your heart excited when you think about it!</p>
+    
+    <div class="story">
+      <strong>True Story:</strong> When Shaykh Muhammad al-Shareef was only 11 years old (maybe your age!), he heard about the last ten nights of Ramadan. He made a big dua to become a Hafiz of Quran. Guess what? Allah answered his dua, and he memorized the whole Quran!
+    </div>
+    
+    <div class="tip-box">
+      <strong>Remember:</strong> Allah LOVES when you ask Him for big things! Don't be shy. The Prophet ﷺ said Allah answers every dua—sometimes now, sometimes later, and sometimes with something even better.
+    </div>
+
+    <div class="story" style="background: #e8f5e9; border-color: var(--green);">
+      <strong>The Secret:</strong> Your dua changes YOU! When you make a big dua and really mean it, YOU start becoming the person who deserves that dua. The dua is more powerful than you think—it will transform you!
+      
+      <div style="margin-top: 1rem; padding: 1rem; background: white; border-radius: 12px; text-align: center;">
+        <p style="font-style: normal; margin-bottom: 0.5rem;"><strong style="color: var(--purple);">Think of it like Pokémon evolving! 🎮</strong></p>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap; margin: 1rem 0;">
+          <div style="text-align: center;">
+            <div style="font-size: 2rem;">😊</div>
+            <div style="font-size: 0.8rem;">You Now</div>
+          </div>
+          <div style="font-size: 1.5rem; color: var(--green);">→</div>
+          <div style="text-align: center;">
+            <div style="font-size: 2rem;">🌟</div>
+            <div style="font-size: 0.8rem;">Making Dua</div>
+          </div>
+          <div style="font-size: 1.5rem; color: var(--green);">→</div>
+          <div style="text-align: center;">
+            <div style="font-size: 2rem;">⭐</div>
+            <div style="font-size: 0.8rem;">Growing...</div>
+          </div>
+          <div style="font-size: 1.5rem; color: var(--green);">→</div>
+          <div style="text-align: center;">
+            <div style="font-size: 2.5rem;">🏆</div>
+            <div style="font-size: 0.8rem; font-weight: bold;">EVOLVED YOU!</div>
+          </div>
+        </div>
+        <p style="font-style: normal; font-size: 0.95rem;">Just like a Pokémon gradually evolves into a stronger version, YOU gradually evolve into the "dua version" of yourself—the Hafiz, the leader, the kind person, the one who helps others! Your dua is like your evolution path! ✨</p>
+      </div>
+    </div>
+
+    <div class="story" style="background: #fff3e0; border-color: var(--orange);">
+      <strong>Think about this:</strong> You are making dua to THE KING of all kings! Allah is the Lord of EVERYTHING. Your biggest, wildest dream? It's EASY for Him. Nothing is too big for Allah!
+      <p style="margin-top: 0.75rem; font-style: normal; text-align: center;">
+        <strong style="color: var(--green);">وَمَا تَشَاءُونَ إِلَّا أَن يَشَاءَ اللَّهُ رَبُّ الْعَالَمِينَ</strong><br>
+        <em>"And you do not will except that Allah wills—Lord of all the worlds."</em><br>
+        <span style="font-size: 0.9rem;">📖 Surah At-Takwir (81:29)</span>
+      </p>
+      <p style="margin-top: 0.5rem;">If Allah wills it, it WILL happen. So ask BIG!</p>
+    </div>
+  </div>
+
+  <!-- WHY DREAM DUAS MATTER -->
+  <div class="intro-box">
+    <h2>Why Dream Duas Matter</h2>
+    <p>When you have dream duas that you REALLY want:</p>
+    <ul style="margin: 1rem 0 1rem 1.5rem;">
+      <li><strong>You know where you're going in life</strong> — like having a map!</li>
+      <li><strong>You feel excited</strong> — butterflies in your stomach when you think about it</li>
+      <li><strong>Your salah becomes better</strong> — because you're talking to Allah about things you REALLY care about</li>
+      <li><strong>You work harder</strong> — because you have a goal to reach</li>
+    </ul>
+    <p>A person who knows what they want can run at full speed. A person with no goals just wanders around confused!</p>
+  </div>
+
+  <!-- TWO TYPES OF DUA -->
+  <div class="intro-box">
+    <h2>Two Types of Dua</h2>
+    
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0;">
+      <div style="flex: 1; min-width: 200px; background: #ffebee; padding: 1rem; border-radius: 12px;">
+        <strong style="color: #c62828;">🆘 Reactive Dua</strong>
+        <p style="margin-top: 0.5rem; font-size: 0.95rem;">When something bad happens and THEN you make dua. Like when you're sick, or scared, or in trouble.</p>
+      </div>
+      <div style="flex: 1; min-width: 200px; background: #e8f5e9; padding: 1rem; border-radius: 12px;">
+        <strong style="color: #2e7d32;">🌱 Proactive Dua</strong>
+        <p style="margin-top: 0.5rem; font-size: 0.95rem;">Making dua when everything is FINE because you want to grow and become better!</p>
+      </div>
+    </div>
+    
+    <div class="story">
+      <strong>The Ship Story:</strong> Allah tells us about people on a ship in a storm. They make dua SO sincerely when they're scared! But when they're safe on land, they forget Allah. Don't be like that! Make dua when things are good AND when things are bad.
+    </div>
+    
+    <div class="tip-box">
+      <strong>Big Lesson:</strong> Reactive duas are beautiful. But we need PROACTIVE duas too—duas for growing, getting better, and reaching our dreams!
+    </div>
+  </div>
+
+  <!-- THE VISUALIZATION TECHNIQUE -->
+  <div class="intro-box">
+    <h2>The Secret Technique: IMAGINE First!</h2>
+    
+    <div class="story" style="background: #e3f2fd; border-color: var(--blue);">
+      <strong>True Story:</strong> Shaykh Muhammad al-Shareef wanted children for 10 years. He kept making dua but it became boring and automatic. Then he tried something different: before making dua, he would CLOSE HIS EYES and IMAGINE having children. He imagined them growing up. Imagined being at their wedding. Imagined brushing his daughter's hair. THEN he made dua—and it was SO powerful because now he REALLY wanted it. And Allah answered!
+    </div>
+    
+    <div class="tip-box">
+      <strong>Try This:</strong> Before you make your dua, close your eyes. Picture it happening. See yourself as a Hafiz leading prayer. See your parents crying happy tears. See yourself scoring the winning goal. FEEL how happy you would be. THEN open your eyes and make dua. It will be 100x more powerful!
+    </div>
+  </div>
+
+  <!-- GRATITUDE SECTION -->
+  <div class="intro-box">
+    <h2>Start With "Thank You"</h2>
+    <p>Before asking for MORE, thank Allah for what you ALREADY have!</p>
+    
+    <div class="story" style="background: #e8f5e9; border-color: var(--green);">
+      <p style="text-align: center; font-style: normal;">
+        <strong style="color: var(--green);">لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ</strong><br>
+        <em>"If you are grateful, I will give you MORE!"</em><br>
+        <span style="font-size: 0.9rem;">📖 Surah Ibrahim (14:7)</span>
+      </p>
+    </div>
+    
+    <div class="questions">
+      <h4>Before each dua, ask yourself:</h4>
+      <ul>
+        <li><strong>What am I THANKFUL for?</strong> (Example: I can see, walk, have food, have parents who love me)</li>
+        <li><strong>What am I MISSING?</strong> (Example: I want to memorize more Quran)</li>
+        <li><strong>What do I REALLY want?</strong> (Example: I want to lead Taraweeh!)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ALLAH PROVIDES -->
+  <div class="intro-box">
+    <h2>Allah Will Make a Way!</h2>
+    
+    <div class="story" style="background: #fff3e0; border-color: var(--orange);">
+      <p style="text-align: center; font-style: normal;">
+        <strong style="color: var(--orange);">وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ</strong><br>
+        <em>"Whoever fears Allah—He will make a way out for them. And provide for them from where they never expected!"</em><br>
+        <span style="font-size: 0.9rem;">📖 Surah At-Talaq (65:2-3)</span>
+      </p>
+    </div>
+    
+    <p>This means: Sometimes you have NO IDEA how your dua will be answered. You can't see a way. But Allah can make it happen from a direction you never imagined! Your job is to make dua and trust Him.</p>
+  </div>
+
+  <!-- MOM'S DUAS -->
+  <div class="intro-box" style="background: linear-gradient(135deg, #fce4ec, #fff);">
+    <h2>💝 Secret Weapon: Ask Your Mom!</h2>
+    
+    <p>Did you know? <strong>A mother's dua for her child is SUPER powerful!</strong> It goes straight up to Allah!</p>
+    
+    <div class="story" style="background: white; border-color: var(--pink);">
+      <strong>True Story:</strong> A girl wanted to take an Islamic course but had no money. Her mom made dua for her. The next day, someone returned money they had borrowed YEARS ago—money the mom had forgotten about! It was exactly enough for the course. That's the power of a mom's dua!
+    </div>
+    
+    <div class="tip-box">
+      <strong>Action Step:</strong> After you write your dream duas, go to your mom (or dad!) and ask them to make dua for you too. Tell them what you want. Their dua + your dua = UNSTOPPABLE!
+    </div>
+  </div>
+
+  <!-- IT'S OKAY TO WANT GOOD THINGS -->
+  <div class="intro-box">
+    <h2>It's OKAY to Want Nice Things!</h2>
+    
+    <p>Some kids think: "I should only ask for 'religious' things." That's not true!</p>
+    
+    <p>Allah gave us good things in this world to enjoy. You CAN ask for:</p>
+    <ul style="margin: 1rem 0 1rem 1.5rem;">
+      <li>To be good at sports or games</li>
+      <li>To have nice clothes</li>
+      <li>To travel to cool places</li>
+      <li>To be successful and have money (to do good with it!)</li>
+      <li>To have fun adventures with your family</li>
+    </ul>
+    
+    <div class="tip-box">
+      <strong>The Key:</strong> Want dunya (this world) AND akhira (the next world). Ask for success here AND success in Jannah. Nothing wrong with that!
+    </div>
+  </div>
+
+  <!-- THE BUTTERFLY TEST -->
+  <div class="rules-box" style="background: linear-gradient(135deg, var(--purple), var(--pink));">
+    <h3>🦋 The Butterfly Test</h3>
+    <p>Before you finalize your dua, ask yourself:</p>
+    <ol>
+      <li><strong>Does it make me EXCITED?</strong> (Not bored!)</li>
+      <li><strong>Can I PICTURE it?</strong> (Not vague and blurry)</li>
+      <li><strong>Is it a little bit SCARY because it's so big?</strong> (If it's too easy, dream bigger!)</li>
+      <li><strong>Do I get butterflies in my stomach?</strong> (That's the feeling you want!)</li>
+      <li><strong>Does it make me want to be BETTER?</strong> (Good duas change YOU)</li>
+    </ol>
+    <p style="margin-top: 1rem;">If you answered YES to all of these—you have an AWESOME dream dua! 🎉</p>
+  </div>
+
+  <!-- DON'T HAVE JUST ONE DUA -->
+  <div class="intro-box">
+    <h2>Don't Have Just ONE Dua!</h2>
+    
+    <p>If you only have one tiny dua, that's a problem. You're setting yourself too LOW!</p>
+    
+    <p>Allah is the King of the Universe. He can give you SO much. Don't be shy—make <strong>LOTS of duas</strong> for different parts of your life:</p>
+    
+    <ul style="margin: 1rem 0 1rem 1.5rem;">
+      <li>Duas for your learning</li>
+      <li>Duas for your family</li>
+      <li>Duas for your character</li>
+      <li>Duas for your friends</li>
+      <li>Duas for your future</li>
+      <li>Duas for fun and adventures</li>
+    </ul>
+    
+    <div class="tip-box">
+      <strong>Goal:</strong> By the end of this guide, you should have at least 6 dream duas—one for each category!
+    </div>
+  </div>
+
+  <!-- KEEP TRYING -->
+  <div class="intro-box">
+    <h2>Is Your Dua "From the Heart" Yet?</h2>
+    
+    <p>Sometimes your first try isn't good enough. That's okay! Keep improving it.</p>
+    
+    <div class="story">
+      <strong>The Test:</strong> Read your dua out loud. Does it sound boring? Does it sound like everyone else's dua? Does it NOT give you butterflies? Then it's NOT from your heart yet. Try again!
+    </div>
+    
+    <p><strong>Example of a weak dua:</strong> "Ya Allah, make me a good person."</p>
+    <p><strong>Example of a STRONG dua:</strong> "Ya Allah, make me brave enough to stand up for the kid being bullied, even if the bully is bigger than me. Make me someone who speaks truth even when my voice shakes!"</p>
+    
+    <p>See the difference? The second one is SPECIFIC and you can FEEL it!</p>
+  </div>
+
+  <!-- NEVER BE IMPATIENT -->
+  <div class="intro-box">
+    <h2>Never Say "Allah Didn't Answer!"</h2>
+    
+    <div class="story" style="background: #ffebee; border-color: #c62828;">
+      <strong>Warning:</strong> The Prophet ﷺ said that Allah answers EVERY dua... except when someone gets impatient and says, "I made dua but nothing happened!"<br>
+      <span style="font-size: 0.9rem;">📖 Sahih al-Bukhari</span>
+    </div>
+    
+    <p>Allah ALWAYS answers. But sometimes:</p>
+    <ul style="margin: 1rem 0 1rem 1.5rem;">
+      <li>He gives you what you asked for <strong>NOW</strong></li>
+      <li>He gives you what you asked for <strong>LATER</strong> (better timing!)</li>
+      <li>He gives you something <strong>EVEN BETTER</strong> than what you asked for</li>
+      <li>He protects you from something <strong>BAD</strong> that would have happened</li>
+      <li>He saves the reward for you in <strong>JANNAH</strong></li>
+    </ul>
+    
+    <div class="tip-box">
+      <strong>Your Job:</strong> Keep making dua. Trust Allah. Never give up. Never say "it's not working." It's ALWAYS working!
+    </div>
+  </div>
+
+  <!-- RULES -->
+  <div class="rules-box">
+    <h3>5 Rules for Awesome Duas</h3>
+    <ol>
+      <li><strong>Be specific!</strong> Don't just say "make me good." Say exactly what you want.</li>
+      <li><strong>Picture it!</strong> Imagine it happening. What do you see? How do you feel?</li>
+      <li><strong>Feel the butterflies!</strong> Your dua should make you excited, not bored.</li>
+      <li><strong>Make it for Allah's sake.</strong> Ask: "How will this help me be a better Muslim?"</li>
+      <li><strong>Never give up!</strong> Keep asking, even if it takes time.</li>
+    </ol>
+  </div>
+  
+  <!-- THE MENTOR TECHNIQUE -->
+  <div class="intro-box">
+    <h2>🦸 The Mentor Technique: Bring Your Heroes!</h2>
+    
+    <p>Here's a powerful trick: Before making your dua, imagine 3 <strong>MENTORS</strong> sitting with you—people who are the BEST in that area. They could be:</p>
+    
+    <ul style="margin: 1rem 0 1rem 1.5rem;">
+      <li>Prophets (like Muhammad ﷺ, Ibrahim AS, Yusuf AS)</li>
+      <li>Sahaba (like Khadija RA, Umar RA, Anas RA)</li>
+      <li>Or anyone you admire who is great in that area!</li>
+    </ul>
+    
+    <div class="story" style="background: #e3f2fd; border-color: var(--blue);">
+      <strong>How it works:</strong><br>
+      1. Close your eyes and imagine your 3 mentors are with you<br>
+      2. Mentor #1 asks: "What are you THANKFUL for in this area?"<br>
+      3. Mentor #2 asks: "What are you MISSING or struggling with?"<br>
+      4. Mentor #3 says: "Based on that, here's what your dua should be..."<br>
+      5. Now YOU write your dua with their advice!
+    </div>
+    
+    <div class="tip-box">
+      <strong>Why this works:</strong> When you imagine great people helping you, your duas become bigger and better! You think: "What would the Prophet ﷺ want for me?" and suddenly your dua becomes more powerful!
+    </div>
+    
+    <!-- Fun character mentors -->
+    <div style="background: linear-gradient(135deg, #fff9c4, #fff); border-radius: 12px; padding: 1.25rem; margin-top: 1rem; border: 2px solid #ffd54f;">
+      <p style="font-weight: bold; color: #f57f17; margin-bottom: 0.75rem;">🎬 FUN IDEA: You can also imagine characters from stories!</p>
+      <p style="font-size: 0.95rem; margin-bottom: 1rem;">As long as the lesson is good, you can learn from fictional characters too:</p>
+      
+      <div style="background: white; border-radius: 10px; padding: 1rem; margin-bottom: 0.75rem; border-left: 4px solid #8bc34a;">
+        <p style="font-weight: bold; color: #558b2f;">🐼 Kung Fu Panda (Po) says:</p>
+        <p style="font-style: italic; margin: 0.5rem 0;">"Nothing is too big for the Master of the Universe to grant! I was chosen to be the Dragon Warrior—ME, a clumsy panda who washed dishes in my dad's noodle shop! But I had to BELIEVE, VISUALIZE, and PRACTICE every single day. I evolved from a dishwasher into a WARRIOR!"</p>
+        <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">💡 <strong>Lesson:</strong> You might feel ordinary now, but with dua + effort + daily practice, you can EVOLVE into something extraordinary! Allah chose YOU too!</p>
+      </div>
+      
+      <div style="background: white; border-radius: 10px; padding: 1rem; margin-bottom: 0.75rem; border-left: 4px solid #2196f3;">
+        <p style="font-weight: bold; color: #1565c0;">🧞 Aladdin's Genie says:</p>
+        <p style="font-style: italic; margin: 0.5rem 0;">"I can only grant 3 wishes with limits. But YOUR Lord? He has NO limits! He doesn't need a lamp! He's not a genie—He's the KING of all kings! Ask Him for EVERYTHING!"</p>
+        <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">💡 <strong>Lesson:</strong> A genie has rules and limits. Allah has NONE. Your duas go straight to the Most Powerful!</p>
+      </div>
+      
+      <div style="background: white; border-radius: 10px; padding: 1rem; margin-bottom: 0.75rem; border-left: 4px solid #9c27b0;">
+        <p style="font-weight: bold; color: #7b1fa2;">🦁 Simba (Lion King) says:</p>
+        <p style="font-style: italic; margin: 0.5rem 0;">"I ran away and forgot who I was. But then I remembered—I'm the son of a KING! I was born for greatness! YOU are a child of Adam, created by Allah, meant for Jannah. Don't forget who you are!"</p>
+        <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">💡 <strong>Lesson:</strong> You are not just "some kid." You're a Muslim, a believer, created for a PURPOSE. Make duas that match who you really are!</p>
+      </div>
+      
+      <div style="background: white; border-radius: 10px; padding: 1rem; border-left: 4px solid #ff9800;">
+        <p style="font-weight: bold; color: #e65100;">⚡ Pikachu / Ash says:</p>
+        <p style="font-style: italic; margin: 0.5rem 0;">"Every Pokémon starts small. But with training, belief, and NEVER giving up, we EVOLVE into something stronger! Your dua is your evolution path—keep leveling up!"</p>
+        <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">💡 <strong>Lesson:</strong> You evolve through dua + action. The person you are TODAY will evolve into the Hafiz, the leader, the hero of your dua!</p>
+      </div>
+      
+      <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: #666;">
+        🎯 Mix and match! Use Prophets, Sahaba, AND fun characters as your mentors!
+      </p>
+    </div>
+  </div>
+
+  <h2 style="text-align: center; color: var(--purple); margin: 2rem 0 1rem;">Now Let's Build YOUR Dream Duas!</h2>
+  <p style="text-align: center; margin-bottom: 2rem;">For each category: pick your mentors, answer the questions, then write YOUR dua!</p>
+
+  <!-- CATEGORY 1: QURAN & LEARNING -->
+  <div class="category cat-quran">
+    <div class="category-header">
+      <div class="category-icon">📖</div>
+      <h3>Quran & Learning</h3>
+    </div>
+    
+    <!-- Mentors -->
+    <div style="background: #e8f5e9; border-radius: 12px; padding: 1rem; margin-bottom: 1rem;">
+      <p style="font-weight: bold; color: var(--green); margin-bottom: 0.5rem;">🦸 Choose Your 3 Mentors for Learning:</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; font-size: 0.9rem;">
+        <span style="background: white; padding: 0.25rem 0.75rem; border-radius: 20px;">Prophet Muhammad ﷺ (taught the Quran)</span>
+        <span style="background: white; padding: 0.25rem 0.75rem; border-radius: 20px;">Maryam AS (learned from young age)</span>
+        <span style="background: white; padding: 0.25rem 0.75rem; border-radius: 20px;">Anas ibn Malik RA (served Prophet as a kid!)</span>
+      </div>
+      <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem; font-style: italic;">Or pick your own! Who do you admire for their knowledge?</p>
+      <div class="write-space" style="min-height: 40px; margin-top: 0.5rem;">
+        <p>My 3 mentors: 1)_______ 2)_______ 3)_______</p>
+      </div>
+    </div>
+    
+    <div class="questions">
+      <h4>Your mentors ask you:</h4>
+      <ul>
+        <li><strong>Mentor 1:</strong> What are you THANKFUL for about your learning? (Example: "I can read, I have teachers, I know some surahs")</li>
+        <li><strong>Mentor 2:</strong> What are you STRUGGLING with or missing? (Example: "I get distracted, I forget what I memorize")</li>
+        <li><strong>Mentor 3:</strong> What is your DREAM? What do you really want? (Example: "I want to be a Hafiz and lead Taraweeh!")</li>
+      </ul>
+    </div>
+    
+    <div class="sample-dua">
+      <strong>Sample Dua 1:</strong>
+      Ya Allah, help me become a Hafiz before I turn 15. Make the Quran easy on my tongue and keep it in my heart forever. Let me lead Taraweeh one day while my parents watch with happy tears.
+    </div>
+    
+    <div class="sample-dua">
+      <strong>Sample Dua 2:</strong>
+      Ya Allah, make me love learning. Help me focus in class and remember what I study. Make me top of my class so I can use my knowledge to help the ummah one day.
+    </div>
+    
+    <div class="write-space">
+      <p>Write YOUR dua here...</p>
+    </div>
+    
+    <!-- Quran stickers -->
+    <div class="sticker-row" style="margin-top: 1.5rem;">
+      <div class="sticker">
+        <svg viewBox="0 0 60 60" fill="none" stroke="#2ecc71" stroke-width="2">
+          <rect x="10" y="8" width="40" height="44" rx="3"/>
+          <line x1="15" y1="16" x2="45" y2="16"/>
+          <line x1="15" y1="24" x2="45" y2="24"/>
+          <line x1="15" y1="32" x2="45" y2="32"/>
+          <line x1="15" y1="40" x2="35" y2="40"/>
+          <path d="M30,8 L30,52"/>
+        </svg>
+        <div class="sticker-label">Quran</div>
+      </div>
+      <div class="sticker">
+        <svg viewBox="0 0 60 60" fill="none" stroke="#2ecc71" stroke-width="2">
+          <circle cx="30" cy="30" r="22"/>
+          <text x="30" y="35" text-anchor="middle" font-size="14" fill="none" stroke="#2ecc71">Hafiz</text>
+        </svg>
+        <div class="sticker-label">Hafiz Badge</div>
+      </div>
+      <div class="sticker">
+        <svg viewBox="0 0 60 60" fill="none" stroke="#2ecc71" stroke-width="2">
+          <polygon points="30,5 36,22 55,22 40,33 46,52 30,42 14,52 20,33 5,22 24,22"/>
+          <circle cx="30" cy="28" r="8"/>
+        </svg>
+        <div class="sticker-label">Star Student</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 2: FAMILY -->
+  <div class="category cat-family">
+    <div class="category-header">
+      <div class="category-icon">👨‍👩‍👧‍👦</div>
+      <h3>My Family</h3>
+    </div>
+    
+    <!-- Mentors -->
+    <div style="background: #fce4ec; border-radius: 12px; padding: 1rem; margin-bottom: 1rem;">
+      <p style="font-weight: bold; color: var(--pink); margin-bottom: 0.5rem;">🦸 Choose Your 3 Mentors for Family:</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; font-size: 0.9rem;">
+        <span style="background: white; padding: 0.25rem 0.75rem; border-radius: 20px;">Prophet Yusuf AS (loved his father so much!)</span>
+        <span style="background: white; padding: 0.25rem 0.75rem; border-radius: 20px;">Fatima RA (best daughter to Prophet ﷺ)</span>
+        <span style="background: white; padding: 0.25rem 0.75rem; border-radius: 20px;">Ismail AS (obeyed his father Ibrahim)</span>
+      </div>
+      <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem; font-style: italic;">Or pick your own! Who has an amazing family you admire?</p>
+      <div class="write-space" style="min-height: 40px; margin-top: 0.5rem;">
+        <p>My 3 mentors: 1)_______ 2)_______ 3)_______</p>
+      </div>
+    </div>
+    
+    <div class="questions">
+      <h4>Your mentors ask you:</h4>
+      <ul>
+        <li><strong>Mentor 1:</strong> What are you THANKFUL for about your family? (Example: "My parents love me, I have food and a home")</li>
+        <li><strong>Mentor 2:</strong> What do you STRUGGLE with at home? (Example: "I fight with my sibling, I sometimes disobey")</li>
+        <li><strong>Mentor 3:</strong> What is your DREAM for your family? (Example: "We all pray together and enter Jannah together!")</li>
+      </ul>
+    </div>
+    
+    <div class="sample-dua">
+      <strong>Sample Dua 1:</strong>
+      Ya Allah, make my parents proud of me. Keep them healthy and happy. Let me be the kind of kid who makes them smile every single day. Grant them Jannah for everything they do for me.
+    </div>
+    
+    <div class="sample-dua">
+      <strong>Sample Dua 2:</strong>
+      Ya Allah, make me and my siblings best friends. Stop us from fighting and help us support each other. Let us all pray together as a family and enter Jannah together.
+    </div>
+    
+    <div class="write-space">
+      <p>Write YOUR dua here...</p>
+    </div>
+    
+    <!-- Family stickers -->
+    <div class="sticker-row" style="margin-top: 1.5rem;">
+      <div class="sticker">
+        <svg viewBox="0 0 60 60" fill="none" stroke="#e91e8a" stroke-width="2">
+          <circle cx="20" cy="15" r="7"/>
+          <path d="M20,22 L20,38 M12,28 L28,28 M20,38 L12,52 M20,38 L28,52"/>
+          <circle cx="40" cy="15" r="7"/>
+          <path d="M40,22 L40,38 M32,28 L48,28 M40,38 L32,52 M40,38 L48,52"/>
+          <path d="M30,45 L30,55" stroke-dasharray="2,2"/>
+        </svg>
+        <div class="sticker-label">Parents</div>
+      </div>
+      <div class="sticker">
+        <svg viewBox="0 0 60 60" fill="none" stroke="#e91e8a" stroke-width="2">
+          <path d="M30,50 C10,35 5,20 15,12 C22,7 30,15 30,15 C30,15 38,7 45,12 C55,20 50,35 30,50"/>
+          <text x="30" y="32" text-anchor="middle" font-size="10" fill="none" stroke="#e91e8a">Family</text>
+        </svg>
+        <div class="sticker-label">Family Love</div>
+      </div>
+      <div class="sticker">
+        <svg viewBox="0 0 60 60" fill="none" stroke="#e91e8a" stroke-width="2">
+          <rect x="10" y="25" width="40" height="30" rx="3"/>
+          <polygon points="10,25 30,10 50,25"/>
+          <rect x="24" y="38" width="12" height="17"/>
+        </svg>
+        <div class="sticker-label">Home</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 3: CHARACTER -->
+  <div class="category cat-character">
+    <div class="category-header">
+      <div class="category-icon">💪</div>
+      <h3>My Character</h3>
+    </div>
+    
+    <!-- Mentors -->
+    <div style="background: #e3f2fd; border-radius: 12px; padding: 1rem; margin-bottom: 1rem;">
+      <p style="font-weight: bold; color: var(--blue); margin-bottom: 0.5rem;">🦸 Choose Your 3 Mentors for Character:</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; font-size: 0.9rem;">
+        <span style="background: white; padding: 0.25rem 0.75rem; border-radius: 20px;">Prophet Muhammad ﷺ (best akhlaaq ever!)</span>
+        <span style="background: white; padding: 0.25rem 0.75rem; border-radius: 20px;">Umar RA (super brave and honest)</span>
+        <span style="background: white; padding: 0.25rem 0.75rem; border-radius: 20px;">Khadija RA (patient and kind)</span>
+      </div>
+      <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem; font-style: italic;">Or pick your own! Who has the best character you want to copy?</p>
+      <div class="write-space" style="min-height: 40px; margin-top: 0.5rem;">
+        <p>My 3 mentors: 1)_______ 2)_______ 3)_______</p>
+      </div>
+    </div>
+    
+    <div class="questions">
+      <h4>Your mentors ask you:</h4>
+      <ul>
+        <li><strong>Mentor 1:</strong> What GOOD qualities do you already have? (Example: "I'm kind to my friends, I share")</li>
+        <li><strong>Mentor 2:</strong> What do you STRUGGLE with? (Example: "I lose my temper, I'm shy to speak up")</li>
+        <li><strong>Mentor 3:</strong> What kind of person do you DREAM of becoming? (Example: "Brave, honest, patient, praying 5 times!")</li>
+      </ul>
+    </div>
+    
+    <div class="sample-dua">
+      <strong>Sample Dua 1:</strong>
+      Ya Allah, make me brave! Give me courage to always tell the truth, even when it's hard. Help me stand up for what's right and never be shy to be a good Muslim.
+    </div>
+    
+    <div class="sample-dua">
+      <strong>Sample Dua 2:</strong>
+      Ya Allah, give me patience and control over my anger. When I get upset, help me calm down and say good words instead of bad ones. Make me someone people love to be around.
+    </div>
+    
+    <div class="sample-dua">
+      <strong>Sample Dua 3:</strong>
+      Ya Allah, help me pray all 5 prayers on time without my parents reminding me. Make salah feel sweet, not boring. Let me actually talk to You in my prayers.
+    </div>
+    
+    <div class="write-space">
+      <p>Write YOUR dua here...</p>
+    </div>
+    
+    <!-- Character stickers -->
+    <div class="sticker-row" style="margin-top: 1.5rem;">
+      <div class="sticker">
+        <svg viewBox="0 0 60 60" fill="none" stroke="#4a90d9" stroke-width="2">
+          <circle cx="30" cy="20" r="12"/>
+          <path d="M18,55 L18,35 Q18,28 30,28 Q42,28 42,35 L42,55"/>
+          <path d="M25,52 L30,45 L35,52"/>
+        </svg>
+        <div class="sticker-label">Brave</div>
+      </div>
+      <div class="sticker">
+        <svg viewBox="0 0 60 60" fill="none" stroke="#4a90d9" stroke-width="2">
+          <circle cx="30" cy="30" r="20"/>
+          <circle cx="22" cy="25" r="3"/>
+          <circle cx="38" cy="25" r="3"/>
+          <path d="M20,38 Q30,48 40,38"/>
+        </svg>
+        <div class="sticker-label">Kind</div>
+      </div>
+      <div class="sticker">
+        <svg viewBox="0 0 60 60" fill="none" stroke="#4a90d9" stroke-width="2">
+          <path d="M30,8 L30,35"/>
+          <path d="M20,18 L30,8 L40,18"/>
+          <rect x="15" y="40" width="30" height="15" rx="2"/>
+          <line x1="22" y1="47" x2="38" y2="47"/>
+        </svg>
+        <div class="sticker-label">Praying</div>
+      </div>
+      <div class="sticker">
+        <svg viewBox="0 0 60 60" fill="none" stroke="#4a90d9" stroke-width="2">
+          <polygon points="30,5 35,20 50,20 38,30 43,45 30,36 17,45 22,30 10,20 25,20"/>
+          <text x="30" y="28" text-anchor="middle" font-size="8" fill="none" stroke="#4a90d9">BRAVE</text>
+        </svg>
+        <div class="sticker-label">Courage Star</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 4: FRIENDS -->
+  <div class="category cat-friends">
+    <div class="category-header">
+      <div class="category-icon">🤝</div>
+      <h3>Friends & Community</h3>
+    </div>
+    
+    <!-- IMPORTANT HADITH FOR KIDS -->
+    <div class="tip-box" style="border-color: #e74c3c; background: #fff5f5;">
+      <strong style="color: #e74c3c;">⚠️ Super Important!</strong>
+      <p style="margin: 0.5rem 0;">The Prophet ﷺ said: <em>"A person follows the way of their close friend, so be careful who you choose as friends!"</em> 📖 (Abu Dawud)</p>
+      <p style="margin: 0.5rem 0;"><strong>What this means:</strong> If your friends are good, YOU become good. If your friends are bad, YOU start doing bad things without even realizing it!</p>
+    </div>
+    
+    <div class="story" style="background: #fff3e0; border-color: var(--orange); margin: 1rem 0;">
+      <strong>🌸 The Perfume Shop Story:</strong><br>
+      The Prophet ﷺ told us: A good friend is like sitting next to someone selling perfume—even if you don't buy anything, you'll smell nice just by being near them! But a bad friend is like sitting next to a blacksmith (someone who works with fire and metal)—even if sparks don't burn you, you'll still go home smelling like smoke! 📖 (Bukhari & Muslim)
+      <p style="margin-top: 0.5rem; font-style: normal;"><strong>💡 Lesson:</strong> Good friends = you smell like perfume (good habits). Bad friends = you smell like smoke (bad habits). Choose wisely!</p>
+    </div>
+    
+    <!-- Mentors -->
+    <div style="background: #fff3e0; border-radius: 12px; padding: 1rem; margin-bottom: 1rem;">
+      <p style="font-weight: bold; color: var(--orange); margin-bottom: 0.5rem;">🦸 Choose Your 3 Mentors for Friendship:</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; font-size: 0.9rem;">
+        <span style="background: white; padding: 0.25rem 0.75rem; border-radius: 20px;">Abu Bakr RA (Prophet's best friend!)</span>
+        <span style="background: white; padding: 0.25rem 0.75rem; border-radius: 20px;">Asma bint Abu Bakr (brave helper)</span>
+        <span style="background: white; padding: 0.25rem 0.75rem; border-radius: 20px;">The Sleepers of the Cave (friends in faith)</span>
+      </div>
+      <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem; font-style: italic;">Or pick your own! Who is the best friend you know or have heard of?</p>
+      <div class="write-space" style="min-height: 40px; margin-top: 0.5rem;">
+        <p>My 3 mentors: 1)_______ 2)_______ 3)_______</p>
+      </div>
+    </div>
+    
+    <div class="questions">
+      <h4>Your mentors ask you:</h4>
+      <ul>
+        <li><strong>Mentor 1:</strong> What are you THANKFUL for about your friends? (Example: "I have friends at school and masjid")</li>
+        <li><strong>Mentor 2:</strong> What do you STRUGGLE with? (Example: "Some friends make me do bad things, or I'm lonely")</li>
+        <li><strong>Mentor 3:</strong> What is your DREAM friendship? (Example: "Friends who remind me of Allah and we're friends in Jannah too!")</li>
+      </ul>
+    </div>
+    
+    <div class="sample-dua">
+      <strong>Sample Dua 1:</strong>
+      Ya Allah, give me friends who remind me of You. Friends who are fun but also good Muslims. Friends who help me do good, not bad. Let me smell like perfume, not smoke! Let us be friends in Jannah too!
+    </div>
+    
+    <div class="sample-dua">
+      <strong>Sample Dua 2:</strong>
+      Ya Allah, make me a good friend. Help me be kind, share, and never bully anyone. If someone is alone, help me include them. Make me someone who makes others happy.
+    </div>
+    
+    <div class="sample-dua">
+      <strong>Sample Dua 3:</strong>
+      Ya Allah, protect me from friends who try to make me do bad things. Give me courage to say NO to haram, even if other kids say yes. Don't let me try to impress people who don't love You. I want to be with good people on the Day of Judgment!
+    </div>
+    
+    <div class="write-space">
+      <p>Write YOUR dua here...</p>
+    </div>
+    
+    <!-- Friends stickers -->
+    <div class="sticker-row" style="margin-top: 1.5rem;">
+      <div class="sticker">
+        <svg viewBox="0 0 60 60" fill="none" stroke="#f39c12" stroke-width="2">
+          <circle cx="20" cy="18" r="8"/>
+          <circle cx="40" cy="18" r="8"/>
+          <path d="M20,26 L20,42 M12,32 L28,32"/>
+          <path d="M40,26 L40,42 M32,32 L48,32"/>
+          <path d="M20,42 L20,55 M15,55 L25,55"/>
+          <path d="M40,42 L40,55 M35,55 L45,55"/>
+          <path d="M28,35 L32,35"/>
+        </svg>
+        <div class="sticker-label">Best Friends</div>
+      </div>
+      <div class="sticker">
+        <svg viewBox="0 0 60 60" fill="none" stroke="#f39c12" stroke-width="2">
+          <circle cx="30" cy="30" r="22"/>
+          <path d="M18,25 Q30,15 42,25"/>
+          <path d="M18,35 Q30,45 42,35"/>
+          <circle cx="22" cy="30" r="3"/>
+          <circle cx="38" cy="30" r="3"/>
+        </svg>
+        <div class="sticker-label">Happy Together</div>
+      </div>
+      <div class="sticker">
+        <svg viewBox="0 0 60 60" fill="none" stroke="#f39c12" stroke-width="2">
+          <path d="M15,55 L15,30 Q15,15 30,15 Q45,15 45,30 L45,55"/>
+          <circle cx="30" cy="35" r="10"/>
+          <line x1="23" y1="35" x2="27" y2="35"/>
+          <line x1="33" y1="35" x2="37" y2="35"/>
+          <path d="M26,40 Q30,44 34,40"/>
+        </svg>
+        <div class="sticker-label">Masjid Friends</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 5: FUTURE -->
+  <div class="category cat-future">
+    <div class="category-header">
+      <div class="category-icon">🚀</div>
+      <h3>My Future</h3>
+    </div>
+    
+    <!-- Mentors -->
+    <div style="background: #f3e5f5; border-radius: 12px; padding: 1rem; margin-bottom: 1rem;">
+      <p style="font-weight: bold; color: var(--purple); margin-bottom: 0.5rem;">🦸 Choose Your 3 Mentors for Your Future:</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; font-size: 0.9rem;">
+        <span style="background: white; padding: 0.25rem 0.75rem; border-radius: 20px;">Uthman ibn Affan RA (super wealthy & generous!)</span>
+        <span style="background: white; padding: 0.25rem 0.75rem; border-radius: 20px;">Abdurrahman ibn Awf RA (rich businessman)</span>
+        <span style="background: white; padding: 0.25rem 0.75rem; border-radius: 20px;">Salman al-Farisi RA (seeker of truth)</span>
+      </div>
+      <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem; font-style: italic;">Or pick your own! Who achieved big things you want to achieve?</p>
+      <div class="write-space" style="min-height: 40px; margin-top: 0.5rem;">
+        <p>My 3 mentors: 1)_______ 2)_______ 3)_______</p>
+      </div>
+    </div>
+    
+    <div class="questions">
+      <h4>Your mentors ask you:</h4>
+      <ul>
+        <li><strong>Mentor 1:</strong> What are you GOOD at right now? What talents has Allah given you?</li>
+        <li><strong>Mentor 2:</strong> What's STOPPING you from dreaming big? (Example: "I think I'm not smart enough")</li>
+        <li><strong>Mentor 3:</strong> If NOTHING could stop you, what would you become? (Dream BIG!)</li>
+      </ul>
+    </div>
+    
+    <div class="sample-dua">
+      <strong>Sample Dua 1:</strong>
+      Ya Allah, make me a doctor who helps sick people feel better. Let me be so good that I heal thousands of people. Let my work be sadaqa jariyah for my parents.
+    </div>
+    
+    <div class="sample-dua">
+      <strong>Sample Dua 2:</strong>
+      Ya Allah, make me an Imam who leads thousands in prayer. Let people's hearts shake when they hear me recite Quran. Help me teach others and bring people closer to You.
+    </div>
+    
+    <div class="sample-dua">
+      <strong>Sample Dua 3:</strong>
+      Ya Allah, make me successful and wealthy so I can build masajid, help orphans, and give sadaqa every single day. Let my money be a way to Jannah, not a problem.
+    </div>
+    
+    <div class="write-space">
+      <p>Write YOUR dua here...</p>
+    </div>
+    
+    <!-- Future stickers -->
+    <div class="sticker-row" style="margin-top: 1.5rem;">
+      <div class="sticker">
+        <svg viewBox="0 0 60 60" fill="none" stroke="#9b59b6" stroke-width="2">
+          <path d="M30,55 L30,20"/>
+          <polygon points="20,20 30,5 40,20"/>
+          <path d="M20,35 L10,40 L20,45"/>
+          <path d="M40,35 L50,40 L40,45"/>
+          <ellipse cx="30" cy="55" rx="15" ry="4"/>
+        </svg>
+        <div class="sticker-label">Rocket</div>
+      </div>
+      <div class="sticker">
+        <svg viewBox="0 0 60 60" fill="none" stroke="#9b59b6" stroke-width="2">
+          <circle cx="30" cy="18" r="10"/>
+          <path d="M20,55 L20,32 Q20,28 30,28 Q40,28 40,32 L40,55"/>
+          <path d="M22,40 L38,40"/>
+          <path d="M25,32 L25,28"/>
+          <path d="M35,32 L35,28"/>
+        </svg>
+        <div class="sticker-label">Doctor</div>
+      </div>
+      <div class="sticker">
+        <svg viewBox="0 0 60 60" fill="none" stroke="#9b59b6" stroke-width="2">
+          <rect x="12" y="20" width="36" height="35" rx="2"/>
+          <path d="M12,28 L48,28"/>
+          <path d="M20,10 L20,20"/>
+          <path d="M40,10 L40,20"/>
+          <ellipse cx="15" cy="10" rx="5" ry="3"/>
+          <ellipse cx="45" cy="10" rx="5" ry="3"/>
+          <line x1="20" y1="38" x2="40" y2="38"/>
+          <line x1="20" y1="45" x2="35" y2="45"/>
+        </svg>
+        <div class="sticker-label">Leader</div>
+      </div>
+      <div class="sticker">
+        <svg viewBox="0 0 60 60" fill="none" stroke="#9b59b6" stroke-width="2">
+          <rect x="15" y="30" width="30" height="25" rx="2"/>
+          <polygon points="15,30 30,15 45,30"/>
+          <path d="M30,15 L30,8"/>
+          <circle cx="30" cy="6" r="4"/>
+          <rect x="25" y="40" width="10" height="15"/>
+        </svg>
+        <div class="sticker-label">Build Masjid</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 6: FUN -->
+  <div class="category cat-fun">
+    <div class="category-header">
+      <div class="category-icon">⚽</div>
+      <h3>Fun & Adventures</h3>
+    </div>
+    
+    <!-- Mentors -->
+    <div style="background: #e0f2f1; border-radius: 12px; padding: 1rem; margin-bottom: 1rem;">
+      <p style="font-weight: bold; color: var(--teal); margin-bottom: 0.5rem;">🦸 Choose Your 3 Mentors for Fun:</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; font-size: 0.9rem;">
+        <span style="background: white; padding: 0.25rem 0.75rem; border-radius: 20px;">Prophet Muhammad ﷺ (raced & joked with family!)</span>
+        <span style="background: white; padding: 0.25rem 0.75rem; border-radius: 20px;">Aisha RA (playful, had fun!)</span>
+        <span style="background: white; padding: 0.25rem 0.75rem; border-radius: 20px;">The Sahaba (enjoyed halal fun)</span>
+      </div>
+      <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem; font-style: italic;">Yes, even the Prophet ﷺ had fun! Who enjoys life in a halal way that you admire?</p>
+      <div class="write-space" style="min-height: 40px; margin-top: 0.5rem;">
+        <p>My 3 mentors: 1)_______ 2)_______ 3)_______</p>
+      </div>
+    </div>
+    
+    <div class="questions">
+      <h4>Your mentors ask you:</h4>
+      <ul>
+        <li><strong>Mentor 1:</strong> What FUN things are you thankful for? (Example: "I can play sports, go to the park")</li>
+        <li><strong>Mentor 2:</strong> What's MISSING in your fun time? (Example: "I wish we traveled more as a family")</li>
+        <li><strong>Mentor 3:</strong> What would be your DREAM adventure? (Example: "Go to Makkah! See the mountains! Beach vacation!")</li>
+      </ul>
+    </div>
+    
+    <div class="sample-dua">
+      <strong>Sample Dua 1:</strong>
+      Ya Allah, let me go to Makkah and Madinah with my family. Let me see the Ka'bah with my own eyes, pray there, and drink Zamzam. Make it happen soon!
+    </div>
+    
+    <div class="sample-dua">
+      <strong>Sample Dua 2:</strong>
+      Ya Allah, make me really good at [soccer/swimming/art/coding]. Let me use my talent to make You proud and inspire other Muslims. Help me practice hard and never give up.
+    </div>
+    
+    <div class="sample-dua">
+      <strong>Sample Dua 3:</strong>
+      Ya Allah, bless our family with fun vacations—beaches, mountains, and adventures together. Let us laugh, play, and make happy memories while thanking You for everything.
+    </div>
+    
+    <div class="write-space">
+      <p>Write YOUR dua here...</p>
+    </div>
+    
+    <!-- Fun stickers -->
+    <div class="sticker-row" style="margin-top: 1.5rem;">
+      <div class="sticker">
+        <svg viewBox="0 0 60 60" fill="none" stroke="#1abc9c" stroke-width="2">
+          <rect x="15" y="20" width="30" height="35" rx="2"/>
+          <path d="M15,25 L45,25"/>
+          <polygon points="15,20 30,8 45,20"/>
+          <path d="M30,8 Q45,5 55,15"/>
+          <circle cx="55" cy="15" r="3"/>
+        </svg>
+        <div class="sticker-label">Ka'bah</div>
+      </div>
+      <div class="sticker">
+        <svg viewBox="0 0 60 60" fill="none" stroke="#1abc9c" stroke-width="2">
+          <ellipse cx="30" cy="50" rx="25" ry="6"/>
+          <path d="M5,50 Q5,25 30,10 Q55,25 55,50"/>
+          <path d="M20,45 Q30,35 40,45"/>
+        </svg>
+        <div class="sticker-label">Mountain</div>
+      </div>
+      <div class="sticker">
+        <svg viewBox="0 0 60 60" fill="none" stroke="#1abc9c" stroke-width="2">
+          <path d="M5,55 Q5,35 20,35 Q25,35 30,40 Q35,35 40,35 Q55,35 55,55"/>
+          <circle cx="45" cy="15" r="10"/>
+          <line x1="45" y1="5" x2="45" y2="2"/>
+          <line x1="55" y1="15" x2="58" y2="15"/>
+          <line x1="35" y1="15" x2="32" y2="15"/>
+          <line x1="52" y1="8" x2="55" y2="5"/>
+          <line x1="38" y1="8" x2="35" y2="5"/>
+        </svg>
+        <div class="sticker-label">Beach</div>
+      </div>
+      <div class="sticker">
+        <svg viewBox="0 0 60 60" fill="none" stroke="#1abc9c" stroke-width="2">
+          <circle cx="30" cy="30" r="20"/>
+          <circle cx="24" cy="25" r="3"/>
+          <circle cx="36" cy="25" r="3"/>
+          <path d="M20,38 Q30,48 40,38"/>
+          <path d="M15,15 L10,10"/>
+          <path d="M45,15 L50,10"/>
+          <polygon points="10,10 5,5 15,8"/>
+          <polygon points="50,10 55,5 45,8"/>
+        </svg>
+        <div class="sticker-label">Happy!</div>
+      </div>
+      <div class="sticker">
+        <svg viewBox="0 0 60 60" fill="none" stroke="#1abc9c" stroke-width="2">
+          <circle cx="30" cy="18" r="12"/>
+          <ellipse cx="30" cy="45" rx="18" ry="12"/>
+          <path d="M18,35 Q30,28 42,35"/>
+        </svg>
+        <div class="sticker-label">Soccer Ball</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK RECAP -->
+  <div class="rules-box" style="background: linear-gradient(135deg, var(--blue), var(--purple));">
+    <h3>📝 Quick Recap: How to Make Dream Duas</h3>
+    <ol>
+      <li><strong>Start with thanks</strong> — What are you grateful for?</li>
+      <li><strong>Think about what's missing</strong> — What do you want to improve?</li>
+      <li><strong>Close your eyes and IMAGINE</strong> — Picture your dua coming true!</li>
+      <li><strong>Write your dua</strong> — Make it specific, not vague</li>
+      <li><strong>Check for butterflies</strong> — Does it excite you?</li>
+      <li><strong>Ask your mom/dad</strong> — Get them to make dua for you too!</li>
+      <li><strong>Never give up</strong> — Keep making dua every day</li>
+    </ol>
+  </div>
+
+  <!-- 3-STEP PROCESS -->
+  <div class="intro-box">
+    <h2>Your 3-Step Dua Process</h2>
+    
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0;">
+      <div style="flex: 1; min-width: 150px; background: #e3f2fd; padding: 1rem; border-radius: 12px; text-align: center;">
+        <div style="font-size: 2rem;">1️⃣</div>
+        <strong style="color: var(--blue);">INSPIRE</strong>
+        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Get your heart excited about what you want</p>
+      </div>
+      <div style="flex: 1; min-width: 150px; background: #f3e5f5; padding: 1rem; border-radius: 12px; text-align: center;">
+        <div style="font-size: 2rem;">2️⃣</div>
+        <strong style="color: var(--purple);">REFINE</strong>
+        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Make it specific until you get butterflies</p>
+      </div>
+      <div style="flex: 1; min-width: 150px; background: #e8f5e9; padding: 1rem; border-radius: 12px; text-align: center;">
+        <div style="font-size: 2rem;">3️⃣</div>
+        <strong style="color: var(--green);">REPEAT</strong>
+        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Make this dua every single day!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- YOUR 6 DUAS SUMMARY -->
+  <div class="intro-box">
+    <h2>My 6 Dream Duas Summary</h2>
+    <p>Write down your final duas here so you can read them every day:</p>
+    
+    <div class="write-space" style="margin: 0.75rem 0;">
+      <p><strong>1. Quran & Learning:</strong></p>
+    </div>
+    <div class="write-space" style="margin: 0.75rem 0;">
+      <p><strong>2. Family:</strong></p>
+    </div>
+    <div class="write-space" style="margin: 0.75rem 0;">
+      <p><strong>3. Character:</strong></p>
+    </div>
+    <div class="write-space" style="margin: 0.75rem 0;">
+      <p><strong>4. Friends:</strong></p>
+    </div>
+    <div class="write-space" style="margin: 0.75rem 0;">
+      <p><strong>5. Future:</strong></p>
+    </div>
+    <div class="write-space" style="margin: 0.75rem 0;">
+      <p><strong>6. Fun & Adventures:</strong></p>
+    </div>
+  </div>
+
+  <!-- CLOSING -->
+  <div class="final-dua">
+    <h3>The Special Dua for Laylatul Qadr</h3>
+    <p>The Prophet ﷺ taught us to say this dua in the last 10 nights:</p>
+    <div class="arabic">اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي</div>
+    <p><em>"Allahumma innaka 'afuwwun tuhibbul 'afwa fa'fu 'anni"</em></p>
+    <p>"O Allah, You are the Pardoner, You love to pardon, so pardon me."</p>
+  </div>
+
+  <div style="text-align: center; margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #f8f6f0, #fff); border-radius: 16px;">
+    <p style="font-size: 1.2rem; color: var(--purple); font-weight: bold;">Remember:</p>
+    <p style="font-size: 1.1rem; margin: 0.5rem 0;">Your dua is MORE POWERFUL than you!</p>
+    <p style="font-size: 1.1rem; margin: 0.5rem 0;">It will change YOU and bring you closer to Allah.</p>
+    <p style="font-size: 1.1rem; margin: 0.5rem 0;">Allah is listening. Ask BIG. Trust Him. Never give up!</p>
+    <p style="font-size: 1.5rem; margin-top: 1rem;">🤲</p>
+  </div>
+
+  <!-- BONUS COLORING PAGE -->
+  <div class="color-me-box" style="margin-top: 2rem; page-break-before: always;">
+    <h4>🎨 BONUS: My Dua Sticker Collection!</h4>
+    <p style="color: #666; font-size: 0.9rem;">Print this page, color the stickers, and cut them out! Put them on your dua journal or mirror!</p>
+    
+    <div class="sticker-row" style="margin: 1.5rem 0;">
+      <!-- Large dua hands -->
+      <div class="sticker" style="margin: 1rem;">
+        <svg viewBox="0 0 80 80" fill="none" stroke="#333" stroke-width="1.5" style="width: 80px; height: 80px;">
+          <path d="M25,65 Q20,45 25,30 L28,50 M28,50 L32,28 M32,28 L36,50 M36,50 L40,32 M40,32 L42,50 M42,50 L44,38"/>
+          <path d="M55,65 Q60,45 55,30 L52,50 M52,50 L48,28 M48,28 L44,50 M44,50 L40,32"/>
+          <path d="M25,65 Q40,72 55,65"/>
+        </svg>
+        <div class="sticker-label">Dua Hands</div>
+      </div>
+      <!-- Large star -->
+      <div class="sticker" style="margin: 1rem;">
+        <svg viewBox="0 0 80 80" fill="none" stroke="#333" stroke-width="1.5" style="width: 80px; height: 80px;">
+          <polygon points="40,5 48,30 75,30 53,45 62,72 40,55 18,72 27,45 5,30 32,30"/>
+        </svg>
+        <div class="sticker-label">Dream Star</div>
+      </div>
+      <!-- Large butterfly -->
+      <div class="sticker" style="margin: 1rem;">
+        <svg viewBox="0 0 80 80" fill="none" stroke="#333" stroke-width="1.5" style="width: 80px; height: 80px;">
+          <ellipse cx="25" cy="28" rx="18" ry="20"/>
+          <ellipse cx="55" cy="28" rx="18" ry="20"/>
+          <ellipse cx="22" cy="55" rx="12" ry="14"/>
+          <ellipse cx="58" cy="55" rx="12" ry="14"/>
+          <line x1="40" y1="15" x2="40" y2="75"/>
+          <path d="M38,12 Q32,5 25,5"/>
+          <path d="M42,12 Q48,5 55,5"/>
+          <circle cx="25" cy="5" r="2"/>
+          <circle cx="55" cy="5" r="2"/>
+        </svg>
+        <div class="sticker-label">Butterfly Feeling</div>
+      </div>
+    </div>
+    
+    <div class="sticker-row" style="margin: 1.5rem 0;">
+      <!-- Moon and stars -->
+      <div class="sticker" style="margin: 1rem;">
+        <svg viewBox="0 0 80 80" fill="none" stroke="#333" stroke-width="1.5" style="width: 80px; height: 80px;">
+          <path d="M50,15 A22,22 0 1,0 50,60 A17,17 0 1,1 50,15"/>
+          <polygon points="20,12 22,18 28,18 23,22 25,28 20,24 15,28 17,22 12,18 18,18"/>
+          <polygon points="65,45 66,48 70,48 67,50 68,54 65,52 62,54 63,50 60,48 64,48"/>
+          <polygon points="15,50 16,53 19,53 17,55 18,58 15,56 12,58 13,55 10,53 14,53"/>
+        </svg>
+        <div class="sticker-label">Laylatul Qadr</div>
+      </div>
+      <!-- Heart with text -->
+      <div class="sticker" style="margin: 1rem;">
+        <svg viewBox="0 0 80 80" fill="none" stroke="#333" stroke-width="1.5" style="width: 80px; height: 80px;">
+          <path d="M40,70 C10,45 5,25 20,15 C30,8 40,20 40,20 C40,20 50,8 60,15 C75,25 70,45 40,70"/>
+          <text x="40" y="42" text-anchor="middle" font-size="10" fill="none" stroke="#333">DREAM</text>
+        </svg>
+        <div class="sticker-label">Dream Heart</div>
+      </div>
+      <!-- Trophy -->
+      <div class="sticker" style="margin: 1rem;">
+        <svg viewBox="0 0 80 80" fill="none" stroke="#333" stroke-width="1.5" style="width: 80px; height: 80px;">
+          <path d="M25,15 L55,15 L55,35 Q55,50 40,55 Q25,50 25,35 Z"/>
+          <path d="M25,20 Q10,20 10,30 Q10,40 25,40"/>
+          <path d="M55,20 Q70,20 70,30 Q70,40 55,40"/>
+          <rect x="35" y="55" width="10" height="10"/>
+          <rect x="28" y="65" width="24" height="8" rx="2"/>
+          <polygon points="40,25 43,33 50,33 44,38 47,46 40,42 33,46 36,38 30,33 37,33"/>
+        </svg>
+        <div class="sticker-label">Champion</div>
+      </div>
+    </div>
+    
+    <div class="sticker-row" style="margin: 1.5rem 0;">
+      <!-- Quran -->
+      <div class="sticker" style="margin: 1rem;">
+        <svg viewBox="0 0 80 80" fill="none" stroke="#333" stroke-width="1.5" style="width: 80px; height: 80px;">
+          <rect x="15" y="10" width="50" height="60" rx="4"/>
+          <line x1="40" y1="10" x2="40" y2="70"/>
+          <line x1="22" y1="22" x2="35" y2="22"/>
+          <line x1="22" y1="32" x2="35" y2="32"/>
+          <line x1="22" y1="42" x2="35" y2="42"/>
+          <line x1="45" y1="22" x2="58" y2="22"/>
+          <line x1="45" y1="32" x2="58" y2="32"/>
+          <line x1="45" y1="42" x2="58" y2="42"/>
+          <path d="M25,55 Q30,50 35,55"/>
+          <path d="M45,55 Q50,50 55,55"/>
+        </svg>
+        <div class="sticker-label">Quran</div>
+      </div>
+      <!-- Ka'bah -->
+      <div class="sticker" style="margin: 1rem;">
+        <svg viewBox="0 0 80 80" fill="none" stroke="#333" stroke-width="1.5" style="width: 80px; height: 80px;">
+          <rect x="18" y="25" width="44" height="50" rx="2"/>
+          <polygon points="18,25 40,8 62,25"/>
+          <rect x="32" y="40" width="16" height="35" rx="1"/>
+          <ellipse cx="40" cy="18" rx="3" ry="2"/>
+          <path d="M18,32 L62,32"/>
+        </svg>
+        <div class="sticker-label">Ka'bah</div>
+      </div>
+      <!-- Rocket -->
+      <div class="sticker" style="margin: 1rem;">
+        <svg viewBox="0 0 80 80" fill="none" stroke="#333" stroke-width="1.5" style="width: 80px; height: 80px;">
+          <path d="M40,75 L40,25"/>
+          <polygon points="28,25 40,5 52,25"/>
+          <path d="M28,45 L15,55 L28,58"/>
+          <path d="M52,45 L65,55 L52,58"/>
+          <ellipse cx="40" cy="75" rx="18" ry="5"/>
+          <circle cx="40" cy="38" r="5"/>
+        </svg>
+        <div class="sticker-label">Reach for Stars</div>
+      </div>
+    </div>
+    
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #888;">✂️ Cut along the edges after coloring!</p>
+  </div>
+
+</body>
+</html>

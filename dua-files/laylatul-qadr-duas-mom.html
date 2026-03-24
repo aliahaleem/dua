@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لیلۃ القدر کی دعائیں - ماں اور بیوی کے لیے</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @page { size: letter; margin: 0.5in; }
+        body { 
+            min-height: 100vh; 
+            background: #f5f5f5; 
+            padding: 20px;
+            direction: ltr;
+        }
+        .dua-page {
+            max-width: 7.5in;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            border: 1px solid #ccc;
+            direction: rtl;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #333;
+        }
+        .decorative-top {
+            font-size: 28px;
+            color: #555;
+            letter-spacing: 10px;
+            margin-bottom: 15px;
+        }
+        .main-title {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 32px;
+            color: #222;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 18px;
+            color: #666;
+        }
+        .intro {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 16px;
+            color: #444;
+            text-align: center;
+            line-height: 2;
+            margin: 25px 0;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+        .section {
+            margin: 30px 0;
+        }
+        .section-title {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 22px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: linear-gradient(90deg, transparent, #f0f0f0, transparent);
+        }
+        .section-icon {
+            margin-left: 8px;
+        }
+        .dua-card {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background: #fefefe;
+        }
+        .dua-card.highlight {
+            border: 2px solid #888;
+            background: #fffef5;
+        }
+        .dua-label {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 15px;
+            color: #888;
+            margin-bottom: 10px;
+        }
+        .dua-arabic {
+            font-family: 'Amiri', serif;
+            font-size: 24px;
+            color: #222;
+            text-align: center;
+            line-height: 1.8;
+            margin-bottom: 12px;
+            padding: 10px;
+        }
+        .dua-translation {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 16px;
+            color: #555;
+            text-align: center;
+            line-height: 2;
+        }
+        .dua-reference {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 13px;
+            color: #999;
+            text-align: center;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+            direction: ltr;
+        }
+        .divider-line {
+            width: 60px;
+            height: 1px;
+            background: #ccc;
+        }
+        .divider-star {
+            color: #888;
+            font-size: 14px;
+        }
+        .tips-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+        .tips-title {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .tips-list {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 15px;
+            color: #555;
+            line-height: 2.2;
+            list-style: none;
+            padding: 0 20px;
+        }
+        .tips-list li {
+            margin-bottom: 8px;
+        }
+        .tips-list li::before {
+            content: "✦ ";
+            color: #888;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+        .footer-text {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 16px;
+            color: #666;
+            line-height: 2;
+        }
+        .decorative-bottom {
+            font-size: 20px;
+            color: #888;
+            margin-top: 15px;
+        }
+        .print-instructions {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background: #fffde7;
+            border: 1px solid #f9a825;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: sans-serif;
+            font-size: 13px;
+            max-width: 250px;
+            direction: ltr;
+            text-align: left;
+        }
+        .print-instructions strong { color: #e65100; }
+        @media print {
+            body { background: white; padding: 0; }
+            .dua-page { border: none; padding: 30px 40px; }
+            .print-instructions { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions">
+        <strong>Print Instructions:</strong><br>
+        Print this Laylatul Qadr dua guide for reference during the blessed nights.
+    </div>
+
+    <div class="dua-page">
+        <div class="header">
+            <div class="decorative-top">☪ ✦ ☪</div>
+            <h1 class="main-title">لیلۃ القدر کی دعائیں</h1>
+            <p class="subtitle">ماں اور بیوی کے لیے خصوصی دعائیں</p>
+        </div>
+
+        <div class="intro">
+            لیلۃ القدر وہ مبارک رات ہے جو ہزار مہینوں سے بہتر ہے۔ اس رات کی دعائیں قبول ہوتی ہیں۔<br>
+            یہ دعائیں اپنے لیے، اولاد کے لیے، شوہر کے لیے اور پورے خاندان کے لیے پڑھیں۔
+        </div>
+
+        <!-- Main Laylatul Qadr Dua -->
+        <div class="section">
+            <h2 class="section-title"><span class="section-icon">🌙</span> لیلۃ القدر کی خاص دعا</h2>
+            <div class="dua-card highlight">
+                <p class="dua-label">نبی کریم ﷺ نے حضرت عائشہ رضی اللہ عنہا کو سکھائی:</p>
+                <p class="dua-arabic">اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي</p>
+                <p class="dua-translation">اے اللہ! تو معاف کرنے والا ہے، معافی کو پسند کرتا ہے، پس مجھے معاف فرما دے</p>
+                <p class="dua-reference">ترمذی، ابن ماجہ</p>
+            </div>
+        </div>
+
+        <div class="divider">
+            <span class="divider-line"></span>
+            <span class="divider-star">✦</span>
+            <span class="divider-line"></span>
+        </div>
+
+        <!-- Duas for Children -->
+        <div class="section">
+            <h2 class="section-title"><span class="section-icon">👨‍👩‍👧‍👦</span> اولاد کے لیے دعائیں</h2>
+            
+            <div class="dua-card">
+                <p class="dua-label">اولاد کی ہدایت کے لیے:</p>
+                <p class="dua-arabic">رَبِّ اجْعَلْنِي مُقِيمَ الصَّلَاةِ وَمِنْ ذُرِّيَّتِي رَبَّنَا وَتَقَبَّلْ دُعَاءِ</p>
+                <p class="dua-translation">اے میرے رب! مجھے نماز قائم کرنے والا بنا اور میری اولاد کو بھی، اے ہمارے رب! میری دعا قبول فرما</p>
+                <p class="dua-reference">سورۃ ابراہیم: 40</p>
+            </div>
+
+            <div class="dua-card">
+                <p class="dua-label">نیک اولاد کے لیے:</p>
+                <p class="dua-arabic">رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا</p>
+                <p class="dua-translation">اے ہمارے رب! ہمیں ہماری بیویوں اور اولاد سے آنکھوں کی ٹھنڈک عطا فرما اور ہمیں متقیوں کا امام بنا</p>
+                <p class="dua-reference">سورۃ الفرقان: 74</p>
+            </div>
+
+            <div class="dua-card">
+                <p class="dua-label">اولاد کی حفاظت کے لیے:</p>
+                <p class="dua-arabic">أُعِيذُكُمَا بِكَلِمَاتِ اللهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ</p>
+                <p class="dua-translation">میں تمہیں اللہ کے کامل کلمات کی پناہ میں دیتا ہوں ہر شیطان اور زہریلے جانور سے اور ہر نظر بد سے</p>
+                <p class="dua-reference">بخاری</p>
+            </div>
+        </div>
+
+        <div class="divider">
+            <span class="divider-line"></span>
+            <span class="divider-star">☪</span>
+            <span class="divider-line"></span>
+        </div>
+
+        <!-- Duas for Husband -->
+        <div class="section">
+            <h2 class="section-title"><span class="section-icon">💑</span> شوہر کے لیے دعائیں</h2>
+            
+            <div class="dua-card">
+                <p class="dua-label">شوہر کی ہدایت اور کامیابی کے لیے:</p>
+                <p class="dua-arabic">رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ</p>
+                <p class="dua-translation">اے ہمارے رب! ہمیں دنیا میں بھلائی دے اور آخرت میں بھی بھلائی دے اور ہمیں آگ کے عذاب سے بچا</p>
+                <p class="dua-reference">سورۃ البقرہ: 201</p>
+            </div>
+
+            <div class="dua-card">
+                <p class="dua-label">محبت اور الفت کے لیے:</p>
+                <p class="dua-arabic">اللَّهُمَّ أَلِّفْ بَيْنَ قُلُوبِنَا وَأَصْلِحْ ذَاتَ بَيْنِنَا</p>
+                <p class="dua-translation">اے اللہ! ہمارے دلوں میں محبت پیدا فرما اور ہمارے درمیان صلح رکھ</p>
+            </div>
+        </div>
+
+        <div class="divider">
+            <span class="divider-line"></span>
+            <span class="divider-star">✦</span>
+            <span class="divider-line"></span>
+        </div>
+
+        <!-- Duas for Self -->
+        <div class="section">
+            <h2 class="section-title"><span class="section-icon">🤲</span> اپنے لیے دعائیں</h2>
+            
+            <div class="dua-card">
+                <p class="dua-label">مغفرت کے لیے:</p>
+                <p class="dua-arabic">رَبَّنَا ظَلَمْنَا أَنْفُسَنَا وَإِنْ لَمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ</p>
+                <p class="dua-translation">اے ہمارے رب! ہم نے اپنی جانوں پر ظلم کیا، اگر تو ہمیں نہ بخشے اور ہم پر رحم نہ کرے تو ہم نقصان اٹھانے والوں میں سے ہوں گے</p>
+                <p class="dua-reference">سورۃ الاعراف: 23</p>
+            </div>
+
+            <div class="dua-card">
+                <p class="dua-label">صبر اور ثابت قدمی کے لیے:</p>
+                <p class="dua-arabic">رَبَّنَا أَفْرِغْ عَلَيْنَا صَبْرًا وَثَبِّتْ أَقْدَامَنَا وَانْصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ</p>
+                <p class="dua-translation">اے ہمارے رب! ہم پر صبر نازل فرما، ہمارے قدم جما دے اور کافروں کے مقابلے میں ہماری مدد فرما</p>
+                <p class="dua-reference">سورۃ البقرہ: 250</p>
+            </div>
+
+            <div class="dua-card">
+                <p class="dua-label">علم میں اضافے کے لیے:</p>
+                <p class="dua-arabic">رَبِّ زِدْنِي عِلْمًا</p>
+                <p class="dua-translation">اے میرے رب! میرے علم میں اضافہ فرما</p>
+                <p class="dua-reference">سورۃ طہ: 114</p>
+            </div>
+        </div>
+
+        <div class="divider">
+            <span class="divider-line"></span>
+            <span class="divider-star">☪</span>
+            <span class="divider-line"></span>
+        </div>
+
+        <!-- Duas for Family -->
+        <div class="section">
+            <h2 class="section-title"><span class="section-icon">🏠</span> پورے خاندان کے لیے</h2>
+            
+            <div class="dua-card">
+                <p class="dua-label">والدین کے لیے:</p>
+                <p class="dua-arabic">رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا</p>
+                <p class="dua-translation">اے میرے رب! ان پر رحم فرما جیسا کہ انہوں نے مجھے بچپن میں پالا</p>
+                <p class="dua-reference">سورۃ الاسراء: 24</p>
+            </div>
+
+            <div class="dua-card">
+                <p class="dua-label">تمام مسلمانوں کے لیے:</p>
+                <p class="dua-arabic">رَبَّنَا اغْفِرْ لَنَا وَلِإِخْوَانِنَا الَّذِينَ سَبَقُونَا بِالْإِيمَانِ</p>
+                <p class="dua-translation">اے ہمارے رب! ہمیں بخش دے اور ہمارے ان بھائیوں کو بھی جو ہم سے پہلے ایمان لائے</p>
+                <p class="dua-reference">سورۃ الحشر: 10</p>
+            </div>
+        </div>
+
+        <div class="tips-section">
+            <h3 class="tips-title">🌙 لیلۃ القدر میں عبادت کے نکات</h3>
+            <ul class="tips-list">
+                <li>رات کے آخری حصے میں تہجد پڑھیں</li>
+                <li>کثرت سے استغفار کریں</li>
+                <li>قرآن کی تلاوت کریں</li>
+                <li>اپنے لیے اور اپنے پیاروں کے لیے دل سے دعا کریں</li>
+                <li>صدقہ دیں</li>
+                <li>درود شریف کی کثرت کریں</li>
+                <li>آخری دس راتوں میں ہر طاق رات کو خاص توجہ دیں (21، 23، 25، 27، 29)</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p class="footer-text">
+                اللہ تعالیٰ ہماری تمام دعائیں قبول فرمائے<br>
+                اور ہمیں لیلۃ القدر کی برکات سے نوازے<br>
+                آمین یا رب العالمین
+            </p>
+            <div class="decorative-bottom">✦ ☪ ✦</div>
+        </div>
+    </div>
+</body>
+</html>

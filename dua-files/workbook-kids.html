@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Dream Duas — Kids Workbook</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 20mm 22mm 25mm 22mm;
+      @bottom-center {
+        content: "UmmAbdullah  ·  Adapted from Muhammad al-Shareef's Visionaire Course  ·  Page " counter(page);
+        font-size: 8pt;
+        color: #888;
+        font-family: Arial, sans-serif;
+      }
+    }
+    @page :first { @bottom-center { content: none; } }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Comic Sans MS', 'Segoe UI', Arial, sans-serif;
+      color: #2d3436;
+      line-height: 1.75;
+      font-size: 11pt;
+    }
+
+    /* ── COVER ── */
+    .cover {
+      page-break-after: always;
+      height: 267mm;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(160deg, #5e35b1 0%, #7b2d8b 50%, #4527a0 100%);
+      color: white;
+      text-align: center;
+      padding: 30mm 20mm;
+      position: relative;
+    }
+    .cover-stars { font-size: 24pt; letter-spacing: 8px; margin-bottom: 1.5rem; }
+    .cover-bismillah { font-size: 20pt; color: #ffe082; margin-bottom: 1rem; letter-spacing: 2px; }
+    .cover h1 { font-size: 30pt; font-weight: bold; color: #fff; line-height: 1.2; margin-bottom: 0.5rem; }
+    .cover h2 { font-size: 13pt; color: #ffe082; margin-bottom: 0.75rem; }
+    .cover h3 { font-size: 11pt; font-weight: normal; color: #e1bee7; margin-bottom: 3rem; }
+    .cover-name-block {
+      border-top: 1px solid rgba(255,224,130,0.5);
+      border-bottom: 1px solid rgba(255,224,130,0.5);
+      padding: 1.25rem 3rem;
+      margin-bottom: 2.5rem;
+    }
+    .cover-name-block p { font-size: 10pt; color: #e1bee7; margin-bottom: 0.4rem; }
+    .name-line { border-bottom: 1px solid #ffe082; height: 2rem; min-width: 180px; margin-top: 0.25rem; }
+    .cover-credits {
+      position: absolute; bottom: 15mm;
+      font-size: 9pt; color: #ce93d8; text-align: center; line-height: 1.6;
+    }
+    .cover-credits strong { color: #ffe082; }
+
+    /* ── TYPOGRAPHY ── */
+    h1.page-title {
+      font-size: 18pt; color: #5e35b1;
+      border-bottom: 3px solid #ffe082;
+      padding-bottom: 0.5rem; margin-bottom: 1.75rem;
+    }
+    h2.section-title {
+      font-size: 13pt; color: #5e35b1;
+      border-left: 5px solid #f06292;
+      padding-left: 0.75rem; margin: 1.75rem 0 0.75rem;
+      page-break-after: avoid;
+    }
+    h3.cat-title {
+      font-size: 13pt; color: #5e35b1; font-weight: bold;
+      margin: 0.75rem 0 0.5rem;
+      page-break-after: avoid;
+    }
+    p { margin-bottom: 0.85rem; }
+    ul, ol { padding-left: 1.5rem; margin-bottom: 0.85rem; }
+    li { margin-bottom: 0.35rem; }
+
+    /* ── BOXES ── */
+    .ayah-box {
+      background: #ede7f6;
+      border-left: 5px solid #5e35b1;
+      padding: 0.9rem 1.1rem;
+      margin: 0.9rem 0;
+      font-style: italic;
+      border-radius: 0 8px 8px 0;
+      page-break-inside: avoid;
+    }
+    .ayah-box .ref { display: block; margin-top: 0.35rem; font-size: 9pt; color: #666; font-style: normal; }
+    .fun-box {
+      background: #fff3e0;
+      border: 2px solid #ff9800;
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin: 0.9rem 0;
+      page-break-inside: avoid;
+    }
+    .fun-box strong { color: #e65100; }
+    .tip-box {
+      background: #e8f5e9;
+      border: 2px solid #43a047;
+      border-radius: 12px;
+      padding: 0.9rem 1.1rem;
+      margin: 0.9rem 0;
+      page-break-inside: avoid;
+    }
+    .dua-sample {
+      background: #f3e5f5;
+      border: 2px solid #7b2d8b;
+      border-radius: 12px;
+      padding: 1.1rem 1.25rem;
+      margin: 1rem 0;
+      page-break-inside: avoid;
+    }
+    .dua-sample strong { color: #5e35b1; display: block; margin-bottom: 0.4rem; }
+    .warning-box {
+      background: #fce4ec;
+      border: 2px solid #e91e63;
+      border-radius: 12px;
+      padding: 0.9rem 1.1rem;
+      margin: 0.9rem 0;
+      page-break-inside: avoid;
+    }
+    .warning-box strong { color: #c62828; }
+
+    /* ── CATEGORY BLOCKS ── */
+    .cat-block { page-break-before: always; }
+    .cat-num {
+      display: inline-block;
+      background: #5e35b1;
+      color: white;
+      width: 2.2rem; height: 2.2rem;
+      border-radius: 50%;
+      text-align: center; line-height: 2.2rem;
+      font-size: 13pt; font-weight: bold;
+      margin-right: 0.5rem; vertical-align: middle;
+    }
+
+    /* ── WRITING SPACES ── */
+    .write-prompt {
+      font-size: 10pt; color: #5e35b1;
+      font-weight: bold; font-style: italic;
+      margin: 1rem 0 0.25rem;
+    }
+    .write-space {
+      background-image: repeating-linear-gradient(
+        to bottom, transparent, transparent 1.9em,
+        #b39ddb 1.9em, #b39ddb 2em
+      );
+      line-height: 2em; min-height: 8em; margin-bottom: 0.9rem;
+      page-break-inside: avoid;
+    }
+    .ws-sm  { min-height: 4em; }
+    .ws-md  { min-height: 10em; }
+    .ws-lg  { min-height: 16em; }
+    .ws-xl  { min-height: 22em; }
+
+    /* ── SUMMARY TABLE ── */
+    .summary-card {
+      border: 2px solid #5e35b1;
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1rem;
+      page-break-inside: avoid;
+    }
+    .summary-card h3 { color: #5e35b1; font-size: 12pt; margin-bottom: 0.6rem; }
+
+    .closing-box {
+      background: linear-gradient(135deg, #5e35b1 0%, #4527a0 100%);
+      color: white;
+      border-radius: 12px;
+      padding: 1.75rem;
+      text-align: center;
+      margin-top: 1.5rem;
+      page-break-inside: avoid;
+    }
+
+    .page-break { page-break-before: always; }
+
+    @media screen {
+      body { max-width: 800px; margin: 0 auto; padding: 2rem; }
+      .cover { min-height: 600px; border-radius: 10px; margin-bottom: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════
+     COVER
+══════════════════════════════ -->
+<div class="cover">
+  <div class="cover-stars">⭐ 🌙 ✨</div>
+  <div class="cover-bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+  <h1>My Dream Duas</h1>
+  <h2>A Dream Duas Workbook for Muslim Kids</h2>
+  <h3>Ages 9–11 · Build Your 6 Powerful Duas!</h3>
+  <div class="cover-name-block">
+    <p>This workbook belongs to:</p>
+    <div class="name-line"></div>
+    <p style="margin-top: 0.9rem;">My age:</p>
+    <div class="name-line" style="min-width: 80px;"></div>
+    <p style="margin-top: 0.9rem;">I started on:</p>
+    <div class="name-line" style="min-width: 120px;"></div>
+  </div>
+  <div class="cover-credits">
+    <strong>Compiled by UmmAbdullah</strong><br>
+    Adapted from Muhammad al-Shareef's Visionaire Course<br>
+    <em>May Allah answer every dua you write in these pages 🤲</em>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     HOW TO USE
+══════════════════════════════ -->
+<div>
+  <h1 class="page-title">Welcome! How to Use This Workbook 📖</h1>
+
+  <p>Assalamu Alaikum, future superstar! 🌟</p>
+
+  <p>This workbook will help you build something AMAZING: <strong>6 Dream Duas</strong>. Dream duas are not just ordinary duas. They are special, powerful, super-specific requests you make to Allah — the King of all kings — that make your heart flutter with excitement.</p>
+
+  <div class="fun-box">
+    <strong>🦋 What is a Dream Dua?</strong>
+    <ul style="margin-top: 0.5rem;">
+      <li>It is <em>exciting and a little scary</em> at the same time — it gives you butterflies!</li>
+      <li>It is <em>very specific</em> (not just "be healthy" — more like "Ya Allah let me swim every day without getting tired")</li>
+      <li>It is something you <em>dream</em> about for your future (3–6 years from now)</li>
+      <li>It connects what you want in this world to what helps you in the <em>Next World</em> (Akhira)</li>
+    </ul>
+  </div>
+
+  <h2 class="section-title">How to Use This Workbook</h2>
+  <ol>
+    <li><strong>Read</strong> each section slowly — there are stories and ideas that will help you</li>
+    <li><strong>Think</strong> about the questions — there are no wrong answers, only YOUR answers</li>
+    <li><strong>Write</strong> in the spaces — write what you really feel, not what you think sounds nice</li>
+    <li><strong>Revisit</strong> your duas often — they get better as you grow!</li>
+    <li><strong>Recite</strong> them every day, especially before sleep and in sajdah</li>
+  </ol>
+
+  <div class="tip-box">
+    <strong>💡 Important:</strong> Dua is not like a shopping list. It is a conversation with your Creator. He KNOWS you. He LOVES you. And He is always, always listening.
+  </div>
+
+  <div class="ayah-box">
+    "And your Lord says: Call upon Me; I will respond to you."
+    <span class="ref">📖 Surah Ghafir (40:60)</span>
+  </div>
+
+  <p style="font-size: 10pt; color: #666; margin-top: 1.5rem;"><em>Compiled by <strong>UmmAbdullah</strong> | Adapted from Muhammad al-Shareef's Visionaire Course</em></p>
+</div>
+
+<!-- ══════════════════════════════
+     WHAT IS A DREAM DUA?
+══════════════════════════════ -->
+<div class="page-break">
+  <h1 class="page-title">What is a Dream Dua? 🌟</h1>
+
+  <p>Imagine you are playing a video game. You just leveled up. You didn't just get a little stronger — you totally evolved into a NEW version of yourself. Stronger. Wiser. Cooler.</p>
+
+  <p>That's what a dream dua does. Every time you make it, <strong>you grow toward who you are asking to become.</strong> It's not just about getting things — it's about BECOMING someone amazing.</p>
+
+  <div class="fun-box">
+    <strong>🎮 Think of it this way:</strong>
+    <p style="margin-top: 0.5rem;">Just like Ash trained Pikachu over and over until they both leveled up together — when you make a dream dua every day, you and your dua both grow. Allah is training you. And one day: <em>you evolve!</em></p>
+  </div>
+
+  <h2 class="section-title">The Story of Shaykh Muhammad al-Shareef</h2>
+  <p>Shaykh Muhammad al-Shareef was once locked outside in Mecca. He tried everything but couldn't get in. He was completely helpless. Then he remembered this verse:</p>
+
+  <div class="ayah-box">
+    "Is He [not best] who responds to the desperate one when he calls upon Him and removes evil?"
+    <span class="ref">📖 Surah An-Naml (27:62)</span>
+  </div>
+
+  <p>He made dua with his whole heart. And the door opened.</p>
+  <p>When he was <strong>11 years old</strong> (around YOUR age!), during the last ten nights of Ramadan, he made dua to become a hafiz of the Quran. He did it.</p>
+
+  <div class="tip-box">
+    <strong>Key Lesson:</strong> Sometimes you work hard AND make dua. Sometimes you can't do anything except make dua — and Allah just makes it happen. Both are real. Both require asking.
+  </div>
+
+  <p class="write-prompt">✍️ What does this story make you think about? How does it make you feel?</p>
+  <div class="write-space ws-md"></div>
+</div>
+
+<!-- ══════════════════════════════
+     TWO TYPES + VISUALIZATION
+══════════════════════════════ -->
+<div class="page-break">
+  <h1 class="page-title">Two Types of Dua 🚢</h1>
+
+  <p>Imagine a ship in the middle of the ocean. When a storm hits, EVERYONE on that ship prays and begs Allah to save them. They become sincere very quickly. That is a <strong>Reactive Dua</strong> — you only ask when things go wrong.</p>
+
+  <p>But what about when the sea is calm? Most people forget. That is the problem.</p>
+
+  <div class="fun-box">
+    <strong>Reactive Dua</strong> = Only when you're in trouble 😰<br>
+    <strong>Proactive Dua</strong> = Asking even when life is good 😊<br><br>
+    We need <strong>BOTH</strong>. But most of us only do the first one!
+  </div>
+
+  <div class="ayah-box">
+    Yunus (AS) was stuck inside a whale. In total darkness. He cried out:
+    "La ilaha illa anta, subhanaka inni kuntu min adh-dhalimeen"
+    (There is no god but You! Glory to You! I was indeed wrong!)
+    <span class="ref">📖 Surah Al-Anbiya (21:87)</span>
+  </div>
+
+  <p>That was reactive — from a really hard place. But when you are safe and happy, THAT is the best time to also make your dream duas!</p>
+
+  <p class="write-prompt">✍️ When do you usually remember to make dua — only when things go wrong, or also when things are good? Be honest!</p>
+  <div class="write-space ws-md"></div>
+
+  <h2 class="section-title">Secret Technique: IMAGINE First! 🌈</h2>
+  <p>Shaykh Muhammad al-Shareef and his wife wanted children for 10 years. Their dua became like a habit — just words without feelings. Then he changed what he did.</p>
+
+  <p>He started to <strong>IMAGINE</strong> first. He pictured his daughter's wedding. Him walking her down. His son leading salah. He imagined it so clearly it felt real. Then he made dua. And it was answered.</p>
+
+  <div class="tip-box">
+    <strong>Try it yourself:</strong> Before you make dua, close your eyes. Picture the answered version. What do you see? Where are you? Who is with you? What does it smell like? How do you feel? Hold that picture — THEN open your hands and ask.
+  </div>
+
+  <p class="write-prompt">✍️ Pick one thing you dream of. Close your eyes and picture it answered. Now describe what you see:</p>
+  <div class="write-space ws-lg"></div>
+</div>
+
+<!-- ══════════════════════════════
+     GRATITUDE + DUA CHANGES YOU
+══════════════════════════════ -->
+<div class="page-break">
+  <h1 class="page-title">Start With "Thank You" 🙏</h1>
+
+  <div class="ayah-box">
+    "If you are grateful, I will certainly give you more."
+    <span class="ref">📖 Surah Ibrahim (14:7)</span>
+  </div>
+
+  <p>Before asking for big things, start by noticing the amazing things Allah has ALREADY given you. Eyes that see. A family that loves you. Food today. A brain that works. Safety. These are miracles — we just get used to them.</p>
+
+  <p class="write-prompt">✍️ Write 10 things you are grateful for right now (big or small):</p>
+  <div class="write-space ws-lg"></div>
+
+  <h2 class="section-title">Your Dua Changes YOU! 🦋➡️🦋</h2>
+
+  <p>Here is the coolest thing about dream duas: <strong>the dua doesn't just change what you GET — it changes who you ARE.</strong></p>
+
+  <p>Think about Pokémon. When a Pokémon trains and trains, it evolves into something stronger and more beautiful. That evolution was inside it all along — it just needed time, effort, and training to come out.</p>
+
+  <p>When you make your dream dua every day, you are training. You are becoming the version of yourself who deserves the answered dua. The dua is pulling you UPWARD.</p>
+
+  <div class="fun-box">
+    <strong>🎮 Ash + Pikachu taught us this:</strong>
+    <p style="margin-top: 0.3rem;">Ash believed in Pikachu before Pikachu believed in himself. Allah believes in your potential MORE than you do. Make your dream duas and evolve!</p>
+  </div>
+
+  <h2 class="section-title">Don't Just Have ONE Dua!</h2>
+  <p>Here is another secret: if you only have ONE dua, you have aimed too low. Allah is Al-Wahhab — the Giver of gifts. He loves to give. Don't be shy!</p>
+
+  <div class="fun-box">
+    <strong>Bilal's Mistake:</strong>
+    <p style="margin-top: 0.3rem;">Someone once told Bilal that his dua was "too small." But that advice was wrong — your dua is NOT too small. In fact, your dua is BIGGER than you are right now. You haven't caught up to your dua yet. Your job is to grow into it!</p>
+  </div>
+
+  <h2 class="section-title">Never Say "Allah Didn't Answer"</h2>
+  <div class="ayah-box">
+    "Allah answers everyone's dua except the one who gets impatient and says: 'I made dua but it was not answered.'"
+    <span class="ref">📖 Sahih al-Bukhari 6340 · Sahih Muslim 2735</span>
+  </div>
+  <p>Keep asking. Keep trusting. Allah always answers — sometimes with exactly what you asked for, sometimes with something better, and sometimes He is saving the answer for the Next World (where it is worth so much more!).</p>
+</div>
+
+<!-- ══════════════════════════════
+     RULES + MENTORS
+══════════════════════════════ -->
+<div class="page-break">
+  <h1 class="page-title">5 Rules for Awesome Dream Duas ✅</h1>
+
+  <ol>
+    <li style="margin-bottom: 0.75rem;"><strong>Make it give you butterflies</strong> — if it doesn't excite you a little, it's not big enough yet</li>
+    <li style="margin-bottom: 0.75rem;"><strong>Make it specific</strong> — not "be smart" but "Ya Allah let me memorize 3 juz by next Ramadan"</li>
+    <li style="margin-bottom: 0.75rem;"><strong>Connect it to helping others or your deen</strong> — this makes it even more powerful</li>
+    <li style="margin-bottom: 0.75rem;"><strong>Have at least 6 duas</strong> — one for each area of life</li>
+    <li style="margin-bottom: 0.75rem;"><strong>Never give up on it</strong> — keep making it even if months go by</li>
+  </ol>
+
+  <h2 class="section-title">The Butterfly Test 🦋</h2>
+  <p>Before you write your final dua for each area, ask yourself:</p>
+  <ul>
+    <li>Does this dua make me feel excited? ☐ Yes ☐ Not yet</li>
+    <li>Is it specific — can I picture exactly what it looks like answered? ☐ Yes ☐ Not yet</li>
+    <li>Does it connect to Allah, my deen, or helping others? ☐ Yes ☐ Not yet</li>
+    <li>Does it give me butterflies? ☐ Yes ☐ Not yet</li>
+  </ul>
+  <p>If you answered "Not yet" for any of these — go back and make the dua bigger or more specific!</p>
+
+  <h2 class="section-title">The Mentor Technique 🦸</h2>
+  <p>Here's a powerful trick: pick a Muslim hero you admire and <em>imagine making dua beside them</em>. Ask yourself: "What would they ask for if they were me?" This helps you dream bigger.</p>
+
+  <div class="tip-box">
+    <strong>Fun Idea — Imaginary Mentors:</strong>
+    <p style="margin-top: 0.4rem;">You can even imagine characters from movies who remind you of Islamic lessons:</p>
+    <ul>
+      <li><strong>Po (Kung Fu Panda)</strong> — "Nothing is too small for the universe to grant. I trained, I believed, I evolved from a dishwasher into a Dragon Warrior!" → Lesson: never think you're too small to be chosen by Allah.</li>
+      <li><strong>Simba (Lion King)</strong> — "Remember who you are." → Lesson: your identity is a Muslim. A child of Adam. Never forget your true power.</li>
+      <li><strong>Ash &amp; Pikachu</strong> — They believed in each other when no one else did. → Lesson: Allah believes in your potential even more than you do.</li>
+    </ul>
+  </div>
+
+  <p class="write-prompt">✍️ Who is your personal Muslim hero mentor? Write their name and one thing you admire about them:</p>
+  <div class="write-space ws-md"></div>
+</div>
+
+<!-- ══════════════════════════════════════
+     CATEGORY 1 — QURAN & LEARNING
+════════════════════════════════════════ -->
+<div class="cat-block">
+  <h1 class="page-title"><span class="cat-num">1</span> Quran &amp; Learning 📚</h1>
+  <p><em>Mentors: Prophet ﷺ (who loved knowledge), Ibn Rushd, Ibn Sina — great Muslim thinkers who loved both deen and learning.</em></p>
+
+  <p class="write-prompt">✍️ My mentor for this category is:</p>
+  <div class="write-space ws-sm"></div>
+
+  <h3 class="cat-title">Think About This:</h3>
+  <ul>
+    <li>What subject in school do you LOVE?</li>
+    <li>What do you want to learn more about — Islamic or school subjects?</li>
+    <li>What would your dream school or learning life look like?</li>
+    <li>How much Quran do you want to memorize? By when?</li>
+  </ul>
+
+  <div class="dua-sample">
+    <strong>✨ Sample Dream Dua:</strong>
+    Ya Allah, make me love learning the way the sahabah loved the Quran. Grant me a sharp memory that holds what I learn. Let me memorize 5 juz by age 13. Make me the top student in my class but always humble. Let me learn languages — Arabic and English — so I can understand Your Book directly. Give me the curiosity of Ibn Sina and the dedication of Imam Shafi'i, who memorized the Muwatta as a child. Ya Allah, make my education a tool to serve Your deen and help people.
+  </div>
+
+  <p class="write-prompt">✍️ What do you want to learn? What are your study or Quran goals? Dream big!</p>
+  <div class="write-space ws-lg"></div>
+
+  <p class="write-prompt">✍️ Now write YOUR dream dua for Quran &amp; Learning:</p>
+  <div class="write-space ws-xl"></div>
+</div>
+
+<!-- ══════════════════════════════════════
+     CATEGORY 2 — MY FAMILY
+════════════════════════════════════════ -->
+<div class="cat-block">
+  <h1 class="page-title"><span class="cat-num">2</span> My Family 🏠</h1>
+  <p><em>Mentors: Maryam (AS) — her mother made dua for her before she was born. Ibrahim (AS) — he made dua for his children to be righteous. Your parents make dua for you every single day.</em></p>
+
+  <p class="write-prompt">✍️ My mentor for this category is:</p>
+  <div class="write-space ws-sm"></div>
+
+  <div class="fun-box">
+    <strong>💝 Secret Weapon: Ask Your Mom!</strong>
+    <p style="margin-top: 0.4rem;">The Prophet ﷺ said: "A mother's dua for her child is answered." When your mom makes dua for you, it goes straight to Allah with EXTRA power! Ask her to make dua for you tonight. And make dua for her too!</p>
+  </div>
+
+  <h3 class="cat-title">Think About This:</h3>
+  <ul>
+    <li>What do you wish was different in your family?</li>
+    <li>What do you love about your family that you want to keep?</li>
+    <li>What do you want your family to feel when they come home?</li>
+    <li>How do you want to treat your parents when you grow up?</li>
+  </ul>
+
+  <div class="dua-sample">
+    <strong>✨ Sample Dream Dua:</strong>
+    Ya Allah, protect my family. Keep my parents healthy and full of happiness. Make our home peaceful — full of laughter, Quran, and kindness. Let us never hurt each other's feelings on purpose. Let my siblings be my best friends. Help me be a child my parents are proud of — not just in grades but in character. Grant my parents Jannah and let me be the reason they enter it. Let us all pray together, travel together, and eat together for many years to come.
+  </div>
+
+  <p class="write-prompt">✍️ Write something wonderful you want for your family:</p>
+  <div class="write-space ws-md"></div>
+
+  <p class="write-prompt">✍️ Now write YOUR dream dua for Your Family:</p>
+  <div class="write-space ws-xl"></div>
+</div>
+
+<!-- ══════════════════════════════════════
+     CATEGORY 3 — MY CHARACTER
+════════════════════════════════════════ -->
+<div class="cat-block">
+  <h1 class="page-title"><span class="cat-num">3</span> My Character &amp; Deen 💎</h1>
+  <p><em>Mentors: Prophet Muhammad ﷺ — the best character in all of history. Imam Shafi'i — memorized the Quran as a child and never stopped growing. Umar ibn Al-Khattab — strong AND merciful.</em></p>
+
+  <p class="write-prompt">✍️ My mentor for this category is:</p>
+  <div class="write-space ws-sm"></div>
+
+  <h3 class="cat-title">Think About This:</h3>
+  <ul>
+    <li>What kind of person do you want to be known as?</li>
+    <li>What habits would your best self have?</li>
+    <li>How do you treat people when you are angry or tired?</li>
+    <li>How strong is your salah? What would your ideal salah look like?</li>
+  </ul>
+
+  <div class="dua-sample">
+    <strong>✨ Sample Dream Dua:</strong>
+    Ya Allah, make me like the Prophet ﷺ in my character — kind, patient, honest, and brave. Let me be someone people trust and feel safe around. Give me a good tongue — that I never backbite, never lie, and never make people feel small. Make my salah the coolness of my eyes. Let me feel You close when I pray. Give me the courage to stand up for what is right even when I'm alone. Make me consistent — not just good sometimes but always trying.
+  </div>
+
+  <p class="write-prompt">✍️ What is one character quality you want to improve? What is one you are proud of?</p>
+  <div class="write-space ws-md"></div>
+
+  <p class="write-prompt">✍️ Now write YOUR dream dua for Your Character &amp; Deen:</p>
+  <div class="write-space ws-xl"></div>
+</div>
+
+<!-- ══════════════════════════════════════
+     CATEGORY 4 — FRIENDS & COMMUNITY
+════════════════════════════════════════ -->
+<div class="cat-block">
+  <h1 class="page-title"><span class="cat-num">4</span> Friends &amp; Community 🤝</h1>
+  <p><em>Mentors: The sahabah — the Prophet ﷺ's companions who brought out the best in each other. Abu Bakr was the Prophet's best friend — loyal, honest, and always making him better.</em></p>
+
+  <p class="write-prompt">✍️ My mentor for this category is:</p>
+  <div class="write-space ws-sm"></div>
+
+  <div class="warning-box">
+    <strong>⚠️ Super Important — The Friend Warning!</strong>
+    <p style="margin-top: 0.4rem;">The Prophet ﷺ said: <em>"A person follows the religion of his close friend — so look carefully at who you choose as a close friend."</em> (Abu Dawud 4833)</p>
+    <p style="margin-top: 0.4rem;">He also said: <em>"The example of a good friend is like a perfume seller — even if he doesn't give you perfume, you still smell good just by being near him. A bad friend is like a blacksmith — even if nothing burns you, you still go home smelling of smoke."</em> (Bukhari &amp; Muslim)</p>
+    <p style="margin-top: 0.4rem;"><strong>This means:</strong> Your friends shape who you become — even without trying. Bad friends pass on bad habits like smoke. Good friends lift you up like perfume!</p>
+  </div>
+
+  <h3 class="cat-title">Think About This:</h3>
+  <ul>
+    <li>What kind of friends do you have now? Do they make you better?</li>
+    <li>What does your ideal best friend look like — in character?</li>
+    <li>What kind of friend do YOU want to be?</li>
+    <li>How can you be part of making your community better?</li>
+  </ul>
+
+  <div class="dua-sample">
+    <strong>✨ Sample Dream Dua:</strong>
+    Ya Allah, surround me with friends who remind me of You. Friends who make me laugh AND make me better. Let me find a best friend who loves You, loves their family, and loves good things. Protect me from friends who pull me toward bad habits or make me feel like I have to be someone I'm not. Let me be the kind of friend who is honest, loyal, and fun — who never gossips or leaves anyone out. Ya Allah, if there are no good friends near me, make me as strong as Ibrahim (AS) — good even when standing alone.
+  </div>
+
+  <p class="write-prompt">✍️ What qualities do you want in a best friend?</p>
+  <div class="write-space ws-md"></div>
+
+  <p class="write-prompt">✍️ Now write YOUR dream dua for Friends &amp; Community:</p>
+  <div class="write-space ws-xl"></div>
+</div>
+
+<!-- ══════════════════════════════════════
+     CATEGORY 5 — MY FUTURE
+════════════════════════════════════════ -->
+<div class="cat-block">
+  <h1 class="page-title"><span class="cat-num">5</span> My Future &amp; Dreams 🚀</h1>
+  <p><em>Mentors: Ibn Battuta — traveled the world in the name of seeking knowledge. Uthman ibn Affan — a businessman who used his wealth for Islam. Khadija (RA) — a successful businesswoman who led with wisdom.</em></p>
+
+  <p class="write-prompt">✍️ My mentor for this category is:</p>
+  <div class="write-space ws-sm"></div>
+
+  <div class="tip-box">
+    <strong>💡 It's OKAY to want amazing things!</strong>
+    <p style="margin-top: 0.4rem;">Some kids think it is greedy to ask for nice things. But Allah created all the good things in this world for us! He said in the Quran: "Say, who has forbidden the beautiful things which Allah has produced for His servants?" (Surah Al-A'raf 7:32). It is okay to ask for success, a great career, and a beautiful life — as long as you connect it to being a good Muslim.</p>
+  </div>
+
+  <h3 class="cat-title">Think About This:</h3>
+  <ul>
+    <li>What do you want to be when you grow up?</li>
+    <li>What problem in the world do you want to help solve?</li>
+    <li>What does your dream life look like at age 25?</li>
+    <li>How would your career help the Muslim ummah?</li>
+  </ul>
+
+  <div class="dua-sample">
+    <strong>✨ Sample Dream Dua:</strong>
+    Ya Allah, show me what You created me for. Give me a career I love — one that helps people AND earns halal money. Let me travel the world like Ibn Battuta, seeing Your signs everywhere. Grant me success — not just for me but to use it for good: donating, building things, helping my community. Make me someone my parents are proud of and that my community benefits from. Let my work be an act of 'ibadah.
+  </div>
+
+  <p class="write-prompt">✍️ What do you want to be or do when you grow up? Don't be shy — dream BIG:</p>
+  <div class="write-space ws-md"></div>
+
+  <p class="write-prompt">✍️ Now write YOUR dream dua for Your Future:</p>
+  <div class="write-space ws-xl"></div>
+</div>
+
+<!-- ══════════════════════════════════════
+     CATEGORY 6 — FUN & ADVENTURES
+════════════════════════════════════════ -->
+<div class="cat-block">
+  <h1 class="page-title"><span class="cat-num">6</span> Fun &amp; Adventures 🎉</h1>
+  <p><em>Mentors: The Prophet ﷺ — he raced with Aisha. He played with his grandchildren Hasan and Husayn. He smiled and joked. Joy is sunnah!</em></p>
+
+  <p class="write-prompt">✍️ My mentor for this category is:</p>
+  <div class="write-space ws-sm"></div>
+
+  <div class="tip-box">
+    <strong>💡 Fun is halal!</strong>
+    <p style="margin-top: 0.4rem;">Allah made you love adventure, games, creativity, and laughter. These are gifts! You can make dua for fun experiences that bring your family closer and remind you of how amazing Allah's world is.</p>
+  </div>
+
+  <h3 class="cat-title">Think About This:</h3>
+  <ul>
+    <li>What is your idea of the most amazing day?</li>
+    <li>Where in the world do you want to go?</li>
+    <li>What hobby would make you the happiest?</li>
+    <li>What does your dream family holiday look like?</li>
+  </ul>
+
+  <div class="dua-sample">
+    <strong>✨ Sample Dream Dua:</strong>
+    Ya Allah, give me a life full of beautiful memories with my family. Let us go to Makkah together and make dua at the Ka'bah. Let me travel to amazing places — mountains, oceans, and forests that remind me of Your greatness. Give me a hobby I love — whether it's art, sports, coding, or cooking — that makes me happy and helps others. Fill my life with halal laughter, real friendships, and moments so good I say "Alhamdulillah" every single day.
+  </div>
+
+  <p class="write-prompt">✍️ What are your dream adventures? Where do you want to go? What do you want to do?</p>
+  <div class="write-space ws-md"></div>
+
+  <p class="write-prompt">✍️ Now write YOUR dream dua for Fun &amp; Adventures:</p>
+  <div class="write-space ws-xl"></div>
+</div>
+
+<!-- ══════════════════════════════
+     SUMMARY PAGE
+══════════════════════════════ -->
+<div class="page-break">
+  <h1 class="page-title">My 6 Dream Duas — Summary Page ⭐</h1>
+  <p><em>Write your final duas here once you are happy with them. Read this page every day!</em></p>
+  <br>
+  <div class="summary-card">
+    <h3><span class="cat-num">1</span> Quran &amp; Learning</h3>
+    <div class="write-space ws-lg"></div>
+  </div>
+  <div class="summary-card">
+    <h3><span class="cat-num">2</span> My Family</h3>
+    <div class="write-space ws-lg"></div>
+  </div>
+  <div class="summary-card">
+    <h3><span class="cat-num">3</span> My Character &amp; Deen</h3>
+    <div class="write-space ws-lg"></div>
+  </div>
+  <div class="summary-card">
+    <h3><span class="cat-num">4</span> Friends &amp; Community</h3>
+    <div class="write-space ws-lg"></div>
+  </div>
+  <div class="summary-card">
+    <h3><span class="cat-num">5</span> My Future &amp; Dreams</h3>
+    <div class="write-space ws-lg"></div>
+  </div>
+  <div class="summary-card">
+    <h3><span class="cat-num">6</span> Fun &amp; Adventures</h3>
+    <div class="write-space ws-lg"></div>
+  </div>
+
+  <div class="page-break">
+    <h2 class="section-title">The Special Dua for Laylatul Qadr 🌙</h2>
+    <div class="ayah-box" style="text-align: center;">
+      <span style="font-size: 18pt; display: block; margin-bottom: 0.6rem;">اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي</span>
+      <em>"Allahumma innaka 'afuwwun tuhibbul 'afwa fa'fu 'anni"</em><br>
+      "O Allah, You are the Pardoner. You love to pardon. So please pardon me!"
+      <span class="ref">📖 Tirmidhi 3513 — the Prophet ﷺ taught this to Aisha (RA)</span>
+    </div>
+    <p style="text-align: center; font-size: 10pt; color: #666;"><em>Make this dua on the last ten nights of Ramadan, especially the odd nights.</em></p>
+  </div>
+
+  <div class="closing-box">
+    <p style="font-size: 14pt; font-weight: bold; margin-bottom: 0.75rem;">Your dua changes YOU! 🌟</p>
+    <p>Every time you make your dream dua, you grow a little toward it.</p>
+    <p style="margin-top: 1rem; font-size: 10pt; color: #e1bee7;">— UmmAbdullah<br><em>Adapted from Muhammad al-Shareef's Visionaire Course</em></p>
+  </div>
+</div>
+
+</body>
+</html>

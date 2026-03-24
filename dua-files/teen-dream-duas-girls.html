@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dream Duas — Muslim Teen Girls</title>
+  <style>
+    :root {
+      --primary: #9b59b6;
+      --secondary: #e91e8a;
+      --accent: #f9ca24;
+      --teal: #00b894;
+      --light: #f8f9fa;
+      --soft: #fce4ec;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 100%);
+      color: var(--light);
+      line-height: 1.7;
+      padding: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+      min-height: 100vh;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.25rem;
+    }
+
+    .subtitle { text-align: center; color: #bbb; font-size: 1.1rem; margin-bottom: 2rem; }
+
+    .card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card h2 { color: #e91e8a; margin-bottom: 1rem; font-size: 1.4rem; }
+
+    .highlight {
+      background: linear-gradient(135deg, rgba(155,89,182,0.25), rgba(233,30,138,0.15));
+      border-left: 4px solid var(--primary);
+      padding: 1rem 1.25rem;
+      border-radius: 0 12px 12px 0;
+      margin: 1rem 0;
+    }
+
+    .quote-box {
+      background: rgba(233,30,138,0.08);
+      border: 1px solid rgba(233,30,138,0.3);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin: 1rem 0;
+      font-style: italic;
+    }
+
+    .quote-box .reference {
+      display: block; margin-top: 0.5rem;
+      font-style: normal; font-size: 0.9rem; color: var(--secondary);
+    }
+
+    .arabic {
+      font-family: 'Traditional Arabic', 'Scheherazade', serif;
+      font-size: 1.5rem; direction: rtl; text-align: center;
+      color: var(--accent); margin: 0.75rem 0;
+    }
+
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin: 1rem 0; }
+
+    .mini-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px; padding: 1rem;
+    }
+
+    .mini-card h4 { color: var(--accent); margin-bottom: 0.5rem; }
+
+    .tag {
+      display: inline-block;
+      background: rgba(155,89,182,0.3);
+      padding: 0.25rem 0.75rem; border-radius: 20px;
+      font-size: 0.85rem; margin: 0.25rem;
+    }
+
+    .category {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px; padding: 1.75rem; margin-bottom: 1.5rem;
+    }
+
+    .category-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; }
+
+    .category-icon {
+      font-size: 2rem; width: 55px; height: 55px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 12px; display: flex; align-items: center; justify-content: center;
+    }
+
+    .category h3 { font-size: 1.3rem; color: var(--light); }
+
+    .mentor-box {
+      background: rgba(233,30,138,0.08);
+      border: 1px solid rgba(233,30,138,0.2);
+      border-radius: 12px; padding: 1rem; margin-bottom: 1rem;
+    }
+
+    .mentor-box h4 { color: var(--secondary); margin-bottom: 0.5rem; }
+
+    .questions { background: rgba(155,89,182,0.12); border-radius: 12px; padding: 1rem; margin: 1rem 0; }
+    .questions h4 { color: var(--primary); margin-bottom: 0.75rem; }
+
+    ul, ol { margin-left: 1.25rem; }
+    li { margin-bottom: 0.5rem; }
+
+    .sample-dua {
+      background: linear-gradient(135deg, rgba(233,30,138,0.1), rgba(155,89,182,0.1));
+      border-left: 3px solid var(--secondary);
+      border-radius: 0 12px 12px 0; padding: 1rem; margin: 0.75rem 0;
+    }
+
+    .sample-dua strong { color: var(--secondary); display: block; margin-bottom: 0.25rem; }
+
+    .write-space {
+      background: rgba(255,255,255,0.02);
+      border: 1px dashed rgba(255,255,255,0.2);
+      border-radius: 12px; padding: 1rem; margin-top: 1rem; min-height: 80px;
+    }
+
+    .write-space p { color: #666; font-style: italic; }
+
+    .cta-box {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 16px; padding: 1.5rem; text-align: center; margin: 2rem 0;
+    }
+
+    .warning-box {
+      background: rgba(214,48,49,0.1); border: 1px solid rgba(214,48,49,0.3);
+      border-radius: 12px; padding: 1rem; margin: 1rem 0;
+    }
+
+    .success-box {
+      background: rgba(0,184,148,0.1); border: 1px solid rgba(0,184,148,0.3);
+      border-radius: 12px; padding: 1rem; margin: 1rem 0;
+    }
+
+    .gem-box {
+      background: linear-gradient(135deg, rgba(249,202,36,0.1), rgba(233,30,138,0.1));
+      border: 1px solid rgba(249,202,36,0.4);
+      border-radius: 12px; padding: 1.25rem; margin: 1rem 0;
+    }
+
+    .gem-box h4 { color: var(--accent); margin-bottom: 0.75rem; }
+
+    @media print {
+      body { background: white; color: #333; }
+      .card, .category { border: 1px solid #ddd; background: #fafafa; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Dream Duas</h1>
+  <p class="subtitle">For Muslim Teen Girls (14–17) · Your roadmap for the next 3–5 years</p>
+
+  <!-- INTRO -->
+  <div class="card">
+    <h2>You Are Not Just a Body</h2>
+    <p>We live in a world that constantly tells you that your worth is in how you look—your weight, your skin, your hair, your outfit. Social media makes it worse. Every scroll is a comparison. And it is exhausting.</p>
+
+    <div class="highlight">
+      Here's what Allah says about you:
+    </div>
+
+    <div class="quote-box">
+      <p>The Prophet ﷺ said: <strong>"Allah does not look at your appearance or your wealth, but He looks at your hearts and your deeds."</strong></p>
+      <span class="reference">Sahih Muslim 2564</span>
+    </div>
+
+    <p style="margin-top: 1rem;">The world will never stop judging your outside. But Allah judges your inside. So while the world is obsessing over your body, you can be quietly building something far more powerful—a heart that knows Allah, a character that doesn't crack, and a vision for your life that no one can take from you.</p>
+
+    <div class="highlight">
+      <strong>True inner beauty = A heart connected to Allah.</strong> That's what Khadija had. That's what Maryam had. That's what Aisha had. And it made them the most extraordinary women who ever lived.
+    </div>
+  </div>
+
+  <!-- HIJAB SECTION -->
+  <div class="card">
+    <h2>On Hijab & Modesty</h2>
+    <p>Whether you wear hijab already or you're working toward it, this is for you.</p>
+
+    <div class="quote-box">
+      <p class="arabic">وَقُل لِّلْمُؤْمِنَاتِ يَغْضُضْنَ مِنْ أَبْصَارِهِنَّ وَيَحْفَظْنَ فُرُوجَهُنَّ وَلَا يُبْدِينَ زِينَتَهُنَّ إِلَّا مَا ظَهَرَ مِنْهَا وَلْيَضْرِبْنَ بِخُمُرِهِنَّ عَلَىٰ جُيُوبِهِنَّ</p>
+      <p>"And tell the believing women to lower their gaze and guard their chastity, and not to reveal their adornments except what normally appears. Let them draw their veils over their chests..."</p>
+      <span class="reference">Surah An-Nur (24:31)</span>
+    </div>
+
+    <div class="quote-box" style="margin-top: 0.5rem;">
+      <p class="arabic">يَا أَيُّهَا النَّبِيُّ قُل لِّأَزْوَاجِكَ وَبَنَاتِكَ وَنِسَاءِ الْمُؤْمِنِينَ يُدْنِينَ عَلَيْهِنَّ مِن جَلَابِيبِهِنَّ ۚ ذَٰلِكَ أَدْنَىٰ أَن يُعْرَفْنَ فَلَا يُؤْذَيْنَ</p>
+      <p>"O Prophet! Ask your wives, daughters, and believing women to draw their veils over their bodies. In this way it is more likely they will be recognized and not harassed."</p>
+      <span class="reference">Surah Al-Ahzab (33:59)</span>
+    </div>
+
+    <div class="gem-box">
+      <h4>💎 What Hijab Really Is</h4>
+      <p>Hijab is not a cage. It is a crown. It says: <em>I am more than what you see. My value is not in my hair or my body. I answer to Allah, not to you.</em></p>
+      <p style="margin-top: 0.75rem;">The world tells you to show everything to be valued. Allah tells you that your modesty IS your value. That is an act of liberation, not oppression.</p>
+    </div>
+
+    <div class="highlight">
+      <strong>Important:</strong> Hijab is first in the heart—in your intention, your character, your speech, your gaze. The outer hijab reflects an inner commitment to Allah. Ask Allah to make you love it, not just wear it.
+    </div>
+  </div>
+
+  <!-- INNER BEAUTY -->
+  <div class="card">
+    <h2>Beautiful Inside AND Outside</h2>
+
+    <p>Taking care of your appearance is not un-Islamic. The Prophet ﷺ said: <strong>"Allah is Beautiful and loves beauty."</strong> (Muslim 91). You can be beautiful AND modest. You can take care of yourself AND not be defined by it.</p>
+
+    <div class="grid-2" style="margin-top: 1rem;">
+      <div class="mini-card" style="border-left: 3px solid var(--secondary);">
+        <h4 style="color: var(--secondary);">Outside Beauty</h4>
+        <p>Taking care of your health, your skin, your fitness, your presentation—all as a form of gratitude to Allah for this body He gave you as an amanah.</p>
+      </div>
+      <div class="mini-card" style="border-left: 3px solid var(--accent);">
+        <h4 style="color: var(--accent);">Inside Beauty</h4>
+        <p>Your akhlaaq, your iman, your patience, your honesty, your kindness—the things that make people love you for DECADES, not just for a photo.</p>
+      </div>
+    </div>
+
+    <div class="highlight" style="margin-top: 1rem;">
+      <strong>The trap:</strong> Spending 2 hours on your appearance and 2 minutes on your salah. Or doing the opposite—neglecting yourself and calling it piety. The goal is BOTH. Inside and outside. For Allah, not for Instagram.
+    </div>
+  </div>
+
+  <!-- STORIES FROM VISIONAIRE -->
+  <div class="card">
+    <h2>Stories That Will Change How You Make Dua</h2>
+
+    <div class="highlight" style="margin-bottom: 1.25rem;">
+      <strong>Story 1: The Girl Who Couldn't Afford the Course</strong>
+      <p style="margin-top: 0.5rem;">A girl desperately wanted to take an Islamic course but had absolutely no money. Her mother made dua for her—specifically, sincerely, with full belief. Days later, someone knocked on their door and returned money they had borrowed years ago—money the mother had completely given up on ever seeing again. It arrived at exactly the right time. The daughter took the course. The mother's dua was answered from a direction neither of them imagined.</p>
+      <p style="margin-top: 0.5rem; font-style: italic;">💡 Allah provides from where you least expect. Make dua. Ask your mom to make dua. Then watch.</p>
+    </div>
+
+    <div class="quote-box" style="margin-bottom: 1.25rem;">
+      <p class="arabic" style="font-size: 1.2rem;">وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ</p>
+      <p>"And He provides for him from where he does not expect."</p>
+      <span class="reference">Surah At-Talaq (65:3)</span>
+    </div>
+
+    <div class="highlight" style="margin-bottom: 1.25rem;">
+      <strong>Story 2: The Student Who Cried at Night</strong>
+      <p style="margin-top: 0.5rem;">Imagine a student with a major exam coming up. She gets up in the night, prays, and cries—genuinely cries—because she cares so much. That's sincere dua. She didn't force the tears. She cried because the stakes were real to her.</p>
+      <p style="margin-top: 0.5rem;">Now imagine making duas for your future—your career, your deen, your marriage—with that same level of care. That's what a dream dua does. When you make it vivid and specific enough, you will naturally cry. You'll pray with urgency. Your salah will become alive.</p>
+      <p style="margin-top: 0.5rem; font-style: italic;">💡 The goal of dream duas is to make you care so much about your life that your salah transforms. You stop going through motions and start actually talking to Allah.</p>
+    </div>
+
+    <div class="highlight" style="margin-bottom: 1.25rem;">
+      <strong>Story 3: Bilal's Mistake</strong>
+      <p style="margin-top: 0.5rem;">Bilal made a dua. Someone told him his dua wasn't good enough—that he should change it to something more impressive, more "worthy."</p>
+      <p style="margin-top: 0.5rem;"><strong>That advice was wrong.</strong></p>
+      <p style="margin-top: 0.5rem;">Your dua isn't lower than you think. YOUR DUA IS HIGHER THAN YOU. The dua doesn't change to match where you are right now—YOU change to rise to meet it. Every time you make your dream dua, you evolve a little more toward the person who deserves that answer. The dua is the destination. You are the one doing the walking.</p>
+      <p style="margin-top: 0.5rem; font-style: italic;">💡 Don't shrink your duas to match your current self. Make them bigger, then let them pull you upward.</p>
+    </div>
+
+    <div class="highlight" style="margin-bottom: 1.25rem;">
+      <strong>Story 4: The Man at Hajj Who Had Everything</strong>
+      <p style="margin-top: 0.5rem;">A man was at Hajj on Mount Arafah—the greatest place to make dua on the greatest day of the year. His wife urged him to go up and make dua. He shrugged: "I have everything I need. You go."</p>
+      <p style="margin-top: 0.5rem;"><strong>This is a trap called contentment without aspiration.</strong> Being satisfied with your blessings is beautiful. But it doesn't mean you stop asking Allah for more. He is not a last resort. He is your first call. Rich or poor, comfortable or struggling—you always have something to ask for. Your deen. Your children. The ummah. Your Akhira. Jannah itself.</p>
+      <p style="margin-top: 0.5rem; font-style: italic;">💡 Never say "I have enough, I don't need to ask." There is always something worthy of dua.</p>
+    </div>
+
+    <div class="highlight">
+      <strong>Story 5: The Plane That Was Going to Crash</strong>
+      <p style="margin-top: 0.5rem;">Shaykh Muhammad al-Shareef was on a flight. Something went terribly wrong. Passengers were reciting shahada. People were preparing to meet Allah. His wife, in those terrifying final moments, made dua—not for safety, not for survival. Out of deep habit and sincere longing, she made dua for a child. Even while facing death, what her heart most wanted came out in dua.</p>
+      <p style="margin-top: 0.5rem;">The plane landed safely. And she got pregnant.</p>
+      <p style="margin-top: 0.5rem;">The Shaykh said: doctors had previously told them it was not possible. But he had learned his lesson: <strong>you make dua even when you've been told it's impossible.</strong> You make dua even when the doors seem shut. You make dua even on the plane that's going down.</p>
+      <p style="margin-top: 0.5rem; font-style: italic;">💡 Never stop asking just because someone—even a doctor, even logic—told you it can't happen. Allah is not bound by human limits.</p>
+    </div>
+  </div>
+
+  <!-- CORE PRINCIPLES (from Visionaire) -->
+  <div class="card">
+    <h2>How Dream Duas Work</h2>
+    <div class="grid-2">
+      <div class="mini-card">
+        <h4>🧠 Your Dua Changes YOU</h4>
+        <p>When you make a sincere dua repeatedly, you evolve into the person who deserves that answer. The dua is not just a request—it's a transformation process.</p>
+      </div>
+      <div class="mini-card">
+        <h4>⚡ Level Up</h4>
+        <p>Think of it like leveling up your character. Every sincere dua is XP invested in your future self—the scholar, the leader, the strong confident Muslim woman you're becoming.</p>
+      </div>
+      <div class="mini-card">
+        <h4>🎯 Be Specific</h4>
+        <p>"Make me good" is not a dua. "Make me memorize 2 juz by Ramadan and let me feel the Quran in my heart" — THAT is a dua.</p>
+      </div>
+      <div class="mini-card">
+        <h4>🦋 Butterflies Test</h4>
+        <p>If your dua doesn't excite you, it's not from your heart yet. Keep refining until it gives you butterflies. That's how you know it's real.</p>
+      </div>
+    </div>
+
+    <div class="quote-box">
+      <p class="arabic">وَمَا تَشَاءُونَ إِلَّا أَن يَشَاءَ اللَّهُ رَبُّ الْعَالَمِينَ</p>
+      <p>"And you do not will except that Allah wills—Lord of all the worlds."</p>
+      <span class="reference">Surah At-Takwir (81:29)</span>
+    </div>
+    <p>You are not asking a genie. You are asking the Owner of Everything. Nothing is too big.</p>
+  </div>
+
+  <!-- VISUALIZATION -->
+  <div class="card">
+    <h2>Visualize First, Then Ask</h2>
+    <p>Before making your dua, close your eyes and SEE it. Don't just say the words—feel them.</p>
+    <div class="highlight">
+      <ul style="margin-top: 0.5rem;">
+        <li>See yourself in that university, confident and covered</li>
+        <li>See yourself leading an Islamic project that changes lives</li>
+        <li>See yourself in a loving, halal marriage</li>
+        <li>See your parents' faces full of pride and joy</li>
+        <li>See yourself standing before Allah, and Him being pleased</li>
+      </ul>
+      <p style="margin-top: 0.75rem;">FEEL that. Then make dua. It will be completely different.</p>
+    </div>
+  </div>
+
+  <!-- FRIENDS WARNING -->
+  <div class="card">
+    <h2>Who You Sit With Changes You</h2>
+
+    <div class="quote-box">
+      <p>The Prophet ﷺ said: <strong>"A person is upon the religion of their close friend, so let one of you look at whom they befriend."</strong></p>
+      <span class="reference">Sunan Abu Dawud 4833, Tirmidhi 2378</span>
+    </div>
+
+    <div class="quote-box" style="margin-top: 0.5rem;">
+      <p>The Prophet ﷺ said: <strong>"The example of a good companion is like a perfume seller—you will either buy from him, receive a gift, or at least smell something pleasant. The bad companion is like a blacksmith—either he burns your clothes or you leave smelling of smoke."</strong></p>
+      <span class="reference">Sahih al-Bukhari 2101, Sahih Muslim 2628</span>
+    </div>
+
+    <p style="margin-top: 0.75rem;">Friends who normalize removing hijab, gossiping, chasing boys, or comparing bodies will slowly change you—without you even noticing. Make dua for good company. Protect your circle like it's your deen. Because it is.</p>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <h2 style="margin-bottom: 0.5rem;">Build Your 7 Dream Duas</h2>
+    <p>One for each area of your life. Use mentors, visualize, refine until it gives you butterflies.</p>
+  </div>
+
+  <!-- CATEGORY 1: ACADEMICS & CAREER -->
+  <div class="category">
+    <div class="category-header">
+      <div class="category-icon">🎓</div>
+      <h3>Academics & Career</h3>
+    </div>
+
+    <div class="mentor-box">
+      <h4>🦸‍♀️ Suggested Mentors:</h4>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
+        <span class="tag">Aisha RA — most learned woman in Islam</span>
+        <span class="tag">Khawla bint al-Azwar — warrior & scholar</span>
+        <span class="tag">A Muslim woman you admire in your dream field</span>
+      </div>
+      <div class="write-space" style="min-height: 40px; margin-top: 0.75rem;">
+        <p>My 3 mentors: _______________________</p>
+      </div>
+    </div>
+
+    <div class="questions">
+      <h4>Reflect:</h4>
+      <ul>
+        <li><strong>Grateful:</strong> What abilities has Allah given you that you sometimes take for granted?</li>
+        <li><strong>Struggling:</strong> Procrastination? Feeling like you have to choose between career and deen?</li>
+        <li><strong>Dreaming:</strong> What university? What career? What will your impact on the ummah be?</li>
+      </ul>
+    </div>
+
+    <div class="sample-dua">
+      <strong>Sample Dua 1:</strong>
+      Ya Allah, get me into [dream university] with a scholarship that makes my parents cry from joy. Make me focused, disciplined, and the kind of student who is proud to be Muslim. Let me graduate as a woman of knowledge AND deen—not forced to choose between them. Let my career be sadaqa jariyah that outlives me.
+    </div>
+    <div class="sample-dua">
+      <strong>Sample Dua 2:</strong>
+      Ya Allah, make me a Muslim woman who breaks barriers and builds bridges. Like Aisha RA who was the teacher of thousands—let me use my education to serve this ummah. Remove my self-doubt and replace it with tawakkul. Make me believe in what You placed in me.
+    </div>
+
+    <div class="write-space"><p>Write YOUR dua here...</p></div>
+  </div>
+
+  <!-- CATEGORY 2: FAITH & SPIRITUALITY -->
+  <div class="category">
+    <div class="category-header">
+      <div class="category-icon">🕌</div>
+      <h3>Faith & Spirituality</h3>
+    </div>
+
+    <div class="mentor-box">
+      <h4>🦸‍♀️ Suggested Mentors:</h4>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
+        <span class="tag">Maryam AS — devoted to Allah alone</span>
+        <span class="tag">Asiya RA — firm faith despite oppression</span>
+        <span class="tag">Fatima RA — daughter of the Prophet ﷺ</span>
+      </div>
+      <div class="write-space" style="min-height: 40px; margin-top: 0.75rem;">
+        <p>My 3 mentors: _______________________</p>
+      </div>
+    </div>
+
+    <div class="questions">
+      <h4>Reflect:</h4>
+      <ul>
+        <li><strong>Grateful:</strong> What aspects of your iman are you thankful for?</li>
+        <li><strong>Struggling:</strong> Doubts? Inconsistent salah? Feeling hijab is hard? Haram habits? Disconnect from Quran?</li>
+        <li><strong>Dreaming:</strong> What would a deeply connected relationship with Allah look like in your daily life?</li>
+      </ul>
+    </div>
+
+    <div class="sample-dua">
+      <strong>Sample Dua 1:</strong>
+      Ya Allah, make me someone who never misses a salah—who genuinely looks forward to it as the best part of her day. Give me khushu' that makes me forget everything around me. Make the Quran live in my heart, not just on my lips. Let me die with La ilaha illAllah on my tongue, with You pleased with me.
+    </div>
+    <div class="sample-dua">
+      <strong>Sample Dua 2:</strong>
+      Ya Allah, make me love my hijab deeply—not just wear it. Let it be a source of confidence and identity, not just a covering. Help me quit [specific haram habit] completely. Make my heart attached to You the way Maryam's heart was—unshakable, sincere, and full of Your remembrance.
+    </div>
+
+    <div class="write-space"><p>Write YOUR dua here...</p></div>
+  </div>
+
+  <!-- CATEGORY 3: IDENTITY, CONFIDENCE & INNER BEAUTY -->
+  <div class="category">
+    <div class="category-header">
+      <div class="category-icon">💎</div>
+      <h3>Identity, Confidence & Beauty</h3>
+    </div>
+
+    <div class="gem-box">
+      <h4>💎 The Real Beauty Standard</h4>
+      <p>The Prophet ﷺ said: <strong>"Allah does not look at your appearance or wealth, but looks at your hearts and your deeds."</strong> (Muslim 2564)</p>
+      <p style="margin-top: 0.75rem;">You were not created to chase beauty standards that change every decade. You were created to build a heart that Allah is proud of. That is timeless beauty.</p>
+    </div>
+
+    <div class="mentor-box">
+      <h4>🦸‍♀️ Suggested Mentors:</h4>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
+        <span class="tag">Khadija RA — confident, dignified, self-assured</span>
+        <span class="tag">Sumayyah RA — stood firm under pressure</span>
+        <span class="tag">Umm Salamah RA — wise and strategic</span>
+      </div>
+      <div class="write-space" style="min-height: 40px; margin-top: 0.75rem;">
+        <p>My 3 mentors: _______________________</p>
+      </div>
+    </div>
+
+    <div class="questions">
+      <h4>Reflect:</h4>
+      <ul>
+        <li><strong>Grateful:</strong> What has Allah created in you that is unique and beautiful—inside and out?</li>
+        <li><strong>Struggling:</strong> Body image? Hijab pressure at school? Comparing yourself to influencers? Feeling invisible or not enough?</li>
+        <li><strong>Dreaming:</strong> What would a woman with unshakable inner confidence look like? What would she NOT care about?</li>
+      </ul>
+    </div>
+
+    <div class="sample-dua">
+      <strong>Sample Dua 1:</strong>
+      Ya Allah, make me beautiful in the way that actually matters—in my akhlaaq, my patience, my honesty, my warmth. Make my character so beautiful that people feel at peace around me. Help me also take care of the body You gave me with gratitude, not obsession. Free me from the trap of measuring my worth by how I look.
+    </div>
+    <div class="sample-dua">
+      <strong>Sample Dua 2:</strong>
+      Ya Allah, free me from comparison. Help me stop measuring myself against bodies on Instagram that are filtered, edited, and often unhealthy. Let me see myself through Your eyes—created with purpose, with worth, with a soul that is precious to You. Remove my insecurities and replace them with quiet, rooted confidence.
+    </div>
+    <div class="sample-dua">
+      <strong>Sample Dua 3:</strong>
+      Ya Allah, make me a woman who doesn't need anyone's validation to feel whole. Give me the courage to be different—to wear my hijab proudly, to say no to haram confidently, to stand alone if needed without crumbling. Make Your pleasure more important to me than anyone's opinion of me.
+    </div>
+
+    <div class="write-space"><p>Write YOUR dua here...</p></div>
+  </div>
+
+  <!-- CATEGORY 4: FAMILY -->
+  <div class="category">
+    <div class="category-header">
+      <div class="category-icon">👨‍👩‍👧‍👦</div>
+      <h3>Family Relationships</h3>
+    </div>
+
+    <div class="mentor-box">
+      <h4>🦸‍♀️ Suggested Mentors:</h4>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
+        <span class="tag">Fatima RA — honoured daughter</span>
+        <span class="tag">Asiya RA — patient in hardship</span>
+        <span class="tag">Yusuf AS — forgave those who hurt him</span>
+      </div>
+      <div class="write-space" style="min-height: 40px; margin-top: 0.75rem;">
+        <p>My 3 mentors: _______________________</p>
+      </div>
+    </div>
+
+    <div class="questions">
+      <h4>Reflect:</h4>
+      <ul>
+        <li><strong>Grateful:</strong> What does your family provide that you sometimes overlook?</li>
+        <li><strong>Struggling:</strong> Feeling misunderstood? Pressure from parents? Conflicts with siblings? Cultural clashes?</li>
+        <li><strong>Dreaming:</strong> What would ideal family relationships look like? How would you feel in your home?</li>
+      </ul>
+    </div>
+
+    <div class="sample-dua">
+      <strong>Sample Dua 1:</strong>
+      Ya Allah, soften my heart toward my parents even when we disagree. Give me patience when they don't understand me and wisdom to communicate without disrespect. Let me be the reason they enter Jannah. Don't let me look back with regret at how I treated them.
+    </div>
+    <div class="sample-dua">
+      <strong>Sample Dua 2:</strong>
+      Ya Allah, heal whatever is broken in my family. Replace tension with understanding, coldness with warmth. Make our home a place of sakina. Help me be a daughter who is a mercy to her parents—not a source of worry.
+    </div>
+
+    <div class="write-space"><p>Write YOUR dua here...</p></div>
+  </div>
+
+  <!-- CATEGORY 5: FRIENDSHIPS -->
+  <div class="category">
+    <div class="category-header">
+      <div class="category-icon">👭</div>
+      <h3>Friendships & Social Life</h3>
+    </div>
+
+    <div class="warning-box" style="margin-bottom: 1rem;">
+      <h4 style="color: #d63031; margin-bottom: 0.75rem;">⚠️ Your Friends Are Shaping You Right Now</h4>
+      <div class="quote-box" style="background: rgba(214,48,49,0.05); border-color: rgba(214,48,49,0.3); margin: 0.75rem 0;">
+        <p>The Prophet ﷺ said: <strong>"A person is upon the religion of their close friend, so let one of you look at whom they befriend."</strong></p>
+        <span class="reference" style="color: #d63031;">Abu Dawud 4833, Tirmidhi 2378</span>
+      </div>
+      <div class="quote-box" style="background: rgba(214,48,49,0.05); border-color: rgba(214,48,49,0.3); margin: 0.75rem 0;">
+        <p>The Prophet ﷺ said: <strong>"The example of a good companion is like a perfume seller... the bad companion is like a blacksmith—you leave smelling of smoke."</strong></p>
+        <span class="reference" style="color: #d63031;">Bukhari 2101, Muslim 2628</span>
+      </div>
+      <p>Friends who slowly normalize removing hijab, talking to boys without limits, gossiping, body-shaming, or chasing clout will change you—slowly, quietly, invisibly. Make dua for this category like your deen depends on it. Because it does.</p>
+    </div>
+
+    <div class="mentor-box">
+      <h4>🦸‍♀️ Suggested Mentors:</h4>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
+        <span class="tag">Aisha RA & Hafsa RA — friends in deen</span>
+        <span class="tag">Companions of the Cave — chose faith over fitting in</span>
+        <span class="tag">A Muslim woman in your life you respect</span>
+      </div>
+      <div class="write-space" style="min-height: 40px; margin-top: 0.75rem;">
+        <p>My 3 mentors: _______________________</p>
+      </div>
+    </div>
+
+    <div class="questions">
+      <h4>Reflect:</h4>
+      <ul>
+        <li><strong>Grateful:</strong> Who in your life genuinely makes you better?</li>
+        <li><strong>Struggling:</strong> Toxic friendships? Pressure to remove hijab around certain friends? FOMO? Need to impress people who don't fear Allah?</li>
+        <li><strong>Dreaming:</strong> What would your ideal sister-circle look like?</li>
+      </ul>
+    </div>
+
+    <div class="sample-dua">
+      <strong>Sample Dua 1:</strong>
+      Ya Allah, surround me with sisters who remind me of You. Friends who build me up, not tear me down. Who love me with my hijab, not despite it. Who are fun AND righteous. Remove from my life people who pull me toward haram—even if it hurts. Let their good scent rub off on me.
+    </div>
+    <div class="sample-dua">
+      <strong>Sample Dua 2:</strong>
+      Ya Allah, free me from the need to be liked by people who don't please You. Remove my fear of being alone if I have to choose my deen over a toxic group. Don't let loneliness make me desperate for bad company. If I have no good friends now, make me content with You until You send the right ones.
+    </div>
+    <div class="sample-dua">
+      <strong>Sample Dua 3:</strong>
+      Ya Allah, make me a friend who smells of musk, not smoke. Make me the sister who reminds others of You, who speaks the truth kindly, who never gossips or tears people down. Make me a friend worth having—and worthy of the friends I'm asking You for.
+    </div>
+
+    <div class="write-space"><p>Write YOUR dua here...</p></div>
+  </div>
+
+  <!-- CATEGORY 6: FUTURE MARRIAGE -->
+  <div class="category">
+    <div class="category-header">
+      <div class="category-icon">💍</div>
+      <h3>Future Marriage</h3>
+    </div>
+
+    <div class="mentor-box">
+      <h4>🦸‍♀️ Suggested Mentors:</h4>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
+        <span class="tag">Khadija RA — supported her husband's purpose</span>
+        <span class="tag">Aisha RA — companion, scholar, loved deeply</span>
+        <span class="tag">Umm Sulaim RA — dignified and wise</span>
+      </div>
+      <div class="write-space" style="min-height: 40px; margin-top: 0.75rem;">
+        <p>My 3 mentors: _______________________</p>
+      </div>
+    </div>
+
+    <div class="questions">
+      <h4>Reflect:</h4>
+      <ul>
+        <li><strong>Grateful:</strong> What qualities do you have that would make you a great wife one day?</li>
+        <li><strong>Struggling:</strong> Pressure from social media about relationships? Temptation of haram? Unrealistic expectations from dramas/movies?</li>
+        <li><strong>Dreaming:</strong> What kind of man do you want? What kind of wife do you want to become?</li>
+      </ul>
+    </div>
+
+    <div class="sample-dua">
+      <strong>Sample Dua 1:</strong>
+      Ya Allah, protect my heart and my eyes from haram until it is halal. When the time is right, grant me a husband who is the coolness of my eyes—someone who fears You, who respects me, who supports my deen and my dreams. Let our marriage be full of love, mercy, and laughter. Let us raise children who are better than us and meet in Jannatul Firdaus together.
+    </div>
+    <div class="sample-dua">
+      <strong>Sample Dua 2:</strong>
+      Ya Allah, make me worthy of a good husband. Help me build my character, my deen, my emotional maturity now—before marriage. Don't let me rush into haram because I'm impatient. Don't let me lower my standards out of fear I won't find anyone. You are Al-Wahhab—grant me from Your generosity, not my desperation.
+    </div>
+
+    <div class="write-space"><p>Write YOUR dua here...</p></div>
+  </div>
+
+  <!-- CATEGORY 7: HEALTH & MENTAL WELLNESS -->
+  <div class="category">
+    <div class="category-header">
+      <div class="category-icon">🌸</div>
+      <h3>Health & Mental Wellness</h3>
+    </div>
+
+    <div class="gem-box">
+      <h4>💎 Your Body is an Amanah</h4>
+      <p>Your body belongs to Allah. You are its caretaker. That means nourishing it well, moving it, resting it, and not torturing it chasing impossible standards. Self-care is worship when done with the right intention.</p>
+    </div>
+
+    <div class="mentor-box">
+      <h4>🦸‍♀️ Suggested Mentors:</h4>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
+        <span class="tag">Ayyub AS — patience through illness</span>
+        <span class="tag">Maryam AS — strength through hardship</span>
+        <span class="tag">Prophet ﷺ — balanced, healthy, active</span>
+      </div>
+      <div class="write-space" style="min-height: 40px; margin-top: 0.75rem;">
+        <p>My 3 mentors: _______________________</p>
+      </div>
+    </div>
+
+    <div class="questions">
+      <h4>Reflect:</h4>
+      <ul>
+        <li><strong>Grateful:</strong> What health blessings do you have that you take for granted?</li>
+        <li><strong>Struggling:</strong> Anxiety? Body image issues? Disordered eating? Sleep? Screen addiction? Low energy? Emotional burnout?</li>
+        <li><strong>Dreaming:</strong> What would healthy, energized, mentally strong you look like?</li>
+      </ul>
+    </div>
+
+    <div class="sample-dua">
+      <strong>Sample Dua 1:</strong>
+      Ya Allah, heal my mind from anxiety and the voice that tells me I'm not enough. Replace it with peace, clarity, and the certainty that You love me. Help me nourish this body You gave me—eat well, sleep well, move—as an act of worship, not punishment. Make my body strong enough to serve You fully.
+    </div>
+    <div class="sample-dua">
+      <strong>Sample Dua 2:</strong>
+      Ya Allah, free me from toxic relationships with my own body. Help me stop obsessing over how I look and start appreciating what this body does—it breathes, it prays, it lives. Free me from phone addiction. Help me protect my eyes from haram content that distorts my sense of what's real and beautiful. Give me strong emotional health—unmoved by criticism, grounded in Your love.
+    </div>
+
+    <div class="write-space"><p>Write YOUR dua here...</p></div>
+  </div>
+
+  <!-- PARENTS' DUA -->
+  <div class="card">
+    <h2>🔓 Secret Weapon: Your Mother's Dua</h2>
+    <p>The Prophet ﷺ said three duas are never rejected. One of them: the dua of a parent for their child.</p>
+    <div class="success-box">
+      <strong>Action step:</strong> Go to your mom and tell her your specific dreams. Ask her to make dua for you by name, for those exact things. A mother's dua for her daughter is one of the most powerful forces in existence.
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="card">
+    <h2>My 7 Dream Duas — Summary</h2>
+    <p>Write your final refined duas here to read daily:</p>
+    <div class="write-space" style="margin: 0.75rem 0;"><p><strong>1. Academics & Career:</strong></p></div>
+    <div class="write-space" style="margin: 0.75rem 0;"><p><strong>2. Faith & Spirituality:</strong></p></div>
+    <div class="write-space" style="margin: 0.75rem 0;"><p><strong>3. Identity, Confidence & Beauty:</strong></p></div>
+    <div class="write-space" style="margin: 0.75rem 0;"><p><strong>4. Family:</strong></p></div>
+    <div class="write-space" style="margin: 0.75rem 0;"><p><strong>5. Friendships:</strong></p></div>
+    <div class="write-space" style="margin: 0.75rem 0;"><p><strong>6. Future Marriage:</strong></p></div>
+    <div class="write-space" style="margin: 0.75rem 0;"><p><strong>7. Health & Mental Wellness:</strong></p></div>
+  </div>
+
+  <!-- LAYLATUL QADR -->
+  <div class="card" style="text-align: center;">
+    <h2>The Dua for Laylatul Qadr</h2>
+    <p>The Prophet ﷺ taught this dua specifically to Aisha RA for the last 10 nights:</p>
+    <p class="arabic" style="font-size: 2rem; margin: 1rem 0;">اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي</p>
+    <p style="font-size: 1.1rem;"><em>"Allahumma innaka 'afuwwun tuhibbul 'afwa fa'fu 'anni"</em></p>
+    <p>"O Allah, You are the Pardoner, You love to pardon, so pardon me."</p>
+    <p style="margin-top: 1rem; color: #bbb; font-size: 0.95rem;">He chose this dua for a woman. That is not a coincidence. Every sin, every mistake, every moment of weakness—You are forgiven. Now go and dream big.</p>
+  </div>
+
+  <div class="cta-box">
+    <h2 style="margin-bottom: 0.5rem;">You Were Created for Greatness</h2>
+    <p style="font-size: 1.1rem;">Not the world's definition of greatness. Allah's definition.</p>
+    <p style="margin-top: 0.75rem;">Make these duas daily. Visualize. Work. Trust Allah. Never give up.</p>
+    <p style="font-size: 2rem; margin-top: 1rem;">🤲</p>
+  </div>
+
+</body>
+</html>

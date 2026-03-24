@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dream Duas Feedback</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 22mm 25mm 25mm 25mm;
+      @bottom-center {
+        content: "UmmAbdullah  ·  Adapted from Muhammad al-Shareef's Visionaire Course  ·  Page " counter(page);
+        font-size: 8pt; color: #888; font-family: Georgia, serif;
+      }
+    }
+    @page :first { @bottom-center { content: none; } }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Georgia, 'Times New Roman', serif; color: #1a202c; line-height: 1.8; font-size: 11pt; background: #fff; }
+
+    /* COVER */
+    .cover {
+      page-break-after: always;
+      height: 267mm;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: linear-gradient(160deg, #1a5f4a 0%, #0d3d2e 60%, #0a2e22 100%);
+      color: white; text-align: center; padding: 30mm 20mm; position: relative;
+    }
+    .cover-bismi { font-size: 20pt; color: #c9a227; margin-bottom: 1.2rem; letter-spacing: 2px; }
+    .cover-ayah  { font-size: 10pt; color: #d4edda; font-style: italic; max-width: 360px; margin: 0 auto 3.5rem; line-height: 1.7; }
+    .cover-orn   { font-size: 18pt; color: #c9a227; letter-spacing: 10px; margin-bottom: 2rem; }
+    .cover h1    { font-size: 28pt; color: #fff; line-height: 1.2; margin-bottom: .5rem; }
+    .cover h2    { font-size: 13pt; color: #c9a227; margin-bottom: .5rem; }
+    .cover h3    { font-size: 11pt; font-weight: normal; color: #a8c5ba; margin-bottom: 3.5rem; }
+    .cover-credits { position: absolute; bottom: 15mm; font-size: 9pt; color: #a8c5ba; text-align: center; line-height: 1.6; }
+    .cover-credits strong { color: #c9a227; }
+
+    /* TYPOGRAPHY */
+    h1.sec { font-size: 18pt; color: #1a5f4a; border-bottom: 3px solid #c9a227; padding-bottom: .5rem; margin-bottom: 1.75rem; }
+    h2.sub { font-size: 13pt; color: #1a5f4a; border-left: 5px solid #c9a227; padding-left: .75rem; margin: 1.75rem 0 .75rem; page-break-after: avoid; }
+    h3.cat { font-size: 12pt; color: #0d3d2e; margin: 1.25rem 0 .5rem; page-break-after: avoid; }
+    p { margin-bottom: .9rem; }
+    ul, ol { padding-left: 1.5rem; margin-bottom: .9rem; }
+    li { margin-bottom: .35rem; }
+
+    /* BOXES */
+    .dua-box {
+      background: #f0fdf4; border: 2px solid #1a5f4a; border-radius: 8px;
+      padding: 1.1rem 1.25rem; margin: .9rem 0; page-break-inside: avoid;
+    }
+    .dua-box .label { font-size: 10pt; font-weight: bold; color: #1a5f4a; margin-bottom: .5rem; display: block; font-style: normal; }
+    .dua-box p { font-style: italic; font-size: 11pt; color: #2d3436; margin: 0; line-height: 1.8; }
+
+    .score-band {
+      display: flex; align-items: center; gap: 1rem;
+      background: #fff8e1; border: 1.5px solid #c9a227; border-radius: 8px;
+      padding: .8rem 1.1rem; margin: .75rem 0; page-break-inside: avoid;
+    }
+    .score-num { font-size: 22pt; font-weight: bold; color: #1a5f4a; min-width: 2.5rem; text-align: center; }
+    .score-label { font-size: 10pt; color: #636e72; }
+    .score-label strong { color: #1a5f4a; display: block; font-size: 11pt; }
+
+    .strength-box {
+      background: #e8f5e9; border-left: 4px solid #2e7d32; border-radius: 0 8px 8px 0;
+      padding: .9rem 1.1rem; margin: .75rem 0; page-break-inside: avoid;
+    }
+    .strength-box strong { color: #1b5e20; display: block; margin-bottom: .4rem; font-size: 10.5pt; }
+
+    .improve-box {
+      background: #fff3e0; border-left: 4px solid #ef6c00; border-radius: 0 8px 8px 0;
+      padding: .9rem 1.1rem; margin: .75rem 0; page-break-inside: avoid;
+    }
+    .improve-box strong { color: #bf360c; display: block; margin-bottom: .4rem; font-size: 10.5pt; }
+
+    .revised-box {
+      background: #e3f2fd; border: 2px solid #1565c0; border-radius: 8px;
+      padding: 1.1rem 1.25rem; margin: .9rem 0; page-break-inside: avoid;
+    }
+    .revised-box .label { font-size: 10pt; font-weight: bold; color: #1565c0; margin-bottom: .5rem; display: block; }
+    .revised-box p { font-style: italic; font-size: 10.5pt; color: #1a237e; margin: 0; line-height: 1.8; }
+
+    .criteria-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 10pt; }
+    .criteria-table th { background: #1a5f4a; color: white; padding: .5rem .75rem; text-align: left; }
+    .criteria-table td { padding: .5rem .75rem; border-bottom: 1px solid #e0e0e0; vertical-align: top; }
+    .criteria-table tr:nth-child(even) td { background: #f5f5f5; }
+    .yes { color: #2e7d32; font-weight: bold; }
+    .partial { color: #ef6c00; font-weight: bold; }
+    .no  { color: #c62828; font-weight: bold; }
+
+    .overall-card {
+      background: linear-gradient(135deg, #1a5f4a, #0d3d2e); color: white;
+      border-radius: 10px; padding: 1.5rem 1.75rem; margin: 1.5rem 0; page-break-inside: avoid;
+      text-align: center;
+    }
+    .overall-card h2 { font-size: 16pt; margin-bottom: .5rem; }
+    .overall-card p  { font-size: 11pt; opacity: .9; }
+    .overall-score   { font-size: 32pt; font-weight: bold; color: #c9a227; margin: .5rem 0; }
+
+    .closing-box {
+      background: #f0fdf4; border: 2px solid #1a5f4a; border-radius: 10px;
+      padding: 1.5rem 1.75rem; margin-top: 2rem; text-align: center; page-break-inside: avoid;
+    }
+
+    .page-break { page-break-before: always; }
+
+    @media screen {
+      body { max-width: 800px; margin: 0 auto; padding: 2rem; background: #f9f9f9; }
+      .cover { min-height: 500px; border-radius: 10px; margin-bottom: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-bismi">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+  <div class="cover-ayah">
+    "Call upon Me; I will respond to you."<br>— Surah Ghafir (40:60)
+  </div>
+  <div class="cover-orn">❧ ✦ ❧</div>
+  <h1>Dream Duas Feedback</h1>
+  <h2>Personalised Visionaire Evaluation</h2>
+  <h3>Reviewed against the Visionaire Dream Dua Criteria</h3>
+  <div class="cover-credits">
+    <strong>Compiled by UmmAbdullah</strong><br>
+    Adapted from Muhammad al-Shareef's Visionaire Course<br>
+    <em>May Allah answer every dua in these pages — and more.</em>
+  </div>
+</div>
+
+<!-- INTRO -->
+<div>
+  <h1 class="sec">About This Feedback</h1>
+
+  <p>These duas were submitted through the Dream Duas App and reviewed against the <strong>Visionaire Dream Dua criteria</strong> developed by Shaykh Muhammad al-Shareef. The purpose of this evaluation is not to critique — it is to help refine duas until they truly give you <em>butterflies</em>, until they feel alive when you recite them, and until they pull you forward into the person you are becoming.</p>
+
+  <p>The evaluation uses the following six criteria for each dua:</p>
+
+  <table class="criteria-table">
+    <tr><th>#</th><th>Criterion</th><th>What it means</th></tr>
+    <tr><td>1</td><td>Butterfly Factor</td><td>Does it give you butterflies — excitement AND slight fear?</td></tr>
+    <tr><td>2</td><td>Concrete &amp; Vivid</td><td>Is it specific enough that you can picture the answered version?</td></tr>
+    <tr><td>3</td><td>Timeframe</td><td>Is it in a 3–6 year range — close enough to feel real?</td></tr>
+    <tr><td>4</td><td>Akhira Connection</td><td>Does the worldly want connect to your deen or the next life?</td></tr>
+    <tr><td>5</td><td>Proactive (not just reactive)</td><td>Are you asking from aspiration, not just from pain or fear?</td></tr>
+    <tr><td>6</td><td>The "Dua Changes You" Factor</td><td>Does reciting it make you want to grow toward it?</td></tr>
+  </table>
+
+  <p>Each dua is scored out of 10. An 8+ means the dua is ready. A 5–7 means small refinements will make it powerful. Below 5 means it needs a fuller reimagining — which is entirely normal and part of the process.</p>
+</div>
+
+<!-- DUA 1: HEALTH -->
+<div class="page-break">
+  <h1 class="sec">🌿 Dua 1: Health &amp; Self-Care</h1>
+
+  <h2 class="sub">Her Dua</h2>
+  <div class="dua-box">
+    <span class="label">As submitted:</span>
+    <p>Ya Allah, grant me strength to restrain my emotions in the time of anger, my tongue at the moment of frustration, let me be gentle in my speech, calm my inner nervous system when I'm upset. Allow me to be disciplined when it comes to exercise, consistent in my workouts, if I fall back at any time, let me get back up and let my intentions be to be a strong Muslim because of the hadith of Your Prophet, that a strong believer is more beloved to Allah than a weak believer.</p>
+  </div>
+
+  <h2 class="sub">Score</h2>
+  <div class="score-band">
+    <span class="score-num">6.5</span>
+    <span class="score-label"><strong>/ 10 — Good Foundation, Needs Vision</strong>
+    Sincere and grounded in sunnah. The emotional intelligence component is insightful. Needs a clearer picture of what "answered" looks like.</span>
+  </div>
+
+  <h2 class="sub">Criteria Breakdown</h2>
+  <table class="criteria-table">
+    <tr><th>Criterion</th><th>Rating</th><th>Notes</th></tr>
+    <tr><td>Butterfly Factor</td><td class="partial">Partial</td><td>Managing anger and exercise discipline are important but feel like maintenance goals rather than a dream that excites. Where is the vision that makes her heart race?</td></tr>
+    <tr><td>Concrete &amp; Vivid</td><td class="partial">Partial</td><td>"Disciplined in exercise" is still abstract. What specifically — running 5km twice a week? Standing in qiyam for 45 minutes? A specific weight, energy level, or physical milestone?</td></tr>
+    <tr><td>Timeframe</td><td class="no">Missing</td><td>No timeframe mentioned. By when does she envision this answered?</td></tr>
+    <tr><td>Akhira Connection</td><td class="yes">Strong ✓</td><td>Excellent — the hadith reference ("a strong believer is more beloved to Allah") is a genuine and beautiful Akhira anchor. This is the strongest part of the dua.</td></tr>
+    <tr><td>Proactive</td><td class="partial">Mostly</td><td>Slightly reactive in framing ("if I fall back" suggests managing failure rather than aspiring to something bigger). Could be reframed around the positive vision.</td></tr>
+    <tr><td>Dua Changes You</td><td class="partial">Somewhat</td><td>Good — the hadith grounds it. But a more vivid picture would make it transformative to recite daily.</td></tr>
+  </table>
+
+  <div class="strength-box">
+    <strong>✅ What is working well</strong>
+    <ul>
+      <li>The hadith anchor is exactly what Visionaire teaches — connecting the physical to the spiritual.</li>
+      <li>Asking for emotional self-control (inner nervous system, tongue, speech) is mature and shows deep self-awareness.</li>
+      <li>The spirit of seeking Allah's help for character-building is beautiful and sincere.</li>
+    </ul>
+  </div>
+
+  <div class="improve-box">
+    <strong>⚡ What would make it a Dream Dua</strong>
+    <ul>
+      <li>Add a <em>vivid physical picture</em> — what does her body look and feel like when this is answered? What can she do that she cannot do today?</li>
+      <li>Add a timeframe — "by next Ramadan" or "within 2 years" gives the dua urgency.</li>
+      <li>Shift from "if I fall back" to the dream itself — frame it from aspiration, not fear of failure.</li>
+      <li>Connect the physical strength to a specific act of worship — e.g., "so I can stand in tahajjud without fatigue" or "so I can make Hajj with energy and ease."</li>
+    </ul>
+  </div>
+
+  <h2 class="sub">Suggested Refinement</h2>
+  <div class="revised-box">
+    <span class="label">✨ Refined version (for inspiration — make it her own words):</span>
+    <p>Ya Allah, my body is an amanah. Grant me a strong, healthy body — one that lets me stand in qiyam for an hour without fatigue, make Hajj with energy, and keep up with my family for decades. Let me be disciplined in exercise — consistent, committed, and always returning to it with renewed intention. Calm my inner nervous system; let anger dissolve before it reaches my tongue. Let me be gentle in speech, even in frustration. Make me the strong believer You love most — because a strong believer is more beloved to You than a weak one. Let this body be my greatest tool of worship, not my greatest obstacle.</p>
+  </div>
+</div>
+
+<!-- DUA 2: WEALTH -->
+<div class="page-break">
+  <h1 class="sec">💛 Dua 2: Wealth &amp; Financial Freedom</h1>
+
+  <h2 class="sub">Her Dua</h2>
+  <div class="dua-box">
+    <span class="label">As submitted:</span>
+    <p>I want the world and wealth to be in my hand and not in my heart. To have wealth in abundance to uplift those who are downtrodden. To be self-sufficient and not in need of anyone other than You, Allah. Allow us to be sincere believers that are in leadership positions so that we can apply justice and fairness rather than those who have no morals and are corrupt and follow their desires.</p>
+  </div>
+
+  <h2 class="sub">Score</h2>
+  <div class="score-band">
+    <span class="score-num">7.5</span>
+    <span class="score-label"><strong>/ 10 — Strong Vision, Needs Specificity</strong>
+    This is the most ambitious and community-minded of her duas. The leadership-for-justice angle is powerful. Adding concrete details would push it to a 9.</span>
+  </div>
+
+  <h2 class="sub">Criteria Breakdown</h2>
+  <table class="criteria-table">
+    <tr><th>Criterion</th><th>Rating</th><th>Notes</th></tr>
+    <tr><td>Butterfly Factor</td><td class="yes">Yes ✓</td><td>"Leadership positions" and "applying justice" — this is genuinely exciting and a little terrifying, which is exactly right.</td></tr>
+    <tr><td>Concrete &amp; Vivid</td><td class="partial">Partial</td><td>"Wealth in abundance" — how much? A business? Investments? "Leadership positions" — what kind? Political? Community? Corporate? Spelling this out makes the dua far more powerful.</td></tr>
+    <tr><td>Timeframe</td><td class="no">Missing</td><td>No timeframe. When does she envision this? 3 years? 10?</td></tr>
+    <tr><td>Akhira Connection</td><td class="yes">Strong ✓</td><td>Excellent — using wealth to upift the downtrodden, applying justice and fairness over corruption. This is deeply Akhira-rooted.</td></tr>
+    <tr><td>Proactive</td><td class="yes">Strong ✓</td><td>Very proactive — she is asking from vision and purpose, not from crisis. This is exactly the Visionaire spirit.</td></tr>
+    <tr><td>Dua Changes You</td><td class="yes">Yes ✓</td><td>Yes — reciting this calls her to be worthy of leadership. It will shape her character if she recites it daily.</td></tr>
+  </table>
+
+  <div class="strength-box">
+    <strong>✅ What is working well</strong>
+    <ul>
+      <li>"Wealth in my hand, not in my heart" — this is direct Visionaire language and shows she has absorbed the methodology.</li>
+      <li>Connecting wealth to justice is exactly what the great Muslim financiers (Uthman, Abdurrahman ibn Awf) did. This is ummah-level thinking.</li>
+      <li>The self-sufficiency angle ("not in need of anyone other than You") is mature and beautiful.</li>
+    </ul>
+  </div>
+
+  <div class="improve-box">
+    <strong>⚡ What would make it a Dream Dua</strong>
+    <ul>
+      <li>Specify the kind of leadership — is it a business, a community role, government, education?</li>
+      <li>Give the wealth a number or a picture — "$1M a year to give away" or "properties that earn without constant effort" make it vivid enough to visualize.</li>
+      <li>Name one specific cause — a school? A masjid? An orphan fund? This makes the dua emotionally alive.</li>
+    </ul>
+  </div>
+
+  <h2 class="sub">Suggested Refinement</h2>
+  <div class="revised-box">
+    <span class="label">✨ Refined version (for inspiration):</span>
+    <p>Ya Allah, let the world be in my hand, never in my heart. Grant me wealth in abundance — businesses that earn without my constant effort, financial freedom to give generously without thinking about cost. Let me fund education for children who have nothing, build wells, support causes that outlive me. Make me and my spouse leaders in our community and profession — trusted because we are sincere, rising because we are just, chosen because we fear You. Place us in positions where we can apply fairness in place of corruption. Make our wealth and leadership a bridge to Jannatul Firdaus.</p>
+  </div>
+</div>
+
+<!-- DUA 3: DEEN -->
+<div class="page-break">
+  <h1 class="sec">🌙 Dua 3: Deen &amp; Spiritual Growth</h1>
+
+  <h2 class="sub">Her Dua</h2>
+  <div class="dua-box">
+    <span class="label">As submitted:</span>
+    <p>Ya Allah, for my deen, make me amongst those who remember You often, in peace and in insecurity, let Your remembrance flow through my veins and let me be a source of sakinah. Protect my deen, my emaan, protect my loved ones from all types of Shayateen.</p>
+  </div>
+
+  <h2 class="sub">Score</h2>
+  <div class="score-band">
+    <span class="score-num">4.0</span>
+    <span class="score-label"><strong>/ 10 — Beautiful Feeling, Needs a Dream</strong>
+    This dua has the most sincere heart but is the furthest from a Visionaire dream dua. It is mostly protective and abstract. She is asked to dream bigger here than anywhere else.</span>
+  </div>
+
+  <h2 class="sub">Criteria Breakdown</h2>
+  <table class="criteria-table">
+    <tr><th>Criterion</th><th>Rating</th><th>Notes</th></tr>
+    <tr><td>Butterfly Factor</td><td class="no">Missing</td><td>"Remember You often" does not give butterflies. What would — memorizing the entire Quran? Teaching 100 women? Being known as the person people call when they need Islamic guidance? She needs a dream here.</td></tr>
+    <tr><td>Concrete &amp; Vivid</td><td class="no">Missing</td><td>Nothing specific — no goal, no milestone, no picture of what "answered" looks like in her daily life.</td></tr>
+    <tr><td>Timeframe</td><td class="no">Missing</td><td>No timeframe at all.</td></tr>
+    <tr><td>Akhira Connection</td><td class="partial">Partial</td><td>Implicitly present (protecting deen/emaan) but not articulated as a dream for the Akhira.</td></tr>
+    <tr><td>Proactive</td><td class="no">Mostly Reactive</td><td>"Protect my deen" and "protect from Shayateen" are defensive. This dua is asking Allah to hold the line — not to advance it. What does she want to BUILD in her deen?</td></tr>
+    <tr><td>Dua Changes You</td><td class="no">Not Yet</td><td>In its current form, this dua would not transform her daily habits. A specific spiritual goal would change that.</td></tr>
+  </table>
+
+  <div class="strength-box">
+    <strong>✅ What is working well</strong>
+    <ul>
+      <li>"Let Your remembrance flow through my veins" — this is a beautiful, poetic image. That phrase should stay.</li>
+      <li>"Source of sakinah" is a wonderful aspiration — the person others feel calm around. Build on this.</li>
+      <li>Asking for protection for loved ones shows a generous, community-minded heart.</li>
+    </ul>
+  </div>
+
+  <div class="improve-box">
+    <strong>⚡ What would make it a Dream Dua</strong>
+    <ul>
+      <li>Add a <em>specific spiritual milestone</em> — tahajjud every night? Quran memorized? Teaching Islamic classes? Running a halaqa? Hajj completed?</li>
+      <li>Describe what her ideal spiritual day looks like — from fajr to isha, what does her most spiritually alive self do?</li>
+      <li>Add the Akhira vision — what does she want written in her book of deeds?</li>
+      <li>Keep "remembrance flowing through my veins" and "source of sakinah" — those are vivid and personal. Build around them.</li>
+    </ul>
+  </div>
+
+  <h2 class="sub">Suggested Refinement</h2>
+  <div class="revised-box">
+    <span class="label">✨ Refined version (for inspiration — this most needs her own heart added):</span>
+    <p>Ya Allah, make me someone who never misses a prayer and never performs one without meaning it. Let Your remembrance flow through my veins — in comfort and in crisis, in sunrise and in exhaustion. Make me a source of sakinah: the person people feel calm beside because they sense You in me. Grant me Quran in my heart — let me memorize and understand. Let me stand in tahajjud every night and mean every word. Let me become someone others come to for guidance, for truth, for light. Protect my deen, my emaan, and the deen of every person I love. And Ya Allah — write in my book of deeds that I lived for You, fully.</p>
+  </div>
+</div>
+
+<!-- DUA 4: MARRIAGE -->
+<div class="page-break">
+  <h1 class="sec">❤️ Dua 4: Marriage &amp; Spouse</h1>
+
+  <h2 class="sub">Her Dua</h2>
+  <div class="dua-box">
+    <span class="label">As submitted:</span>
+    <p>Ya Allah, allow me and my spouse to live in tranquility together for many many years, forgive my spouse and elevate him due to his mercy and kindness he shows me constantly and allow us to reach a ripe old age together and allow us to reach old age after having fulfilled our obligations successfully. Allow us to grow in our faith, knowledge, character together. Let us uplift each other and grant us each other's companionship in Paradise.</p>
+  </div>
+
+  <h2 class="sub">Score</h2>
+  <div class="score-band">
+    <span class="score-num">7.5</span>
+    <span class="score-label"><strong>/ 10 — Warm, Grateful Heart. Needs a Vivid Dream.</strong>
+    This dua carries the most emotional maturity. Asking for forgiveness and elevation for her spouse before herself is beautiful. The Jannah vision at the end is exactly right. Needs more colour.</span>
+  </div>
+
+  <h2 class="sub">Criteria Breakdown</h2>
+  <table class="criteria-table">
+    <tr><th>Criterion</th><th>Rating</th><th>Notes</th></tr>
+    <tr><td>Butterfly Factor</td><td class="partial">Partial</td><td>The image of growing old together is tender — but the butterfly comes from the vivid picture. What does their marriage look like at its most beautiful? A specific scene would unlock this.</td></tr>
+    <tr><td>Concrete &amp; Vivid</td><td class="partial">Partial</td><td>"Tranquility," "fulfilled obligations," "grow in faith" — all meaningful but all still abstract. What does a thriving day in their marriage look like? Where are they? What are they doing?</td></tr>
+    <tr><td>Timeframe</td><td class="partial">Implied</td><td>"Ripe old age" implies long-term, which is good. But adding a nearer milestone (5-year vision) would sharpen it.</td></tr>
+    <tr><td>Akhira Connection</td><td class="yes">Strong ✓</td><td>Excellent — "each other's companionship in Paradise" is exactly the right Akhira vision for a marriage dua. This is the best line in all four duas.</td></tr>
+    <tr><td>Proactive</td><td class="yes">Yes ✓</td><td>She is asking from gratitude and aspiration, not from crisis. This is the most proactive of her duas.</td></tr>
+    <tr><td>Dua Changes You</td><td class="yes">Yes ✓</td><td>Reciting this daily will make her more grateful to her spouse and more intentional in the marriage. It is already working on her character.</td></tr>
+  </table>
+
+  <div class="strength-box">
+    <strong>✅ What is working well</strong>
+    <ul>
+      <li>Asking for forgiveness and elevation for her spouse before herself — this is the Khadija energy. It shows she sees the marriage as her amanah, not just her comfort.</li>
+      <li>"Each other's companionship in Paradise" — this is the most beautiful line in all four duas. Hold on to this.</li>
+      <li>The gratitude she shows (acknowledging his mercy and kindness) is mature, rare, and exactly what a Visionaire marriage dua should carry.</li>
+    </ul>
+  </div>
+
+  <div class="improve-box">
+    <strong>⚡ What would make it a Dream Dua</strong>
+    <ul>
+      <li>Add one <em>vivid scene</em> — what does their marriage look like on its best day 10 years from now? Walking somewhere together? A moment of laughter? A shared project for the ummah?</li>
+      <li>Expand "grow in faith together" — what specifically? A Quran class they attend together? Umrah every year? Leading family halaqa?</li>
+      <li>"Fulfilled obligations successfully" is still vague — what are those obligations? Children raised well? A legacy built? Be specific so she can visualize it.</li>
+    </ul>
+  </div>
+
+  <h2 class="sub">Suggested Refinement</h2>
+  <div class="revised-box">
+    <span class="label">✨ Refined version (for inspiration):</span>
+    <p>Ya Allah, let me and my husband live in genuine tranquility — not just the absence of conflict, but a home warm with love, laughter, and Your remembrance. Forgive him, Ya Allah, and elevate him — for the mercy and kindness he shows me constantly. Let us grow in faith side by side: attending knowledge together, making Umrah together, raising a home full of Quran. Let us be honest with each other when we need to grow, and kind to each other when we are struggling. Let us reach old age having built something beautiful — a family, a legacy, a life that pleased You. And Ya Allah — let us be each other's companions in Jannatul Firdaus, our love perfected.</p>
+  </div>
+</div>
+
+<!-- OVERALL + MISSING DUAS -->
+<div class="page-break">
+  <h1 class="sec">Overall Assessment</h1>
+
+  <div class="overall-card">
+    <h2>Overall Score</h2>
+    <div class="overall-score">6.4 / 10</div>
+    <p>A genuine, sincere believer with real wisdom — especially in the Wealth and Marriage duas.<br>
+    The Deen dua needs the most work. With focused refinement, all four can reach 8+.</p>
+  </div>
+
+  <h2 class="sub">Summary Table</h2>
+  <table class="criteria-table">
+    <tr><th>Category</th><th>Score</th><th>Biggest Strength</th><th>Biggest Gap</th></tr>
+    <tr><td>🌿 Health</td><td>6.5/10</td><td>Hadith anchor (strong believer)</td><td>No vivid physical vision</td></tr>
+    <tr><td>💛 Wealth</td><td>7.5/10</td><td>Justice + community vision</td><td>Needs specific numbers / type of leadership</td></tr>
+    <tr><td>🌙 Deen</td><td>4.0/10</td><td>"Remembrance in my veins" phrase</td><td>No dream — mostly protective, no goals</td></tr>
+    <tr><td>❤️ Marriage</td><td>7.5/10</td><td>Jannah vision + gratitude for spouse</td><td>Needs one vivid scene of thriving marriage</td></tr>
+  </table>
+
+  <h2 class="sub">Missing Categories</h2>
+  <p>Two categories were not submitted — <strong>Children &amp; Legacy</strong> and <strong>Joy, Rest &amp; Fun</strong>. Even if these feel less urgent, the Visionaire strongly encourages all 6 areas because:</p>
+  <ul>
+    <li>Not having a children dua (if applicable) leaves one of the most powerful duas unwritten</li>
+    <li>Not having a joy dua can signal that she doesn't feel she has permission to ask for happiness — she does</li>
+    <li>Six duas cover different parts of the soul — one for each area is part of the completeness of the process</li>
+  </ul>
+
+  <h2 class="sub">Top 3 Recommendations</h2>
+  <ol>
+    <li style="margin-bottom:.75rem;"><strong>Rewrite the Deen dua first.</strong> This is where she needs to dream the biggest — because it is the foundation of everything else. What does her most spiritually alive self look and feel like?</li>
+    <li style="margin-bottom:.75rem;"><strong>Add one vivid scene to every dua.</strong> Close your eyes. Picture the answered version. Where are you? Who is there? What time of day? What do you feel? Then write that down. That is what makes a dua give butterflies.</li>
+    <li style="margin-bottom:.75rem;"><strong>Complete the missing two duas.</strong> Open the app, go to Joy &amp; Fun and Children/Legacy, and give them the same quality of thought she gave the others.</li>
+  </ol>
+
+  <div class="closing-box">
+    <p style="font-size:13pt; font-weight:bold; color:#1a5f4a; margin-bottom:.75rem;">
+      Her duas already carry the right heart. Now let's give them wings.
+    </p>
+    <p style="font-size:11pt; color:#2d3436;">
+      The Visionaire teaches us that a dua is not just a request — it is a declaration of who you are becoming. Every word she refines is an act of aspiration, and every time she recites these duas, she is evolving toward the woman those duas describe.
+    </p>
+    <p style="margin-top:1.25rem; font-size:10pt; color:#636e72;">
+      — <strong>UmmAbdullah</strong><br>
+      <em>Adapted from Muhammad al-Shareef's Visionaire Course</em>
+    </p>
+  </div>
+</div>
+
+</body>
+</html>
